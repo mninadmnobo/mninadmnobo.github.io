@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, ExternalLink, MapPin, Clock, FileText, Download } from "lucide-react"
+import { Mail, ExternalLink, MapPin, Clock, Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
 
@@ -141,21 +141,9 @@ export function Contact() {
                 </Link>
               </Button>
               <Button asChild variant="outline" className="gap-2 no-underline">
-                <Link href="/NinadNoboCV.pdf" target="_blank">
-                  <FileText className="h-5 w-5" />
-                  View CV
-                </Link>
-              </Button>
-              <Button asChild variant="outline" className="gap-2 no-underline">
                 <Link href="/NinadNoboCV.pdf" download="NinadNoboCV.pdf">
                   <Download className="h-5 w-5" />
                   Download CV
-                </Link>
-              </Button>
-              <Button asChild variant="outline" className="gap-2 no-underline">
-                <Link href="/NinadNoboResume.pdf" target="_blank">
-                  <FileText className="h-5 w-5" />
-                  View Resume
                 </Link>
               </Button>
               <Button asChild variant="outline" className="gap-2 no-underline">
