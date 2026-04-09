@@ -139,9 +139,14 @@ export function Contact() {
                   Email Me
                 </Button>
               </a>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="/resume.pdf" download>
                 <Button variant="outline" className="gap-2">
-                  Download Resume / CV
+                  Download Resume
+                </Button>
+              </a>
+              <a href="/cv.pdf" download>
+                <Button variant="outline" className="gap-2">
+                  Download CV
                 </Button>
               </a>
             </div>
