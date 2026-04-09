@@ -1,7 +1,8 @@
 "use client"
 
-import { Mail, ExternalLink, MapPin, Clock } from "lucide-react"
+import { Mail, ExternalLink, MapPin, Clock, FileText, Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Link } from "@/components/ui/link"
 
 const socialLinks = [
   {
@@ -133,17 +134,36 @@ export function Contact() {
             </div>
             
             <div className="flex flex-wrap gap-4">
-              <a href="mailto:mninadmnobo@gmail.com">
-                <Button className="gap-2">
+              <Button asChild className="gap-2 no-underline">
+                <Link href="mailto:mninadmnobo@gmail.com">
                   <Mail className="h-5 w-5" />
                   Email Me
-                </Button>
-              </a>
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" className="gap-2">
-                  Download Resume / CV
-                </Button>
-              </a>
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="gap-2 no-underline">
+                <Link href="/NinadNoboCV.pdf" target="_blank">
+                  <FileText className="h-5 w-5" />
+                  View CV
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="gap-2 no-underline">
+                <Link href="/NinadNoboCV.pdf" download="NinadNoboCV.pdf">
+                  <Download className="h-5 w-5" />
+                  Download CV
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="gap-2 no-underline">
+                <Link href="/NinadNoboResume.pdf" target="_blank">
+                  <FileText className="h-5 w-5" />
+                  View Resume
+                </Link>
+              </Button>
+              <Button asChild variant="outline" className="gap-2 no-underline">
+                <Link href="/NinadNoboResume.pdf" download="NinadNoboResume.pdf">
+                  <Download className="h-5 w-5" />
+                  Download Resume
+                </Link>
+              </Button>
             </div>
           </div>
 
@@ -153,12 +173,11 @@ export function Contact() {
             
             <div className="grid gap-3">
               {socialLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
                   href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center justify-between p-4 rounded-xl border border-border bg-card/50 hover:border-primary/50 hover:bg-card transition-all duration-300"
+                  className="group flex items-center justify-between p-4 rounded-xl border border-border bg-card/50 hover:border-primary/50 hover:bg-card transition-all duration-300 no-underline"
+                  aria-label={`${link.name} profile`}
                 >
                   <div className="flex items-center gap-4">
                     <span className="text-muted-foreground group-hover:text-primary transition-colors">
@@ -170,7 +189,7 @@ export function Contact() {
                     </div>
                   </div>
                   <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                </a>
+                </Link>
               ))}
             </div>
           </div>

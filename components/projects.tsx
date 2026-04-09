@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { ExternalLink, ChevronDown, ChevronUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Link } from "@/components/ui/link"
 
 const featuredProjects = [
   {
@@ -130,25 +131,21 @@ export function Projects() {
           <h3 className="text-3xl md:text-4xl font-bold text-foreground text-balance">
             Things I&apos;ve built
           </h3>
-          <a
+          <Link
             href="https://github.com/mninadmnobo"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-primary hover:underline flex items-center gap-1"
+            className="text-primary hover:underline flex items-center gap-1 no-underline"
           >
             View all on GitHub
             <ExternalLink className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
           {projectsToShow.map((project) => (
-            <a
+            <Link
               key={project.name}
               href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group p-6 rounded-xl border border-border bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-300"
+              className="group p-6 rounded-xl border border-border bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-300 no-underline"
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="p-2 rounded-lg bg-primary/10">
@@ -174,7 +171,7 @@ export function Projects() {
                   </span>
                 ))}
               </div>
-            </a>
+            </Link>
           ))}
         </div>
 

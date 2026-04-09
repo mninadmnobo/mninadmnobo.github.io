@@ -1,3 +1,5 @@
+import { Link } from "@/components/ui/link"
+
 const socialLinks = [
   {
     label: "GitHub",
@@ -69,16 +71,14 @@ export function Footer() {
           
           <div className="flex items-center gap-3">
             {socialLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
-                target={link.href.startsWith("mailto") ? undefined : "_blank"}
-                rel={link.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
-                className="p-2 rounded-lg hover:bg-secondary text-muted-foreground hover:text-foreground transition-all"
+                className="p-2 rounded-lg hover:bg-secondary text-muted-foreground hover:text-foreground transition-all no-underline"
                 aria-label={link.label}
               >
                 {link.icon}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

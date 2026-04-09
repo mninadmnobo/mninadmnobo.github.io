@@ -1,3 +1,4 @@
+import { Link } from "@/components/ui/link"
 import { ExternalLink } from "lucide-react"
 
 const profiles = [
@@ -89,12 +90,10 @@ export function Achievements() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {profiles.map((profile) => (
-            <a
+            <Link
               key={profile.name}
               href={profile.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group p-6 rounded-xl border border-border bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-300"
+              className="group p-6 rounded-xl border border-border bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-300 no-underline"
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="p-2 rounded-lg bg-primary/10 text-primary">
@@ -121,7 +120,7 @@ export function Achievements() {
                   ))}
                 </div>
               )}
-            </a>
+            </Link>
           ))}
         </div>
       </div>

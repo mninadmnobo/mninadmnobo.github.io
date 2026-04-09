@@ -1,3 +1,4 @@
+import { Link } from "@/components/ui/link"
 import { FileText, ExternalLink, GraduationCap } from "lucide-react"
 
 const research = [
@@ -86,14 +87,12 @@ export function Research() {
                     </div>
                     
                     {item.link && (
-                      <a
+                      <Link
                         href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         className="flex items-center gap-1 text-primary hover:underline text-sm"
                       >
                         View Project <ExternalLink className="h-3 w-3" />
-                      </a>
+                      </Link>
                     )}
                   </div>
                 </div>
