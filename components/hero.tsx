@@ -31,9 +31,9 @@ export function Hero() {
                 priority
               />
             </div>
-            {/* GitHub Pro badge */}
+            {/* Profile badge */}
             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 bg-primary text-primary-foreground text-xs font-semibold rounded-full">
-              Pro
+              Ninad Nobo
             </div>
           </div>
 

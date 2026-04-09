@@ -37,12 +37,6 @@ export function Navigation() {
               GitHub
               <ExternalLink className="h-4 w-4" />
             </Link>
-            <Link
-              href="https://x.com/mninadmnobo"
-              className="px-4 py-2 border border-border text-sm font-medium rounded-lg hover:bg-card transition-colors no-underline"
-            >
-              Twitter
-            </Link>
           </div>
         </div>
       </div>
