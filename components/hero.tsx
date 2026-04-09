@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { MapPin, ExternalLink, FileText, Mail, Download } from "lucide-react"
+import { MapPin, ExternalLink, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
 
@@ -81,27 +81,11 @@ export function Hero() {
                 </Link>
               </Button>
               <Button asChild variant="outline" className="gap-2 no-underline">
-                <Link href="/NinadNoboCV.pdf" target="_blank">
-                  <FileText className="h-5 w-5" />
-                  View CV
-                </Link>
-              </Button>
-              <Button asChild variant="outline" className="gap-2 no-underline">
-                <Link href="/NinadNoboCV.pdf" download="NinadNoboCV.pdf">
-                  <Download className="h-5 w-5" />
-                  Download CV
-                </Link>
-              </Button>
-              <Button asChild variant="outline" className="gap-2 no-underline">
-                <Link href="/resume.pdf" target="_blank">
-                  <FileText className="h-5 w-5" />
-                  View Resume
-                </Link>
-              </Button>
-              <Button asChild variant="outline" className="gap-2 no-underline">
-                <Link href="/NinadNoboResume.pdf" download="NinadNoboResume.pdf">
-                  <Download className="h-5 w-5" />
-                  Download Resume
+                <Link href="https://x.com/mninadmnobo">
+                  <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
+                    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+                  </svg>
+                  Twitter
                 </Link>
               </Button>
               <Button asChild variant="outline" className="gap-2 no-underline">

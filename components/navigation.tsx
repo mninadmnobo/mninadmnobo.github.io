@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { ExternalLink } from "lucide-react"
 import { Link } from "@/components/ui/link"
 
 export function Navigation() {
@@ -30,18 +31,17 @@ export function Navigation() {
 
           <div className="flex items-center gap-3">
             <Link
-              href="/NinadNoboCV.pdf"
-              target="_blank"
+              href="https://github.com/mninadmnobo"
               className="px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors no-underline"
             >
-              CV
+              GitHub
+              <ExternalLink className="h-4 w-4" />
             </Link>
             <Link
-              href="/NinadNoboResume.pdf"
-              target="_blank"
+              href="https://x.com/mninadmnobo"
               className="px-4 py-2 border border-border text-sm font-medium rounded-lg hover:bg-card transition-colors no-underline"
             >
-              Resume
+              Twitter
             </Link>
           </div>
         </div>
