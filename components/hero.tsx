@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { MapPin, ExternalLink, FileText, User, FolderKanban, Microscope, Cpu, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -16,6 +16,20 @@ const sectionLinks = [
 
 export function Hero() {
   const [activeSection, setActiveSection] = useState("#about")
+  const clickLockTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const handleSectionClick = (href: string) => {
+    setActiveSection(href)
+
+    if (clickLockTimeoutRef.current) {
+      clearTimeout(clickLockTimeoutRef.current)
+    }
+
+    // Keep the clicked state visible while the hash navigation scroll settles.
+    clickLockTimeoutRef.current = setTimeout(() => {
+      clickLockTimeoutRef.current = null
+    }, 900)
+  }
 
   useEffect(() => {
     const sectionIds = sectionLinks.map((section) => section.href.replace("#", ""))
@@ -30,6 +44,10 @@ export function Hero() {
 
     const observer = new IntersectionObserver(
       (entries) => {
+        if (clickLockTimeoutRef.current) {
+          return
+        }
+
         const visibleEntries = entries
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
@@ -57,6 +75,10 @@ export function Hero() {
     return () => {
       observer.disconnect()
       window.removeEventListener("hashchange", updateFromHash)
+
+      if (clickLockTimeoutRef.current) {
+        clearTimeout(clickLockTimeoutRef.current)
+      }
     }
   }, [])
 
@@ -174,7 +196,7 @@ export function Hero() {
                         : "bg-secondary/60 border-border/80 text-foreground hover:bg-secondary hover:border-primary/50"
                     }`}
                   >
-                    <Link href={section.href} onClick={() => setActiveSection(section.href)}>
+                    <Link href={section.href} onClick={() => handleSectionClick(section.href)}>
                       <Icon className="h-4 w-4 mr-2" />
                       {section.label}
                     </Link>
