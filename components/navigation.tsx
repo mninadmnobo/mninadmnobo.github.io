@@ -44,8 +44,8 @@ export function Navigation() {
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors gap-2 ${
                 mounted && theme === "light"
-                  ? "bg-primary text-primary-foreground border-primary hover:bg-primary/90"
-                  : "bg-background/70 border-border text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary"
+                  ? "bg-primary text-primary-foreground border-primary hover:!bg-primary/90 hover:!text-primary-foreground"
+                  : "bg-background/70 border-border text-foreground hover:!bg-primary hover:!text-primary-foreground hover:!border-primary dark:hover:!bg-primary dark:hover:!text-primary-foreground dark:hover:!border-primary"
               }`}
               aria-label="Toggle theme"
             >
