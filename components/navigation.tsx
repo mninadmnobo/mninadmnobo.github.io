@@ -41,9 +41,12 @@ export function Navigation() {
             <Button
               type="button"
               variant="outline"
-              size="sm"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="gap-2"
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors gap-2 ${
+                mounted && theme === "light"
+                  ? "bg-primary text-primary-foreground border-primary hover:bg-primary/90"
+                  : "bg-background/70 border-border text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary"
+              }`}
               aria-label="Toggle theme"
             >
               {!mounted ? (
@@ -53,7 +56,7 @@ export function Navigation() {
               ) : (
                 <Moon className="h-4 w-4" />
               )}
-              {!mounted ? "Theme" : theme === "dark" ? "Light" : "Dark"}
+              {!mounted ? "Theme" : theme === "dark" ? "Light Mode" : "Dark Mode"}
             </Button>
 
             <Link
