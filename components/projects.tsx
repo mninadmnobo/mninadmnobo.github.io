@@ -377,7 +377,7 @@ export function Projects() {
                               <Link
                                 key={`${project.name}-${projectLink.label}-artifact`}
                                 href={projectLink.href}
-                                className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground no-underline transition-colors"
+                                className="inline-flex items-center gap-1 text-sm px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground no-underline transition-colors"
                               >
                                 {projectLink.label}
                                 <ExternalLink className="h-3 w-3" />
@@ -395,7 +395,7 @@ export function Projects() {
                     <div className="mt-4 grid gap-4 md:grid-cols-2">
                       {videoLinks.map((video) => (
                           <div key={`${project.name}-${video.label}`} className="rounded-lg border border-border/70 bg-background/40 p-2">
-                            <p className="text-xs text-muted-foreground mb-2">{video.label}</p>
+                            <p className="text-sm font-medium text-muted-foreground mb-2">{video.label}</p>
                             <div className="aspect-video w-full overflow-hidden rounded-md border border-border/60">
                               <iframe
                                 src={video.embedUrl}
@@ -421,15 +421,15 @@ export function Projects() {
           <Button
             variant="outline"
             onClick={() => setShowAll(!showAll)}
-            className="gap-2"
+            className="gap-2 text-base font-medium px-5 py-2.5 bg-secondary/70 border-border/80 text-foreground hover:!bg-primary hover:!text-primary-foreground hover:!border-primary dark:hover:!bg-primary dark:hover:!text-primary-foreground dark:hover:!border-primary"
           >
             {showAll ? (
               <>
-                Show Less <ChevronUp className="h-4 w-4" />
+                Show Less <ChevronUp className="h-5 w-5" />
               </>
             ) : (
               <>
-                View All Projects ({allProjects.length}) <ChevronDown className="h-4 w-4" />
+                View All Projects ({allProjects.length}) <ChevronDown className="h-5 w-5" />
               </>
             )}
           </Button>
