@@ -2,7 +2,7 @@
 "use client"
 
 import { useState } from "react"
-import { ExternalLink, ChevronDown, ChevronUp } from "lucide-react"
+import { ExternalLink, ChevronDown, ChevronUp, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
 
@@ -350,25 +350,45 @@ export function Projects() {
                     </div>
                   </div>
 
-                  <div className="mt-6 grid gap-4 md:grid-cols-2">
-                    <div className="rounded-lg border border-border/70 bg-background/40 p-4">
-                      <p className="text-xs uppercase tracking-wider text-primary mb-2">Architecture Snapshot</p>
-                      <div className="space-y-2">
-                        {project.architecture.map((layer, index) => (
-                          <p key={`${project.name}-${layer}-arch`} className="text-sm text-muted-foreground leading-relaxed">
-                            {index + 1}. {layer}
-                          </p>
-                        ))}
-                      </div>
+                  <div className="mt-6 rounded-lg border border-border/70 bg-background/40 p-4">
+                    <p className="text-xs uppercase tracking-wider text-primary mb-3">Architecture and Proof</p>
+
+                    <div className="flex flex-wrap items-center gap-2 mb-4">
+                      {project.architecture.map((layer, index) => (
+                        <div key={`${project.name}-${layer}-flow`} className="flex items-center gap-2">
+                          <span className="px-2.5 py-1.5 text-xs rounded-md bg-secondary text-secondary-foreground border border-border/60">
+                            {layer}
+                          </span>
+                          {index < project.architecture.length - 1 && <ArrowRight className="h-3.5 w-3.5 text-primary/80" />}
+                        </div>
+                      ))}
                     </div>
 
-                    <div className="rounded-lg border border-border/70 bg-background/40 p-4">
-                      <p className="text-xs uppercase tracking-wider text-primary mb-2">Proof</p>
-                      <ul className="space-y-1">
-                        {project.proof.map((item) => (
-                          <li key={`${project.name}-${item}-proof`} className="text-sm text-muted-foreground">- {item}</li>
-                        ))}
-                      </ul>
+                    <div className="grid gap-3 md:grid-cols-2">
+                      <div>
+                        <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-2">Evidence</p>
+                        <ul className="space-y-1">
+                          {project.proof.map((item) => (
+                            <li key={`${project.name}-${item}-proof`} className="text-sm text-muted-foreground">- {item}</li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div>
+                        <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-2">Artifacts</p>
+                        <div className="flex flex-wrap items-center gap-2">
+                          {project.links.map((projectLink) => (
+                            <Link
+                              key={`${project.name}-${projectLink.label}-artifact`}
+                              href={projectLink.href}
+                              className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground no-underline transition-colors"
+                            >
+                              {projectLink.label}
+                              <ExternalLink className="h-3 w-3" />
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
 

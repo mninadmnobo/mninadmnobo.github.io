@@ -1,5 +1,5 @@
 import { Link } from "@/components/ui/link"
-import { FileText, ExternalLink, GraduationCap } from "lucide-react"
+import { FileText, ExternalLink, GraduationCap, ArrowRight } from "lucide-react"
 
 type ResearchItem = {
   title: string
@@ -10,6 +10,7 @@ type ResearchItem = {
   problem: string
   solution: string
   impact: string
+  methodFlow: string[]
   proof: string[]
   contributions: string[]
   created: string[]
@@ -27,6 +28,7 @@ const research: ResearchItem[] = [
     problem: "Manual web test authoring is expensive and inconsistent, especially when converting natural-language requirements into robust functional tests.",
     solution: "Built an end-to-end LLM-based generation and validation pipeline with evaluation workflows for robustness and coverage.",
     impact: "Established a research-grade workflow that moves from natural-language intent to measurable test quality, not just generated scripts.",
+    methodFlow: ["Intent Parsing", "LLM Test Generation", "Validation and Coverage Analysis"],
     proof: ["Curated supervised dataset", "Benchmarking framework", "Reproducible evaluation pipeline"],
     contributions: [
       "Designed and implemented an end-to-end LLM pipeline for automated web test generation.",
@@ -49,6 +51,7 @@ const research: ResearchItem[] = [
     problem: "Medical AI predictions can conflict across models, creating unsafe uncertainty if systems cannot reason about disagreement.",
     solution: "Designed a conflict-aware reasoning layer with semantic reconciliation and confidence-calibrated abstention behavior.",
     impact: "Improves safety and trust by turning contradictory model outputs into auditable, confidence-aware clinical support recommendations.",
+    methodFlow: ["Multi-model CXR Inference", "Conflict Resolution", "Confidence-Calibrated Decision"],
     proof: ["Conflict-resolution workflow", "Confidence-calibrated decision layer", "Integrated multi-model pipeline"],
     contributions: [
       "Integrated heterogeneous AI components into a unified chest X-ray analysis pipeline.",
@@ -145,25 +148,42 @@ export function Research() {
                     ))}
                   </div>
 
-                  <div className="mb-5 rounded-lg border border-border/60 bg-background/30 p-3">
-                    <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-2">Created Outputs</p>
-                    <div className="space-y-1.5">
-                      {item.created.map((artifact) => (
-                        <p key={`${item.title}-${artifact}`} className="text-sm text-muted-foreground leading-relaxed">
-                          - {artifact}
-                        </p>
+                  <div className="mb-5 rounded-lg border border-border/70 bg-background/40 p-4">
+                    <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-3">Research Architecture and Evidence</p>
+
+                    <div className="flex flex-wrap items-center gap-2 mb-4">
+                      {item.methodFlow.map((step, index) => (
+                        <div key={`${item.title}-${step}-flow`} className="flex items-center gap-2">
+                          <span className="px-2.5 py-1.5 text-xs rounded-md bg-secondary text-secondary-foreground border border-border/60">
+                            {step}
+                          </span>
+                          {index < item.methodFlow.length - 1 && <ArrowRight className="h-3.5 w-3.5 text-primary/80" />}
+                        </div>
                       ))}
                     </div>
-                  </div>
 
-                  <div className="mb-5 rounded-lg border border-border/70 bg-background/40 p-3">
-                    <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-2">Proof</p>
-                    <div className="space-y-1.5">
-                      {item.proof.map((evidence) => (
-                        <p key={`${item.title}-${evidence}`} className="text-sm text-muted-foreground leading-relaxed">
-                          - {evidence}
-                        </p>
-                      ))}
+                    <div className="grid gap-4 md:grid-cols-2">
+                      <div>
+                        <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-2">Created Outputs</p>
+                        <div className="space-y-1.5">
+                          {item.created.map((artifact) => (
+                            <p key={`${item.title}-${artifact}`} className="text-sm text-muted-foreground leading-relaxed">
+                              - {artifact}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div>
+                        <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-2">Proof</p>
+                        <div className="space-y-1.5">
+                          {item.proof.map((evidence) => (
+                            <p key={`${item.title}-${evidence}`} className="text-sm text-muted-foreground leading-relaxed">
+                              - {evidence}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
                   
