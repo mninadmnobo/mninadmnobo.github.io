@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
-import { MapPin, ExternalLink, FileText, User, FolderKanban, Microscope, Cpu, Mail } from "lucide-react"
+import { MapPin, ExternalLink, FileText, User, FolderKanban, Microscope, Cpu, Mail, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
 
@@ -132,12 +132,11 @@ export function Hero() {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 text-balance">
-              Mohammad Ninad Mahmud{" "}
-              <span className="text-primary">Nobo</span>
+              Full-Stack Web Developer, Software Engineer, AI & ML Engineer
             </h1>
 
-            <p className="text-xl md:text-2xl text-muted-foreground mb-4">
-              CSE Undergraduate @ BUET | Full-Stack - Systems - AI
+            <p className="text-xl md:text-2xl text-primary mb-4 font-medium">
+              Building scalable backend systems and real-world AI applications
             </p>
 
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-6 text-sm text-muted-foreground">
@@ -150,10 +149,22 @@ export function Hero() {
               </div>
             </div>
 
-            <p className="text-muted-foreground mb-8 max-w-2xl leading-relaxed">
-              Building scalable systems and intelligent software with strong backend foundations,
-              practical frontend development, and research focus in LLM-based testing and medical AI.
+            <p className="text-muted-foreground mb-6 max-w-2xl leading-relaxed">
+              Focused on low-resource environments and intelligent software. I specialize in bridging AI models
+              with production-grade systems, APIs, and deployment constraints.
             </p>
+
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-8">
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
+                <Sparkles className="h-3.5 w-3.5" /> AI + Systems + Full-Stack
+              </span>
+              <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-secondary text-foreground border border-border/70">
+                Low-Connectivity Ready
+              </span>
+              <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-secondary text-foreground border border-border/70">
+                LLM Testing & Medical AI
+              </span>
+            </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
@@ -215,7 +226,7 @@ export function Hero() {
               >
                 <Link href="/NinadNoboResume.pdf" target="_blank" onClick={() => setActiveCta("resume")}>
                   <FileText className="h-5 w-5" />
-                  View Resume
+                  Resume (PDF)
                 </Link>
               </Button>
             </div>

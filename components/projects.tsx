@@ -14,6 +14,10 @@ type ProjectLink = {
 type Project = {
   name: string
   description: string
+  problem: string
+  solution: string
+  impact: string
+  proof: string[]
   highlights: string[]
   tech: string[]
   featured: boolean
@@ -45,6 +49,10 @@ const featuredProjects: Project[] = [
   {
     name: "MindTrace",
     description: "AI-powered dementia care platform delivering real-time support for patients and caregivers through an accessibility-first mobile experience.",
+    problem: "Caregivers and patients need timely dementia support without depending on fragmented, manual coordination.",
+    solution: "Built an end-to-end Android + Spring architecture with AI-assisted workflows, accessibility-first UX, and cloud-ready services.",
+    impact: "Turned a complex healthcare support flow into a usable real-time system with demos covering both product experience and infrastructure.",
+    proof: ["Mobile feature demo", "Infrastructure demo", "Public codebase"],
     highlights: [
       "Built end-to-end Android + backend architecture for real-time caregiver support.",
       "Designed accessibility-first mobile UX tailored for elderly users.",
@@ -62,6 +70,10 @@ const featuredProjects: Project[] = [
   {
     name: "Gemma VetCare",
     description: "AI-assisted veterinary and livestock decision-support system engineered for reliability in low-connectivity field environments.",
+    problem: "Rural livestock owners often have limited veterinary access and unstable internet, delaying treatment decisions.",
+    solution: "Designed Android + backend decision support with resilient API behavior for intermittent networks and practical field workflows.",
+    impact: "Demonstrated AI-assisted guidance that remains usable in low-connectivity conditions where conventional cloud-only tools fail.",
+    proof: ["Feature demo video", "Public repository", "Field-oriented architecture"],
     highlights: [
       "Developed an AI-assisted Android workflow for veterinary and livestock decision support.",
       "Implemented REST APIs optimized for low-connectivity and intermittent network conditions.",
@@ -78,6 +90,10 @@ const featuredProjects: Project[] = [
   {
     name: "SKILL HUB",
     description: "Role-based coaching management platform with scalable REST APIs and robust multi-user access control.",
+    problem: "Coaching workflows break down without clear role separation and reliable data operations.",
+    solution: "Implemented a role-based platform and scalable REST API layer with SQL-backed multi-user flows.",
+    impact: "Delivered a maintainable product foundation with clear boundaries between admin, instructor, and learner responsibilities.",
+    proof: ["Role-based architecture", "API-driven backend", "Public repository"],
     highlights: [
       "Designed a role-based web platform with clear admin, instructor, and learner access boundaries.",
       "Implemented scalable REST APIs and relational schema design for multi-role operations.",
@@ -92,6 +108,10 @@ const featuredProjects: Project[] = [
   {
     name: "Remote Gardening System",
     description: "Embedded automation system that monitors environmental signals and controls gardening operations through sensor-actuator workflows.",
+    problem: "Manual plant monitoring is inconsistent and inefficient for remote or unattended garden setups.",
+    solution: "Built a microcontroller-driven sensing and actuation loop to automate monitoring and control decisions.",
+    impact: "Converted a manual task into a reproducible embedded automation workflow with hardware-level deployment evidence.",
+    proof: ["Hardware demo video", "Embedded codebase", "Sensor-actuator pipeline"],
     highlights: [
       "Developed an embedded automation loop for garden monitoring and control.",
       "Integrated sensor-actuator logic on microcontroller hardware for real-world operation.",
@@ -111,6 +131,10 @@ const allProjects: Project[] = [
   {
     name: "CSE310: Compiler Construction",
     description: "Full compiler for a C-like language covering lexical analysis, parsing, semantic validation, intermediate representation, and optimized 8086 code generation.",
+    problem: "Compilers require tightly integrated language-processing stages that are difficult to align correctly.",
+    solution: "Implemented complete compiler stages from tokenization to optimized 8086 code generation using Flex/Bison.",
+    impact: "Delivered a full language toolchain that demonstrates systems-level understanding beyond isolated assignments.",
+    proof: ["Compiler phases implemented", "8086 output generation", "Public repository"],
     highlights: [
       "Implemented lexical analysis, parsing, semantic analysis, and intermediate representation stages.",
       "Generated optimized 8086 assembly from compiled source programs.",
@@ -125,6 +149,10 @@ const allProjects: Project[] = [
   {
     name: "Movie Database",
     description: "Desktop movie information management application built with JavaFX for structured cataloging and retrieval workflows.",
+    problem: "Managing growing media catalogs is error-prone without clear CRUD and navigation workflows.",
+    solution: "Built a JavaFX desktop interface with structured data operations and user-friendly management flows.",
+    impact: "Shipped a polished desktop application emphasizing data correctness and maintainable UI logic.",
+    proof: ["Desktop UI implementation", "CRUD workflow coverage", "Public repository"],
     highlights: [
       "Developed a desktop movie management interface with JavaFX-based workflows.",
       "Built core CRUD flows and data organization for movie catalog operations.",
@@ -139,6 +167,10 @@ const allProjects: Project[] = [
   {
     name: "Computer Graphics Pipeline",
     description: "End-to-end computer graphics pipeline implementing transformations, clipping, Z-buffer rasterization, and ray tracing with interactive OpenGL demos.",
+    problem: "Rendering realistic 3D scenes requires coordinated math-heavy pipeline stages.",
+    solution: "Implemented transformations, clipping, rasterization, Z-buffering, and ray tracing with interactive OpenGL controls.",
+    impact: "Produced an end-to-end graphics pipeline that validates both theory and systems implementation in practice.",
+    proof: ["OpenGL interactive demos", "Ray tracing implementation", "Public repository"],
     highlights: [
       "Implemented core graphics pipeline stages including transformations, clipping, and rasterization.",
       "Built Z-buffer and ray-tracing components for 3D scene rendering.",
@@ -154,6 +186,10 @@ const allProjects: Project[] = [
   {
     name: "TCP Window Scaling Attack and Defense",
     description: "Network security lab demonstrating ARP-poisoning MITM attacks on TCP window scaling, supported by packet-level analysis and defense mechanisms.",
+    problem: "Network stacks can be exploited through protocol-level attack vectors that are hard to observe without packet analysis.",
+    solution: "Reproduced MITM attack paths, analyzed traffic at packet level, and implemented defensive controls.",
+    impact: "Showcased offensive and defensive security reasoning with reproducible experimentation and evidence-backed mitigation flow.",
+    proof: ["Wireshark and tcpdump analysis", "Attack and defense implementation", "Public repository"],
     highlights: [
       "Implemented ARP poisoning MITM attack scenarios targeting TCP window scaling behavior.",
       "Analyzed traffic with Wireshark and tcpdump to validate exploit and defense behavior.",
@@ -223,9 +259,22 @@ export function Projects() {
                     {project.name}
                   </h4>
 
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
-                    {project.description}
-                  </p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
+
+                  <div className="grid gap-3 md:grid-cols-3 mb-5">
+                    <div className="rounded-lg border border-border/70 bg-background/40 p-3">
+                      <p className="text-xs uppercase tracking-wider text-primary mb-1">Problem</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{project.problem}</p>
+                    </div>
+                    <div className="rounded-lg border border-border/70 bg-background/40 p-3">
+                      <p className="text-xs uppercase tracking-wider text-primary mb-1">Solution</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{project.solution}</p>
+                    </div>
+                    <div className="rounded-lg border border-border/70 bg-background/40 p-3">
+                      <p className="text-xs uppercase tracking-wider text-primary mb-1">Impact</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{project.impact}</p>
+                    </div>
+                  </div>
 
                   <ul className="space-y-2 mb-5">
                     {project.highlights.map((point) => (
@@ -260,8 +309,35 @@ export function Projects() {
                     </div>
                   </div>
 
+                  <div className="mt-6 grid gap-4 md:grid-cols-2">
+                    <div className="rounded-lg border border-border/70 bg-background/40 p-4">
+                      <p className="text-xs uppercase tracking-wider text-primary mb-2">Architecture Snapshot</p>
+                      <div className="space-y-2 mb-3">
+                        <div className="h-2 rounded-full bg-primary/25" />
+                        <div className="h-2 rounded-full bg-primary/15 w-11/12" />
+                        <div className="h-2 rounded-full bg-primary/10 w-9/12" />
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tech.slice(0, 4).map((item) => (
+                          <span key={`${project.name}-${item}-arch`} className="px-2 py-1 text-xs rounded-md bg-secondary text-secondary-foreground">
+                            {item}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="rounded-lg border border-border/70 bg-background/40 p-4">
+                      <p className="text-xs uppercase tracking-wider text-primary mb-2">Proof</p>
+                      <ul className="space-y-1">
+                        {project.proof.map((item) => (
+                          <li key={`${project.name}-${item}-proof`} className="text-sm text-muted-foreground">- {item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
                   {project.links.some((projectLink) => getYouTubeEmbedUrl(projectLink.href)) && (
-                    <div className="mt-6 grid gap-4 md:grid-cols-2">
+                    <div className="mt-4 grid gap-4 md:grid-cols-2">
                       {project.links
                         .map((projectLink) => ({ label: projectLink.label, embedUrl: getYouTubeEmbedUrl(projectLink.href) }))
                         .filter((item): item is { label: string; embedUrl: string } => Boolean(item.embedUrl))
