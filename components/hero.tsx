@@ -192,8 +192,8 @@ export function Hero() {
                     size="default"
                     className={`rounded-full border transition-all duration-200 ${
                       activeSection === section.href
-                        ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:bg-primary/90"
-                        : "bg-secondary/60 border-border/80 text-foreground hover:bg-secondary hover:border-primary/50"
+                        ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:bg-primary/90 hover:text-primary-foreground"
+                        : "bg-secondary/60 border-border/80 text-foreground hover:bg-secondary hover:border-primary/50 hover:text-foreground"
                     }`}
                   >
                     <Link href={section.href} onClick={() => handleSectionClick(section.href)}>
