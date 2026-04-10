@@ -98,7 +98,7 @@ export function About() {
                 <div className="p-2 rounded-lg bg-primary/15 border border-primary/25">
                   <School className="h-4 w-4 text-primary" />
                 </div>
-                <h5 className="text-base md:text-lg font-semibold text-foreground">School and College Journey</h5>
+                <h5 className="text-base md:text-lg font-semibold text-foreground">School and College</h5>
               </div>
 
               <div className="space-y-4 flex-1">
