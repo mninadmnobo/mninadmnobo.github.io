@@ -140,7 +140,7 @@ export function Hero() {
             </p>
 
             <p className="text-base md:text-xl text-muted-foreground mb-4 font-medium text-balance">
-              Building scalable backend systems and real-world AI applications
+              Building scalable full-stack systems and real-world AI applications
             </p>
 
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-6 text-sm text-muted-foreground">
@@ -230,7 +230,7 @@ export function Hero() {
               >
                 <Link href="/NinadNoboResume.pdf" target="_blank" onClick={() => setActiveCta("resume")}>
                   <FileText className="h-5 w-5" />
-                  Resume (PDF)
+                  View Resume
                 </Link>
               </Button>
             </div>

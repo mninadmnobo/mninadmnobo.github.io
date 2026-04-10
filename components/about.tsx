@@ -1,4 +1,4 @@
-import { Code, Server, Brain, Database } from "lucide-react"
+import { Code, Server, Brain, Database, GraduationCap, Calendar, BookOpen } from "lucide-react"
 
 const focusAreas = [
   {
@@ -61,12 +61,36 @@ export function About() {
               </ul>
             </div>
 
-            <div className="rounded-2xl border border-border bg-card/50 p-6">
-              <h4 className="text-lg font-semibold text-foreground mb-3">Education</h4>
-              <p className="text-sm text-foreground font-medium">Bangladesh University of Engineering and Technology (BUET)</p>
-              <p className="text-sm text-muted-foreground mb-3">BSc in Computer Science and Engineering | 2022 - Present | CGPA 3.61 / 4.00</p>
-              <p className="text-sm text-muted-foreground mb-2">Thesis: Web Testing Using Large Language Models</p>
-              <p className="text-sm text-muted-foreground">Coursework: DSA, Operating Systems, Computer Architecture, Database Systems, Software Engineering, Machine Learning, AI, Compiler Design</p>
+            <div className="rounded-2xl border border-primary/25 bg-gradient-to-br from-card/70 via-card/40 to-background/80 p-6 shadow-[0_0_0_1px_rgba(34,211,238,0.08)]">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2 rounded-lg bg-primary/15 border border-primary/25">
+                  <GraduationCap className="h-5 w-5 text-primary" />
+                </div>
+                <h4 className="text-lg font-semibold text-foreground">Education</h4>
+              </div>
+
+              <p className="text-base text-foreground font-semibold">Bangladesh University of Engineering and Technology (BUET)</p>
+              <p className="text-sm text-muted-foreground mt-1 mb-3">BSc in Computer Science and Engineering</p>
+
+              <div className="flex flex-wrap items-center gap-2 mb-3">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-secondary text-secondary-foreground border border-border/70">
+                  <Calendar className="h-3.5 w-3.5" />
+                  2022 - Present
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
+                  CGPA 3.61 / 4.00
+                </span>
+              </div>
+
+              <p className="text-sm text-muted-foreground mb-2">
+                Thesis: <span className="text-foreground">Web Testing Using Large Language Models</span>
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                <span className="inline-flex items-center gap-1.5 mr-1 text-primary">
+                  <BookOpen className="h-3.5 w-3.5" /> Coursework:
+                </span>
+                DSA, Operating Systems, Computer Architecture, Database Systems, Software Engineering, Machine Learning, AI, Compiler Design
+              </p>
             </div>
           </div>
           

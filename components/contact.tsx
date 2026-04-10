@@ -136,7 +136,9 @@ export function Contact() {
               </div>
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Phone className="h-5 w-5 text-primary" />
-                <span>+8801939444451</span>
+                <Link href="tel:+8801939444451" className="hover:text-primary transition-colors no-underline">
+                  +8801939444451
+                </Link>
               </div>
             </div>
             
