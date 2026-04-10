@@ -12,7 +12,7 @@ type ResearchItem = {
   impact: string
   methodFlow: string[]
   proof: string[]
-  contributions: string[]
+  highlights: string[]
   created: string[]
   tags: string[]
   link: string
@@ -30,7 +30,7 @@ const research: ResearchItem[] = [
     impact: "Established a research-grade workflow that moves from natural-language intent to measurable test quality, not just generated scripts.",
     methodFlow: ["Intent Parsing", "LLM Test Generation", "Validation and Coverage Analysis"],
     proof: ["Curated supervised dataset", "Benchmarking framework", "Reproducible evaluation pipeline"],
-    contributions: [
+    highlights: [
       "Designed and implemented an end-to-end LLM pipeline for automated web test generation.",
       "Investigated test robustness and coverage behavior across diverse functional scenarios.",
       "Built practical evaluation workflows for comparing generated tests against expected behaviors.",
@@ -53,7 +53,7 @@ const research: ResearchItem[] = [
     impact: "Improves safety and trust by turning contradictory model outputs into auditable, confidence-aware clinical support recommendations.",
     methodFlow: ["Multi-model CXR Inference", "Conflict Resolution", "Confidence-Calibrated Decision"],
     proof: ["Conflict-resolution workflow", "Confidence-calibrated decision layer", "Integrated multi-model pipeline"],
-    contributions: [
+    highlights: [
       "Integrated heterogeneous AI components into a unified chest X-ray analysis pipeline.",
       "Developed a conflict-resolution layer using semantic reasoning and confidence calibration.",
       "Designed trust-aware abstention behavior to improve reliability under uncertainty.",
@@ -140,16 +140,29 @@ export function Research() {
                     </div>
                   </div>
 
-                  <div className="space-y-2 mb-4">
-                    {item.contributions.map((point) => (
-                      <p key={`${item.title}-${point}`} className="text-sm text-muted-foreground leading-relaxed">
+                  <ul className="space-y-2 mb-5">
+                    {item.highlights.map((point) => (
+                      <li key={`${item.title}-${point}`} className="text-sm text-muted-foreground leading-relaxed">
                         - {point}
-                      </p>
+                      </li>
                     ))}
+                  </ul>
+
+                  <div className="flex flex-wrap items-center gap-4 mb-5">
+                    <div className="flex flex-wrap gap-2">
+                      {item.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-1 text-xs rounded-md bg-secondary text-secondary-foreground"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
 
                   <div className="mb-5 rounded-lg border border-border/70 bg-background/40 p-4">
-                    <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-3">Research Architecture and Evidence</p>
+                    <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-3">Architecture and Proof</p>
 
                     <div className="flex flex-wrap items-center gap-2 mb-4">
                       {item.methodFlow.map((step, index) => (
@@ -164,18 +177,7 @@ export function Research() {
 
                     <div className="grid gap-4 md:grid-cols-2">
                       <div>
-                        <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-2">Created Outputs</p>
-                        <div className="space-y-1.5">
-                          {item.created.map((artifact) => (
-                            <p key={`${item.title}-${artifact}`} className="text-sm text-muted-foreground leading-relaxed">
-                              - {artifact}
-                            </p>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div>
-                        <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-2">Proof</p>
+                        <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-2">Evidence</p>
                         <div className="space-y-1.5">
                           {item.proof.map((evidence) => (
                             <p key={`${item.title}-${evidence}`} className="text-sm text-muted-foreground leading-relaxed">
@@ -184,29 +186,29 @@ export function Research() {
                           ))}
                         </div>
                       </div>
+
+                      <div>
+                        <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-2">Artifacts</p>
+                        <div className="space-y-1.5">
+                          {item.created.map((artifact) => (
+                            <p key={`${item.title}-${artifact}`} className="text-sm text-muted-foreground leading-relaxed">
+                              - {artifact}
+                            </p>
+                          ))}
+                        </div>
+                        {item.link && (
+                          <div className="mt-3">
+                            <Link
+                              href={item.link}
+                              className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground no-underline transition-colors"
+                            >
+                              View Project
+                              <ExternalLink className="h-3 w-3" />
+                            </Link>
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div className="flex flex-wrap items-center gap-4">
-                    <div className="flex flex-wrap gap-2">
-                      {item.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2 py-1 text-xs rounded-md bg-secondary text-secondary-foreground"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    
-                    {item.link && (
-                      <Link
-                        href={item.link}
-                        className="flex items-center gap-1 text-primary hover:underline text-sm"
-                      >
-                        View Project <ExternalLink className="h-3 w-3" />
-                      </Link>
-                    )}
                   </div>
                 </div>
               </div>

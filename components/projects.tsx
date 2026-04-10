@@ -1,7 +1,7 @@
 
 "use client"
 
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { ExternalLink, ChevronDown, ChevronUp, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
@@ -247,11 +247,31 @@ const allProjects: Project[] = [
 
 export function Projects() {
   const [showAll, setShowAll] = useState(false)
+  const sectionRef = useRef<HTMLElement | null>(null)
 
   const projectsToShow = showAll ? allProjects : featuredProjects
 
+  const handleToggleProjects = () => {
+    setShowAll((previous) => {
+      const next = !previous
+
+      if (previous) {
+        requestAnimationFrame(() => {
+          if (!sectionRef.current) {
+            return
+          }
+
+          const top = sectionRef.current.getBoundingClientRect().top + window.scrollY - 88
+          window.scrollTo({ top, behavior: "smooth" })
+        })
+      }
+
+      return next
+    })
+  }
+
   return (
-    <section id="projects" className="py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden">
+    <section id="projects" ref={sectionRef} className="py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden">
       {/* Premium background */}
       <div className="absolute inset-0 bg-gradient-to-br from-card via-background to-card" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -420,7 +440,7 @@ export function Projects() {
         <div className="flex justify-center mt-8">
           <Button
             variant="outline"
-            onClick={() => setShowAll(!showAll)}
+            onClick={handleToggleProjects}
             className="gap-2 text-base font-medium px-5 py-2.5 bg-secondary/70 border-border/80 text-foreground hover:!bg-primary hover:!text-primary-foreground hover:!border-primary dark:hover:!bg-primary dark:hover:!text-primary-foreground dark:hover:!border-primary"
           >
             {showAll ? (
