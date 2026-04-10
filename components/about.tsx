@@ -1,4 +1,4 @@
-import { Code, Server, Brain, Database, GraduationCap, Calendar, BookOpen } from "lucide-react"
+import { Code, Server, Brain, Database, GraduationCap, Calendar, BookOpen, FlaskConical } from "lucide-react"
 
 const focusAreas = [
   {
@@ -62,11 +62,17 @@ export function About() {
             </div>
 
             <div className="rounded-2xl border border-primary/25 bg-gradient-to-br from-card/70 via-card/40 to-background/80 p-6 shadow-[0_0_0_1px_rgba(34,211,238,0.08)]">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="p-2 rounded-lg bg-primary/15 border border-primary/25">
-                  <GraduationCap className="h-5 w-5 text-primary" />
+              <div className="flex items-center justify-between gap-3 mb-3">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-primary/15 border border-primary/25">
+                    <GraduationCap className="h-5 w-5 text-primary" />
+                  </div>
+                  <h4 className="text-lg font-semibold text-foreground">Education</h4>
                 </div>
-                <h4 className="text-lg font-semibold text-foreground">Education</h4>
+                <div className="hidden md:flex items-center gap-2">
+                  <span className="px-2 py-1 text-[11px] rounded-md bg-secondary text-secondary-foreground border border-border/70">BUET</span>
+                  <span className="px-2 py-1 text-[11px] rounded-md bg-primary/10 text-primary border border-primary/25">CSE</span>
+                </div>
               </div>
 
               <p className="text-base text-foreground font-semibold">Bangladesh University of Engineering and Technology (BUET)</p>
@@ -82,8 +88,11 @@ export function About() {
                 </span>
               </div>
 
-              <p className="text-sm text-muted-foreground mb-2">
-                Thesis: <span className="text-foreground">Web Testing Using Large Language Models</span>
+              <p className="text-sm text-muted-foreground mb-2 leading-relaxed">
+                <span className="inline-flex items-center gap-1.5 mr-1 text-primary">
+                  <FlaskConical className="h-3.5 w-3.5" /> Thesis:
+                </span>
+                <span className="text-foreground">Web Testing Using Large Language Models</span>
               </p>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 <span className="inline-flex items-center gap-1.5 mr-1 text-primary">

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
+import { ScrollToTopOnLoad } from '@/components/scroll-to-top-on-load'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -9,7 +10,7 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: 'Mohammad Ninad Mahmud Nobo | Software Engineer',
-  description: 'Software Engineer specializing in Backend, Systems, and AI. BUET CSE graduate with expertise in LLM testing, machine learning, and full-stack development.',
+  description: 'Full-Stack Software Engineer specializing in systems and AI. BUET CSE undergraduate with expertise in LLM testing, machine learning, and production-ready application development.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -39,6 +40,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="font-sans antialiased">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <ScrollToTopOnLoad />
           {children}
         </ThemeProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}

@@ -64,7 +64,7 @@ const research: ResearchItem[] = [
       "A conflict-aware medical reasoning workflow for contradictory model outputs.",
       "A confidence-calibrated decision layer for safer AI-assisted clinical support.",
     ],
-    tech: ["Python", "PyTorch", "TensorFlow", "Scikit-learn", "OpenCV"],
+    tech: ["Python", "PyTorch", "NumPy", "Pandas", "Jupyter"],
     tags: ["Medical AI", "Reasoning", "Confidence", "Deep Learning"],
     link: "https://github.com/mninadmnobo/MedRAX-premium",
   },
