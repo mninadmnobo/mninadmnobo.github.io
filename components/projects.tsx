@@ -61,7 +61,7 @@ const featuredProjects: Project[] = [
     featured: true,
     year: "2026",
     links: [
-      { label: "GitHub Repository", href: "https://github.com/mninadmnobo/MedRAX_conflict_resolver" },
+      { label: "GitHub Repository", href: "https://github.com/mninadmnobo/MedRAX-premium" },
     ],
   },
 ]

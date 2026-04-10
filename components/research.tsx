@@ -16,7 +16,7 @@ const research = [
     description: "Multi-model chest X-ray analysis with a conflict-resolution pipeline that reconciles contradictory outputs using semantic reasoning and confidence calibration.",
     status: "Ongoing",
     tags: ["Medical AI", "Reasoning", "Confidence", "Deep Learning"],
-    link: "https://github.com/mninadmnobo/MedRAX_conflict_resolver",
+    link: "https://github.com/mninadmnobo/MedRAX-premium",
   },
 ]
 
