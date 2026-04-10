@@ -18,7 +18,7 @@ const research: ResearchItem[] = [
     title: "Web Testing Using Large Language Models",
     type: "Undergraduate Thesis",
     period: "2025 - Present",
-    description: "Thesis-driven research on LLM-based automation pipelines for generating, validating, and evaluating functional web test cases.",
+    description: "Thesis-driven research focused on LLM-powered pipelines for generating, validating, and benchmarking functional web test cases.",
     status: "Ongoing",
     contributions: [
       "Designed and implemented an end-to-end LLM pipeline for automated web test generation.",
@@ -36,7 +36,7 @@ const research: ResearchItem[] = [
     title: "MedCAR: Conflict-Aware Medical Reasoning",
     type: "Research Project",
     period: "2026 - Present",
-    description: "Medical AI research focused on conflict-aware multi-model reasoning for chest X-ray interpretation and trust-aware prediction support.",
+    description: "Medical AI research on conflict-aware multi-model reasoning for chest X-ray interpretation with trust-calibrated clinical decision support.",
     status: "Ongoing",
     contributions: [
       "Integrated heterogeneous AI components into a unified chest X-ray analysis pipeline.",
@@ -69,7 +69,7 @@ export function Research() {
           Academic work & publications
         </h3>
         <p className="text-muted-foreground text-lg mb-12 max-w-2xl">
-          My research focuses on LLM-based software testing, machine learning, and medical AI applications.
+          I design and evaluate AI systems for software testing and medical decision support, with an emphasis on reliability, robustness, and practical impact.
         </p>
 
         <div className="grid gap-6">
