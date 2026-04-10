@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Mail, ExternalLink, MapPin, Clock, Download } from "lucide-react"
+import { Mail, ExternalLink, MapPin, Clock, Download, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
 
@@ -133,6 +133,10 @@ export function Contact() {
               <div className="flex items-center gap-3 text-muted-foreground">
                 <Clock className="h-5 w-5 text-primary" />
                 <span>UTC+6 (Bangladesh Standard Time)</span>
+              </div>
+              <div className="flex items-center gap-3 text-muted-foreground">
+                <Phone className="h-5 w-5 text-primary" />
+                <span>+8801939444451</span>
               </div>
             </div>
             

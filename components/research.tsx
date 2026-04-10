@@ -14,6 +14,7 @@ type ResearchItem = {
   proof: string[]
   highlights: string[]
   created: string[]
+  tech: string[]
   tags: string[]
   link: string
 }
@@ -39,6 +40,7 @@ const research: ResearchItem[] = [
       "A curated supervised dataset mapping natural-language functional descriptions to test cases.",
       "An evaluation framework for quality, robustness, and coverage analysis.",
     ],
+    tech: ["Python", "Playwright", "Selenium", "LLM APIs", "Pandas", "Jupyter"],
     tags: ["LLM", "Web Testing", "Automation", "Evaluation"],
     link: "https://github.com/mninadmnobo/Test-Case-Generator",
   },
@@ -62,6 +64,7 @@ const research: ResearchItem[] = [
       "A conflict-aware medical reasoning workflow for contradictory model outputs.",
       "A confidence-calibrated decision layer for safer AI-assisted clinical support.",
     ],
+    tech: ["Python", "PyTorch", "TensorFlow", "Scikit-learn", "OpenCV"],
     tags: ["Medical AI", "Reasoning", "Confidence", "Deep Learning"],
     link: "https://github.com/mninadmnobo/MedRAX-premium",
   },
@@ -148,16 +151,33 @@ export function Research() {
                     ))}
                   </ul>
 
-                  <div className="flex flex-wrap items-center gap-4 mb-5">
-                    <div className="flex flex-wrap gap-2">
-                      {item.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2 py-1 text-xs rounded-md bg-secondary text-secondary-foreground"
-                        >
-                          {tag}
-                        </span>
-                      ))}
+                  <div className="mb-5 space-y-3">
+                    <div>
+                      <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-2">Tech Stack</p>
+                      <div className="flex flex-wrap gap-2">
+                        {item.tech.map((techItem) => (
+                          <span
+                            key={`${item.title}-${techItem}-tech`}
+                            className="px-2 py-1 text-xs rounded-md bg-secondary text-secondary-foreground"
+                          >
+                            {techItem}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-2">Tags</p>
+                      <div className="flex flex-wrap gap-2">
+                        {item.tags.map((tag) => (
+                          <span
+                            key={`${item.title}-${tag}-tag`}
+                            className="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
@@ -202,7 +222,7 @@ export function Research() {
                               href={item.link}
                               className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground no-underline transition-colors"
                             >
-                              View Project
+                              GitHub Repository
                               <ExternalLink className="h-3 w-3" />
                             </Link>
                           </div>

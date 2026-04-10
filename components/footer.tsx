@@ -65,7 +65,7 @@ export function Footer() {
           <div className="flex flex-col items-center md:items-start gap-2">
             <span className="text-lg font-bold text-foreground">Mohammad Ninad Mahmud Nobo</span>
             <p className="text-sm text-muted-foreground text-center md:text-left">
-              Software Engineer | Backend - Systems - AI
+              Full-Stack Software Engineer | Systems - AI - ML
             </p>
           </div>
           

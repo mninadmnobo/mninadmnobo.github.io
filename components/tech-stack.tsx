@@ -13,7 +13,11 @@ const techCategories = [
   },
   {
     name: "AI / Machine Learning",
-    items: ["PyTorch", "TensorFlow", "Scikit-learn"],
+    items: ["PyTorch", "TensorFlow", "Scikit-learn", "OpenCV"],
+  },
+  {
+    name: "Testing and Evaluation",
+    items: ["Playwright", "Selenium", "Pandas", "Jupyter"],
   },
   {
     name: "Databases",

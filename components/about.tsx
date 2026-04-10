@@ -3,8 +3,8 @@ import { Code, Server, Brain, Database } from "lucide-react"
 const focusAreas = [
   {
     icon: Server,
-    title: "Backend Systems",
-    description: "Building scalable, reliable backend architectures and APIs with modern frameworks.",
+    title: "Full-Stack Systems",
+    description: "Building scalable backend services and practical frontend experiences with production-ready architecture.",
   },
   {
     icon: Brain,
@@ -59,6 +59,14 @@ export function About() {
                 <li>- I design for reliability in low-bandwidth and resource-limited contexts.</li>
                 <li>- I can move from research idea to deployable product architecture.</li>
               </ul>
+            </div>
+
+            <div className="rounded-2xl border border-border bg-card/50 p-6">
+              <h4 className="text-lg font-semibold text-foreground mb-3">Education</h4>
+              <p className="text-sm text-foreground font-medium">Bangladesh University of Engineering and Technology (BUET)</p>
+              <p className="text-sm text-muted-foreground mb-3">BSc in Computer Science and Engineering | 2022 - Present | CGPA 3.61 / 4.00</p>
+              <p className="text-sm text-muted-foreground mb-2">Thesis: Web Testing Using Large Language Models</p>
+              <p className="text-sm text-muted-foreground">Coursework: DSA, Operating Systems, Computer Architecture, Database Systems, Software Engineering, Machine Learning, AI, Compiler Design</p>
             </div>
           </div>
           
