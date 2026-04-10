@@ -13,6 +13,7 @@ const featuredProjects = [
     tech: ["Kotlin", "Spring Boot", "PostgreSQL", "Redis"],
     github: "https://github.com/mninadmnobo/MindTrace",
     featured: true,
+    year: "2025",
   },
   {
     name: "Gemma VetCare",
@@ -20,6 +21,7 @@ const featuredProjects = [
     tech: ["Kotlin", "Spring Boot", "Spring AI", "MongoDB"],
     github: "https://github.com/mninadmnobo/GemmaVetCare",
     featured: true,
+    year: "2025",
   },
   {
     name: "LLM Test Generator",
@@ -27,6 +29,7 @@ const featuredProjects = [
     tech: ["Python", "LLM", "Testing", "Automation"],
     github: "https://github.com/mninadmnobo/Test-Case-Generator",
     featured: true,
+    year: "2025",
   },
   {
     name: "MedCAR",
@@ -34,6 +37,7 @@ const featuredProjects = [
     tech: ["Python", "Medical AI", "Reasoning", "Deep Learning"],
     github: "https://github.com/mninadmnobo/MedRAX_conflict_resolver",
     featured: true,
+    year: "2026",
   },
 ]
 
@@ -45,6 +49,7 @@ const allProjects = [
     tech: ["C++", "Compiler", "AST", "Assembly"],
     github: "https://github.com/mninadmnobo/CompilerSessional",
     featured: false,
+    year: "2024",
   },
   {
     name: "SkillHub",
@@ -52,6 +57,7 @@ const allProjects = [
     tech: ["Node.js", "Express.js", "SQL", "REST API"],
     github: "https://github.com/mninadmnobo/SKILL_HUB",
     featured: false,
+    year: "2023",
   },
   {
     name: "Remote Gardening",
@@ -59,6 +65,7 @@ const allProjects = [
     tech: ["C", "ATmega32", "Embedded Systems", "Automation"],
     github: "https://github.com/mninadmnobo/CSE-316-Microcontroller-and-Microprocessor-Project",
     featured: false,
+    year: "2024",
   },
   {
     name: "Graphics Pipeline",
@@ -66,6 +73,7 @@ const allProjects = [
     tech: ["C++", "OpenGL", "Graphics", "Ray Tracing"],
     github: "https://github.com/mninadmnobo/Computer-Graphics-Pipeline",
     featured: false,
+    year: "2025",
   },
   {
     name: "TCP Attack",
@@ -73,6 +81,7 @@ const allProjects = [
     tech: ["Python", "Networking", "Security", "TCP/IP"],
     github: "https://github.com/mninadmnobo/CSE406-Window_Scaling_Attack",
     featured: false,
+    year: "2025",
   },
   {
     name: "Movie DB",
@@ -80,6 +89,7 @@ const allProjects = [
     tech: ["Java", "JavaFX", "SQLite", "GUI"],
     github: "https://github.com/mninadmnobo/Movie-DataBase-Management-JavaFX",
     featured: false,
+    year: "2022",
   },
 ]
 
@@ -117,7 +127,7 @@ export function Projects() {
           {projectsToShow.map((project) => (
             <div
               key={project.name}
-              className="group p-6 rounded-xl border border-border bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-300 no-underline"
+              className="p-6 md:p-8 rounded-xl border border-border bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-300 group"
             >
               <div className="flex flex-col md:flex-row md:items-start gap-6">
                 <div className="p-3 rounded-xl bg-primary/10 w-fit">
@@ -129,6 +139,9 @@ export function Projects() {
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center gap-3 mb-2">
                     <span className="text-sm text-primary font-medium">{project.featured ? "Featured Project" : "Project"}</span>
+                    <span className="px-2 py-0.5 text-xs rounded-full bg-primary/20 text-primary">
+                      {project.year}
+                    </span>
                   </div>
 
                   <h4 className="text-xl md:text-2xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
