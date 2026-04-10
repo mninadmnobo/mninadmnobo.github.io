@@ -6,6 +6,7 @@ import { Research } from "@/components/research"
 import { TechStack } from "@/components/tech-stack"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
+import { BackToTop } from "@/components/back-to-top"
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <TechStack />
       <Contact />
       <Footer />
+      <BackToTop />
     </main>
   )
 }
