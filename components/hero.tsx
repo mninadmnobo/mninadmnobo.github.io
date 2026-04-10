@@ -15,11 +15,13 @@ const sectionLinks = [
 ]
 
 export function Hero() {
-  const [activeSection, setActiveSection] = useState("#about")
-  const [activeCta, setActiveCta] = useState("github")
+  const [activeSection, setActiveSection] = useState<string | null>(null)
+  const [activeCta, setActiveCta] = useState<string | null>(null)
   const clickLockTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const hasSectionInteractionRef = useRef(false)
 
   const handleSectionClick = (href: string) => {
+    hasSectionInteractionRef.current = true
     setActiveSection(href)
 
     if (clickLockTimeoutRef.current) {
@@ -37,6 +39,7 @@ export function Hero() {
 
     const updateFromHash = () => {
       if (window.location.hash) {
+        hasSectionInteractionRef.current = true
         setActiveSection(window.location.hash)
       }
     }
@@ -46,6 +49,10 @@ export function Hero() {
     const observer = new IntersectionObserver(
       (entries) => {
         if (clickLockTimeoutRef.current) {
+          return
+        }
+
+        if (!hasSectionInteractionRef.current) {
           return
         }
 
