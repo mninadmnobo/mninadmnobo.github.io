@@ -25,13 +25,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: pnpm
 
-      - name: Enable pnpm via Corepack
-        run: |
-          corepack enable
-          corepack prepare pnpm@10.9.0 --activate
-          pnpm --version
+      - name: Install pnpm
+        run: npm install -g pnpm@10.9.0
 
       - name: Configure GitHub Pages path
         shell: bash
