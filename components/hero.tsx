@@ -2,16 +2,16 @@
 
 import { useEffect, useState } from "react"
 import Image from "next/image"
-import { MapPin, ExternalLink, FileText, Mail } from "lucide-react"
+import { MapPin, ExternalLink, FileText, User, FolderKanban, Microscope, Cpu, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
 
 const sectionLinks = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#research", label: "Research" },
-  { href: "#tech", label: "Tech Stack" },
-  { href: "#contact", label: "Contact" },
+  { href: "#about", label: "About", icon: User },
+  { href: "#projects", label: "Projects", icon: FolderKanban },
+  { href: "#research", label: "Research", icon: Microscope },
+  { href: "#tech", label: "Tech Stack", icon: Cpu },
+  { href: "#contact", label: "Contact", icon: Mail },
 ]
 
 export function Hero() {
@@ -156,32 +156,31 @@ export function Hero() {
                   View Resume
                 </Link>
               </Button>
-              <Button asChild variant="secondary" className="gap-2 no-underline">
-                <Link href="#contact">
-                  <Mail className="h-5 w-5" />
-                  Contact
-                </Link>
-              </Button>
             </div>
 
-            <div className="mt-5 flex flex-wrap items-center justify-center lg:justify-start gap-2">
-              {sectionLinks.map((section) => (
-                <Button
-                  key={section.href}
-                  asChild
-                  variant="ghost"
-                  size="sm"
-                  className={`rounded-full transition-colors ${
-                    activeSection === section.href
-                      ? "bg-primary/15 text-primary border border-primary/30 hover:bg-primary/20"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  <Link href={section.href} onClick={() => setActiveSection(section.href)}>
-                    {section.label}
-                  </Link>
-                </Button>
-              ))}
+            <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-3">
+              {sectionLinks.map((section) => {
+                const Icon = section.icon
+
+                return (
+                  <Button
+                    key={section.href}
+                    asChild
+                    variant="outline"
+                    size="default"
+                    className={`rounded-full border transition-all duration-200 ${
+                      activeSection === section.href
+                        ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:bg-primary/90"
+                        : "bg-secondary/60 border-border/80 text-foreground hover:bg-secondary hover:border-primary/50"
+                    }`}
+                  >
+                    <Link href={section.href} onClick={() => setActiveSection(section.href)}>
+                      <Icon className="h-4 w-4 mr-2" />
+                      {section.label}
+                    </Link>
+                  </Button>
+                )
+              })}
             </div>
           </div>
         </div>
