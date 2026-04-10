@@ -105,24 +105,38 @@ export function About() {
                 <div className="rounded-xl border border-border/60 bg-card/40 p-4">
                   <p className="text-sm font-semibold text-foreground">Uttara High School and College</p>
                   <p className="text-sm text-muted-foreground">2008 - 2012</p>
-                  <div className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
-                    <Award className="h-3.5 w-3.5" /> PSC (2012): GPA 5
+                  <div className="mt-3 space-y-2">
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
+                      <Award className="h-3.5 w-3.5" /> PSC (2012): GPA 5
+                    </div>
+                    <p className="text-xs text-muted-foreground">Exam institution: Uttara High School and College</p>
                   </div>
                 </div>
 
                 <div className="rounded-xl border border-border/60 bg-card/40 p-4">
                   <p className="text-sm font-semibold text-foreground">Rajuk Uttara Model College</p>
                   <p className="text-sm text-muted-foreground">2013 - 2021</p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
-                      <Award className="h-3.5 w-3.5" /> JSC (2018): GPA 5, Talentpool Scholarship
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
-                      <Award className="h-3.5 w-3.5" /> SSC (2018): GPA 5
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
-                      <Award className="h-3.5 w-3.5" /> HSC (2020): GPA 5, General Grade Scholarship
-                    </span>
+                  <div className="mt-3 space-y-3">
+                    <div className="space-y-1">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
+                        <Award className="h-3.5 w-3.5" /> JSC (2018): GPA 5, Talentpool Scholarship
+                      </span>
+                      <p className="text-xs text-muted-foreground">Exam institution: Rajuk Uttara Model College</p>
+                    </div>
+
+                    <div className="space-y-1">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
+                        <Award className="h-3.5 w-3.5" /> SSC (2018): GPA 5
+                      </span>
+                      <p className="text-xs text-muted-foreground">Exam institution: Rajuk Uttara Model College</p>
+                    </div>
+
+                    <div className="space-y-1">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
+                        <Award className="h-3.5 w-3.5" /> HSC (2020): GPA 5, General Grade Scholarship
+                      </span>
+                      <p className="text-xs text-muted-foreground">Exam institution: Rajuk Uttara Model College</p>
+                    </div>
                   </div>
                 </div>
               </div>
