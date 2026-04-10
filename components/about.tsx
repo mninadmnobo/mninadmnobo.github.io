@@ -118,7 +118,7 @@ export function About() {
                   <div className="mt-3 space-y-3">
                     <div className="space-y-1">
                       <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
-                        <Award className="h-3.5 w-3.5" /> JSC (2018): GPA 5, Talentpool Scholarship
+                        <Award className="h-3.5 w-3.5" /> JSC (2015): GPA 5, Talentpool Scholarship
                       </span>
                     </div>
 
