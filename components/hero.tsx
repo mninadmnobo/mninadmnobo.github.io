@@ -131,11 +131,15 @@ export function Hero() {
               <span className="text-sm text-primary">Available for opportunities</span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 text-balance">
-              Full-Stack Web Developer, Software Engineer, AI & ML Engineer
+            <p className="text-sm md:text-base text-primary/90 font-semibold mb-2 tracking-wide">
+              Mohammad Ninad Mahmud Nobo
+            </p>
+
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-3 text-balance">
+              Full-Stack, AI & ML Engineer
             </h1>
 
-            <p className="text-xl md:text-2xl text-primary mb-4 font-medium">
+            <p className="text-lg md:text-2xl text-primary mb-4 font-medium text-balance">
               Building scalable backend systems and real-world AI applications
             </p>
 

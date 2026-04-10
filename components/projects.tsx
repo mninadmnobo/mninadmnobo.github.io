@@ -18,6 +18,7 @@ type Project = {
   solution: string
   impact: string
   proof: string[]
+  architecture: string[]
   highlights: string[]
   tech: string[]
   featured: boolean
@@ -53,6 +54,11 @@ const featuredProjects: Project[] = [
     solution: "Built an end-to-end Android + Spring architecture with AI-assisted workflows, accessibility-first UX, and cloud-ready services.",
     impact: "Turned a complex healthcare support flow into a usable real-time system with demos covering both product experience and infrastructure.",
     proof: ["Mobile feature demo", "Infrastructure demo", "Public codebase"],
+    architecture: [
+      "Kotlin Android client for caregivers and patient interaction",
+      "Spring Boot API layer orchestrating AI-assisted task flows",
+      "PostgreSQL + Redis + Firebase for persistence, caching, and event updates",
+    ],
     highlights: [
       "Built end-to-end Android + backend architecture for real-time caregiver support.",
       "Designed accessibility-first mobile UX tailored for elderly users.",
@@ -74,6 +80,11 @@ const featuredProjects: Project[] = [
     solution: "Designed Android + backend decision support with resilient API behavior for intermittent networks and practical field workflows.",
     impact: "Demonstrated AI-assisted guidance that remains usable in low-connectivity conditions where conventional cloud-only tools fail.",
     proof: ["Feature demo video", "Public repository", "Field-oriented architecture"],
+    architecture: [
+      "Offline-first Android workflow for rural field usage",
+      "Spring AI inference and decision-support endpoints",
+      "MongoDB data layer with resilient request handling",
+    ],
     highlights: [
       "Developed an AI-assisted Android workflow for veterinary and livestock decision support.",
       "Implemented REST APIs optimized for low-connectivity and intermittent network conditions.",
@@ -94,6 +105,11 @@ const featuredProjects: Project[] = [
     solution: "Implemented a role-based platform and scalable REST API layer with SQL-backed multi-user flows.",
     impact: "Delivered a maintainable product foundation with clear boundaries between admin, instructor, and learner responsibilities.",
     proof: ["Role-based architecture", "API-driven backend", "Public repository"],
+    architecture: [
+      "Role-aware UI surfaces for admin, instructor, and learner actions",
+      "Express REST API enforcing authorization and business rules",
+      "SQL schema for multi-user learning and progress operations",
+    ],
     highlights: [
       "Designed a role-based web platform with clear admin, instructor, and learner access boundaries.",
       "Implemented scalable REST APIs and relational schema design for multi-role operations.",
@@ -112,6 +128,11 @@ const featuredProjects: Project[] = [
     solution: "Built a microcontroller-driven sensing and actuation loop to automate monitoring and control decisions.",
     impact: "Converted a manual task into a reproducible embedded automation workflow with hardware-level deployment evidence.",
     proof: ["Hardware demo video", "Embedded codebase", "Sensor-actuator pipeline"],
+    architecture: [
+      "ATmega32 firmware loop for periodic sensing and threshold evaluation",
+      "Sensor fusion inputs driving watering and control decisions",
+      "Actuator control pipeline for real-time hardware response",
+    ],
     highlights: [
       "Developed an embedded automation loop for garden monitoring and control.",
       "Integrated sensor-actuator logic on microcontroller hardware for real-world operation.",
@@ -135,6 +156,11 @@ const allProjects: Project[] = [
     solution: "Implemented complete compiler stages from tokenization to optimized 8086 code generation using Flex/Bison.",
     impact: "Delivered a full language toolchain that demonstrates systems-level understanding beyond isolated assignments.",
     proof: ["Compiler phases implemented", "8086 output generation", "Public repository"],
+    architecture: [
+      "Lexer and parser pipeline with Flex and Bison",
+      "Semantic analysis and intermediate representation generation",
+      "8086 code emission with optimization passes",
+    ],
     highlights: [
       "Implemented lexical analysis, parsing, semantic analysis, and intermediate representation stages.",
       "Generated optimized 8086 assembly from compiled source programs.",
@@ -153,6 +179,11 @@ const allProjects: Project[] = [
     solution: "Built a JavaFX desktop interface with structured data operations and user-friendly management flows.",
     impact: "Shipped a polished desktop application emphasizing data correctness and maintainable UI logic.",
     proof: ["Desktop UI implementation", "CRUD workflow coverage", "Public repository"],
+    architecture: [
+      "JavaFX presentation layer for interactive movie operations",
+      "Service logic for validation, sorting, and retrieval workflows",
+      "Persistent storage layer for catalog data integrity",
+    ],
     highlights: [
       "Developed a desktop movie management interface with JavaFX-based workflows.",
       "Built core CRUD flows and data organization for movie catalog operations.",
@@ -171,6 +202,11 @@ const allProjects: Project[] = [
     solution: "Implemented transformations, clipping, rasterization, Z-buffering, and ray tracing with interactive OpenGL controls.",
     impact: "Produced an end-to-end graphics pipeline that validates both theory and systems implementation in practice.",
     proof: ["OpenGL interactive demos", "Ray tracing implementation", "Public repository"],
+    architecture: [
+      "Scene and camera setup with matrix transformation pipeline",
+      "Rasterization stage with clipping and Z-buffer depth handling",
+      "Ray tracing stage for lighting and reflection realism",
+    ],
     highlights: [
       "Implemented core graphics pipeline stages including transformations, clipping, and rasterization.",
       "Built Z-buffer and ray-tracing components for 3D scene rendering.",
@@ -190,6 +226,11 @@ const allProjects: Project[] = [
     solution: "Reproduced MITM attack paths, analyzed traffic at packet level, and implemented defensive controls.",
     impact: "Showcased offensive and defensive security reasoning with reproducible experimentation and evidence-backed mitigation flow.",
     proof: ["Wireshark and tcpdump analysis", "Attack and defense implementation", "Public repository"],
+    architecture: [
+      "Attack setup with ARP poisoning and traffic interception",
+      "Packet inspection workflow using Wireshark and tcpdump",
+      "Defense layer validating mitigation under replayed scenarios",
+    ],
     highlights: [
       "Implemented ARP poisoning MITM attack scenarios targeting TCP window scaling behavior.",
       "Analyzed traffic with Wireshark and tcpdump to validate exploit and defense behavior.",
@@ -312,16 +353,11 @@ export function Projects() {
                   <div className="mt-6 grid gap-4 md:grid-cols-2">
                     <div className="rounded-lg border border-border/70 bg-background/40 p-4">
                       <p className="text-xs uppercase tracking-wider text-primary mb-2">Architecture Snapshot</p>
-                      <div className="space-y-2 mb-3">
-                        <div className="h-2 rounded-full bg-primary/25" />
-                        <div className="h-2 rounded-full bg-primary/15 w-11/12" />
-                        <div className="h-2 rounded-full bg-primary/10 w-9/12" />
-                      </div>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tech.slice(0, 4).map((item) => (
-                          <span key={`${project.name}-${item}-arch`} className="px-2 py-1 text-xs rounded-md bg-secondary text-secondary-foreground">
-                            {item}
-                          </span>
+                      <div className="space-y-2">
+                        {project.architecture.map((layer, index) => (
+                          <p key={`${project.name}-${layer}-arch`} className="text-sm text-muted-foreground leading-relaxed">
+                            {index + 1}. {layer}
+                          </p>
                         ))}
                       </div>
                     </div>

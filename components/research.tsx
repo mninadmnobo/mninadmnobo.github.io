@@ -7,6 +7,10 @@ type ResearchItem = {
   period: string
   description: string
   status: string
+  problem: string
+  solution: string
+  impact: string
+  proof: string[]
   contributions: string[]
   created: string[]
   tags: string[]
@@ -20,6 +24,10 @@ const research: ResearchItem[] = [
     period: "2025 - Present",
     description: "Thesis-driven research focused on LLM-powered pipelines for generating, validating, and benchmarking functional web test cases.",
     status: "Ongoing",
+    problem: "Manual web test authoring is expensive and inconsistent, especially when converting natural-language requirements into robust functional tests.",
+    solution: "Built an end-to-end LLM-based generation and validation pipeline with evaluation workflows for robustness and coverage.",
+    impact: "Established a research-grade workflow that moves from natural-language intent to measurable test quality, not just generated scripts.",
+    proof: ["Curated supervised dataset", "Benchmarking framework", "Reproducible evaluation pipeline"],
     contributions: [
       "Designed and implemented an end-to-end LLM pipeline for automated web test generation.",
       "Investigated test robustness and coverage behavior across diverse functional scenarios.",
@@ -38,6 +46,10 @@ const research: ResearchItem[] = [
     period: "2026 - Present",
     description: "Medical AI research on conflict-aware multi-model reasoning for chest X-ray interpretation with trust-calibrated clinical decision support.",
     status: "Ongoing",
+    problem: "Medical AI predictions can conflict across models, creating unsafe uncertainty if systems cannot reason about disagreement.",
+    solution: "Designed a conflict-aware reasoning layer with semantic reconciliation and confidence-calibrated abstention behavior.",
+    impact: "Improves safety and trust by turning contradictory model outputs into auditable, confidence-aware clinical support recommendations.",
+    proof: ["Conflict-resolution workflow", "Confidence-calibrated decision layer", "Integrated multi-model pipeline"],
     contributions: [
       "Integrated heterogeneous AI components into a unified chest X-ray analysis pipeline.",
       "Developed a conflict-resolution layer using semantic reasoning and confidence calibration.",
@@ -110,6 +122,21 @@ export function Research() {
                     {item.description}
                   </p>
 
+                  <div className="grid gap-3 md:grid-cols-3 mb-5">
+                    <div className="rounded-lg border border-border/70 bg-background/40 p-3">
+                      <p className="text-xs uppercase tracking-wider text-primary mb-1">Problem</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{item.problem}</p>
+                    </div>
+                    <div className="rounded-lg border border-border/70 bg-background/40 p-3">
+                      <p className="text-xs uppercase tracking-wider text-primary mb-1">Solution</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{item.solution}</p>
+                    </div>
+                    <div className="rounded-lg border border-border/70 bg-background/40 p-3">
+                      <p className="text-xs uppercase tracking-wider text-primary mb-1">Impact</p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">{item.impact}</p>
+                    </div>
+                  </div>
+
                   <div className="space-y-2 mb-4">
                     {item.contributions.map((point) => (
                       <p key={`${item.title}-${point}`} className="text-sm text-muted-foreground leading-relaxed">
@@ -124,6 +151,17 @@ export function Research() {
                       {item.created.map((artifact) => (
                         <p key={`${item.title}-${artifact}`} className="text-sm text-muted-foreground leading-relaxed">
                           - {artifact}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mb-5 rounded-lg border border-border/70 bg-background/40 p-3">
+                    <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-2">Proof</p>
+                    <div className="space-y-1.5">
+                      {item.proof.map((evidence) => (
+                        <p key={`${item.title}-${evidence}`} className="text-sm text-muted-foreground leading-relaxed">
+                          - {evidence}
                         </p>
                       ))}
                     </div>
