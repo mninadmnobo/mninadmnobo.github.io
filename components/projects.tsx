@@ -14,16 +14,42 @@ type ProjectLink = {
 type Project = {
   name: string
   description: string
+  highlights: string[]
   tech: string[]
   featured: boolean
   year: string
   links: ProjectLink[]
 }
 
+function getYouTubeEmbedUrl(url: string) {
+  try {
+    const parsed = new URL(url)
+
+    if (parsed.hostname.includes("youtu.be")) {
+      const id = parsed.pathname.replace("/", "")
+      return id ? `https://www.youtube.com/embed/${id}` : null
+    }
+
+    if (parsed.hostname.includes("youtube.com")) {
+      const id = parsed.searchParams.get("v")
+      return id ? `https://www.youtube.com/embed/${id}` : null
+    }
+
+    return null
+  } catch {
+    return null
+  }
+}
+
 const featuredProjects: Project[] = [
   {
     name: "MindTrace",
     description: "AI-powered dementia care application designed to support dementia patients and caregivers with real-time assistance.",
+    highlights: [
+      "Built end-to-end Android + backend architecture for real-time caregiver support.",
+      "Designed accessibility-first mobile UX tailored for elderly users.",
+      "Integrated AI-assisted assistance workflows backed by Spring services and cloud-ready infrastructure.",
+    ],
     tech: ["Kotlin", "Android Studio", "Spring Boot", "Spring AI", "PostgreSQL", "Redis", "Firebase", "Docker", "Azure"],
     featured: true,
     year: "2025",
@@ -36,6 +62,11 @@ const featuredProjects: Project[] = [
   {
     name: "Gemma VetCare",
     description: "AI-assisted farming support system for veterinary and livestock decision support in low-connectivity environments.",
+    highlights: [
+      "Developed an AI-assisted Android workflow for veterinary and livestock decision support.",
+      "Implemented REST APIs optimized for low-connectivity and intermittent network conditions.",
+      "Structured backend data flow for practical field usage with robust request handling.",
+    ],
     tech: ["Kotlin", "Spring Boot", "Spring AI", "MongoDB"],
     featured: true,
     year: "2025",
@@ -47,6 +78,11 @@ const featuredProjects: Project[] = [
   {
     name: "Web Testing Using Large Language Models",
     description: "Undergraduate thesis project on LLM-based pipelines for automated web test generation and evaluation.",
+    highlights: [
+      "Designed and implemented LLM-based pipelines to generate executable web test cases.",
+      "Created and curated a supervised dataset mapping functional descriptions to target tests.",
+      "Built an evaluation workflow focused on coverage, robustness, and practical testing quality.",
+    ],
     tech: ["LLMs", "Web Automation", "Software Testing", "Python"],
     featured: true,
     year: "2025",
@@ -57,6 +93,11 @@ const featuredProjects: Project[] = [
   {
     name: "MedCAR",
     description: "Conflict-aware medical reasoning system for AI-assisted radiology workflows.",
+    highlights: [
+      "Built a multi-model chest X-ray reasoning system integrating heterogeneous AI components.",
+      "Created a conflict-resolution pipeline using semantic reasoning and confidence calibration.",
+      "Designed trust-aware decision logic with uncertainty-based abstention for safer predictions.",
+    ],
     tech: ["Python", "Medical AI", "Reasoning", "Deep Learning"],
     featured: true,
     year: "2026",
@@ -71,6 +112,10 @@ const allProjects: Project[] = [
   {
     name: "SKILL HUB",
     description: "Coaching management system with role-based access control and scalable RESTful APIs.",
+    highlights: [
+      "Designed a role-based web platform with clear admin, instructor, and learner access boundaries.",
+      "Implemented scalable REST APIs and relational schema design for multi-role operations.",
+    ],
     tech: ["Node.js", "Express.js", "SQL", "REST APIs"],
     featured: false,
     year: "2023",
@@ -81,6 +126,10 @@ const allProjects: Project[] = [
   {
     name: "Remote Gardening System",
     description: "Embedded automation project for sensor- and actuator-based gardening control.",
+    highlights: [
+      "Developed an embedded automation loop for garden monitoring and control.",
+      "Integrated sensor-actuator logic on microcontroller hardware for real-world operation.",
+    ],
     tech: ["C", "ATmega32", "Arduino", "Embedded Systems"],
     featured: false,
     year: "2024",
@@ -92,6 +141,10 @@ const allProjects: Project[] = [
   {
     name: "CSE310: Compiler Construction",
     description: "Built a full compiler for a C-like language with lexical analysis, parsing, semantic checks, IR, and optimized 8086 code generation.",
+    highlights: [
+      "Implemented lexical analysis, parsing, semantic analysis, and intermediate representation stages.",
+      "Generated optimized 8086 assembly from compiled source programs.",
+    ],
     tech: ["C++17", "Flex", "Bison/Yacc", "8086 Codegen", "Linux"],
     featured: false,
     year: "2024",
@@ -102,6 +155,10 @@ const allProjects: Project[] = [
   {
     name: "Movie Database",
     description: "Desktop-based movie information management system built with JavaFX.",
+    highlights: [
+      "Developed a desktop movie management interface with JavaFX-based workflows.",
+      "Built core CRUD flows and data organization for movie catalog operations.",
+    ],
     tech: ["Java", "JavaFX"],
     featured: false,
     year: "2022",
@@ -112,6 +169,11 @@ const allProjects: Project[] = [
   {
     name: "Computer Graphics Pipeline",
     description: "Implemented transformations, clipping, rasterization with Z-buffering, and ray tracing with interactive OpenGL camera demos.",
+    highlights: [
+      "Implemented core graphics pipeline stages including transformations, clipping, and rasterization.",
+      "Built Z-buffer and ray-tracing components for 3D scene rendering.",
+      "Created OpenGL demos with camera control supporting 6-DOF interaction.",
+    ],
     tech: ["C++17", "OpenGL/GLUT", "Rasterization", "Ray Tracing"],
     featured: false,
     year: "2025",
@@ -122,6 +184,11 @@ const allProjects: Project[] = [
   {
     name: "TCP Window Scaling Attack and Defense",
     description: "MITM lab on ARP-poisoning-based TCP window scaling attacks with packet analysis and defense implementation.",
+    highlights: [
+      "Implemented ARP poisoning MITM attack scenarios targeting TCP window scaling behavior.",
+      "Analyzed traffic with Wireshark and tcpdump to validate exploit and defense behavior.",
+      "Implemented defensive mechanisms and documented attack mitigation flow.",
+    ],
     tech: ["Python", "Computer Networks", "Security", "ARP Poisoning"],
     featured: false,
     year: "2025",
@@ -190,6 +257,14 @@ export function Projects() {
                     {project.description}
                   </p>
 
+                  <ul className="space-y-2 mb-5">
+                    {project.highlights.map((point) => (
+                      <li key={`${project.name}-${point}`} className="text-sm text-muted-foreground leading-relaxed">
+                        - {point}
+                      </li>
+                    ))}
+                  </ul>
+
                   <div className="flex flex-wrap items-center gap-4">
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map((tech) => (
@@ -214,6 +289,30 @@ export function Projects() {
                       ))}
                     </div>
                   </div>
+
+                  {project.links.some((projectLink) => getYouTubeEmbedUrl(projectLink.href)) && (
+                    <div className="mt-6 grid gap-4 md:grid-cols-2">
+                      {project.links
+                        .map((projectLink) => ({ label: projectLink.label, embedUrl: getYouTubeEmbedUrl(projectLink.href) }))
+                        .filter((item): item is { label: string; embedUrl: string } => Boolean(item.embedUrl))
+                        .map((video) => (
+                          <div key={`${project.name}-${video.label}`} className="rounded-lg border border-border/70 bg-background/40 p-2">
+                            <p className="text-xs text-muted-foreground mb-2">{video.label}</p>
+                            <div className="aspect-video w-full overflow-hidden rounded-md border border-border/60">
+                              <iframe
+                                src={video.embedUrl}
+                                title={`${project.name} ${video.label}`}
+                                className="h-full w-full"
+                                loading="lazy"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerPolicy="strict-origin-when-cross-origin"
+                                allowFullScreen
+                              />
+                            </div>
+                          </div>
+                        ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
