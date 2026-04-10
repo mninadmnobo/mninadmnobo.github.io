@@ -13,8 +13,8 @@ const focusAreas = [
   },
   {
     icon: Code,
-    title: "Software Engineering",
-    description: "Writing clean, maintainable code with solid engineering principles.",
+    title: "Frontend Development",
+    description: "Building responsive, user-focused interfaces with modern web technologies.",
   },
   {
     icon: Database,
@@ -46,7 +46,7 @@ export function About() {
               {"I'm an undergraduate Computer Science and Engineering student at BUET (Bangladesh University of Engineering and Technology), building scalable systems and intelligent software."}
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              {"My focus includes backend systems, scalable APIs, systems programming, and ML-assisted software engineering. I work on LLM-based software testing, machine learning, and medical AI."}
+              {"My focus includes backend systems, frontend development, scalable APIs, systems programming, and ML-assisted software engineering. I work on LLM-based software testing, machine learning, and medical AI."}
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed">
               {"I enjoy building end-to-end systems from design to deployment, and continuously improving through projects, research, and practical engineering work."}
