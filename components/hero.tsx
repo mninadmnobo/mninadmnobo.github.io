@@ -156,7 +156,7 @@ export function Hero() {
                 className={`gap-2 no-underline transition-all duration-200 ${
                   activeCta === "github"
                     ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:bg-primary/90 hover:text-primary-foreground"
-                    : "bg-background/70 border-border/80 text-foreground hover:bg-secondary hover:text-foreground"
+                    : "bg-secondary/60 border-border/80 text-foreground hover:bg-primary/90 hover:border-primary hover:text-primary-foreground hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)]"
                 }`}
               >
                 <Link href="https://github.com/mninadmnobo" onClick={() => setActiveCta("github")}>
@@ -173,7 +173,7 @@ export function Hero() {
                 className={`gap-2 no-underline transition-all duration-200 ${
                   activeCta === "linkedin"
                     ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:bg-primary/90 hover:text-primary-foreground"
-                    : "bg-background/70 border-border/80 text-foreground hover:bg-secondary hover:text-foreground"
+                    : "bg-secondary/60 border-border/80 text-foreground hover:bg-primary/90 hover:border-primary hover:text-primary-foreground hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)]"
                 }`}
               >
                 <Link href="https://linkedin.com/in/mninadmnobo" onClick={() => setActiveCta("linkedin")}>
@@ -189,7 +189,7 @@ export function Hero() {
                 className={`gap-2 no-underline transition-all duration-200 ${
                   activeCta === "cv"
                     ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:bg-primary/90 hover:text-primary-foreground"
-                    : "bg-background/70 border-border/80 text-foreground hover:bg-secondary hover:text-foreground"
+                    : "bg-secondary/60 border-border/80 text-foreground hover:bg-primary/90 hover:border-primary hover:text-primary-foreground hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)]"
                 }`}
               >
                 <Link href="/NinadNoboCV.pdf" target="_blank" onClick={() => setActiveCta("cv")}>
@@ -203,7 +203,7 @@ export function Hero() {
                 className={`gap-2 no-underline transition-all duration-200 ${
                   activeCta === "resume"
                     ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:bg-primary/90 hover:text-primary-foreground"
-                    : "bg-background/70 border-border/80 text-foreground hover:bg-secondary hover:text-foreground"
+                      : "bg-secondary/60 border-border/80 text-foreground hover:bg-primary/90 hover:border-primary hover:text-primary-foreground hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)]"
                 }`}
               >
                 <Link href="/NinadNoboResume.pdf" target="_blank" onClick={() => setActiveCta("resume")}>
