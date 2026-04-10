@@ -85,9 +85,6 @@ export function Footer() {
         
         <div className="mt-8 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            Built with Next.js, Tailwind CSS & Vercel
-          </p>
-          <p className="text-sm text-muted-foreground">
             {new Date().getFullYear()} All rights reserved.
           </p>
         </div>
