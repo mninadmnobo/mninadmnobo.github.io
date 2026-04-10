@@ -1,27 +1,27 @@
 const techCategories = [
   {
-    name: "Languages",
-    items: ["Python", "C++", "Java", "JavaScript", "TypeScript", "Kotlin", "PHP", "C", "SQL"],
+    name: "Programming Languages",
+    items: ["C", "C++", "Python", "Java", "Kotlin", "JavaScript", "SQL"],
   },
   {
-    name: "AI / ML",
-    items: ["PyTorch", "TensorFlow", "scikit-learn", "Hugging Face", "LangChain", "OpenCV", "Pandas", "NumPy"],
+    name: "Web Development",
+    items: ["Spring Boot", "Spring AI", "Node.js", "Express.js", "REST APIs"],
   },
   {
-    name: "Backend",
-    items: ["FastAPI", "Flask", "Django", "Node.js", "Express", "PostgreSQL", "MongoDB", "Redis"],
+    name: "Android Development",
+    items: ["Android (Kotlin)", "Firebase"],
   },
   {
-    name: "Frontend",
-    items: ["React", "Next.js", "Tailwind CSS", "HTML/CSS", "JavaFX"],
+    name: "AI / Machine Learning",
+    items: ["PyTorch", "TensorFlow", "Scikit-learn"],
   },
   {
-    name: "DevOps & Tools",
-    items: ["Git", "Docker", "Linux", "AWS", "Vercel", "GitHub Actions", "VS Code"],
+    name: "Databases",
+    items: ["PostgreSQL", "MongoDB", "Redis"],
   },
   {
-    name: "Other",
-    items: ["REST APIs", "GraphQL", "WebSockets", "Microservices", "System Design", "Agile"],
+    name: "Systems and Tools",
+    items: ["Linux", "Git", "Docker"],
   },
 ]
 

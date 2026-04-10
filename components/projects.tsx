@@ -6,90 +6,128 @@ import { ExternalLink, ChevronDown, ChevronUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
 
-const featuredProjects = [
+type ProjectLink = {
+  label: string
+  href: string
+}
+
+type Project = {
+  name: string
+  description: string
+  tech: string[]
+  featured: boolean
+  year: string
+  links: ProjectLink[]
+}
+
+const featuredProjects: Project[] = [
   {
     name: "MindTrace",
-    description: "AI-powered dementia care system with scalable backend architecture.",
-    tech: ["Kotlin", "Spring Boot", "PostgreSQL", "Redis"],
-    github: "https://github.com/mninadmnobo/MindTrace",
+    description: "AI-powered dementia care application designed to support dementia patients and caregivers with real-time assistance.",
+    tech: ["Kotlin", "Android Studio", "Spring Boot", "Spring AI", "PostgreSQL", "Redis", "Firebase", "Docker", "Azure"],
     featured: true,
     year: "2025",
+    links: [
+      { label: "GitHub Repository", href: "https://github.com/mninadmnobo/MindTrace" },
+      { label: "Feature Demo", href: "https://youtu.be/BpRmKZYAOhM" },
+      { label: "Infrastructure Demo", href: "https://www.youtube.com/watch?v=i0GG_g0eZck" },
+    ],
   },
   {
     name: "Gemma VetCare",
-    description: "AI-assisted farming support system optimized for low-connectivity environments.",
+    description: "AI-assisted farming support system for veterinary and livestock decision support in low-connectivity environments.",
     tech: ["Kotlin", "Spring Boot", "Spring AI", "MongoDB"],
-    github: "https://github.com/mninadmnobo/GemmaVetCare",
     featured: true,
     year: "2025",
+    links: [
+      { label: "GitHub Repository", href: "https://github.com/mninadmnobo/GemmaVetCare" },
+      { label: "Feature Demo", href: "https://www.youtube.com/watch?v=EoxyudCIVSo" },
+    ],
   },
   {
-    name: "LLM Test Generator",
-    description: "Automated web testing using LLM pipelines.",
-    tech: ["Python", "LLM", "Testing", "Automation"],
-    github: "https://github.com/mninadmnobo/Test-Case-Generator",
+    name: "Web Testing Using Large Language Models",
+    description: "Undergraduate thesis project on LLM-based pipelines for automated web test generation and evaluation.",
+    tech: ["LLMs", "Web Automation", "Software Testing", "Python"],
     featured: true,
     year: "2025",
+    links: [
+      { label: "GitHub Repository", href: "https://github.com/mninadmnobo/Test-Case-Generator" },
+    ],
   },
   {
     name: "MedCAR",
     description: "Conflict-aware medical reasoning system for AI-assisted radiology workflows.",
     tech: ["Python", "Medical AI", "Reasoning", "Deep Learning"],
-    github: "https://github.com/mninadmnobo/MedRAX_conflict_resolver",
     featured: true,
     year: "2026",
+    links: [
+      { label: "GitHub Repository", href: "https://github.com/mninadmnobo/MedRAX_conflict_resolver" },
+    ],
   },
 ]
 
-const allProjects = [
+const allProjects: Project[] = [
   ...featuredProjects,
   {
-    name: "Compiler",
-    description: "Full compiler with AST, IR, semantic analysis, and assembly generation.",
-    tech: ["C++", "Compiler", "AST", "Assembly"],
-    github: "https://github.com/mninadmnobo/CompilerSessional",
-    featured: false,
-    year: "2024",
-  },
-  {
-    name: "SkillHub",
-    description: "REST API backend with role-based access control.",
-    tech: ["Node.js", "Express.js", "SQL", "REST API"],
-    github: "https://github.com/mninadmnobo/SKILL_HUB",
+    name: "SKILL HUB",
+    description: "Coaching management system with role-based access control and scalable RESTful APIs.",
+    tech: ["Node.js", "Express.js", "SQL", "REST APIs"],
     featured: false,
     year: "2023",
+    links: [
+      { label: "GitHub Repository", href: "https://github.com/mninadmnobo/SKILL_HUB" },
+    ],
   },
   {
-    name: "Remote Gardening",
-    description: "Embedded automation system using microcontrollers.",
-    tech: ["C", "ATmega32", "Embedded Systems", "Automation"],
-    github: "https://github.com/mninadmnobo/CSE-316-Microcontroller-and-Microprocessor-Project",
+    name: "Remote Gardening System",
+    description: "Embedded automation project for sensor- and actuator-based gardening control.",
+    tech: ["C", "ATmega32", "Arduino", "Embedded Systems"],
     featured: false,
     year: "2024",
+    links: [
+      { label: "GitHub Repository", href: "https://github.com/mninadmnobo/CSE-316-Microcontroller-and-Microprocessor-Project" },
+      { label: "Feature Demo", href: "https://www.youtube.com/watch?v=m3LLqLAPCik" },
+    ],
   },
   {
-    name: "Graphics Pipeline",
-    description: "Rasterization, Z-buffering, and ray tracing pipeline implementation.",
-    tech: ["C++", "OpenGL", "Graphics", "Ray Tracing"],
-    github: "https://github.com/mninadmnobo/Computer-Graphics-Pipeline",
+    name: "CSE310: Compiler Construction",
+    description: "Built a full compiler for a C-like language with lexical analysis, parsing, semantic checks, IR, and optimized 8086 code generation.",
+    tech: ["C++17", "Flex", "Bison/Yacc", "8086 Codegen", "Linux"],
     featured: false,
-    year: "2025",
+    year: "2024",
+    links: [
+      { label: "GitHub Repository", href: "https://github.com/mninadmnobo/CompilerSessional" },
+    ],
   },
   {
-    name: "TCP Attack",
-    description: "MITM network attack simulation focused on TCP window scaling.",
-    tech: ["Python", "Networking", "Security", "TCP/IP"],
-    github: "https://github.com/mninadmnobo/CSE406-Window_Scaling_Attack",
-    featured: false,
-    year: "2025",
-  },
-  {
-    name: "Movie DB",
-    description: "Movie database management system with JavaFX GUI.",
-    tech: ["Java", "JavaFX", "SQLite", "GUI"],
-    github: "https://github.com/mninadmnobo/Movie-DataBase-Management-JavaFX",
+    name: "Movie Database",
+    description: "Desktop-based movie information management system built with JavaFX.",
+    tech: ["Java", "JavaFX"],
     featured: false,
     year: "2022",
+    links: [
+      { label: "GitHub Repository", href: "https://github.com/mninadmnobo/Movie-DataBase-Management-JavaFX" },
+    ],
+  },
+  {
+    name: "Computer Graphics Pipeline",
+    description: "Implemented transformations, clipping, rasterization with Z-buffering, and ray tracing with interactive OpenGL camera demos.",
+    tech: ["C++17", "OpenGL/GLUT", "Rasterization", "Ray Tracing"],
+    featured: false,
+    year: "2025",
+    links: [
+      { label: "GitHub Repository", href: "https://github.com/mninadmnobo/Computer-Graphics-Pipeline" },
+    ],
+  },
+  {
+    name: "TCP Window Scaling Attack and Defense",
+    description: "MITM lab on ARP-poisoning-based TCP window scaling attacks with packet analysis and defense implementation.",
+    tech: ["Python", "Computer Networks", "Security", "ARP Poisoning"],
+    featured: false,
+    year: "2025",
+    links: [
+      { label: "GitHub Repository", href: "https://github.com/mninadmnobo/CSE406-Window_Scaling_Attack" },
+    ],
   },
 ]
 
@@ -164,12 +202,17 @@ export function Projects() {
                       ))}
                     </div>
 
-                    <Link
-                      href={project.github}
-                      className="flex items-center gap-1 text-primary hover:underline text-sm"
-                    >
-                      View Project <ExternalLink className="h-3 w-3" />
-                    </Link>
+                    <div className="flex flex-wrap items-center gap-3">
+                      {project.links.map((projectLink) => (
+                        <Link
+                          key={`${project.name}-${projectLink.label}`}
+                          href={projectLink.href}
+                          className="flex items-center gap-1 text-primary hover:underline text-sm"
+                        >
+                          {projectLink.label} <ExternalLink className="h-3 w-3" />
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>

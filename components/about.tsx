@@ -4,22 +4,22 @@ const focusAreas = [
   {
     icon: Server,
     title: "Backend Systems",
-    description: "Building scalable, reliable backend architectures with modern technologies.",
+    description: "Building scalable, reliable backend architectures and APIs with modern frameworks.",
   },
   {
     icon: Brain,
-    title: "AI / Machine Learning",
-    description: "Developing intelligent systems with LLMs, computer vision, and deep learning.",
+    title: "AI and Machine Learning",
+    description: "Developing intelligent systems with LLMs, deep learning, and practical ML pipelines.",
   },
   {
     icon: Code,
-    title: "Frontend Development",
-    description: "Building responsive, user-focused interfaces with modern web technologies.",
+    title: "Software Testing Automation",
+    description: "Designing LLM-assisted workflows for robust test generation and coverage improvement.",
   },
   {
     icon: Database,
-    title: "Systems Design",
-    description: "Designing distributed systems that scale and perform under load.",
+    title: "Medical AI",
+    description: "Building trustworthy AI systems for healthcare use cases with conflict-aware reasoning.",
   },
 ]
 
@@ -43,13 +43,13 @@ export function About() {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6">
             <p className="text-muted-foreground text-lg leading-relaxed">
-              {"I'm an undergraduate Computer Science and Engineering student at BUET (Bangladesh University of Engineering and Technology), building scalable systems and intelligent software."}
+              {"I am an undergraduate Computer Science and Engineering student at BUET with experience in backend systems, ML-assisted software engineering, and applied artificial intelligence."}
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              {"My focus includes backend systems, frontend development, scalable APIs, systems programming, and ML-assisted software engineering. I work on LLM-based software testing, machine learning, and medical AI."}
+              {"My research and project work focuses on LLM-based software testing, machine learning, and medical AI, with hands-on experience building end-to-end AI-driven systems and datasets."}
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              {"I enjoy building end-to-end systems from design to deployment, and continuously improving through projects, research, and practical engineering work."}
+              {"I enjoy turning ideas into production-ready systems, from architecture and implementation to evaluation and deployment."}
             </p>
           </div>
           
