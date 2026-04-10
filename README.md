@@ -22,6 +22,19 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Deploy To GitHub Pages
+
+This project is configured for static export and can be deployed with GitHub Actions.
+
+1. Push this code to GitHub.
+2. In your repository settings, enable Pages and set source to `GitHub Actions`.
+3. Push to `main` to trigger `.github/workflows/deploy-pages.yml`.
+
+URL behavior:
+
+- If repository name is `mninadmnobo.github.io`, your site URL will be `https://mninadmnobo.github.io/`.
+- If repository name is something else (for example `portfolio`), URL will be `https://mninadmnobo.github.io/portfolio/`.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 ## Learn More
@@ -32,4 +45,4 @@ To learn more, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 - [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
 
-<a href="https://v0.app/chat/api/kiro/clone/mninadmnobo/portfolio" alt="Open in Kiro"><img src="https://pdgvvgmkdvyeydso.public.blob.vercel-storage.com/open%20in%20kiro.svg?sanitize=true" /></a>
+[![Open in Kiro](https://pdgvvgmkdvyeydso.public.blob.vercel-storage.com/open%20in%20kiro.svg?sanitize=true)](https://v0.app/chat/api/kiro/clone/mninadmnobo/portfolio)
