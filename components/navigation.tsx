@@ -1,11 +1,15 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { ExternalLink } from "lucide-react"
+import { ExternalLink, Moon, Sun } from "lucide-react"
+import { useTheme } from "next-themes"
 import { Link } from "@/components/ui/link"
+import { Button } from "@/components/ui/button"
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,6 +17,10 @@ export function Navigation() {
     }
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  useEffect(() => {
+    setMounted(true)
   }, [])
 
   return (
@@ -30,6 +38,24 @@ export function Navigation() {
           </Link>
 
           <div className="flex items-center gap-3">
+            <Button
+              type="button"
+              variant="outline"
+              size="sm"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="gap-2"
+              aria-label="Toggle theme"
+            >
+              {!mounted ? (
+                <Moon className="h-4 w-4" />
+              ) : theme === "dark" ? (
+                <Sun className="h-4 w-4" />
+              ) : (
+                <Moon className="h-4 w-4" />
+              )}
+              {!mounted ? "Theme" : theme === "dark" ? "Light" : "Dark"}
+            </Button>
+
             <Link
               href="https://github.com/mninadmnobo"
               className="px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors no-underline"
