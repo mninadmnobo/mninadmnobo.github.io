@@ -1,9 +1,65 @@
+"use client"
+
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import { MapPin, ExternalLink, FileText, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
 
+const sectionLinks = [
+  { href: "#about", label: "About" },
+  { href: "#projects", label: "Projects" },
+  { href: "#research", label: "Research" },
+  { href: "#tech", label: "Tech Stack" },
+  { href: "#contact", label: "Contact" },
+]
+
 export function Hero() {
+  const [activeSection, setActiveSection] = useState("#about")
+
+  useEffect(() => {
+    const sectionIds = sectionLinks.map((section) => section.href.replace("#", ""))
+
+    const updateFromHash = () => {
+      if (window.location.hash) {
+        setActiveSection(window.location.hash)
+      }
+    }
+
+    updateFromHash()
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+
+        if (visibleEntries.length > 0) {
+          setActiveSection(`#${visibleEntries[0].target.id}`)
+        }
+      },
+      {
+        root: null,
+        rootMargin: "-25% 0px -55% 0px",
+        threshold: [0.2, 0.4, 0.6],
+      }
+    )
+
+    sectionIds.forEach((id) => {
+      const section = document.getElementById(id)
+      if (section) {
+        observer.observe(section)
+      }
+    })
+
+    window.addEventListener("hashchange", updateFromHash)
+
+    return () => {
+      observer.disconnect()
+      window.removeEventListener("hashchange", updateFromHash)
+    }
+  }, [])
+
   return (
     <section className="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 py-20 relative overflow-hidden">
       {/* Premium background with gradient mesh */}
@@ -106,6 +162,26 @@ export function Hero() {
                   Contact
                 </Link>
               </Button>
+            </div>
+
+            <div className="mt-5 flex flex-wrap items-center justify-center lg:justify-start gap-2">
+              {sectionLinks.map((section) => (
+                <Button
+                  key={section.href}
+                  asChild
+                  variant="ghost"
+                  size="sm"
+                  className={`rounded-full transition-colors ${
+                    activeSection === section.href
+                      ? "bg-primary/15 text-primary border border-primary/30 hover:bg-primary/20"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  <Link href={section.href} onClick={() => setActiveSection(section.href)}>
+                    {section.label}
+                  </Link>
+                </Button>
+              ))}
             </div>
           </div>
         </div>
