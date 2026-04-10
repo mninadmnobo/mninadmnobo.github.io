@@ -61,74 +61,6 @@ export function About() {
               </ul>
             </div>
 
-            <div className="rounded-2xl border border-primary/25 bg-gradient-to-br from-card/70 via-card/40 to-background/80 p-6 shadow-[0_0_0_1px_rgba(34,211,238,0.08)]">
-              <div className="flex items-center gap-3 mb-5">
-                <div className="p-2 rounded-lg bg-primary/15 border border-primary/25">
-                  <GraduationCap className="h-5 w-5 text-primary" />
-                </div>
-                <h4 className="text-lg font-semibold text-foreground">Education</h4>
-              </div>
-
-              <div className="grid gap-6 md:grid-cols-2">
-                <div className="rounded-xl border border-border/70 bg-background/30 p-4">
-                  <p className="text-sm font-semibold text-foreground mb-3">School and College Journey</p>
-                  <div className="space-y-3 text-sm">
-                    <p className="text-muted-foreground leading-relaxed">
-                      <span className="inline-flex items-center gap-1.5 mr-1 text-primary">
-                        <School className="h-3.5 w-3.5" /> Uttara High School and College:
-                      </span>
-                      2008 - 2012
-                    </p>
-                    <p className="text-muted-foreground leading-relaxed">
-                      <span className="inline-flex items-center gap-1.5 mr-1 text-primary">
-                        <School className="h-3.5 w-3.5" /> Rajuk Uttara Model College:
-                      </span>
-                      2013 - 2021
-                    </p>
-                  </div>
-
-                  <p className="text-sm font-semibold text-foreground mt-5 mb-3">Academic Results</p>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>- PSC (2012): GPA 5</li>
-                    <li>- JSC (2018): GPA 5 with Talentpool Scholarship</li>
-                    <li>- SSC (2018): GPA 5</li>
-                    <li>- HSC (2020): GPA 5 with General Grade Scholarship</li>
-                  </ul>
-                </div>
-
-                <div className="rounded-xl border border-border/70 bg-background/30 p-4">
-                  <p className="text-base text-foreground font-semibold">Bangladesh University of Engineering and Technology (BUET)</p>
-                  <p className="text-sm text-muted-foreground mt-1 mb-3">BSc in Computer Science and Engineering</p>
-
-                  <div className="flex flex-wrap items-center gap-2 mb-3">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-secondary text-secondary-foreground border border-border/70">
-                      <Calendar className="h-3.5 w-3.5" />
-                      2022 - Present
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
-                      CGPA 3.61 / 4.00
-                    </span>
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
-                      <Award className="h-3.5 w-3.5" />
-                      BUET CSE
-                    </span>
-                  </div>
-
-                  <p className="text-sm text-muted-foreground mb-2 leading-relaxed">
-                    <span className="inline-flex items-center gap-1.5 mr-1 text-primary">
-                      <FlaskConical className="h-3.5 w-3.5" /> Thesis:
-                    </span>
-                    <span className="text-foreground">Web Testing Using Large Language Models</span>
-                  </p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    <span className="inline-flex items-center gap-1.5 mr-1 text-primary">
-                      <BookOpen className="h-3.5 w-3.5" /> Coursework:
-                    </span>
-                    DSA, Operating Systems, Computer Architecture, Database Systems, Software Engineering, Machine Learning, AI, Compiler Design
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
           
           <div className="grid grid-cols-2 gap-4">
@@ -145,6 +77,97 @@ export function About() {
                 </div>
               )
             })}
+          </div>
+        </div>
+
+        <div className="mt-16 rounded-3xl border border-primary/20 bg-gradient-to-br from-card/70 via-card/40 to-background/80 p-6 md:p-8 shadow-[0_0_0_1px_rgba(34,211,238,0.08)]">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="p-2 rounded-lg bg-primary/15 border border-primary/25">
+              <GraduationCap className="h-5 w-5 text-primary" />
+            </div>
+            <h4 className="text-lg font-semibold text-foreground">Education</h4>
+            <div className="hidden md:flex items-center gap-2 ml-auto">
+              <span className="px-2 py-1 text-[11px] rounded-md bg-secondary text-secondary-foreground border border-border/70">BUET</span>
+              <span className="px-2 py-1 text-[11px] rounded-md bg-primary/10 text-primary border border-primary/25">CSE</span>
+            </div>
+          </div>
+
+          <div className="grid gap-4 lg:grid-cols-2 items-stretch">
+            <div className="h-full rounded-2xl border border-border/70 bg-background/30 p-5 md:p-6 flex flex-col">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="p-2 rounded-lg bg-primary/15 border border-primary/25">
+                  <School className="h-4 w-4 text-primary" />
+                </div>
+                <h5 className="text-base md:text-lg font-semibold text-foreground">School and College Journey</h5>
+              </div>
+
+              <div className="space-y-4 flex-1">
+                <div className="rounded-xl border border-border/60 bg-card/40 p-4">
+                  <p className="text-sm font-semibold text-foreground">Uttara High School and College</p>
+                  <p className="text-sm text-muted-foreground">2008 - 2012</p>
+                  <div className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
+                    <Award className="h-3.5 w-3.5" /> PSC (2012): GPA 5
+                  </div>
+                </div>
+
+                <div className="rounded-xl border border-border/60 bg-card/40 p-4">
+                  <p className="text-sm font-semibold text-foreground">Rajuk Uttara Model College</p>
+                  <p className="text-sm text-muted-foreground">2013 - 2021</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
+                      <Award className="h-3.5 w-3.5" /> JSC (2018): GPA 5, Talentpool Scholarship
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
+                      <Award className="h-3.5 w-3.5" /> SSC (2018): GPA 5
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
+                      <Award className="h-3.5 w-3.5" /> HSC (2020): GPA 5, General Grade Scholarship
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="h-full rounded-2xl border border-border/70 bg-background/30 p-5 md:p-6 flex flex-col">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="p-2 rounded-lg bg-primary/15 border border-primary/25">
+                  <GraduationCap className="h-4 w-4 text-primary" />
+                </div>
+                <h5 className="text-base md:text-lg font-semibold text-foreground">Undergraduate</h5>
+              </div>
+
+              <div className="flex-1">
+                <p className="text-base text-foreground font-semibold">Bangladesh University of Engineering and Technology (BUET)</p>
+                <p className="text-sm text-muted-foreground mt-1 mb-3">BSc in Computer Science and Engineering</p>
+
+                <div className="flex flex-wrap items-center gap-2 mb-4">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-secondary text-secondary-foreground border border-border/70">
+                    <Calendar className="h-3.5 w-3.5" />
+                    2022 - Present
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
+                    CGPA 3.61 / 4.00
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
+                    <Award className="h-3.5 w-3.5" />
+                    BUET CSE
+                  </span>
+                </div>
+
+                <p className="text-sm text-muted-foreground mb-2 leading-relaxed">
+                  <span className="inline-flex items-center gap-1.5 mr-1 text-primary">
+                    <FlaskConical className="h-3.5 w-3.5" /> Thesis:
+                  </span>
+                  <span className="text-foreground">Web Testing Using Large Language Models</span>
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  <span className="inline-flex items-center gap-1.5 mr-1 text-primary">
+                    <BookOpen className="h-3.5 w-3.5" /> Coursework:
+                  </span>
+                  DSA, Operating Systems, Computer Architecture, Database Systems, Software Engineering, Machine Learning, AI, Compiler Design
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
