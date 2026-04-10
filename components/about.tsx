@@ -43,13 +43,13 @@ export function About() {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6">
             <p className="text-muted-foreground text-lg leading-relaxed">
-              {"I'm a software engineer from Bangladesh, currently studying Computer Science & Engineering at BUET (Bangladesh University of Engineering and Technology). My passion lies at the intersection of backend systems, AI, and building software that solves real problems."}
+              {"I'm an undergraduate Computer Science and Engineering student at BUET (Bangladesh University of Engineering and Technology), building scalable systems and intelligent software."}
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              {"My research focuses on LLM testing and evaluation - ensuring AI systems work reliably in the real world. I've also worked on medical AI projects like MedRAX, combining my interests in AI with healthcare applications."}
+              {"My focus includes backend systems, scalable APIs, systems programming, and ML-assisted software engineering. I work on LLM-based software testing, machine learning, and medical AI."}
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              {"When I'm not coding, you'll find me solving competitive programming problems on LeetCode and Codeforces, or exploring new technologies and research papers."}
+              {"I enjoy building end-to-end systems from design to deployment, and continuously improving through projects, research, and practical engineering work."}
             </p>
           </div>
           

@@ -3,19 +3,20 @@ import { FileText, ExternalLink, GraduationCap } from "lucide-react"
 
 const research = [
   {
-    title: "LLM Testing and Evaluation",
+    title: "Web Testing Using Large Language Models",
     type: "Undergraduate Thesis",
-    description: "Research on automated test case generation and evaluation methodologies for Large Language Models. Developing frameworks to systematically assess LLM capabilities, limitations, and failure modes.",
+    description: "Designing and implementing LLM-based pipelines for automated web test generation, with a focus on coverage, robustness, and practical evaluation.",
     status: "Ongoing",
-    tags: ["LLM", "Testing", "NLP", "Evaluation"],
+    tags: ["LLM", "Web Testing", "Automation", "Evaluation"],
+    link: "https://github.com/mninadmnobo/Test-Case-Generator",
   },
   {
-    title: "MedRAX: Medical Radiology AI",
+    title: "MedCAR: Conflict-Aware Medical Reasoning",
     type: "Research Project",
-    description: "AI-assisted radiology analysis system for X-ray interpretation. Combining computer vision with medical knowledge to provide diagnostic support for healthcare professionals.",
-    status: "Published",
-    tags: ["Medical AI", "Computer Vision", "Healthcare", "Deep Learning"],
-    link: "https://github.com/mninadmnobo/MedRAX-premium",
+    description: "Multi-model chest X-ray analysis with a conflict-resolution pipeline that reconciles contradictory outputs using semantic reasoning and confidence calibration.",
+    status: "Ongoing",
+    tags: ["Medical AI", "Reasoning", "Confidence", "Deep Learning"],
+    link: "https://github.com/mninadmnobo/MedRAX_conflict_resolver",
   },
 ]
 
@@ -36,7 +37,7 @@ export function Research() {
           Academic work & publications
         </h3>
         <p className="text-muted-foreground text-lg mb-12 max-w-2xl">
-          My research interests span AI safety, LLM evaluation, and healthcare AI applications.
+          My research focuses on LLM-based software testing, machine learning, and medical AI applications.
         </p>
 
         <div className="grid gap-6">

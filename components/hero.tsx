@@ -51,7 +51,7 @@ export function Hero() {
             </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground mb-4">
-              Software Engineer | Backend - Systems - AI
+              CSE Undergraduate @ BUET | Backend - Systems - AI
             </p>
 
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-6 text-sm text-muted-foreground">
@@ -65,8 +65,8 @@ export function Hero() {
             </div>
 
             <p className="text-muted-foreground mb-8 max-w-2xl leading-relaxed">
-              Building robust backend systems and exploring the frontiers of AI. 
-              Passionate about LLM testing, distributed systems, and creating impactful software solutions.
+              Building scalable systems and intelligent software with a focus on backend systems,
+              LLM-based software testing, machine learning, and medical AI.
             </p>
 
             {/* CTA Buttons */}
