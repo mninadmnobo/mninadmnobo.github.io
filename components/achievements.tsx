@@ -27,8 +27,8 @@ const profiles = [
   },
   {
     name: "LeetCode",
-    handle: "@mninadmnobo",
-    url: "https://leetcode.com/mninadmnobo",
+    handle: "mninadmnobo",
+    url: "https://leetcode.com/u/mninadmnobo/",
     description: "Competitive programming solutions",
     icon: (
       <svg viewBox="0 0 24 24" className="h-6 w-6 fill-current">
