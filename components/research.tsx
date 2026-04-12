@@ -84,7 +84,7 @@ export function Research() {
         </div>
         
         <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
-          Academic work & publications
+          Research and Thesis Work
         </h3>
         <p className="text-muted-foreground text-lg mb-12 max-w-2xl">
           I design and evaluate AI systems for software testing and medical decision support, with an emphasis on reliability, robustness, and practical impact.

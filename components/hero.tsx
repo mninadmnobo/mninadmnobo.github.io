@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
-import { MapPin, ExternalLink, FileText, User, FolderKanban, Microscope, Cpu, Mail, Sparkles } from "lucide-react"
+import { MapPin, ExternalLink, FileText, User, FolderKanban, Microscope, Cpu, Mail, Sparkles, WifiOff } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
 
@@ -154,19 +154,20 @@ export function Hero() {
             </div>
 
             <p className="text-muted-foreground mb-6 max-w-2xl leading-relaxed">
-              Focused on low-resource environments and intelligent software. I specialize in bridging AI models
-              with production-grade systems, APIs, and deployment constraints.
+              I build reliable software at the intersection of full-stack engineering and applied AI. My work spans
+              user-facing products, production APIs, and practical ML systems that remain dependable in
+              low-bandwidth environments.
             </p>
 
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-8">
               <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
-                <Sparkles className="h-3.5 w-3.5" /> AI + Systems + Full-Stack
+                <Sparkles className="h-3.5 w-3.5" /> Full-Stack & AI Systems
+              </span>
+              <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-primary/[0.08] text-foreground border border-primary/25">
+                <WifiOff className="h-3.5 w-3.5 text-primary" /> Low-Bandwidth & Edge-Ready
               </span>
               <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-secondary text-foreground border border-border/70">
-                Low-Connectivity Ready
-              </span>
-              <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-secondary text-foreground border border-border/70">
-                LLM Testing & Medical AI
+                LLM Testing | Medical AI
               </span>
             </div>
 

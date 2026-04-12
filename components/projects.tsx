@@ -279,12 +279,12 @@ export function Projects() {
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="flex items-center gap-4 mb-4">
           <div className="h-px w-12 bg-primary" />
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">Featured Projects</h2>
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">Projects</h2>
         </div>
         
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
           <h3 className="text-3xl md:text-4xl font-bold text-foreground text-balance">
-            Things I&apos;ve built
+            Selected Engineering Projects
           </h3>
           <Link
             href="https://github.com/mninadmnobo"

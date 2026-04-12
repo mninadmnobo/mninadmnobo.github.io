@@ -43,7 +43,7 @@ export function About() {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6">
             <p className="text-muted-foreground text-lg leading-relaxed">
-              {"I am an undergraduate Computer Science and Engineering student at BUET with experience in full-stack web development, ML-assisted software engineering, and applied artificial intelligence."}
+              {"I am a BUET CSE undergraduate focused on full-stack engineering, ML-assisted software development, and applied AI systems."}
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed">
               {"My research and project work focuses on LLM-based software testing, machine learning, and medical AI, with hands-on experience building end-to-end AI-driven systems and datasets."}
@@ -53,11 +53,11 @@ export function About() {
             </p>
 
             <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6">
-              <h4 className="text-lg font-semibold text-foreground mb-3">Why me</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>- I connect AI models to production systems instead of isolated demos.</li>
-                <li>- I design for reliability in low-bandwidth and resource-limited contexts.</li>
-                <li>- I can move from research idea to deployable product architecture.</li>
+              <h4 className="text-lg font-semibold text-foreground mb-3">What I bring</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground list-disc pl-5">
+                <li>I connect AI models to production systems, not isolated demos.</li>
+                <li>I design for reliability in low-bandwidth and resource-limited contexts.</li>
+                <li>I can move from a research concept to deployable product architecture.</li>
               </ul>
             </div>
 

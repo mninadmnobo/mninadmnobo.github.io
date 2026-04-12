@@ -20,6 +20,24 @@ const socialLinks = [
     ),
   },
   {
+    label: "Email",
+    href: "mailto:mninadmnobo@gmail.com",
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
+        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+      </svg>
+    ),
+  },
+  {
+    label: "X (Twitter)",
+    href: "https://x.com/mninadmnobo",
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
+        <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+      </svg>
+    ),
+  },
+  {
     label: "Facebook",
     href: "https://facebook.com/mninadmnobo",
     icon: (
@@ -37,24 +55,6 @@ const socialLinks = [
       </svg>
     ),
   },
-  {
-    label: "X (Twitter)",
-    href: "https://x.com/mninadmnobo",
-    icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
-        <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
-      </svg>
-    ),
-  },
-  {
-    label: "Email",
-    href: "mailto:mninadmnobo@gmail.com",
-    icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
-        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-      </svg>
-    ),
-  },
 ]
 
 export function Footer() {
@@ -65,7 +65,7 @@ export function Footer() {
           <div className="flex flex-col items-center md:items-start gap-2">
             <span className="text-lg font-bold text-foreground">Mohammad Ninad Mahmud Nobo</span>
             <p className="text-sm text-muted-foreground text-center md:text-left">
-              Full-Stack Software Engineer | Systems - AI - ML
+              Full-Stack Engineer | Applied AI and Intelligent Systems
             </p>
           </div>
           
@@ -85,7 +85,7 @@ export function Footer() {
         
         <div className="mt-8 pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            {new Date().getFullYear()} All rights reserved.
+            {`© ${new Date().getFullYear()} Mohammad Ninad Mahmud Nobo. All rights reserved.`}
           </p>
         </div>
       </div>

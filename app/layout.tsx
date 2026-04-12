@@ -9,9 +9,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Mohammad Ninad Mahmud Nobo | Software Engineer',
-  description: 'Full-Stack Software Engineer specializing in systems and AI. BUET CSE undergraduate with expertise in LLM testing, machine learning, and production-ready application development.',
-  generator: 'v0.app',
+  title: 'Mohammad Ninad Mahmud Nobo | Full-Stack & AI Engineer',
+  description: 'Portfolio of Mohammad Ninad Mahmud Nobo, a BUET CSE undergraduate building full-stack products, production APIs, and applied AI systems with experience in LLM testing and medical AI research.',
   icons: {
     icon: [
       {

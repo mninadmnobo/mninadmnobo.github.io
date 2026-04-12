@@ -122,7 +122,7 @@ export function Contact() {
             </h3>
             
             <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-              {"I'm always interested in hearing about new opportunities, research collaborations, or interesting projects. Whether you have a question or just want to say hi, feel free to reach out."}
+              {"I am open to internships, full-time opportunities, and research collaborations in full-stack engineering, applied AI, and intelligent systems."}
             </p>
             
             <div className="flex flex-col gap-3 mb-8">
@@ -190,7 +190,7 @@ export function Contact() {
 
           {/* Right side - Social links */}
           <div>
-            <h4 className="text-lg font-semibold text-foreground mb-6">Find me on</h4>
+            <h4 className="text-lg font-semibold text-foreground mb-6">Professional Profiles</h4>
             
             <div className="grid gap-3">
               {socialLinks.map((link) => (
