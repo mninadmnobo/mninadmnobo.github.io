@@ -20,6 +20,10 @@ const techCategories = [
     items: ["Playwright", "Selenium", "Pandas", "Jupyter"],
   },
   {
+    name: "Data and BI Tools",
+    items: ["Microsoft Office 365", "Excel", "Google Sheets", "Power BI (Foundations)"],
+  },
+  {
     name: "Databases",
     items: ["PostgreSQL", "MongoDB", "Redis"],
   },
