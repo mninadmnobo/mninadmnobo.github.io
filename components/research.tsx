@@ -47,9 +47,9 @@ const research: ResearchItem[] = [
   {
     title: "MedCAR: Conflict-Aware Medical Reasoning",
     type: "Research Project",
-    period: "2026 - Present",
-    description: "Medical AI research on conflict-aware multi-model reasoning for chest X-ray interpretation with trust-calibrated clinical decision support.",
-    status: "Ongoing",
+    period: "2026",
+    description: "Submitted medical AI research on conflict-aware multi-model reasoning for chest X-ray interpretation with trust-calibrated clinical decision support.",
+    status: "Submitted",
     problem: "Medical AI predictions can conflict across models, creating unsafe uncertainty if systems cannot reason about disagreement.",
     solution: "Designed a conflict-aware reasoning layer with semantic reconciliation and confidence-calibrated abstention behavior.",
     impact: "Improves safety and trust by turning contradictory model outputs into auditable, confidence-aware clinical support recommendations.",

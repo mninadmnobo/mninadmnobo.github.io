@@ -83,14 +83,14 @@ const featuredProjects: Project[] = [
     architecture: [
       "Offline-first Android workflow for rural field usage",
       "Spring AI inference and decision-support endpoints",
-      "MongoDB data layer with resilient request handling",
+      "Room (SQLite) local data layer with resilient offline data handling",
     ],
     highlights: [
       "Developed an AI-assisted Android workflow for veterinary and livestock decision support.",
       "Implemented REST APIs optimized for low-connectivity and intermittent network conditions.",
       "Structured backend data flow for practical field usage with robust request handling.",
     ],
-    tech: ["Kotlin", "Spring Boot", "Spring AI", "MongoDB"],
+    tech: ["Kotlin", "Spring Boot", "Spring AI", "Room", "SQLite"],
     featured: true,
     year: "2025",
     links: [
@@ -102,19 +102,19 @@ const featuredProjects: Project[] = [
     name: "SKILL HUB",
     description: "Role-based coaching management platform with scalable REST APIs and robust multi-user access control.",
     problem: "Coaching workflows break down without clear role separation and reliable data operations.",
-    solution: "Implemented a role-based platform and scalable REST API layer with SQL-backed multi-user flows.",
+    solution: "Implemented a role-based platform and scalable REST API layer with Oracle SQL-backed multi-user flows.",
     impact: "Delivered a maintainable product foundation with clear boundaries between admin, instructor, and learner responsibilities.",
     proof: ["Role-based architecture", "API-driven backend", "Public repository"],
     architecture: [
       "Role-aware UI surfaces for admin, instructor, and learner actions",
       "Express REST API enforcing authorization and business rules",
-      "SQL schema for multi-user learning and progress operations",
+      "Oracle SQL schema for multi-user learning and progress operations",
     ],
     highlights: [
       "Designed a role-based web platform with clear admin, instructor, and learner access boundaries.",
       "Implemented scalable REST APIs and relational schema design for multi-role operations.",
     ],
-    tech: ["Node.js", "Express.js", "SQL", "REST APIs"],
+    tech: ["Node.js", "Express.js", "Oracle DB", "SQL", "REST APIs", "Navicat"],
     featured: true,
     year: "2023",
     links: [
