@@ -166,7 +166,7 @@ export function Contact() {
                     : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary dark:hover:!text-white"
                 }`}
               >
-                <Link href="/mninadmnobo-cv.pdf" download="mninadmnobo-cv.pdf" onClick={() => setActiveContactAction("cv")}>
+                <Link href="/NinadNoboCV.pdf" download="NinadNoboCV.pdf" onClick={() => setActiveContactAction("cv")}>
                   <Download className="h-5 w-5" />
                   Download CV
                 </Link>
@@ -180,7 +180,7 @@ export function Contact() {
                     : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary dark:hover:!text-white"
                 }`}
               >
-                <Link href="/mninadmnobo-resume.pdf" download="mninadmnobo-resume.pdf" onClick={() => setActiveContactAction("resume")}>
+                <Link href="/NinadNoboResume.pdf" download="NinadNoboResume.pdf" onClick={() => setActiveContactAction("resume")}>
                   <Download className="h-5 w-5" />
                   Download Resume
                 </Link>

@@ -215,7 +215,7 @@ export function Hero() {
                     : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary dark:hover:!text-white"
                 }`}
               >
-                <Link href="/mninadmnobo-cv.pdf" target="_blank" onClick={() => setActiveCta("cv")}>
+                <Link href="/NinadNoboCV.pdf" target="_blank" onClick={() => setActiveCta("cv")}>
                   <FileText className="h-5 w-5" />
                   View CV
                 </Link>
@@ -229,7 +229,7 @@ export function Hero() {
                       : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary dark:hover:!text-white"
                 }`}
               >
-                <Link href="/mninadmnobo-resume.pdf" target="_blank" onClick={() => setActiveCta("resume")}>
+                <Link href="/NinadNoboResume.pdf" target="_blank" onClick={() => setActiveCta("resume")}>
                   <FileText className="h-5 w-5" />
                   View Resume
                 </Link>
