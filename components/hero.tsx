@@ -105,7 +105,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 py-20 relative overflow-hidden">
+    <section className="min-h-screen flex flex-col justify-start px-6 md:px-12 lg:px-24 pt-28 md:pt-32 lg:pt-36 pb-20 relative overflow-hidden">
       {/* Premium background with gradient mesh */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-card to-background" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
@@ -117,12 +117,12 @@ export function Hero() {
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
       
-      <div className="max-w-6xl mx-auto w-full relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+      <div className="max-w-7xl mx-auto w-full relative z-10">
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
           {/* Profile Picture Section */}
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-primary/50 to-primary/20 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500" />
-            <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary/30 bg-secondary">
+            <div className="relative w-56 h-56 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-primary/30 bg-secondary">
               <Image
                 src="/Mohammad_Ninad_Mahmud_Nobo.jpg"
                 alt="Mohammad Ninad Mahmud Nobo"
@@ -138,22 +138,22 @@ export function Hero() {
           </div>
 
           {/* Content Section */}
-          <div className="flex-1 text-center lg:text-left">
+          <div className="flex-1 text-center lg:text-left max-w-3xl">
             {/* Status badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
               <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
               <span className="text-sm text-primary">Available for opportunities</span>
             </div>
 
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground mb-2 text-balance">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-2 text-balance leading-tight">
               Mohammad Ninad Mahmud Nobo
             </h1>
 
-            <p className="text-lg md:text-2xl lg:text-3xl text-primary mb-3 font-semibold text-balance">
+            <p className="text-xl md:text-2xl lg:text-3xl text-primary mb-3 font-semibold text-balance">
               AI Systems & Full-Stack Engineer
             </p>
 
-            <p className="text-base md:text-xl text-muted-foreground mb-4 font-medium text-balance">
+            <p className="text-base md:text-lg text-muted-foreground mb-4 font-medium text-balance max-w-2xl">
               Building LLM-powered systems, real-time applications, and applied AI for real-world impact
             </p>
 
