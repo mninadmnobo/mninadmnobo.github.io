@@ -10,6 +10,7 @@ const OVERLEAF_URL = process.env.NEXT_PUBLIC_OVERLEAF_URL ?? "https://www.overle
 export default function CVPage() {
   const [latex, setLatex] = useState<string>("")
   const [loading, setLoading] = useState(true)
+  const darkHoverClassName = "dark:hover:!bg-primary/90 dark:hover:!text-primary-foreground dark:hover:!border-primary"
 
   useEffect(() => {
     const fetchTex = async () => {
@@ -45,14 +46,14 @@ export default function CVPage() {
             <div className="mb-3 flex gap-3">
               {OVERLEAF_URL && (
                 <a href={OVERLEAF_URL} target="_blank" rel="noopener noreferrer" className="no-underline">
-                  <Button variant="outline">Open on Overleaf</Button>
+                  <Button variant="outline" className={darkHoverClassName}>Open on Overleaf</Button>
                 </a>
               )}
               <a href="/Mohammad_Ninad_Mahmud_Nobo_CV.pdf" target="_blank" rel="noreferrer" className="no-underline">
-                <Button variant="outline">Open PDF in new tab</Button>
+                <Button variant="outline" className={darkHoverClassName}>Open PDF in new tab</Button>
               </a>
               <a href="/Mohammad_Ninad_Mahmud_Nobo_CV.pdf" download className="no-underline">
-                <Button variant="outline">Download PDF</Button>
+                <Button variant="outline" className={darkHoverClassName}>Download PDF</Button>
               </a>
             </div>
 
@@ -68,9 +69,9 @@ export default function CVPage() {
           <div>
             <div className="mb-3 flex gap-3">
               <a href="/Mohammad_Ninad_Mahmud_Nobo_CV.tex" download className="no-underline">
-                <Button variant="outline">Download LaTeX</Button>
+                <Button variant="outline" className={darkHoverClassName}>Download LaTeX</Button>
               </a>
-              <Button variant="outline" onClick={copyLatex}>Copy LaTeX</Button>
+              <Button variant="outline" className={darkHoverClassName} onClick={copyLatex}>Copy LaTeX</Button>
             </div>
 
             <div>
