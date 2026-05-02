@@ -152,21 +152,36 @@ export function Contact() {
               </div>
             </div>
             
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-col gap-2 mb-6">
               <Button
                 asChild
                 variant="outline"
                 className={`gap-2 no-underline transition-all duration-200 ${
                   activeContactAction === "email"
-                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white dark:hover:!bg-primary/90 dark:hover:!text-white"
-                    : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary dark:hover:!text-white"
+                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white"
+                    : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white"
                 }`}
               >
-                <Link href="mailto:mninadmnobo@gmail.com" onClick={() => setActiveContactAction("email")}>
+                <Link href="mailto:mninadmnob@gmail.com" onClick={() => setActiveContactAction("email") }>
                   <Mail className="h-5 w-5" />
-                  Email Me
+                  E-Mail
                 </Link>
               </Button>
+
+              <div className="text-sm text-muted-foreground mt-2 space-y-1">
+                <div>
+                  <span className="font-medium">Professional:</span>{' '}
+                  <Link href="mailto:mninadmnob@gmail.com" className="text-primary no-underline">mninadmnob@gmail.com</Link>
+                </div>
+                <div>
+                  <span className="font-medium">BUET(Student):</span>{' '}
+                  <Link href="mailto:2005080@ugrad.cse.buet.ac.bd" className="text-primary no-underline">2005080@ugrad.cse.buet.ac.bd</Link>
+                </div>
+                <div>
+                  <span className="font-medium">Personal:</span>{' '}
+                  <Link href="mailto:noboninad@gmail.com" className="text-primary no-underline">noboninad@gmail.com</Link>
+                </div>
+              </div>
             </div>
           </div>
 

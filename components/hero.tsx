@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { usePathname } from "next/navigation"
 import Image from "next/image"
 import { MapPin, ExternalLink, FileText, User, FolderKanban, Microscope, Cpu, Mail, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -17,8 +18,21 @@ const sectionLinks = [
 export function Hero() {
   const [activeSection, setActiveSection] = useState<string | null>(null)
   const [activeCta, setActiveCta] = useState<string | null>(null)
+  const pathname = usePathname()
   const clickLockTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const hasSectionInteractionRef = useRef(false)
+
+  // Clear CTA highlight when route changes or page becomes visible again
+  useEffect(() => {
+    setActiveCta(null)
+
+    const onVisibility = () => {
+      if (document.visibilityState === "visible") setActiveCta(null)
+    }
+
+    document.addEventListener("visibilitychange", onVisibility)
+    return () => document.removeEventListener("visibilitychange", onVisibility)
+  }, [pathname])
 
   const handleSectionClick = (href: string) => {
     hasSectionInteractionRef.current = true
@@ -110,7 +124,7 @@ export function Hero() {
             <div className="absolute -inset-1 bg-gradient-to-r from-primary/50 to-primary/20 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-500" />
             <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-primary/30 bg-secondary">
               <Image
-                src="/profile.jpg"
+                src="/Mohammad_Ninad_Mahmud_Nobo.jpg"
                 alt="Mohammad Ninad Mahmud Nobo"
                 fill
                 className="object-cover"
@@ -218,6 +232,23 @@ export function Hero() {
                 <Link href="/cv" onClick={() => setActiveCta("cv")}>
                   <FileText className="h-5 w-5" />
                   View CV
+                </Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className={`gap-2 no-underline transition-all duration-200 ${
+                  activeCta === "scholar"
+                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white dark:hover:!bg-primary/90 dark:hover:!text-white"
+                    : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary dark:hover:!text-white"
+                }`}
+              >
+                <Link href="https://scholar.google.com/citations?user=y5-A2oAAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer" onClick={() => setActiveCta("scholar")}>
+                  <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
+                    <path d="M12 2 2 7l10 5 10-5-10-5zm0 7.5L4.2 6.2 12 3.1l7.8 3.1L12 9.5zM4 10v9l8 4 8-4v-9l-8 4-8-4z" />
+                  </svg>
+                  Google Scholar
+                  <ExternalLink className="h-4 w-4" />
                 </Link>
               </Button>
             </div>
