@@ -126,51 +126,69 @@ export function Contact() {
   return (
     <section id="contact" className="py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden">
       {/* Premium background effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-card via-background to-card" />
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-card/30 via-background to-card/30" />
+      <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-primary/8 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-primary/8 rounded-full blur-3xl" />
       
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div className="flex items-center gap-4 mb-4">
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="flex items-center gap-4 mb-12">
           <div className="h-px w-12 bg-primary" />
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">Contact</h2>
+          <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">Let's Connect</h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* Left side - CTA */}
-          <div>
-            <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-6 text-balance">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
+          {/* Left side - CTA & Info */}
+          <div className="lg:col-span-5 flex flex-col justify-center">
+            <h3 className="text-4xl md:text-5xl font-bold text-foreground mb-8 text-balance leading-tight">
               {"Let's build something together"}
             </h3>
             
-            <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
-              {"I am open to internships, full-time opportunities, and research collaborations in full-stack engineering, applied AI, and intelligent systems."}
+            <p className="text-muted-foreground text-base md:text-lg mb-8 leading-relaxed">
+              {"I'm open to internships, full-time opportunities, and research collaborations in full-stack engineering, applied AI, and intelligent systems."}
             </p>
             
-            <div className="flex flex-col gap-3 mb-8">
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <MapPin className="h-5 w-5 text-primary" />
-                <span>Dhaka, Bangladesh</span>
+            <div className="space-y-4 mb-10">
+              <div className="flex items-start gap-4">
+                <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-foreground">Location</p>
+                  <p className="text-muted-foreground">Dhaka, Bangladesh</p>
+                </div>
               </div>
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <Clock className="h-5 w-5 text-primary" />
-                <span>UTC+6 (Bangladesh Standard Time)</span>
+              <div className="flex items-start gap-4">
+                <Clock className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-foreground">Timezone</p>
+                  <p className="text-muted-foreground">UTC+6 (BST)</p>
+                </div>
               </div>
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <Phone className="h-5 w-5 text-primary" />
-                <Link href="tel:+8801939444451" className="hover:text-primary transition-colors no-underline">
-                  +8801939444451
-                </Link>
+              <div className="flex items-start gap-4">
+                <Phone className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <p className="font-medium text-foreground">Phone</p>
+                  <div className="space-y-1">
+                    <div>
+                      <Link href="tel:+8801939444451" className="text-primary hover:text-primary/80 transition-colors no-underline">
+                        +880 193 944 4451
+                      </Link>
+                    </div>
+                    <div>
+                      <Link href="tel:+8801849285757" className="text-primary hover:text-primary/80 transition-colors no-underline">
+                        +880 184 928 5757
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             
-            <div className="flex flex-col gap-2 mb-6">
+            <div className="flex flex-col gap-2">
               <Button
                 variant="outline"
-                className={`gap-2 no-underline transition-all duration-200 ${
+                className={`gap-2 no-underline transition-all duration-200 justify-start ${
                   activeContactAction === "email"
-                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white"
-                    : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white"
+                    ? "bg-primary text-white border-primary shadow-lg hover:!bg-primary/90 hover:!text-white"
+                    : "bg-secondary/50 border-border/60 text-foreground hover:!bg-primary/10 hover:!border-primary/50"
                 }`}
                 onClick={() =>
                   setActiveContactAction((prev) => (prev === "email" ? null : "email"))
@@ -179,29 +197,29 @@ export function Contact() {
                 aria-controls="email-options"
               >
                 <Mail className="h-5 w-5" />
-                E-Mail
+                Show Email Addresses
               </Button>
 
               {activeContactAction === "email" && (
-                <div id="email-options" className="text-sm text-muted-foreground mt-2 space-y-1">
+                <div id="email-options" className="text-sm text-muted-foreground mt-4 space-y-2 pl-4 border-l-2 border-primary/30">
                   <div>
-                    <span className="font-medium">Professional:</span>{" "}
-                    <Link href="mailto:mninadmnob@gmail.com" className="text-primary no-underline">
+                    <p className="font-medium text-foreground mb-1">Professional</p>
+                    <Link href="mailto:mninadmnob@gmail.com" className="text-primary hover:text-primary/80 transition-colors no-underline break-all">
                       mninadmnob@gmail.com
                     </Link>
                   </div>
                   <div>
-                    <span className="font-medium">BUET(Student):</span>{" "}
+                    <p className="font-medium text-foreground mb-1">University (BUET)</p>
                     <Link
                       href="mailto:2005080@ugrad.cse.buet.ac.bd"
-                      className="text-primary no-underline"
+                      className="text-primary hover:text-primary/80 transition-colors no-underline break-all"
                     >
                       2005080@ugrad.cse.buet.ac.bd
                     </Link>
                   </div>
                   <div>
-                    <span className="font-medium">Personal:</span>{" "}
-                    <Link href="mailto:noboninad@gmail.com" className="text-primary no-underline">
+                    <p className="font-medium text-foreground mb-1">Personal</p>
+                    <Link href="mailto:noboninad@gmail.com" className="text-primary hover:text-primary/80 transition-colors no-underline break-all">
                       noboninad@gmail.com
                     </Link>
                   </div>
@@ -211,33 +229,41 @@ export function Contact() {
           </div>
 
           {/* Right side - Profile links */}
-          <div className="grid gap-8 md:grid-cols-3">
-            {profileSections.map((section) => (
-              <div key={section.title}>
-                <h4 className="text-lg font-semibold text-foreground mb-4">{section.title}</h4>
-                <div className="grid gap-3">
-                  {section.links.map((link) => (
-                    <Link
-                      key={`${section.title}-${link.name}`}
-                      href={link.url}
-                      className="group flex items-center justify-between p-4 rounded-xl border border-border bg-card/50 text-foreground hover:border-primary/50 hover:bg-card transition-all duration-300 no-underline visited:text-foreground active:text-foreground"
-                      aria-label={`${link.name} profile`}
-                    >
-                      <div className="flex items-center gap-4">
-                        <span className="text-muted-foreground group-hover:text-primary transition-colors">
-                          {link.icon}
-                        </span>
-                        <div>
-                          <p className="font-medium text-foreground">{link.name}</p>
-                          <p className="text-sm text-muted-foreground">{link.handle}</p>
+          <div className="lg:col-span-7">
+            <div className="grid gap-6 md:grid-cols-2">
+              {profileSections.map((section) => (
+                <div key={section.title} className="space-y-4">
+                  <div className="flex items-center gap-3 mb-5">
+                    <div className="h-px flex-1 bg-border/50" />
+                    <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground whitespace-nowrap">{section.title}</h4>
+                    <div className="h-px flex-1 bg-border/50" />
+                  </div>
+                  <div className="space-y-3">
+                    {section.links.map((link) => (
+                      <Link
+                        key={`${section.title}-${link.name}`}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-center justify-between p-3.5 rounded-lg border border-border/60 bg-card/30 hover:bg-card/60 text-foreground transition-all duration-300 no-underline visited:text-foreground hover:border-primary/40 hover:shadow-sm"
+                        aria-label={`${link.name} profile - ${link.handle}`}
+                      >
+                        <div className="flex items-center gap-3 min-w-0">
+                          <span className="text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0">
+                            {link.icon}
+                          </span>
+                          <div className="min-w-0">
+                            <p className="font-medium text-foreground text-sm">{link.name}</p>
+                            <p className="text-xs text-muted-foreground truncate">{link.handle}</p>
+                          </div>
                         </div>
-                      </div>
-                      <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                    </Link>
-                  ))}
+                        <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0 ml-2" />
+                      </Link>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
