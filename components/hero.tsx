@@ -215,23 +215,9 @@ export function Hero() {
                     : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary dark:hover:!text-white"
                 }`}
               >
-                <Link href="/NinadNoboCV.pdf" target="_blank" onClick={() => setActiveCta("cv")}>
+                <Link href="/cv" onClick={() => setActiveCta("cv")}>
                   <FileText className="h-5 w-5" />
                   View CV
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                className={`gap-2 no-underline transition-all duration-200 ${
-                  activeCta === "resume"
-                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white dark:hover:!bg-primary/90 dark:hover:!text-white"
-                      : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary dark:hover:!text-white"
-                }`}
-              >
-                <Link href="/NinadNoboResume.pdf" target="_blank" onClick={() => setActiveCta("resume")}>
-                  <FileText className="h-5 w-5" />
-                  View Resume
                 </Link>
               </Button>
             </div>

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Mail, ExternalLink, MapPin, Clock, Download, Phone } from "lucide-react"
+import { Mail, ExternalLink, MapPin, Clock, FileText, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
 
@@ -23,6 +23,16 @@ const socialLinks = [
     icon: (
       <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+      </svg>
+    ),
+  },
+  {
+    name: "Google Scholar",
+    handle: "M Ninad M Nobo",
+    url: "https://scholar.google.com/citations?user=y5-A2oAAAAAJ&hl=en&oi=ao",
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
+        <path d="M12 2 2 7l10 5 10-5-10-5zm0 7.5L4.2 6.2 12 3.1l7.8 3.1L12 9.5zM4 10v9l8 4 8-4v-9l-8 4-8-4z" />
       </svg>
     ),
   },
@@ -155,34 +165,6 @@ export function Contact() {
                 <Link href="mailto:mninadmnobo@gmail.com" onClick={() => setActiveContactAction("email")}>
                   <Mail className="h-5 w-5" />
                   Email Me
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                className={`gap-2 no-underline transition-all duration-200 ${
-                  activeContactAction === "cv"
-                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white dark:hover:!bg-primary/90 dark:hover:!text-white"
-                    : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary dark:hover:!text-white"
-                }`}
-              >
-                <Link href="/NinadNoboCV.pdf" download="NinadNoboCV.pdf" onClick={() => setActiveContactAction("cv")}>
-                  <Download className="h-5 w-5" />
-                  Download CV
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                className={`gap-2 no-underline transition-all duration-200 ${
-                  activeContactAction === "resume"
-                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white dark:hover:!bg-primary/90 dark:hover:!text-white"
-                    : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary dark:hover:!text-white"
-                }`}
-              >
-                <Link href="/NinadNoboResume.pdf" download="NinadNoboResume.pdf" onClick={() => setActiveContactAction("resume")}>
-                  <Download className="h-5 w-5" />
-                  Download Resume
                 </Link>
               </Button>
             </div>
