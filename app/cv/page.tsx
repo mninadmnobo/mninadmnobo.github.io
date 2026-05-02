@@ -54,7 +54,7 @@ export default function CVPage() {
           
           <div className="mb-4 max-w-3xl">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground whitespace-nowrap leading-tight">
-              Mohammad Ninad Mahmud Nobo CV
+              Mohammad Ninad Mahmud Nobo
             </h1>
           </div>
           
@@ -77,13 +77,13 @@ export default function CVPage() {
             </a>
           )}
           <a href="/Mohammad_Ninad_Mahmud_Nobo_CV.pdf" target="_blank" rel="noopener noreferrer" className="no-underline">
-            <Button variant="outline" className="gap-2 border-border/60 hover:border-primary/50 hover:bg-primary/10 transition-all duration-200">
+            <Button variant="outline" className="gap-2 border-border/60 text-primary hover:!border-primary/50 hover:!bg-primary/10 hover:!text-primary dark:hover:!text-primary-foreground transition-all duration-200">
               <FileText className="h-4 w-4" />
               View PDF
             </Button>
           </a>
           <a href="/Mohammad_Ninad_Mahmud_Nobo_CV.pdf" download className="no-underline">
-            <Button variant="outline" className="gap-2 border-border/60 hover:border-primary/50 hover:bg-primary/10 transition-all duration-200">
+            <Button variant="outline" className="gap-2 border-border/60 text-primary hover:!border-primary/50 hover:!bg-primary/10 hover:!text-primary dark:hover:!text-primary-foreground transition-all duration-200">
               <Download className="h-4 w-4" />
               Download PDF
             </Button>
