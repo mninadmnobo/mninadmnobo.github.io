@@ -21,7 +21,7 @@ const techCategories = [
   },
   {
     name: "Data and BI Tools",
-    items: ["Microsoft Office 365", "Excel", "Google Sheets", "Power BI (Foundations)"],
+    items: ["Microsoft Office 365", "Excel", "Google Sheets"],
   },
   {
     name: "Databases",

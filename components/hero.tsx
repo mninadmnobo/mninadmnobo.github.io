@@ -150,11 +150,11 @@ export function Hero() {
             </h1>
 
             <p className="text-lg md:text-2xl lg:text-3xl text-primary mb-3 font-semibold text-balance">
-              Full-Stack, AI & ML Engineer
+              AI Systems & Full-Stack Engineer
             </p>
 
             <p className="text-base md:text-xl text-muted-foreground mb-4 font-medium text-balance">
-              Building scalable full-stack systems and real-world AI applications
+              Building LLM-powered systems, real-time applications, and applied AI for real-world impact
             </p>
 
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-6 text-sm text-muted-foreground">

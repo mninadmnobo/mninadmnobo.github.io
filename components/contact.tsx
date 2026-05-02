@@ -5,7 +5,7 @@ import { Mail, ExternalLink, MapPin, Clock, FileText, Phone } from "lucide-react
 import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
 
-const socialLinks = [
+const professionalLinks = [
   {
     name: "GitHub",
     handle: "@mninadmnobo",
@@ -36,6 +36,9 @@ const socialLinks = [
       </svg>
     ),
   },
+]
+
+const programmingLinks = [
   {
     name: "NeetCode",
     handle: "@mninadmnobo",
@@ -76,16 +79,9 @@ const socialLinks = [
       </svg>
     ),
   },
-  {
-    name: "Twitter",
-    handle: "@mninadmnobo",
-    url: "https://x.com/mninadmnobo?s=11",
-    icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
-        <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
-      </svg>
-    ),
-  },
+]
+
+const socialLinks = [
   {
     name: "Facebook",
     handle: "@mninadmnobo",
@@ -106,6 +102,22 @@ const socialLinks = [
       </svg>
     ),
   },
+  {
+    name: "Twitter",
+    handle: "@mninadmnobo",
+    url: "https://x.com/mninadmnobo?s=11",
+    icon: (
+      <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
+        <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+      </svg>
+    ),
+  },
+]
+
+const profileSections = [
+  { title: "Professional Profiles", links: professionalLinks },
+  { title: "Programming Profiles", links: programmingLinks },
+  { title: "Social Media", links: socialLinks },
 ]
 
 export function Contact() {
@@ -198,31 +210,34 @@ export function Contact() {
             </div>
           </div>
 
-          {/* Right side - Social links */}
-          <div>
-            <h4 className="text-lg font-semibold text-foreground mb-6">Professional Profiles</h4>
-            
-            <div className="grid gap-3">
-              {socialLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.url}
-                  className="group flex items-center justify-between p-4 rounded-xl border border-border bg-card/50 hover:border-primary/50 hover:bg-card transition-all duration-300 no-underline"
-                  aria-label={`${link.name} profile`}
-                >
-                  <div className="flex items-center gap-4">
-                    <span className="text-muted-foreground group-hover:text-primary transition-colors">
-                      {link.icon}
-                    </span>
-                    <div>
-                      <p className="font-medium text-foreground">{link.name}</p>
-                      <p className="text-sm text-muted-foreground">{link.handle}</p>
-                    </div>
-                  </div>
-                  <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
-                </Link>
-              ))}
-            </div>
+          {/* Right side - Profile links */}
+          <div className="space-y-8">
+            {profileSections.map((section) => (
+              <div key={section.title}>
+                <h4 className="text-lg font-semibold text-foreground mb-4">{section.title}</h4>
+                <div className="grid gap-3">
+                  {section.links.map((link) => (
+                    <Link
+                      key={`${section.title}-${link.name}`}
+                      href={link.url}
+                      className="group flex items-center justify-between p-4 rounded-xl border border-border bg-card/50 hover:border-primary/50 hover:bg-card transition-all duration-300 no-underline"
+                      aria-label={`${link.name} profile`}
+                    >
+                      <div className="flex items-center gap-4">
+                        <span className="text-muted-foreground group-hover:text-primary transition-colors">
+                          {link.icon}
+                        </span>
+                        <div>
+                          <p className="font-medium text-foreground">{link.name}</p>
+                          <p className="text-sm text-muted-foreground">{link.handle}</p>
+                        </div>
+                      </div>
+                      <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
