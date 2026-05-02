@@ -193,7 +193,7 @@ export function Hero() {
                 className={`gap-2 no-underline transition-all duration-200 ${
                   activeCta === "github"
                     ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white dark:hover:!bg-primary/90 dark:hover:!text-white"
-                    : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary dark:hover:!text-white"
+                    : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-primary dark:hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary"
                 }`}
               >
                 <Link href="https://github.com/mninadmnobo" onClick={() => setActiveCta("github")}>
@@ -210,7 +210,7 @@ export function Hero() {
                 className={`gap-2 no-underline transition-all duration-200 ${
                   activeCta === "linkedin"
                     ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white dark:hover:!bg-primary/90 dark:hover:!text-white"
-                    : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary dark:hover:!text-white"
+                    : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-primary dark:hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary"
                 }`}
               >
                 <Link href="https://linkedin.com/in/mninadmnobo" onClick={() => setActiveCta("linkedin")}>
@@ -224,31 +224,31 @@ export function Hero() {
                 asChild
                 variant="outline"
                 className={`gap-2 no-underline transition-all duration-200 ${
-                  activeCta === "cv"
-                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white dark:hover:!bg-primary/90 dark:hover:!text-white"
-                    : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary dark:hover:!text-white"
-                }`}
-              >
-                <Link href="/cv" onClick={() => setActiveCta("cv")}>
-                  <FileText className="h-5 w-5" />
-                  View CV
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                className={`gap-2 no-underline transition-all duration-200 ${
                   activeCta === "scholar"
                     ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white dark:hover:!bg-primary/90 dark:hover:!text-white"
-                    : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary dark:hover:!text-white"
+                    : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-primary dark:hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary"
                 }`}
               >
                 <Link href="https://scholar.google.com/citations?user=y5-A2oAAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer" onClick={() => setActiveCta("scholar")}>
                   <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
                     <path d="M12 2 2 7l10 5 10-5-10-5zm0 7.5L4.2 6.2 12 3.1l7.8 3.1L12 9.5zM4 10v9l8 4 8-4v-9l-8 4-8-4z" />
                   </svg>
-                  Google Scholar
+                  Research Profile
                   <ExternalLink className="h-4 w-4" />
+                </Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                className={`gap-2 no-underline transition-all duration-200 ${
+                  activeCta === "cv"
+                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white dark:hover:!bg-primary/90 dark:hover:!text-white"
+                    : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-primary dark:hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary"
+                }`}
+              >
+                <Link href="/cv" onClick={() => setActiveCta("cv")}>
+                  <FileText className="h-5 w-5" />
+                  View CV
                 </Link>
               </Button>
             </div>
@@ -266,7 +266,7 @@ export function Hero() {
                     className={`rounded-full border transition-all duration-200 ${
                       activeSection === section.href
                         ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white dark:hover:!bg-primary/90 dark:hover:!text-white"
-                        : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary dark:hover:!text-white"
+                        : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-primary dark:hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary"
                     }`}
                   >
                     <Link href={section.href} onClick={() => handleSectionClick(section.href)}>
