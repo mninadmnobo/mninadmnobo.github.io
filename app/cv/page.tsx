@@ -52,8 +52,8 @@ export default function CVPage() {
             <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">Curriculum Vitae</h2>
           </div>
           
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 text-foreground text-balance leading-tight">
-            Mohammad Ninad<br />Mahmud Nobo
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground text-balance leading-tight">
+            Mohammad Ninad Mahmud Nobo CV
           </h1>
           
           <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
@@ -67,7 +67,7 @@ export default function CVPage() {
             <a href={OVERLEAF_URL} target="_blank" rel="noopener noreferrer" className="no-underline">
               <Button
                 variant="outline"
-                className="gap-2 border-primary/40 text-primary hover:!border-primary/50 hover:!bg-primary/10 hover:!text-primary transition-all duration-200"
+                className="gap-2 border-primary/40 text-primary hover:!border-primary hover:!bg-primary hover:!text-primary-foreground dark:hover:!border-primary dark:hover:!bg-primary dark:hover:!text-primary-foreground transition-all duration-200"
               >
                 <ExternalLink className="h-4 w-4" />
                 Open on Overleaf
