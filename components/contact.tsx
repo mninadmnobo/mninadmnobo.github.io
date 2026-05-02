@@ -185,7 +185,7 @@ export function Contact() {
             <div className="flex flex-col gap-2">
               <Button
                 variant="outline"
-                className={`gap-2 no-underline transition-all duration-200 justify-start ${
+                className={`gap-2 no-underline transition-all duration-200 justify-center ${
                   activeContactAction === "email"
                     ? "bg-primary text-white border-primary shadow-lg hover:!bg-primary/90 hover:!text-white"
                     : "bg-secondary/50 border-border/60 text-foreground hover:!bg-primary/10 hover:!border-primary/50"
