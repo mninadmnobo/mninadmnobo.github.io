@@ -211,7 +211,7 @@ export function Contact() {
           </div>
 
           {/* Right side - Profile links */}
-          <div className="space-y-8">
+          <div className="grid gap-8 md:grid-cols-3">
             {profileSections.map((section) => (
               <div key={section.title}>
                 <h4 className="text-lg font-semibold text-foreground mb-4">{section.title}</h4>
@@ -220,7 +220,7 @@ export function Contact() {
                     <Link
                       key={`${section.title}-${link.name}`}
                       href={link.url}
-                      className="group flex items-center justify-between p-4 rounded-xl border border-border bg-card/50 hover:border-primary/50 hover:bg-card transition-all duration-300 no-underline"
+                      className="group flex items-center justify-between p-4 rounded-xl border border-border bg-card/50 text-foreground hover:border-primary/50 hover:bg-card transition-all duration-300 no-underline visited:text-foreground active:text-foreground"
                       aria-label={`${link.name} profile`}
                     >
                       <div className="flex items-center gap-4">
