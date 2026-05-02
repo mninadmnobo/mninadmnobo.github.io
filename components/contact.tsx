@@ -188,7 +188,7 @@ export function Contact() {
                 className={`gap-2 no-underline transition-all duration-200 justify-center ${
                   activeContactAction === "email"
                     ? "bg-primary text-white border-primary shadow-lg hover:!bg-primary/90 hover:!text-white"
-                    : "bg-secondary/50 border-border/60 text-foreground hover:!bg-primary/10 hover:!border-primary/50"
+                    : "bg-secondary/50 border-border/60 text-foreground hover:!bg-primary/10 hover:!border-primary/50 hover:!text-primary dark:hover:!text-primary-foreground"
                 }`}
                 onClick={() =>
                   setActiveContactAction((prev) => (prev === "email" ? null : "email"))
