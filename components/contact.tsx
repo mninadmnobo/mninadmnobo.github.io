@@ -133,7 +133,7 @@ export function Contact() {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="flex items-center gap-4 mb-12">
           <div className="h-px w-12 bg-primary" />
-          <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">Let's Connect</h2>
+          <h2 className="text-lg font-semibold uppercase tracking-widest text-primary">Let's Connect</h2>
         </div>
 
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
@@ -230,8 +230,9 @@ export function Contact() {
 
           {/* Right side - Profile links */}
           <div className="lg:col-span-7">
-            <div className="grid gap-6 md:grid-cols-2">
-              {profileSections.map((section) => (
+            {/* First row: Professional & Programming */}
+            <div className="grid gap-6 md:grid-cols-2 mb-8">
+              {profileSections.slice(0, 2).map((section) => (
                 <div key={section.title} className="space-y-4">
                   <div className="flex items-center gap-3 mb-5">
                     <div className="h-px flex-1 bg-border/50" />
@@ -263,6 +264,40 @@ export function Contact() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* Second row: Social Media centered/offset */}
+            <div className="flex justify-center lg:justify-end lg:pr-12">
+              <div key={profileSections[2].title} className="space-y-4 w-full md:w-auto md:max-w-sm">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="h-px flex-1 md:flex-none md:w-12 bg-border/50" />
+                  <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground whitespace-nowrap">{profileSections[2].title}</h4>
+                  <div className="h-px flex-1 md:flex-none md:w-12 bg-border/50" />
+                </div>
+                <div className="space-y-3">
+                  {profileSections[2].links.map((link) => (
+                    <Link
+                      key={`${profileSections[2].title}-${link.name}`}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center justify-between p-3.5 rounded-lg border border-border/60 bg-card/30 hover:bg-card/60 text-foreground transition-all duration-300 no-underline visited:text-foreground hover:border-primary/40 hover:shadow-sm"
+                      aria-label={`${link.name} profile - ${link.handle}`}
+                    >
+                      <div className="flex items-center gap-3 min-w-0">
+                        <span className="text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0">
+                          {link.icon}
+                        </span>
+                        <div className="min-w-0">
+                          <p className="font-medium text-foreground text-sm">{link.name}</p>
+                          <p className="text-xs text-muted-foreground truncate">{link.handle}</p>
+                        </div>
+                      </div>
+                      <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0 ml-2" />
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
