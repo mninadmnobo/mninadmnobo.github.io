@@ -35,69 +35,22 @@ export function Hero() {
   }, [pathname])
 
   const handleSectionClick = (href: string) => {
-    hasSectionInteractionRef.current = true
     setActiveSection(href)
 
     if (clickLockTimeoutRef.current) {
       clearTimeout(clickLockTimeoutRef.current)
     }
 
-    // Keep the clicked state visible while the hash navigation scroll settles.
+    // Keep the clicked state visible while the hash navigation scroll settles, then clear it.
     clickLockTimeoutRef.current = setTimeout(() => {
+      setActiveSection(null)
       clickLockTimeoutRef.current = null
     }, 900)
   }
 
   useEffect(() => {
-    const sectionIds = sectionLinks.map((section) => section.href.replace("#", ""))
-
-    const updateFromHash = () => {
-      if (window.location.hash) {
-        hasSectionInteractionRef.current = true
-        setActiveSection(window.location.hash)
-      }
-    }
-
-    updateFromHash()
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (clickLockTimeoutRef.current) {
-          return
-        }
-
-        if (!hasSectionInteractionRef.current) {
-          return
-        }
-
-        const visibleEntries = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
-
-        if (visibleEntries.length > 0) {
-          setActiveSection(`#${visibleEntries[0].target.id}`)
-        }
-      },
-      {
-        root: null,
-        rootMargin: "-25% 0px -55% 0px",
-        threshold: [0.2, 0.4, 0.6],
-      }
-    )
-
-    sectionIds.forEach((id) => {
-      const section = document.getElementById(id)
-      if (section) {
-        observer.observe(section)
-      }
-    })
-
-    window.addEventListener("hashchange", updateFromHash)
-
+    // Cleanup timeout on component unmount
     return () => {
-      observer.disconnect()
-      window.removeEventListener("hashchange", updateFromHash)
-
       if (clickLockTimeoutRef.current) {
         clearTimeout(clickLockTimeoutRef.current)
       }
@@ -265,9 +218,9 @@ export function Hero() {
                     size="default"
                     className={`rounded-full border transition-all duration-200 ${
                       activeSection === section.href
-                        ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white"
-                        : "bg-secondary/60 border-border/80 text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)]"
-                    }`}
+                        ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)]"
+                        : "bg-secondary/60 border-border/80 text-foreground"
+                    } hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)]`}
                   >
                     <Link href={section.href} onClick={() => handleSectionClick(section.href)}>
                       <Icon className="h-4 w-4 mr-2" />
