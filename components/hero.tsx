@@ -34,6 +34,24 @@ export function Hero() {
     return () => document.removeEventListener("visibilitychange", onVisibility)
   }, [pathname])
 
+  // Clear CTA highlight when scrolling away from hero section
+  useEffect(() => {
+    const handleScroll = () => {
+      // Get hero section (first section on page)
+      const heroSection = document.querySelector("section")
+      if (!heroSection) return
+
+      const rect = heroSection.getBoundingClientRect()
+      // If hero section is more than 200px out of view, clear active CTA
+      if (rect.bottom < 200) {
+        setActiveCta(null)
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   const handleSectionClick = (href: string) => {
     hasSectionInteractionRef.current = true
     setActiveSection(href)
