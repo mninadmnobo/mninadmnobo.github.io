@@ -34,24 +34,6 @@ export function Hero() {
     return () => document.removeEventListener("visibilitychange", onVisibility)
   }, [pathname])
 
-  // Clear CTA highlight when scrolling away from hero section
-  useEffect(() => {
-    const handleScroll = () => {
-      // Get hero section (first section on page)
-      const heroSection = document.querySelector("section")
-      if (!heroSection) return
-
-      const rect = heroSection.getBoundingClientRect()
-      // If hero section is more than 200px out of view, clear active CTA
-      if (rect.bottom < 200) {
-        setActiveCta(null)
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
   const handleSectionClick = (href: string) => {
     hasSectionInteractionRef.current = true
     setActiveSection(href)
@@ -210,8 +192,8 @@ export function Hero() {
                 variant="outline"
                 className={`gap-2 no-underline transition-all duration-200 ${
                   activeCta === "github"
-                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white"
-                    : "!bg-secondary/60 !border-border/80 !text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)]"
+                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white dark:hover:!bg-primary/90 dark:hover:!text-white"
+                    : "!bg-secondary/60 !border-border/80 !text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-primary dark:hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary"
                 }`}
               >
                 <Link href="https://github.com/mninadmnobo" onClick={() => setActiveCta("github")}>
@@ -227,8 +209,8 @@ export function Hero() {
                 variant="outline"
                 className={`gap-2 no-underline transition-all duration-200 ${
                   activeCta === "linkedin"
-                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white"
-                    : "!bg-secondary/60 !border-border/80 !text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)]"
+                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white dark:hover:!bg-primary/90 dark:hover:!text-white"
+                    : "!bg-secondary/60 !border-border/80 !text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-primary dark:hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary"
                 }`}
               >
                 <Link href="https://linkedin.com/in/mninadmnobo" onClick={() => setActiveCta("linkedin")}>
@@ -243,8 +225,8 @@ export function Hero() {
                 variant="outline"
                 className={`gap-2 no-underline transition-all duration-200 ${
                   activeCta === "scholar"
-                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white"
-                    : "!bg-secondary/60 !border-border/80 !text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)]"
+                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white dark:hover:!bg-primary/90 dark:hover:!text-white"
+                    : "!bg-secondary/60 !border-border/80 !text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-primary dark:hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary"
                 }`}
               >
                 <Link href="https://scholar.google.com/citations?user=y5-A2oAAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer" onClick={() => setActiveCta("scholar")}>
@@ -260,8 +242,8 @@ export function Hero() {
                 variant="outline"
                 className={`gap-2 no-underline transition-all duration-200 ${
                   activeCta === "cv"
-                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white"
-                    : "!bg-secondary/60 !border-border/80 !text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)]"
+                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white dark:hover:!bg-primary/90 dark:hover:!text-white"
+                    : "!bg-secondary/60 !border-border/80 !text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-primary dark:hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary"
                 }`}
               >
                 <Link href="/cv" onClick={() => setActiveCta("cv")}>
@@ -283,8 +265,8 @@ export function Hero() {
                     size="default"
                     className={`rounded-full border transition-all duration-200 ${
                       activeSection === section.href
-                        ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white"
-                        : "!bg-secondary/60 !border-border/80 !text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)]"
+                        ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white dark:hover:!bg-primary/90 dark:hover:!text-white"
+                        : "!bg-secondary/60 !border-border/80 !text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-primary dark:hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary"
                     }`}
                   >
                     <Link href={section.href} onClick={() => handleSectionClick(section.href)}>
