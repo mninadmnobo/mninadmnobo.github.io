@@ -117,7 +117,7 @@ const socialLinks = [
 const profileSections = [
   { title: "Professional Profiles", links: professionalLinks },
   { title: "Programming Profiles", links: programmingLinks },
-  { title: "Social Media", links: socialLinks },
+  { title: "Social Media Profiles", links: socialLinks },
 ]
 
 export function Contact() {
