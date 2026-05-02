@@ -65,7 +65,10 @@ export default function CVPage() {
         <div className="flex flex-wrap gap-3 mb-12">
           {OVERLEAF_URL && (
             <a href={OVERLEAF_URL} target="_blank" rel="noopener noreferrer" className="no-underline">
-              <Button className="gap-2 bg-primary text-white hover:bg-primary/90 shadow-lg transition-all duration-200">
+              <Button
+                variant="outline"
+                className="gap-2 border-primary/40 text-primary hover:!border-primary/50 hover:!bg-primary/10 hover:!text-primary transition-all duration-200"
+              >
                 <ExternalLink className="h-4 w-4" />
                 Open on Overleaf
               </Button>

@@ -298,15 +298,15 @@ export function Contact() {
               ))}
             </div>
 
-            {/* Second row: Programming Profile centered/offset */}
-            <div className="flex justify-center lg:justify-end lg:pr-12">
-              <div key={profileSections[1].title} className="space-y-4 w-full md:w-auto md:max-w-sm">
+            {/* Second row: Programming Profiles */}
+            <div className="flex justify-center lg:justify-center">
+              <div key={profileSections[1].title} className="w-full max-w-4xl space-y-4">
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="h-px flex-1 md:flex-none md:w-12 bg-border/50" />
+                  <div className="h-px flex-1 bg-border/50" />
                   <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground whitespace-nowrap">{profileSections[1].title}</h4>
-                  <div className="h-px flex-1 md:flex-none md:w-12 bg-border/50" />
+                  <div className="h-px flex-1 bg-border/50" />
                 </div>
-                <div className="space-y-3">
+                <div className="grid gap-3 md:grid-cols-2">
                   {profileSections[1].links.map((link) => (
                     <Link
                       key={`${profileSections[1].title}-${link.name}`}
