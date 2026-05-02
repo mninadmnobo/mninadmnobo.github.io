@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Mail, ExternalLink, MapPin, Clock, FileText, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
@@ -122,6 +122,10 @@ const profileSections = [
 
 export function Contact() {
   const [activeContactAction, setActiveContactAction] = useState<string | null>(null)
+
+  useEffect(() => {
+    setActiveContactAction(null)
+  }, [])
 
   return (
     <section id="contact" className="py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden">
