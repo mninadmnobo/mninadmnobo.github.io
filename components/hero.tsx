@@ -145,9 +145,9 @@ export function Hero() {
                 variant="outline"
                 className={`gap-2 no-underline transition-all duration-200 ${
                   activeCta === "github"
-                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white dark:hover:!bg-primary/90 dark:hover:!text-white"
-                    : "!bg-secondary/60 !border-border/80 !text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-primary dark:hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary"
-                }`}
+                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)]"
+                    : "bg-secondary/60 border-border/80 text-foreground"
+                } hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)]`}
               >
                 <Link href="https://github.com/mninadmnobo" onClick={() => setActiveCta("github")}>
                   <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
@@ -162,9 +162,9 @@ export function Hero() {
                 variant="outline"
                 className={`gap-2 no-underline transition-all duration-200 ${
                   activeCta === "linkedin"
-                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white dark:hover:!bg-primary/90 dark:hover:!text-white"
-                    : "!bg-secondary/60 !border-border/80 !text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-primary dark:hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary"
-                }`}
+                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)]"
+                    : "bg-secondary/60 border-border/80 text-foreground"
+                } hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)]`}
               >
                 <Link href="https://linkedin.com/in/mninadmnobo" onClick={() => setActiveCta("linkedin")}>
                   <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
@@ -178,9 +178,9 @@ export function Hero() {
                 variant="outline"
                 className={`gap-2 no-underline transition-all duration-200 ${
                   activeCta === "scholar"
-                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white dark:hover:!bg-primary/90 dark:hover:!text-white"
-                    : "!bg-secondary/60 !border-border/80 !text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-primary dark:hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary"
-                }`}
+                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)]"
+                    : "bg-secondary/60 border-border/80 text-foreground"
+                } hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)]`}
               >
                 <Link href="https://scholar.google.com/citations?user=y5-A2oAAAAAJ&hl=en&oi=ao" target="_blank" rel="noopener noreferrer" onClick={() => setActiveCta("scholar")}>
                   <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
@@ -195,9 +195,9 @@ export function Hero() {
                 variant="outline"
                 className={`gap-2 no-underline transition-all duration-200 ${
                   activeCta === "cv"
-                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)] hover:!bg-primary/90 hover:!text-white dark:hover:!bg-primary/90 dark:hover:!text-white"
-                    : "!bg-secondary/60 !border-border/80 !text-foreground hover:!bg-primary/90 hover:!border-primary hover:!text-primary dark:hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)] dark:hover:!bg-primary/90 dark:hover:!border-primary"
-                }`}
+                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)]"
+                    : "bg-secondary/60 border-border/80 text-foreground"
+                } hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)]`}
               >
                 <Link href="/cv" onClick={() => setActiveCta("cv")}>
                   <FileText className="h-5 w-5" />
