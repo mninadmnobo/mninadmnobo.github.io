@@ -213,7 +213,7 @@ export function Contact() {
                     </Link>
                   </div>
                   <div>
-                    <p className="font-medium text-foreground mb-1">University (BUET)</p>
+                    <p className="font-medium text-foreground mb-1">Academic (BUET)</p>
                     <Link
                       href="mailto:2005080@ugrad.cse.buet.ac.bd"
                       className="text-primary hover:text-primary/80 transition-colors no-underline break-all"
