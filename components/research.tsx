@@ -66,7 +66,7 @@ const research: ResearchItem[] = [
     ],
     tech: ["Python", "PyTorch", "NumPy"],
     tags: ["Medical AI", "Reasoning", "Deep Learning"],
-    link: "https://github.com/mninadmnobo/MedRAX-premium",
+    link: "https://github.com/mninadmnobo/MedCAR",
   },
 ]
 
@@ -222,7 +222,7 @@ export function Research() {
                               href={item.link}
                               className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground no-underline transition-colors"
                             >
-                              GitHub Repository
+                              GitHub Link
                               <ExternalLink className="h-3 w-3" />
                             </Link>
                           </div>
