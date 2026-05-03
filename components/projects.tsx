@@ -99,7 +99,7 @@ const featuredProjects: Project[] = [
     ],
   },
   {
-    name: "CSE310: Compiler Construction",
+    name: "Compiler Construction",
     description: "Full compiler for a C-like language with lexical analysis, parsing, semantic checks, and optimized 8086 code generation.",
     problem: "Compiler stages require precise coordination across parsing, semantics, and code generation.",
     solution: "Implemented full compiler pipeline using Flex/Bison with optimized 8086 output.",
@@ -112,7 +112,7 @@ const featuredProjects: Project[] = [
     ],
     highlights: [
       "Built full compiler pipeline from tokenization to code generation.",
-      "Implemented semantic analysis and intermediate representation.",
+      "Implemented semantic analysis and intermediate code generation.",
     ],
     tech: ["C++17", "Flex", "Bison", "8086 Codegen", "Linux"],
     featured: true,
