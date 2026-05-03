@@ -68,7 +68,7 @@ const featuredProjects: Project[] = [
     featured: true,
     year: "2025",
     links: [
-      { label: "GitHub Repository", href: "https://github.com/mninadmnobo/MindTrace" },
+      { label: "GitHub Link", href: "https://github.com/mninadmnobo/MindTrace" },
       { label: "Feature Demo", href: "https://youtu.be/BpRmKZYAOhM" },
       { label: "Infrastructure Demo", href: "https://www.youtube.com/watch?v=i0GG_g0eZck" },
     ],
@@ -94,7 +94,7 @@ const featuredProjects: Project[] = [
     featured: true,
     year: "2025",
     links: [
-      { label: "GitHub Repository", href: "https://github.com/mninadmnobo/GemmaVetCare" },
+      { label: "GitHub Link", href: "https://github.com/mninadmnobo/GemmaVetCare" },
       { label: "Feature Demo", href: "https://www.youtube.com/watch?v=EoxyudCIVSo" },
     ],
   },
@@ -118,7 +118,7 @@ const featuredProjects: Project[] = [
     featured: true,
     year: "2024",
     links: [
-      { label: "GitHub Repository", href: "https://github.com/mninadmnobo/CompilerSessional" },
+      { label: "GitHub Link", href: "https://github.com/mninadmnobo/CompilerSessional" },
     ],
   },
   {
@@ -142,7 +142,7 @@ const featuredProjects: Project[] = [
     featured: true,
     year: "2025",
     links: [
-      { label: "GitHub Repository", href: "https://github.com/mninadmnobo/Computer-Graphics-Pipeline" },
+      { label: "GitHub Link", href: "https://github.com/mninadmnobo/Computer-Graphics-Pipeline" },
     ],
   },
 ]
@@ -169,7 +169,7 @@ const allProjects: Project[] = [
     featured: false,
     year: "2024",
     links: [
-      { label: "GitHub Repository", href: "https://github.com/mninadmnobo/CSE-316-Microcontroller-and-Microprocessor-Project" },
+      { label: "GitHub Link", href: "https://github.com/mninadmnobo/CSE-316-Microcontroller-and-Microprocessor-Project" },
       { label: "Feature Demo", href: "https://www.youtube.com/watch?v=m3LLqLAPCik" },
     ],
   },
@@ -193,7 +193,7 @@ const allProjects: Project[] = [
     featured: false,
     year: "2023",
     links: [
-      { label: "GitHub Repository", href: "https://github.com/mninadmnobo/SKILL_HUB" },
+      { label: "GitHub Link", href: "https://github.com/mninadmnobo/SKILL_HUB" },
     ],
   },
   {
@@ -216,7 +216,7 @@ const allProjects: Project[] = [
     featured: false,
     year: "2022",
     links: [
-      { label: "GitHub Repository", href: "https://github.com/mninadmnobo/Movie-DataBase-Management-JavaFX" },
+      { label: "GitHub Link", href: "https://github.com/mninadmnobo/Movie-DataBase-Management-JavaFX" },
     ],
   },
   {
@@ -240,7 +240,7 @@ const allProjects: Project[] = [
     featured: false,
     year: "2025",
     links: [
-      { label: "GitHub Repository", href: "https://github.com/mninadmnobo/CSE406-Window_Scaling_Attack" },
+      { label: "GitHub Link", href: "https://github.com/mninadmnobo/CSE406-Window_Scaling_Attack" },
     ],
   },
 ]
