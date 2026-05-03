@@ -31,20 +31,23 @@
 
 % ==================== SECTION STYLE ====================
 \titleformat{\section}
-{\vspace{-5pt}\scshape\raggedright\normalsize}
-{}{0em}{}[\titlerule \vspace{-5pt}]
+{\scshape\raggedright\normalsize}
+{}{0em}{}[\titlerule]
+
+\titlespacing*{\section}{0pt}{6pt}{3pt}
 
 % ==================== CUSTOM COMMANDS ====================
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*, itemsep=0.4mm, topsep=0.4mm]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-1mm}}
 
 \newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*, itemsep=0.4mm, topsep=0.3mm, parsep=0mm, partopsep=0mm]}
+
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0.5mm}}
 
-\newcommand{\resumeProject}[3]{
-  \item \textbf{#1} \\
+\newcommand{\resumeProject}[4]{
+  \item \textbf{#1} \hspace{0.4em} {\small #2} \\
   \begin{tabular*}{\linewidth}{@{}l@{\extracolsep{\fill}}r@{}}
-    \textit{#2} & \textit{#3}
+    \textit{#3} & \textit{#4}
   \end{tabular*}
   \vspace{-4mm}
 }
@@ -74,10 +77,7 @@
 
 % ==================== Academic Profile ====================
 \section{Summary}
-\begin{itemize}[leftmargin=*]
-    \item CSE undergraduate at BUET with experience building AI-driven systems across mobile, backend, and applied machine learning.
-    \item Actively involved in research on LLM-based software testing, machine learning, and medical AI, with hands-on experience building end-to-end AI-driven systems and datasets.
-\end{itemize}
+CSE undergraduate at BUET focused on building intelligent systems at the intersection of large language models, software automation, and applied machine learning. Hands-on experience designing end-to-end AI-driven systems across mobile and backend platforms, with strong emphasis on reliability, scalability, and real-world deployment. Actively engaged in research on LLM-based software testing and medical AI, including dataset creation, evaluation pipelines, and trust-aware decision systems.
 
 % ==================== EDUCATION ====================
 \section{Education}
@@ -86,31 +86,42 @@
 \begin{tabular*}{\linewidth}{@{}l@{\extracolsep{\fill}}r@{}}
 Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.61 / 4.00}
 \end{tabular*}
+\textbf{Relevant Coursework:} Data Structures and Algorithms, Digital Logic Design, Database Systems, Operating Systems, Computer Architecture, Computer Networks, Computer Graphics, Algorithm Engineering, Artificial Intelligence, Machine Learning 
 
+% ==================== Research Interest ====================
+\section{Research Interests}
+\resumeItemListStart
+\item Large Language Models and LLM Systems
+\item Software Testing Automation
+\item Applied Machine Learning
+\item Medical AI and Multimodal Learning
+\resumeItemListEnd
 
 % ==================== RESEARCH & PUBLICATIONS ====================
 \section{Research Experience}
 
 \resumeSubHeadingListStart
 
-\resumeProject{Undergraduate Thesis: Web Testing Using Large Language Models}
-{LLMs • Web Automation}
+\resumeProject
+{Undergraduate Thesis: Web Testing Using Large Language Models}
+{[ \href{https://github.com/mninadmnobo/Test-Case-Generator}{GitHub Link} ]}
+{Python • LLMs • Web Automation • Prompt Engineering}
 {2025 -- Present}
 \resumeItemListStart
 \item Designing LLM-based pipelines for automated web test generation using prompt-driven and programmatic approaches.
 \item Creating and curating a dataset of functional descriptions and corresponding test cases for supervised evaluation.
 \item Investigating coverage improvement and robustness of generated tests.
-\item \textbf{Links:} \href{https://github.com/mninadmnobo/Test-Case-Generator}{GitHub Repository}
 \resumeItemListEnd
 
-\resumeProject{MedCAR: Conflict-Aware Medical Reasoning System (Under Review)}
+\resumeProject
+{MedCAR: Conflict-Aware Medical Reasoning System (Under Review)}
+{[ \href{https://github.com/mninadmnobo/MedCAR}{GitHub Link} ]}
 {Python • Deep Learning • Medical AI}
 {2026 -- Present}
 \resumeItemListStart
 \item Built a multi-model system for chest X-ray analysis integrating heterogeneous AI tools.
 \item Developed a conflict resolution pipeline to reconcile contradictory outputs using semantic reasoning and confidence calibration.
 \item Designed trust-aware decision framework with uncertainty-based abstention for reliable predictions.
-\item \textbf{Links:} \href{https://github.com/mninadmnobo/MedRAX-premium}{GitHub Repository}
 \resumeItemListEnd
 
 \resumeSubHeadingListEnd
@@ -121,47 +132,47 @@ Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.
 
 \resumeSubHeadingListStart
 
-\resumeProject{MindTrace: AI-Powered Dementia Care Application}
+\resumeProject
+{MindTrace: AI-Powered Dementia Care Application}
+{[ \href{https://github.com/mninadmnobo/MindTrace}{GitHub Link} \textbar\
+\href{https://www.youtube.com/watch?v=BpRmKZYAOhM}{Feature Demo} \textbar\
+\href{https://www.youtube.com/watch?v=i0GG_g0eZck}{Infrastructure Demo} ]}
 {Kotlin • Spring Boot • Spring AI • PostgreSQL • Redis • Firebase • Docker • Azure}
 {2025}
 \resumeItemListStart
 \item Engineered an AI-driven mobile--backend system for dementia care, integrating Android frontend with a scalable Spring Boot architecture supporting real-time caregiver workflows.
 \item Designed accessibility-first UI/UX for cognitively impaired users, emphasizing clarity, reduced interaction complexity, and usability.
-
-\item \textbf{Links:} 
-\href{https://github.com/mninadmnobo/MindTrace}{GitHub Repository} \textbar\
-\href{https://www.youtube.com/watch?v=BpRmKZYAOhM}{Feature Demo} \textbar\
-\href{https://www.youtube.com/watch?v=i0GG_g0eZck}{Infrastructure Demo}
 \resumeItemListEnd
 
-\resumeProject{Gemma VetCare: AI-Assisted Farming Support System}
+\resumeProject
+{Gemma VetCare: AI-Assisted Farming Support System}
+{[ \href{https://github.com/mninadmnobo/GemmaVetCare}{GitHub Link} \textbar\
+\href{https://www.youtube.com/watch?v=EoxyudCIVSo}{Feature Demo} ]}
 {Kotlin • Android Studio • Spring Boot • Spring AI • MongoDB}
 {2025}
 \resumeItemListStart
 \item Built an AI-assisted Android application for veterinary decision support, integrating backend services for real-time recommendations.
 \item Designed RESTful APIs optimized for low-connectivity environments through efficient request handling and data flow design.
-
-\item \textbf{Links:} 
-\href{https://github.com/mninadmnobo/GemmaVetCare}{GitHub Repository} \textbar\
-\href{https://www.youtube.com/watch?v=EoxyudCIVSo}{Feature Demo}
 \resumeItemListEnd
 
-\resumeProject{Compiler Construction (Flex, Bison, 8086 Codegen)}
+\resumeProject
+{Compiler Construction (Flex, Bison, 8086 Codegen)}
+{[ \href{https://github.com/mninadmnobo/CompilerSessional}{GitHub Link} ]}
 {C++17, Flex, Bison/Yacc • Linux}
 {2024}
 \resumeItemListStart
 \item Designed and implemented a full compiler pipeline for a C-like language, including lexical analysis, parsing, semantic analysis, and intermediate representation.
 \item Generated optimized 8086 assembly code with symbol table management and basic optimization techniques.
-\item \textbf{Links:} \href{https://github.com/mninadmnobo/CompilerSessional}{GitHub Repository}
 \resumeItemListEnd
 
-\resumeProject{Computer Graphics Pipeline Implementation}
+\resumeProject
+{Computer Graphics Pipeline Implementation}
+{[ \href{https://github.com/mninadmnobo/Computer-Graphics-Pipeline}{GitHub Link} ]}
 {C++17 • OpenGL/GLUT • Rasterization • Ray Tracing}
 {2025}
 \resumeItemListStart
 \item Implemented a full graphics pipeline including geometric transformations, clipping, rasterization with Z-buffering, and ray tracing.
 \item Developed OpenGL-based rendering demos with camera systems supporting 6-DOF control and real-time scene interaction.
-\item \textbf{Links:}  \href{https://github.com/mninadmnobo/Computer-Graphics-Pipeline}{GitHub Repository}
 \resumeItemListEnd
 
 \resumeSubHeadingListEnd
@@ -172,8 +183,7 @@ Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.
 \textbf{Backend:} Spring Boot, Spring AI, Node.js, Express.js, REST APIs \\
 \textbf{AI/ML:} PyTorch, TensorFlow, Scikit-learn, LLM Applications \\
 \textbf{Databases:} PostgreSQL, MongoDB, Redis \\
-\textbf{Tools:} Linux, Git, Docker, Firebase \\
-\textbf{Concepts:} System Design, API Development, Data Processing, Data Analysis
+\textbf{Tools:} Linux, Git, Docker, Firebase 
 
 % ==================== ADDITIONAL INFORMATION ====================
 \section{Additional Information}
