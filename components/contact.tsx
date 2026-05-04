@@ -1,9 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Mail, ExternalLink, MapPin, Clock, FileText, Phone } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Link } from "@/components/ui/link"
+import { Mail, ExternalLink, MapPin, Clock, Phone } from "lucide-react"
 
 const professionalLinks = [
   {
@@ -120,13 +118,6 @@ const profileSections = [
   { title: "Social Media Profiles", links: socialLinks },
 ]
 
-export function Contact() {
-  const [activeContactAction, setActiveContactAction] = useState<string | null>(null)
-
-  useEffect(() => {
-    setActiveContactAction(null)
-  }, [])
-
   return (
     <section id="contact" className="py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden">
       {/* Premium background effects */}
@@ -186,52 +177,36 @@ export function Contact() {
               </div>
             </div>
             
-            <div className="flex flex-col gap-2">
-              <Button
-                variant="outline"
-                className={`gap-2 no-underline transition-all duration-200 justify-center ${
-                  activeContactAction === "email"
-                    ? "bg-primary text-white border-primary shadow-lg hover:!bg-primary/90 hover:!text-white"
-                    : "bg-secondary/50 border-border/60 text-foreground hover:!bg-primary/10 hover:!border-primary/50 hover:!text-primary dark:hover:!text-primary-foreground"
-                }`}
-                onClick={() =>
-                  setActiveContactAction((prev) => (prev === "email" ? null : "email"))
-                }
-                aria-expanded={activeContactAction === "email"}
-                aria-controls="email-options"
-              >
-                <Mail className="h-5 w-5" />
-                Show Email Addresses
-              </Button>
-
-              {activeContactAction === "email" && (
-                <div id="email-options" className="text-sm text-muted-foreground mt-4 space-y-2 pl-4 border-l-2 border-primary/30">
-                  <div>
-                    <p className="font-medium text-foreground mb-1">Professional</p>
-                    <Link href="mailto:mninadmnob@gmail.com" className="text-primary hover:text-primary/80 transition-colors no-underline break-all">
-                      mninadmnob@gmail.com
-                    </Link>
-                  </div>
-                  <div>
-                    <p className="font-medium text-foreground mb-1">Academic (BUET)</p>
-                    <Link
-                      href="mailto:2005080@ugrad.cse.buet.ac.bd"
-                      className="text-primary hover:text-primary/80 transition-colors no-underline break-all"
-                    >
-                      2005080@ugrad.cse.buet.ac.bd
-                    </Link>
-                  </div>
-                  <div>
-                    <p className="font-medium text-foreground mb-1">Personal</p>
-                    <Link href="mailto:noboninad@gmail.com" className="text-primary hover:text-primary/80 transition-colors no-underline break-all">
-                      noboninad@gmail.com
-                    </Link>
-                  </div>
-                </div>
-              )}
+            <div className="mt-6 rounded-lg border border-border/70 bg-background/40 p-4">
+            <div className="flex items-center gap-2 mb-4">
+              <Mail className="h-4 w-4 text-primary" />
+              <p className="font-medium text-foreground">Contact Email</p>
+            </div>
+          
+            <div className="space-y-3 text-sm">
+              <div>
+                <p className="text-muted-foreground">Professional</p>
+                <Link href="mailto:mninadmnob@gmail.com" className="text-primary hover:text-primary/80 no-underline break-all">
+                  mninadmnob@gmail.com
+                </Link>
+              </div>
+          
+              <div>
+                <p className="text-muted-foreground">Academic (BUET)</p>
+                <Link href="mailto:2005080@ugrad.cse.buet.ac.bd" className="text-primary hover:text-primary/80 no-underline break-all">
+                  2005080@ugrad.cse.buet.ac.bd
+                </Link>
+              </div>
+          
+              <div>
+                <p className="text-muted-foreground">Personal</p>
+                <Link href="mailto:noboninad@gmail.com" className="text-primary hover:text-primary/80 no-underline break-all">
+                  noboninad@gmail.com
+                </Link>
+              </div>
             </div>
           </div>
-
+                      
           {/* Right side - Profile links */}
           <div className="lg:col-span-7">
             {/* First row: Professional & Social Media */}
