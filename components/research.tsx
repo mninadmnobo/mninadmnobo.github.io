@@ -74,7 +74,7 @@ const research: ResearchItem[] = [
     type: "Preprint",
     period: "2026",
     description: "Large-scale benchmark dataset and evaluation framework for long-form Bangla ASR and speaker diarization.",
-    status: "Preprint (arXiv : 2602.14291)",
+    status: "Preprint (arXiv: 2602.14291)",
     problem: "Bangla lacks standardized large-scale datasets and evaluation benchmarks for long-form speech recognition and multi-speaker diarization.",
     solution: "Contributed to building a reproducible benchmark with curated datasets, annotation pipelines, and standardized evaluation protocols.",
     impact: "Enables consistent benchmarking for Bangla ASR and diarization using Word Error Rate (WER) and Diarization Error Rate (DER).",
