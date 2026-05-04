@@ -178,34 +178,35 @@ export function Contact() {
             </div>
             
             <div className="mt-6 rounded-lg border border-border/70 bg-background/40 p-4">
-            <div className="flex items-center gap-2 mb-4">
-              <Mail className="h-4 w-4 text-primary" />
-              <p className="font-medium text-foreground text-sm">Contact Email</p>
-            </div>
-          
-            <div className="space-y-3 text-sm">
-              <div>
-                <p className="text-muted-foreground">Professional</p>
-                <Link href="mailto:mninadmnob@gmail.com" className="text-primary hover:text-primary/80 no-underline break-all">
-                  mninadmnob@gmail.com
-                </Link>
+              <div className="flex items-center gap-2 mb-4">
+                <Mail className="h-4 w-4 text-primary" />
+                <p className="font-medium text-foreground text-sm">Contact Email</p>
               </div>
-          
-              <div>
-                <p className="text-muted-foreground">Academic (BUET)</p>
-                <Link href="mailto:2005080@ugrad.cse.buet.ac.bd" className="text-primary hover:text-primary/80 no-underline break-all">
-                  2005080@ugrad.cse.buet.ac.bd
-                </Link>
+            
+              <div className="space-y-3 text-sm">
+                <div>
+                  <p className="text-muted-foreground">Professional</p>
+                  <Link href="mailto:mninadmnob@gmail.com" className="text-primary hover:text-primary/80 no-underline break-all">
+                    mninadmnob@gmail.com
+                  </Link>
+                </div>
+            
+                <div>
+                  <p className="text-muted-foreground">Academic (BUET)</p>
+                  <Link href="mailto:2005080@ugrad.cse.buet.ac.bd" className="text-primary hover:text-primary/80 no-underline break-all">
+                    2005080@ugrad.cse.buet.ac.bd
+                  </Link>
+                </div>
+            
+                <div>
+                  <p className="text-muted-foreground">Personal</p>
+                  <Link href="mailto:noboninad@gmail.com" className="text-primary hover:text-primary/80 no-underline break-all">
+                    noboninad@gmail.com
+                  </Link>
+                </div>
               </div>
-          
-              <div>
-                <p className="text-muted-foreground">Personal</p>
-                <Link href="mailto:noboninad@gmail.com" className="text-primary hover:text-primary/80 no-underline break-all">
-                  noboninad@gmail.com
-                </Link>
-              </div>
-            </div>
-          </div>
+            </div>   
+          </div>         
                       
           {/* Right side - Profile links */}
           <div className="lg:col-span-7">
