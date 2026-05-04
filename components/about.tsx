@@ -111,10 +111,10 @@ export function About() {
                 <div className="mt-2 space-y-2">
                   <p><span className="text-foreground font-medium">Algorithms:</span> Data Structures & Algorithms, Algorithm Engineering</p>
                   <p><span className="text-foreground font-medium">AI/ML:</span> Artificial Intelligence, Machine Learning</p>
-                  <p><span className="text-foreground font-medium">Systems:</span> Operating Systems, Computer Networks, Computer Architecture</p>
+                  <p><span className="text-foreground font-medium">Systems:</span> Operating Systems, Computer Networks</p>
                   <p><span className="text-foreground font-medium">Data:</span> Database Systems</p>
                   <p><span className="text-foreground font-medium">Graphics:</span> Computer Graphics</p>
-                  <p><span className="text-foreground font-medium">Hardware:</span> Digital Logic Design</p>
+                  <p><span className="text-foreground font-medium">Hardware:</span> Digital Logic Design, Computer Architecture</p>
                 </div>
               </div>
 
