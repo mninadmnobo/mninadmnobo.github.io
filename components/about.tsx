@@ -189,9 +189,9 @@ export function About() {
             <div className="flex flex-wrap gap-2">
               {[
                 "Large Language Model Systems",
-                "LLM-based Testing",
+                "Software Testing Automation",
                 "Applied Machine Learning",
-                "Medical & Trustworthy AI",
+                "Medical AI",
               ].map((item) => (
                 <span
                   key={item}
