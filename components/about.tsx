@@ -91,7 +91,7 @@ export function About() {
                 <h5 className="text-base md:text-lg font-semibold text-foreground">School and College</h5>
               </div>
 
-              <div className="space-y-4 flex-1">
+              <div className="space-y-4 flex-1 flex flex-col justify-between">
                 <div className="rounded-xl border border-border/60 bg-card/40 p-4">
                   <p className="text-sm font-semibold text-foreground">Uttara High School and College</p>
                   <p className="text-sm text-muted-foreground">2008 - 2012</p>
