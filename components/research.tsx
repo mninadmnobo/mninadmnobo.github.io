@@ -74,8 +74,7 @@ const research: ResearchItem[] = [
     type: "Preprint",
     period: "2026",
     description: "Large-scale benchmark dataset and evaluation framework for long-form Bangla ASR and speaker diarization.",
-    status: "Preprint (arXiv)",
-    arxivId: "2602.14291",
+    status: "Preprint (arXiv : 2602.14291)",
     problem: "Bangla lacks standardized large-scale datasets and evaluation benchmarks for long-form speech recognition and multi-speaker diarization.",
     solution: "Contributed to building a reproducible benchmark with curated datasets, annotation pipelines, and standardized evaluation protocols.",
     impact: "Enables consistent benchmarking for Bangla ASR and diarization using Word Error Rate (WER) and Diarization Error Rate (DER).",
@@ -103,18 +102,16 @@ const research: ResearchItem[] = [
 export function Research() {
   return (
     <section id="research" className="py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden">
-
       <div className="absolute inset-0 bg-gradient-to-t from-card/50 via-background to-background" />
       <div className="absolute top-0 right-1/4 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-
+      
       <div className="max-w-6xl mx-auto relative z-10">
-
         <div className="flex items-center gap-4 mb-4">
           <div className="h-px w-12 bg-primary" />
           <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">Research</h2>
         </div>
-
-        <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+        
+        <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
           Research and Thesis Work
         </h3>
 
@@ -123,16 +120,14 @@ export function Research() {
         </p>
 
         <div className="grid gap-6">
-
           {research.map((item) => (
-
             <div
               key={item.title}
               className="p-6 md:p-8 rounded-xl border border-border bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-300 group"
             >
-              <div className="flex gap-6">
-
-                <div className="p-3 rounded-xl bg-primary/10 h-fit">
+              <div className="flex flex-col md:flex-row md:items-start gap-6">
+                
+                <div className="p-3 rounded-xl bg-primary/10 w-fit">
                   {item.type === "Undergraduate Thesis" ? (
                     <GraduationCap className="h-8 w-8 text-primary" />
                   ) : (
@@ -144,8 +139,7 @@ export function Research() {
 
                   {/* TITLE + LINK */}
                   <div className="flex items-center justify-between gap-4 mb-2">
-
-                    <h4 className="text-2xl md:text-3xl font-bold leading-tight text-foreground group-hover:text-primary transition">
+                    <h4 className="text-xl md:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors">
                       {item.title}
                     </h4>
 
@@ -153,24 +147,25 @@ export function Research() {
                       <Link
                         href={item.link}
                         target="_blank"
-                        className="flex items-center gap-2 text-base md:text-lg font-semibold text-primary hover:underline whitespace-nowrap shrink-0"
+                        className="flex items-center gap-2 text-sm md:text-base font-semibold text-primary hover:underline whitespace-nowrap shrink-0"
                       >
-                        <ExternalLink className="h-5 w-5" />
+                        <ExternalLink className="h-4 w-4" />
                         {item.type === "Preprint"
-                          ? `arXiv: ${item.arxivId}`
+                          ? "Paper(arXiv:2602.14291)"
                           : "GitHub"}
                       </Link>
                     )}
-
                   </div>
 
                   {/* META */}
-                  <div className="flex gap-3 mb-3 flex-wrap">
+                  <div className="flex flex-wrap items-center gap-3 mb-2">
                     <span className="text-sm text-primary font-medium">{item.type}</span>
-                    <span className="text-xs px-2 py-0.5 rounded bg-primary/20 text-primary">{item.period}</span>
-                    <span className={`text-xs px-2 py-0.5 rounded ${
-                      item.status === "Ongoing"
-                        ? "bg-amber-500/20 text-amber-400"
+                    <span className="px-2 py-0.5 text-xs rounded-full bg-primary/20 text-primary">
+                      {item.period}
+                    </span>
+                    <span className={`px-2 py-0.5 text-xs rounded-full ${
+                      item.status === "Ongoing" 
+                        ? "bg-amber-500/20 text-amber-400" 
                         : item.type === "Preprint"
                         ? "bg-blue-500/20 text-blue-400"
                         : "bg-emerald-500/20 text-emerald-400"
@@ -179,41 +174,86 @@ export function Research() {
                     </span>
                   </div>
 
-                  <p className="text-muted-foreground mb-4">{item.description}</p>
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    {item.description}
+                  </p>
 
-                  {/* ARCHITECTURE */}
+                  <div className="grid gap-3 md:grid-cols-3 mb-5">
+                    <div className="rounded-lg border border-border/70 bg-background/40 p-3">
+                      <p className="text-xs uppercase tracking-wider text-primary mb-1">Problem</p>
+                      <p className="text-sm text-muted-foreground">{item.problem}</p>
+                    </div>
+                    <div className="rounded-lg border border-border/70 bg-background/40 p-3">
+                      <p className="text-xs uppercase tracking-wider text-primary mb-1">Solution</p>
+                      <p className="text-sm text-muted-foreground">{item.solution}</p>
+                    </div>
+                    <div className="rounded-lg border border-border/70 bg-background/40 p-3">
+                      <p className="text-xs uppercase tracking-wider text-primary mb-1">Impact</p>
+                      <p className="text-sm text-muted-foreground">{item.impact}</p>
+                    </div>
+                  </div>
+
+                  <ul className="space-y-2 mb-5">
+                    {item.highlights.map((p) => (
+                      <li key={p} className="text-sm text-muted-foreground">- {p}</li>
+                    ))}
+                  </ul>
+
+                  <div className="mb-5 space-y-3">
+                    <div>
+                      <p className="text-xs uppercase text-primary mb-2">Tech Stack</p>
+                      <div className="flex flex-wrap gap-2">
+                        {item.tech.map((t) => (
+                          <span key={t} className="px-2 py-1 text-xs bg-secondary rounded-md">{t}</span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <p className="text-xs uppercase text-primary mb-2">Tags</p>
+                      <div className="flex flex-wrap gap-2">
+                        {item.tags.map((tag) => (
+                          <span key={tag} className="px-2 py-1 text-xs bg-primary/10 text-primary border border-primary/20 rounded-md">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="rounded-lg border border-border/70 bg-background/40 p-4">
+                    <p className="text-xs uppercase text-primary mb-3">Architecture and Proof</p>
 
-                    <div className="flex flex-wrap gap-2 mb-3">
+                    <div className="flex flex-wrap items-center gap-2 mb-4">
                       {item.methodFlow.map((step, i) => (
                         <div key={step} className="flex items-center gap-2">
-                          <span className="text-xs px-2 py-1 bg-secondary rounded">
-                            {step}
-                          </span>
-                          {i < item.methodFlow.length - 1 && (
-                            <ArrowRight className="h-3 w-3" />
-                          )}
+                          <span className="px-2 py-1 text-xs bg-secondary rounded-md">{step}</span>
+                          {i < item.methodFlow.length - 1 && <ArrowRight className="h-3 w-3" />}
                         </div>
                       ))}
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-3 text-sm text-muted-foreground">
+                    <div className="grid gap-4 md:grid-cols-2">
                       <div>
-                        {item.proof.map((p) => <p key={p}>- {p}</p>)}
+                        <p className="text-xs text-primary mb-2">Evidence</p>
+                        {item.proof.map((p) => (
+                          <p key={p} className="text-sm text-muted-foreground">- {p}</p>
+                        ))}
                       </div>
+
                       <div>
-                        {item.created.map((c) => <p key={c}>- {c}</p>)}
+                        <p className="text-xs text-primary mb-2">Artifacts</p>
+                        {item.created.map((c) => (
+                          <p key={c} className="text-sm text-muted-foreground">- {c}</p>
+                        ))}
                       </div>
                     </div>
-
                   </div>
 
                 </div>
               </div>
             </div>
-
           ))}
-
         </div>
       </div>
     </section>
