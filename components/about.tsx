@@ -1,4 +1,4 @@
-import { Code, Server, Brain, Database, GraduationCap, Calendar, BookOpen, FlaskConical, School, Award } from "lucide-react"
+import { Code, Server, Brain, Database, GraduationCap } from "lucide-react"
 
 const focusAreas = [
   {
@@ -42,7 +42,7 @@ export function About() {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6">
             <p className="text-muted-foreground text-lg leading-relaxed">
-              {"I am a BUET CSE undergraduate building AI systems that integrate large language models into real-world applications. My work focuses on LLM-based software testing and medical AI with an emphasis on reliability and deployment."}
+              I am a BUET CSE undergraduate building AI systems that integrate large language models into real-world applications. My work focuses on LLM-based software testing and medical AI with an emphasis on reliability and deployment.
             </p>
 
             <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6">
@@ -82,7 +82,6 @@ export function About() {
 
           <div className="grid gap-4 lg:grid-cols-2 items-stretch">
             
-            {/* University */}
             <div className="h-full rounded-2xl border border-border/70 bg-background/30 p-5 md:p-6 flex flex-col">
               <h5 className="text-base md:text-lg font-semibold text-foreground mb-4">Undergraduate</h5>
 
@@ -99,43 +98,57 @@ export function About() {
               </div>
 
               {/* Thesis */}
-              <p className="text-sm text-muted-foreground mb-2">
+              <p className="text-sm text-muted-foreground mb-3">
                 <span className="text-primary">Thesis:</span>{" "}
                 <span className="text-foreground">Web Testing Using Large Language Models</span>
               </p>
 
-              {/* Coursework */}
-              <div className="text-sm text-muted-foreground mb-3 leading-relaxed">
-                <span className="text-primary font-medium">Relevant Coursework:</span>
-              
-                <div className="mt-2 space-y-2">
-                  <p><span className="text-foreground font-medium">Algorithms:</span> Data Structures & Algorithms, Algorithm Engineering</p>
-                  <p><span className="text-foreground font-medium">AI/ML:</span> Artificial Intelligence, Machine Learning</p>
-                  <p><span className="text-foreground font-medium">Systems:</span> Operating Systems, Computer Networks</p>
-                  <p><span className="text-foreground font-medium">Data:</span> Database Systems</p>
-                  <p><span className="text-foreground font-medium">Graphics:</span> Computer Graphics</p>
-                  <p><span className="text-foreground font-medium">Hardware:</span> Digital Logic Design, Computer Architecture</p>
+              {/* Coursework - TAG UI */}
+              <div className="mb-4">
+                <p className="text-sm font-semibold text-foreground mb-2">Relevant Coursework</p>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Data Structures & Algorithms",
+                    "Algorithm Engineering",
+                    "Artificial Intelligence",
+                    "Machine Learning",
+                    "Operating Systems",
+                    "Computer Networks",
+                    "Computer Architecture",
+                    "Database Systems",
+                    "Computer Graphics",
+                    "Digital Logic Design",
+                  ].map((course) => (
+                    <span
+                      key={course}
+                      className="px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25"
+                    >
+                      {course}
+                    </span>
+                  ))}
                 </div>
               </div>
 
               {/* Research Interests */}
-              <div className="mt-4 rounded-xl border border-border/60 bg-card/40 p-4">
+              <div className="rounded-xl border border-border/60 bg-card/40 p-4">
                 <p className="text-sm font-semibold text-foreground mb-3">Research Interests</p>
                 <div className="flex flex-wrap gap-2">
-                  <span className="px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border">
-                    Large Language Models & LLM Systems
-                  </span>
-                  <span className="px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border">
-                    Software Testing Automation
-                  </span>
-                  <span className="px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border">
-                    Applied Machine Learning
-                  </span>
-                  <span className="px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border">
-                    Medical & Trustworthy AI
-                  </span>
+                  {[
+                    "Large Language Model Systems",
+                    "LLM-based Testing",
+                    "Applied Machine Learning",
+                    "Medical & Trustworthy AI",
+                  ].map((item) => (
+                    <span
+                      key={item}
+                      className="px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25"
+                    >
+                      {item}
+                    </span>
+                  ))}
                 </div>
               </div>
+
             </div>
           </div>
         </div>
