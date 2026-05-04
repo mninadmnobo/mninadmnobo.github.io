@@ -68,33 +68,33 @@ const research: ResearchItem[] = [
     tags: ["Medical AI", "Reasoning", "Deep Learning"],
     link: "https://github.com/mninadmnobo/MedCAR",
   },
-  {
-    title: "Bengali-Loop: Long-Form Bangla ASR and Speaker Diarization Benchmark",
-    type: "Research Paper",
-    period: "2026",
-    description: "Large-scale benchmark dataset and evaluation framework for long-form Bangla automatic speech recognition and speaker diarization.",
-    status: "Preprint (arXiv)",
-    problem: "Bengali lacks large-scale, standardized datasets and evaluation benchmarks for long-form speech recognition and multi-speaker diarization.",
-    solution: "Contributed to building a reproducible benchmark with curated datasets, annotation workflows, and standardized evaluation protocols.",
-    impact: "Enables reproducible research and benchmarking for Bangla ASR and diarization using standardized metrics like WER and DER.",
-    methodFlow: ["Data Collection", "Preprocessing & Annotation", "Benchmark Evaluation"],
-    proof: [
-      "Large-scale annotated speech dataset",
-      "Standardized evaluation metrics (WER, DER)",
-      "Reproducible benchmarking framework"
-    ],
-    highlights: [
-      "Contributed to a large-scale benchmark dataset for long-form Bangla ASR and speaker diarization.",
-      "Built data collection and preprocessing pipelines, including subtitle extraction and annotation workflows.",
-      "Enabled evaluation using Word Error Rate (WER) and Diarization Error Rate (DER)."
-    ],
-    created: [
-      "Data pipelines for subtitle extraction and annotation of real-world speech data",
-      "Benchmark evaluation workflows for ASR and speaker diarization models"
-    ],
-    tech: ["Python", "Speech Processing", "Machine Learning"],
-    tags: ["ASR", "Speech", "Benchmark"],
-    link: "https://arxiv.org/abs/2602.14291",
+{
+  title: "Bengali-Loop: Long-Form Bangla ASR and Speaker Diarization Benchmark",
+  type: "Preprint",
+  period: "2026",
+  description: "Benchmark dataset and evaluation framework for long-form Bangla ASR and speaker diarization.",
+  status: "Preprint (arXiv)",
+  problem: "Bangla lacks standardized large-scale datasets and evaluation benchmarks for long-form speech recognition and multi-speaker diarization.",
+  solution: "Contributed to building a reproducible benchmark with curated datasets, annotation pipelines, and standardized evaluation protocols.",
+  impact: "Enables consistent benchmarking for Bangla ASR and diarization using metrics such as Word Error Rate (WER) and Diarization Error Rate (DER).",
+  methodFlow: ["Data Collection", "Preprocessing & Annotation", "Benchmark Evaluation"],
+  proof: [
+    "Large-scale annotated speech dataset",
+    "Standardized evaluation metrics (WER, DER)",
+    "Reproducible benchmarking framework"
+  ],
+  highlights: [
+    "Contributed to development of a benchmark dataset for long-form Bangla ASR and speaker diarization.",
+    "Built data collection and preprocessing pipelines, including subtitle extraction and annotation workflows.",
+    "Supported evaluation using Word Error Rate (WER) and Diarization Error Rate (DER)."
+  ],
+  created: [
+    "Data pipelines for subtitle extraction and annotation of real-world speech data",
+    "Benchmark evaluation workflows for ASR and speaker diarization models"
+  ],
+  tech: ["Python", "Speech Processing", "Machine Learning"],
+  tags: ["ASR", "Speech", "Benchmark"],
+  link: "https://arxiv.org/abs/2602.14291",
   },
 ]
 
@@ -251,7 +251,7 @@ export function Research() {
                               href={item.link}
                               className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground no-underline transition-colors"
                             >
-                              {item.type === "Research Paper" ? "Paper Link" : "GitHub Link"}
+                              {item.type === "Preprint" ? "Paper Link" : "GitHub Link"}
                               <ExternalLink className="h-3 w-3" />
                             </Link>
                           </div>
