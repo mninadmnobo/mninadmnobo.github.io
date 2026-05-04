@@ -324,9 +324,22 @@ export function Projects() {
                     </span>
                   </div>
 
-                  <h4 className="text-xl md:text-2xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
-                    {project.name}
-                  </h4>
+                  <div className="flex items-center justify-between gap-4 mb-3">
+                    <h4 className="text-xl md:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                      {project.name}
+                    </h4>
+                  
+                    {project.links.find((l) => l.label.toLowerCase().includes("github")) && (
+                      <Link
+                        href={project.links.find((l) => l.label.toLowerCase().includes("github"))!.href}
+                        target="_blank"
+                        className="flex items-center gap-2 text-sm md:text-base font-semibold text-primary hover:underline whitespace-nowrap shrink-0"
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                        GitHub
+                      </Link>
+                    )}
+                  </div>
 
                   <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
 
