@@ -339,7 +339,7 @@ export function Projects() {
                         className="flex items-center gap-2 text-sm md:text-base font-semibold text-primary hover:underline whitespace-nowrap shrink-0"
                       >
                         <ExternalLink className="h-4 w-4" />
-                        GitHub
+                        View Code (GitHub) 
                       </Link>
                     )}
                   </div>
