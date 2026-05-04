@@ -383,48 +383,35 @@ export function Projects() {
                   </div>
 
                   <div className="mt-6 rounded-lg border border-border/70 bg-background/40 p-4">
-                    <p className="text-xs uppercase tracking-wider text-primary mb-3">Architecture and Proof</p>
-
-                    <div className="flex flex-wrap items-center gap-2 mb-4">
+                    <p className="text-xs uppercase tracking-wider text-primary mb-3">Architecture</p>
+                  
+                    <div className="flex flex-wrap items-center gap-2">
                       {project.architecture.map((layer, index) => (
                         <div key={`${project.name}-${layer}-flow`} className="flex items-center gap-2">
                           <span className="px-2.5 py-1.5 text-xs rounded-md bg-secondary text-secondary-foreground border border-border/60">
                             {layer}
                           </span>
-                          {index < project.architecture.length - 1 && <ArrowRight className="h-3.5 w-3.5 text-primary/80" />}
+                          {index < project.architecture.length - 1 && (
+                            <ArrowRight className="h-3.5 w-3.5 text-primary/80" />
+                          )}
                         </div>
                       ))}
                     </div>
-
-                    <div className="grid gap-3 md:grid-cols-2">
-                      <div>
-                        <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-2">Evidence</p>
-                        <ul className="space-y-1">
-                          {project.proof.map((item) => (
-                            <li key={`${project.name}-${item}-proof`} className="text-sm text-muted-foreground">- {item}</li>
-                          ))}
-                        </ul>
+                  
+                    {artifactLinks.length > 0 && (
+                      <div className="flex flex-wrap items-center gap-2">
+                        {artifactLinks.map((projectLink) => (
+                          <Link
+                            key={`${project.name}-${projectLink.label}-artifact`}
+                            href={projectLink.href}
+                            className="inline-flex items-center gap-1 text-sm px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground no-underline transition-colors"
+                          >
+                            {projectLink.label}
+                            <ExternalLink className="h-3 w-3" />
+                          </Link>
+                        ))}
                       </div>
-
-                      <div>
-                        {artifactLinks.length > 0 ? (
-                          <div className="flex flex-wrap items-center gap-2">
-                            {artifactLinks.map((projectLink) => (
-                              <Link
-                                key={`${project.name}-${projectLink.label}-artifact`}
-                                href={projectLink.href}
-                                className="inline-flex items-center gap-1 text-sm px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground no-underline transition-colors"
-                              >
-                                {projectLink.label}
-                                <ExternalLink className="h-3 w-3" />
-                              </Link>
-                            ))}
-                          </div>
-                        ) : (
-                          <p className="text-sm text-muted-foreground">Video demos are shown below.</p>
-                        )}
-                      </div>
-                    </div>
+                    )}
                   </div>
 
                   {videoLinks.length > 0 && (
