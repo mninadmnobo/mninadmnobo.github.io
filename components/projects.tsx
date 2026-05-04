@@ -302,7 +302,10 @@ export function Projects() {
               .map((projectLink) => ({ label: projectLink.label, href: projectLink.href, embedUrl: getYouTubeEmbedUrl(projectLink.href) }))
               .filter((item): item is { label: string; href: string; embedUrl: string } => Boolean(item.embedUrl))
 
-            const artifactLinks = project.links.filter((projectLink) => !getYouTubeEmbedUrl(projectLink.href))
+            const artifactLinks = project.links.filter((pirojectLink) =>
+                !getYouTubeEmbedUrl(projectLink.href) &&
+                !projectLink.label.toLowerCase().includes("github")
+            )
 
             return (
             <div
@@ -404,7 +407,6 @@ export function Projects() {
                       </div>
 
                       <div>
-                        <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-2">Artifacts</p>
                         {artifactLinks.length > 0 ? (
                           <div className="flex flex-wrap items-center gap-2">
                             {artifactLinks.map((projectLink) => (
