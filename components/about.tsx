@@ -183,7 +183,7 @@ export function About() {
           {/* Research Interests */}
           <div className="mt-6 rounded-2xl border border-border/70 bg-background/30 p-5 md:p-6">
             <h5 className="text-base md:text-lg font-semibold text-foreground mb-4">
-              Research Interests
+              Research Interest
             </h5>
 
             <div className="flex flex-wrap gap-2">
