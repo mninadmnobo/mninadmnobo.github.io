@@ -1,4 +1,4 @@
-import { Code, Server, Brain, Database, GraduationCap } from "lucide-react"
+import { Code, Server, Brain, Database, GraduationCap, Calendar, BookOpen, FlaskConical, School, Award } from "lucide-react"
 
 const focusAreas = [
   {
@@ -82,6 +82,53 @@ export function About() {
 
           <div className="grid gap-4 lg:grid-cols-2 items-stretch">
             
+            {/* School Section (ORIGINAL RESTORED) */}
+            <div className="h-full rounded-2xl border border-border/70 bg-background/30 p-5 md:p-6 flex flex-col">
+              <div className="flex items-center gap-2 mb-4">
+                <div className="p-2 rounded-lg bg-primary/15 border border-primary/25">
+                  <School className="h-4 w-4 text-primary" />
+                </div>
+                <h5 className="text-base md:text-lg font-semibold text-foreground">School and College</h5>
+              </div>
+
+              <div className="space-y-4 flex-1">
+                <div className="rounded-xl border border-border/60 bg-card/40 p-4">
+                  <p className="text-sm font-semibold text-foreground">Uttara High School and College</p>
+                  <p className="text-sm text-muted-foreground">2008 - 2012</p>
+                  <div className="mt-3 space-y-2">
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
+                      <Award className="h-3.5 w-3.5" /> PSC (2012): GPA 5
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rounded-xl border border-border/60 bg-card/40 p-4">
+                  <p className="text-sm font-semibold text-foreground">Rajuk Uttara Model College</p>
+                  <p className="text-sm text-muted-foreground">2013 - 2021</p>
+                  <div className="mt-3 space-y-3">
+                    <div>
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
+                        <Award className="h-3.5 w-3.5" /> JSC (2015): GPA 5, Talentpool Scholarship
+                      </span>
+                    </div>
+
+                    <div>
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
+                        <Award className="h-3.5 w-3.5" /> SSC (2018): GPA 5
+                      </span>
+                    </div>
+
+                    <div>
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
+                        <Award className="h-3.5 w-3.5" /> HSC (2020): GPA 5, General Grade Scholarship
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* University Section */}
             <div className="h-full rounded-2xl border border-border/70 bg-background/30 p-5 md:p-6 flex flex-col">
               <h5 className="text-base md:text-lg font-semibold text-foreground mb-4">Undergraduate</h5>
 
@@ -97,13 +144,12 @@ export function About() {
                 <span className="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary border">CGPA 3.61 / 4.00</span>
               </div>
 
-              {/* Thesis */}
               <p className="text-sm text-muted-foreground mb-3">
                 <span className="text-primary">Thesis:</span>{" "}
                 <span className="text-foreground">Web Testing Using Large Language Models</span>
               </p>
 
-              {/* Coursework - TAG UI */}
+              {/* Coursework (clean tags) */}
               <div className="mb-4">
                 <p className="text-sm font-semibold text-foreground mb-2">Relevant Coursework</p>
                 <div className="flex flex-wrap gap-2">
@@ -119,10 +165,7 @@ export function About() {
                     "Computer Graphics",
                     "Digital Logic Design",
                   ].map((course) => (
-                    <span
-                      key={course}
-                      className="px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25"
-                    >
+                    <span key={course} className="px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
                       {course}
                     </span>
                   ))}
@@ -139,10 +182,7 @@ export function About() {
                     "Applied Machine Learning",
                     "Medical & Trustworthy AI",
                   ].map((item) => (
-                    <span
-                      key={item}
-                      className="px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25"
-                    >
+                    <span key={item} className="px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
                       {item}
                     </span>
                   ))}
@@ -150,6 +190,7 @@ export function About() {
               </div>
 
             </div>
+
           </div>
         </div>
       </div>
