@@ -91,7 +91,7 @@ export function About() {
                 <h5 className="text-base md:text-lg font-semibold text-foreground">School and College</h5>
               </div>
 
-              <div className="space-y-4 flex-1 flex flex-col justify-between">
+              <div className="space-y-4 flex-1">
                 <div className="rounded-xl border border-border/60 bg-card/40 p-4">
                   <p className="text-sm font-semibold text-foreground">Uttara High School and College</p>
                   <p className="text-sm text-muted-foreground">2008 - 2012</p>
@@ -111,13 +111,11 @@ export function About() {
                         <Award className="h-3.5 w-3.5" /> JSC (2015): GPA 5, Talentpool Scholarship
                       </span>
                     </div>
-
                     <div>
                       <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
                         <Award className="h-3.5 w-3.5" /> SSC (2018): GPA 5
                       </span>
                     </div>
-
                     <div>
                       <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
                         <Award className="h-3.5 w-3.5" /> HSC (2020): GPA 5, General Grade Scholarship
@@ -148,12 +146,13 @@ export function About() {
                 <span className="text-primary">Thesis:</span>{" "}
                 <span className="text-foreground">Web Testing Using Large Language Models</span>
               </p>
+
               {/* Coursework */}
               <div className="mb-4">
                 <p className="text-sm font-semibold text-foreground mb-2">
                   Relevant Coursework
                 </p>
-              
+
                 <div className="flex flex-wrap gap-2">
                   {[
                     "Data Structures & Algorithms",
@@ -176,27 +175,34 @@ export function About() {
                   ))}
                 </div>
               </div>
-              
-              {/* Research Interests */}
-              <div className="rounded-xl border border-border/60 bg-card/40 p-4">
-                <p className="text-sm font-semibold text-foreground mb-3">Research Interests</p>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "Large Language Model Systems",
-                    "LLM-based Testing",
-                    "Applied Machine Learning",
-                    "Medical & Trustworthy AI",
-                  ].map((item) => (
-                    <span key={item} className="px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
 
             </div>
 
           </div>
+
+          {/* Research Interests */}
+          <div className="mt-6 rounded-2xl border border-border/70 bg-background/30 p-5 md:p-6">
+            <h5 className="text-base md:text-lg font-semibold text-foreground mb-4">
+              Research Interests
+            </h5>
+
+            <div className="flex flex-wrap gap-2">
+              {[
+                "Large Language Model Systems",
+                "LLM-based Testing",
+                "Applied Machine Learning",
+                "Medical & Trustworthy AI",
+              ].map((item) => (
+                <span
+                  key={item}
+                  className="px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
