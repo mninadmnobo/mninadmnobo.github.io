@@ -68,12 +68,39 @@ const research: ResearchItem[] = [
     tags: ["Medical AI", "Reasoning", "Deep Learning"],
     link: "https://github.com/mninadmnobo/MedCAR",
   },
+  {
+    title: "Bengali-Loop: Long-Form Bangla ASR and Speaker Diarization Benchmark",
+    type: "Research Paper",
+    period: "2026",
+    description: "Large-scale benchmark dataset and evaluation framework for long-form Bangla automatic speech recognition and speaker diarization.",
+    status: "Preprint (arXiv)",
+    problem: "Bengali lacks large-scale, standardized datasets and evaluation benchmarks for long-form speech recognition and multi-speaker diarization.",
+    solution: "Contributed to building a reproducible benchmark with curated datasets, annotation workflows, and standardized evaluation protocols.",
+    impact: "Enables reproducible research and benchmarking for Bangla ASR and diarization using standardized metrics like WER and DER.",
+    methodFlow: ["Data Collection", "Preprocessing & Annotation", "Benchmark Evaluation"],
+    proof: [
+      "Large-scale annotated speech dataset",
+      "Standardized evaluation metrics (WER, DER)",
+      "Reproducible benchmarking framework"
+    ],
+    highlights: [
+      "Contributed to a large-scale benchmark dataset for long-form Bangla ASR and speaker diarization.",
+      "Built data collection and preprocessing pipelines, including subtitle extraction and annotation workflows.",
+      "Enabled evaluation using Word Error Rate (WER) and Diarization Error Rate (DER)."
+    ],
+    created: [
+      "Data pipelines for subtitle extraction and annotation of real-world speech data",
+      "Benchmark evaluation workflows for ASR and speaker diarization models"
+    ],
+    tech: ["Python", "Speech Processing", "Machine Learning"],
+    tags: ["ASR", "Speech", "Benchmark"],
+    link: "https://arxiv.org/abs/2602.14291",
+  },
 ]
 
 export function Research() {
   return (
     <section id="research" className="py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden">
-      {/* Background effect */}
       <div className="absolute inset-0 bg-gradient-to-t from-card/50 via-background to-background" />
       <div className="absolute top-0 right-1/4 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
       
@@ -114,6 +141,8 @@ export function Research() {
                     <span className={`px-2 py-0.5 text-xs rounded-full ${
                       item.status === "Ongoing" 
                         ? "bg-amber-500/20 text-amber-400" 
+                        : item.status.includes("Preprint")
+                        ? "bg-blue-500/20 text-blue-400"
                         : "bg-emerald-500/20 text-emerald-400"
                     }`}>
                       {item.status}
@@ -222,7 +251,7 @@ export function Research() {
                               href={item.link}
                               className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground no-underline transition-colors"
                             >
-                              GitHub Link
+                              {item.type === "Research Paper" ? "Paper Link" : "GitHub Link"}
                               <ExternalLink className="h-3 w-3" />
                             </Link>
                           </div>
