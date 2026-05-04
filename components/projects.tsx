@@ -302,7 +302,7 @@ export function Projects() {
               .map((projectLink) => ({ label: projectLink.label, href: projectLink.href, embedUrl: getYouTubeEmbedUrl(projectLink.href) }))
               .filter((item): item is { label: string; href: string; embedUrl: string } => Boolean(item.embedUrl))
 
-            const artifactLinks = project.links.filter((pirojectLink) =>
+            const artifactLinks = project.links.filter((projectLink) =>
                 !getYouTubeEmbedUrl(projectLink.href) &&
                 !projectLink.label.toLowerCase().includes("github")
             )
