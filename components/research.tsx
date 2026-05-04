@@ -124,6 +124,7 @@ export function Research() {
               className="p-6 md:p-8 rounded-xl border border-border bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-300 group"
             >
               <div className="flex flex-col md:flex-row md:items-start gap-6">
+                
                 <div className="p-3 rounded-xl bg-primary/10 w-fit">
                   {item.type === "Undergraduate Thesis" ? (
                     <GraduationCap className="h-8 w-8 text-primary" />
@@ -131,8 +132,27 @@ export function Research() {
                     <FileText className="h-8 w-8 text-primary" />
                   )}
                 </div>
-                
+
                 <div className="flex-1">
+
+                  {/* TITLE + LINK */}
+                  <div className="flex flex-wrap items-center gap-3 mb-3">
+                    <h4 className="text-xl md:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors">
+                      {item.title}
+                    </h4>
+
+                    {item.link && (
+                      <Link
+                        href={item.link}
+                        className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground no-underline transition-colors"
+                      >
+                        {item.type === "Preprint" ? "Paper" : "GitHub"}
+                        <ExternalLink className="h-3 w-3" />
+                      </Link>
+                    )}
+                  </div>
+
+                  {/* META */}
                   <div className="flex flex-wrap items-center gap-3 mb-2">
                     <span className="text-sm text-primary font-medium">{item.type}</span>
                     <span className="px-2 py-0.5 text-xs rounded-full bg-primary/20 text-primary">
@@ -148,48 +168,40 @@ export function Research() {
                       {item.status}
                     </span>
                   </div>
-                  
-                  <h4 className="text-xl md:text-2xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
-                    {item.title}
-                  </h4>
-                  
+
                   <p className="text-muted-foreground mb-4 leading-relaxed">
                     {item.description}
                   </p>
 
+                  {/* PROBLEM / SOLUTION / IMPACT */}
                   <div className="grid gap-3 md:grid-cols-3 mb-5">
-                    <div className="rounded-lg border border-border/70 bg-background/40 p-3">
-                      <p className="text-xs uppercase tracking-wider text-primary mb-1">Problem</p>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{item.problem}</p>
-                    </div>
-                    <div className="rounded-lg border border-border/70 bg-background/40 p-3">
-                      <p className="text-xs uppercase tracking-wider text-primary mb-1">Solution</p>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{item.solution}</p>
-                    </div>
-                    <div className="rounded-lg border border-border/70 bg-background/40 p-3">
-                      <p className="text-xs uppercase tracking-wider text-primary mb-1">Impact</p>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{item.impact}</p>
-                    </div>
+                    {["Problem", "Solution", "Impact"].map((label, i) => (
+                      <div key={label} className="rounded-lg border border-border/70 bg-background/40 p-3">
+                        <p className="text-xs uppercase tracking-wider text-primary mb-1">{label}</p>
+                        <p className="text-sm text-muted-foreground leading-relaxed">
+                          {label === "Problem" ? item.problem : label === "Solution" ? item.solution : item.impact}
+                        </p>
+                      </div>
+                    ))}
                   </div>
 
+                  {/* HIGHLIGHTS */}
                   <ul className="space-y-2 mb-5">
                     {item.highlights.map((point) => (
-                      <li key={`${item.title}-${point}`} className="text-sm text-muted-foreground leading-relaxed">
+                      <li key={point} className="text-sm text-muted-foreground leading-relaxed">
                         - {point}
                       </li>
                     ))}
                   </ul>
 
+                  {/* TECH + TAGS */}
                   <div className="mb-5 space-y-3">
                     <div>
                       <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-2">Tech Stack</p>
                       <div className="flex flex-wrap gap-2">
-                        {item.tech.map((techItem) => (
-                          <span
-                            key={`${item.title}-${techItem}-tech`}
-                            className="px-2 py-1 text-xs rounded-md bg-secondary text-secondary-foreground"
-                          >
-                            {techItem}
+                        {item.tech.map((t) => (
+                          <span key={t} className="px-2 py-1 text-xs rounded-md bg-secondary text-secondary-foreground">
+                            {t}
                           </span>
                         ))}
                       </div>
@@ -199,10 +211,7 @@ export function Research() {
                       <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-2">Tags</p>
                       <div className="flex flex-wrap gap-2">
                         {item.tags.map((tag) => (
-                          <span
-                            key={`${item.title}-${tag}-tag`}
-                            className="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20"
-                          >
+                          <span key={tag} className="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/20">
                             {tag}
                           </span>
                         ))}
@@ -210,52 +219,34 @@ export function Research() {
                     </div>
                   </div>
 
-                  <div className="mb-5 rounded-lg border border-border/70 bg-background/40 p-4">
+                  {/* ARCHITECTURE */}
+                  <div className="rounded-lg border border-border/70 bg-background/40 p-4">
                     <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-3">Architecture and Proof</p>
 
                     <div className="flex flex-wrap items-center gap-2 mb-4">
-                      {item.methodFlow.map((step, index) => (
-                        <div key={`${item.title}-${step}-flow`} className="flex items-center gap-2">
-                          <span className="px-2.5 py-1.5 text-xs rounded-md bg-secondary text-secondary-foreground border border-border/60">
+                      {item.methodFlow.map((step, i) => (
+                        <div key={step} className="flex items-center gap-2">
+                          <span className="px-2.5 py-1.5 text-xs rounded-md bg-secondary border border-border/60">
                             {step}
                           </span>
-                          {index < item.methodFlow.length - 1 && <ArrowRight className="h-3.5 w-3.5 text-primary/80" />}
+                          {i < item.methodFlow.length - 1 && <ArrowRight className="h-3.5 w-3.5 text-primary/80" />}
                         </div>
                       ))}
                     </div>
 
                     <div className="grid gap-4 md:grid-cols-2">
                       <div>
-                        <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-2">Evidence</p>
-                        <div className="space-y-1.5">
-                          {item.proof.map((evidence) => (
-                            <p key={`${item.title}-${evidence}`} className="text-sm text-muted-foreground leading-relaxed">
-                              - {evidence}
-                            </p>
-                          ))}
-                        </div>
+                        <p className="text-xs uppercase text-primary font-semibold mb-2">Evidence</p>
+                        {item.proof.map((p) => (
+                          <p key={p} className="text-sm text-muted-foreground">- {p}</p>
+                        ))}
                       </div>
 
                       <div>
-                        <p className="text-xs uppercase tracking-wide text-primary font-semibold mb-2">Artifacts</p>
-                        <div className="space-y-1.5">
-                          {item.created.map((artifact) => (
-                            <p key={`${item.title}-${artifact}`} className="text-sm text-muted-foreground leading-relaxed">
-                              - {artifact}
-                            </p>
-                          ))}
-                        </div>
-                        {item.link && (
-                          <div className="mt-3">
-                            <Link
-                              href={item.link}
-                              className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded-md bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground no-underline transition-colors"
-                            >
-                              {item.type === "Preprint" ? "Paper Link" : "GitHub Link"}
-                              <ExternalLink className="h-3 w-3" />
-                            </Link>
-                          </div>
-                        )}
+                        <p className="text-xs uppercase text-primary font-semibold mb-2">Artifacts</p>
+                        {item.created.map((c) => (
+                          <p key={c} className="text-sm text-muted-foreground">- {c}</p>
+                        ))}
                       </div>
                     </div>
                   </div>
