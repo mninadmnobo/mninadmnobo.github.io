@@ -151,7 +151,7 @@ export function Research() {
                       >
                         <ExternalLink className="h-4 w-4" />
                         {item.type === "Preprint"
-                          ? "Paper(arXiv:2602.14291)"
+                          ? "Paper"
                           : "GitHub"}
                       </Link>
                     )}
