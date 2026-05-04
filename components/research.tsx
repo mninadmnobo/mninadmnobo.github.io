@@ -1,3 +1,5 @@
+"use client"
+
 import { Link } from "@/components/ui/link"
 import { FileText, ExternalLink, GraduationCap, ArrowRight } from "lucide-react"
 
@@ -96,6 +98,7 @@ const research: ResearchItem[] = [
     tech: ["Python", "Speech Processing", "Machine Learning"],
     tags: ["ASR", "Speech", "Benchmark"],
     link: "https://arxiv.org/abs/2602.14291",
+    arxivId: "2602.14291",
   },
 ]
 
@@ -151,8 +154,8 @@ export function Research() {
                       >
                         <ExternalLink className="h-4 w-4" />
                         {item.type === "Preprint"
-                          ? "Paper"
-                          : "GitHub"}
+                          ? `View Paper (arXiv: ${item.arxivId})`
+                          : "View Code (GitHub)"}
                       </Link>
                     )}
                   </div>
@@ -222,7 +225,7 @@ export function Research() {
                   </div>
 
                   <div className="rounded-lg border border-border/70 bg-background/40 p-4">
-                    <p className="text-xs uppercase text-primary mb-3">Architecture and Proof</p>
+                    <p className="text-xs uppercase text-primary mb-3">Architecture</p>
 
                     <div className="flex flex-wrap items-center gap-2 mb-4">
                       {item.methodFlow.map((step, i) => (
@@ -233,21 +236,15 @@ export function Research() {
                       ))}
                     </div>
 
-                    <div className="grid gap-4 md:grid-cols-2">
-                      <div>
-                        <p className="text-xs text-primary mb-2">Evidence</p>
-                        {item.proof.map((p) => (
-                          <p key={p} className="text-sm text-muted-foreground">- {p}</p>
-                        ))}
-                      </div>
-
-                      <div>
-                        <p className="text-xs text-primary mb-2">Artifacts</p>
+                    {item.created.length > 0 && (
+                      <div className="flex flex-col gap-1">
                         {item.created.map((c) => (
-                          <p key={c} className="text-sm text-muted-foreground">- {c}</p>
+                          <p key={c} className="text-sm text-muted-foreground">
+                            - {c}
+                          </p>
                         ))}
                       </div>
-                    </div>
+                    )}
                   </div>
 
                 </div>
