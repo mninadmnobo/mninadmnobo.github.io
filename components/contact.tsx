@@ -115,7 +115,7 @@ const profileSections = [
   { title: "Programming Profiles", links: programmingLinks },
   { title: "Social Media Profiles", links: socialLinks },
 ]
-
+export function Contact() {
   return (
     <section id="contact" className="py-24 px-6 md:px-12 lg:px-24 relative overflow-hidden">
       {/* Premium background effects */}
