@@ -68,33 +68,33 @@ const research: ResearchItem[] = [
     tags: ["Medical AI", "Reasoning", "Deep Learning"],
     link: "https://github.com/mninadmnobo/MedCAR",
   },
-{
-  title: "Bengali-Loop: Long-Form Bangla ASR and Speaker Diarization Benchmark",
-  type: "Preprint",
-  period: "2026",
-  description: "Benchmark dataset and evaluation framework for long-form Bangla ASR and speaker diarization.",
-  status: "Preprint (arXiv)",
-  problem: "Bangla lacks standardized large-scale datasets and evaluation benchmarks for long-form speech recognition and multi-speaker diarization.",
-  solution: "Contributed to building a reproducible benchmark with curated datasets, annotation pipelines, and standardized evaluation protocols.",
-  impact: "Enables consistent benchmarking for Bangla ASR and diarization using metrics such as Word Error Rate (WER) and Diarization Error Rate (DER).",
-  methodFlow: ["Data Collection", "Preprocessing & Annotation", "Benchmark Evaluation"],
-  proof: [
-    "Large-scale annotated speech dataset",
-    "Standardized evaluation metrics (WER, DER)",
-    "Reproducible benchmarking framework"
-  ],
-  highlights: [
-    "Contributed to development of a benchmark dataset for long-form Bangla ASR and speaker diarization.",
-    "Built data collection and preprocessing pipelines, including subtitle extraction and annotation workflows.",
-    "Supported evaluation using Word Error Rate (WER) and Diarization Error Rate (DER)."
-  ],
-  created: [
-    "Data pipelines for subtitle extraction and annotation of real-world speech data",
-    "Benchmark evaluation workflows for ASR and speaker diarization models"
-  ],
-  tech: ["Python", "Speech Processing", "Machine Learning"],
-  tags: ["ASR", "Speech", "Benchmark"],
-  link: "https://arxiv.org/abs/2602.14291",
+  {
+    title: "Bengali-Loop: Community Benchmarks for Long-Form Bangla ASR and Speaker Diarization",
+    type: "Preprint",
+    period: "2026",
+    description: "Large-scale benchmark dataset and evaluation framework for long-form Bangla ASR and speaker diarization.",
+    status: "Preprint (arXiv)",
+    problem: "Bangla lacks standardized large-scale datasets and evaluation benchmarks for long-form speech recognition and multi-speaker diarization.",
+    solution: "Contributed to building a reproducible benchmark with curated datasets, annotation pipelines, and standardized evaluation protocols.",
+    impact: "Enables consistent benchmarking for Bangla ASR and diarization using Word Error Rate (WER) and Diarization Error Rate (DER).",
+    methodFlow: ["Data Collection", "Preprocessing & Annotation", "Benchmark Evaluation"],
+    proof: [
+      "Large-scale annotated speech dataset",
+      "Standardized evaluation metrics (WER, DER)",
+      "Reproducible benchmarking framework"
+    ],
+    highlights: [
+      "Contributed to the development of a benchmark dataset for long-form Bangla ASR and speaker diarization.",
+      "Built data collection and preprocessing pipelines, including subtitle extraction and annotation workflows.",
+      "Supported evaluation using Word Error Rate (WER) and Diarization Error Rate (DER)."
+    ],
+    created: [
+      "Data pipelines for subtitle extraction and annotation of real-world speech data",
+      "Benchmark evaluation workflows for ASR and speaker diarization models"
+    ],
+    tech: ["Python", "Speech Processing", "Machine Learning"],
+    tags: ["ASR", "Speech", "Benchmark"],
+    link: "https://arxiv.org/abs/2602.14291",
   },
 ]
 
@@ -141,7 +141,7 @@ export function Research() {
                     <span className={`px-2 py-0.5 text-xs rounded-full ${
                       item.status === "Ongoing" 
                         ? "bg-amber-500/20 text-amber-400" 
-                        : item.status.includes("Preprint")
+                        : item.type === "Preprint"
                         ? "bg-blue-500/20 text-blue-400"
                         : "bg-emerald-500/20 text-emerald-400"
                     }`}>
@@ -259,6 +259,7 @@ export function Research() {
                       </div>
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>
