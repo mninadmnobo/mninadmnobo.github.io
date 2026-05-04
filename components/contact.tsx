@@ -1,3 +1,5 @@
+"use client"
+
 import { Mail, ExternalLink, MapPin, Clock, Phone } from "lucide-react"
 import { Link } from "@/components/ui/link"
 
