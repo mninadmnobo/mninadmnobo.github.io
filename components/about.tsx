@@ -82,7 +82,7 @@ export function About() {
 
           <div className="grid gap-4 lg:grid-cols-2 items-stretch">
             
-            {/* School Section (ORIGINAL RESTORED) */}
+            {/* School & College */}
             <div className="h-full rounded-2xl border border-border/70 bg-background/30 p-5 md:p-6 flex flex-col">
               <div className="flex items-center gap-2 mb-4">
                 <div className="p-2 rounded-lg bg-primary/15 border border-primary/25">
@@ -148,30 +148,35 @@ export function About() {
                 <span className="text-primary">Thesis:</span>{" "}
                 <span className="text-foreground">Web Testing Using Large Language Models</span>
               </p>
-
-              {/* Coursework (clean tags) */}
+              {/* Coursework */}
               <div className="mb-4">
-                <p className="text-sm font-semibold text-foreground mb-2">Relevant Coursework</p>
+                <p className="text-sm font-semibold text-foreground mb-2">
+                  Relevant Coursework
+                </p>
+              
                 <div className="flex flex-wrap gap-2">
                   {[
                     "Data Structures & Algorithms",
+                    "Digital Logic Design",
+                    "Database Systems",
+                    "Operating Systems",
+                    "Computer Architecture",
+                    "Computer Networks",
+                    "Computer Graphics",
                     "Algorithm Engineering",
                     "Artificial Intelligence",
                     "Machine Learning",
-                    "Operating Systems",
-                    "Computer Networks",
-                    "Computer Architecture",
-                    "Database Systems",
-                    "Computer Graphics",
-                    "Digital Logic Design",
                   ].map((course) => (
-                    <span key={course} className="px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25">
+                    <span
+                      key={course}
+                      className="px-2.5 py-1 text-xs rounded-md bg-primary/10 text-primary border border-primary/25"
+                    >
                       {course}
                     </span>
                   ))}
                 </div>
               </div>
-
+              
               {/* Research Interests */}
               <div className="rounded-xl border border-border/60 bg-card/40 p-4">
                 <p className="text-sm font-semibold text-foreground mb-3">Research Interests</p>
