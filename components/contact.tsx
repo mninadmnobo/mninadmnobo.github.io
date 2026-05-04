@@ -1,7 +1,5 @@
-"use client"
-
-import { useState, useEffect } from "react"
 import { Mail, ExternalLink, MapPin, Clock, Phone } from "lucide-react"
+import { Link } from "@/components/ui/link"
 
 const professionalLinks = [
   {
@@ -180,7 +178,7 @@ const profileSections = [
             <div className="mt-6 rounded-lg border border-border/70 bg-background/40 p-4">
             <div className="flex items-center gap-2 mb-4">
               <Mail className="h-4 w-4 text-primary" />
-              <p className="font-medium text-foreground">Contact Email</p>
+              <p className="font-medium text-foreground text-sm">Contact Email</p>
             </div>
           
             <div className="space-y-3 text-sm">
