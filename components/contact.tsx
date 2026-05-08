@@ -21,7 +21,7 @@ const professionalLinks = [
     url: "https://github.com/mninadmnobo",
     color: "from-zinc-500/20 to-zinc-800/10",
     icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
+      <svg viewBox="0 0 24 24" className="h-7 w-7 fill-current">
         <path d="M12 0C5.37 0 0 5.37 0 12a12 12 0 008.21 11.39c.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.21.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23A11.5 11.5 0 0112 6.84c1.02 0 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58A12 12 0 0024 12c0-6.63-5.37-12-12-12z" />
       </svg>
     ),
@@ -33,7 +33,7 @@ const professionalLinks = [
     url: "https://www.linkedin.com/in/mninadmnobo",
     color: "from-blue-500/20 to-cyan-500/10",
     icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
+      <svg viewBox="0 0 24 24" className="h-7 w-7 fill-current">
         <path d="M20.45 20.45H16.9v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43A2.06 2.06 0 013.27 5.37 2.06 2.06 0 015.34 3.3 2.06 2.06 0 017.4 5.37c0 1.14-.92 2.06-2.06 2.06zM7.12 20.45H3.56V9h3.56v11.45z" />
       </svg>
     ),
@@ -49,11 +49,13 @@ const researchLinks = [
     name: "Google Scholar",
     handle: "M Ninad M Nobo",
     url: "https://scholar.google.com/citations?user=y5-A2oAAAAAJ&hl=en&oi=ao",
-    color: "from-emerald-500/20 to-teal-500/10",
+    color: "from-blue-500/20 to-sky-500/10",
     icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
-        <path d="M12 2 2 7l10 5 10-5-10-5zm0 7.5L4.2 6.2 12 3.1l7.8 3.1L12 9.5zM4 10v9l8 4 8-4v-9l-8 4-8-4z" />
-      </svg>
+      <img
+        src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlescholar.svg"
+        alt="Google Scholar"
+        className="h-6 w-6"
+      />
     ),
   },
 
@@ -63,21 +65,25 @@ const researchLinks = [
     url: "https://orcid.org/0009-0006-2781-6693",
     color: "from-lime-500/20 to-green-500/10",
     icon: (
-      <span className="text-xs font-black tracking-tight">
-        iD
-      </span>
+      <img
+        src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/orcid.svg"
+        alt="ORCID"
+        className="h-6 w-6"
+      />
     ),
   },
 
   {
     name: "ResearchGate",
-    handle: "Mohammad Ninad Mahmud Nobo",
+    handle: "M Ninad M Nobo",
     url: "https://www.researchgate.net/profile/Mohammad-Ninad-Mahmud-Nobo",
-    color: "from-cyan-500/20 to-sky-500/10",
+    color: "from-cyan-500/20 to-teal-500/10",
     icon: (
-      <span className="text-xs font-black tracking-tight">
-        RG
-      </span>
+      <img
+        src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/researchgate.svg"
+        alt="ResearchGate"
+        className="h-6 w-6"
+      />
     ),
   },
 ]
@@ -93,9 +99,11 @@ const socialLinks = [
     url: "https://facebook.com/mninadmnobo",
     color: "from-blue-600/20 to-blue-400/10",
     icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
-        <path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.03 4.39 11 10.13 11.93v-8.44H7.08v-3.5h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.96h-1.52c-1.5 0-1.96.93-1.96 1.88v2.26h3.33l-.53 3.5h-2.8V24C19.61 23.07 24 18.1 24 12.07z" />
-      </svg>
+      <img
+        src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg"
+        alt="Facebook"
+        className="h-6 w-6"
+      />
     ),
   },
 
@@ -105,9 +113,11 @@ const socialLinks = [
     url: "https://instagram.com/mninadmnobo",
     color: "from-pink-500/20 to-orange-500/10",
     icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
-        <path d="M12 2.2c3.2 0 3.58 0 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85 0 3.2 0 3.58-.07 4.85-.15 3.23-1.67 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07-3.2 0-3.58 0-4.85-.07-3.26-.15-4.77-1.7-4.92-4.92C2.2 15.58 2.2 15.2 2.2 12c0-3.2 0-3.58.07-4.85.15-3.23 1.66-4.77 4.92-4.92C8.42 2.2 8.8 2.2 12 2.2z" />
-      </svg>
+      <img
+        src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"
+        alt="Instagram"
+        className="h-6 w-6"
+      />
     ),
   },
 
@@ -117,9 +127,11 @@ const socialLinks = [
     url: "https://x.com/mninadmnobo?s=11",
     color: "from-slate-500/20 to-slate-700/10",
     icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
-        <path d="M18.9 1.15h3.68l-8.04 9.2L24 22.85h-7.4l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.6l5.24 6.93z" />
-      </svg>
+      <img
+        src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg"
+        alt="X"
+        className="h-6 w-6"
+      />
     ),
   },
 ]
@@ -135,9 +147,11 @@ const programmingLinks = [
     url: "https://neetcode.io/profile/mninadmnobo",
     color: "from-violet-500/20 to-indigo-500/10",
     icon: (
-      <span className="text-base font-black">
-        N
-      </span>
+      <img
+        src="/icons/neetcode.svg"
+        alt="NeetCode"
+        className="h-6 w-6"
+      />
     ),
   },
 
@@ -147,9 +161,11 @@ const programmingLinks = [
     url: "https://leetcode.com/u/mninadmnobo/",
     color: "from-yellow-500/20 to-orange-500/10",
     icon: (
-      <span className="text-xs font-black tracking-tight">
-        LC
-      </span>
+      <img
+        src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/leetcode.svg"
+        alt="LeetCode"
+        className="h-6 w-6"
+      />
     ),
   },
 
@@ -159,9 +175,11 @@ const programmingLinks = [
     url: "https://www.kaggle.com/mohammadninadmahmud",
     color: "from-sky-500/20 to-cyan-500/10",
     icon: (
-      <span className="text-xs font-black tracking-tight">
-        K
-      </span>
+      <img
+        src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/kaggle.svg"
+        alt="Kaggle"
+        className="h-6 w-6"
+      />
     ),
   },
 
@@ -171,9 +189,11 @@ const programmingLinks = [
     url: "https://codeforces.com/profile/MNMNobo",
     color: "from-rose-500/20 to-red-500/10",
     icon: (
-      <span className="text-xs font-black tracking-tight">
-        CF
-      </span>
+      <img
+        src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/codeforces.svg"
+        alt="Codeforces"
+        className="h-6 w-6"
+      />
     ),
   },
 ]
@@ -188,12 +208,12 @@ function ProfileCard({ link }: any) {
       href={link.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex items-center justify-between rounded-2xl border border-border/60 bg-card/40 p-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-card/70 hover:shadow-lg no-underline"
+      className="group flex items-center justify-between rounded-2xl border border-border/60 bg-card/40 p-3.5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:bg-card/70 hover:shadow-lg no-underline"
     >
       <div className="flex min-w-0 items-center gap-4">
 
         <div
-          className={`flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br ${link.color} text-primary`}
+          className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br ${link.color}`}
         >
           {link.icon}
         </div>
@@ -224,7 +244,7 @@ function SectionTitle({ title }: { title: string }) {
 
       <div className="h-px flex-1 bg-border/50" />
 
-      <h4 className="whitespace-nowrap text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+      <h4 className="whitespace-nowrap text-sm font-medium uppercase tracking-wider text-muted-foreground">
         {title}
       </h4>
 
@@ -418,7 +438,7 @@ export function Contact() {
 
               {/* SOCIAL */}
               <div>
-                <SectionTitle title="Social Profiles" />
+                <SectionTitle title="Social Media Profiles" />
 
                 <div className="space-y-3">
                   {socialLinks.map((link) => (
