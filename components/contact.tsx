@@ -293,9 +293,9 @@ export function Contact() {
           {/* LEFT SIDE */}
           <div className="flex flex-col justify-center lg:col-span-5">
 
-            <h3 className="mb-8 text-5xl font-bold leading-tight text-foreground">
+            <h2 className="mb-8 text-5xl font-bold leading-tight text-foreground">
               Let's build something together
-            </h3>
+            </h2>
 
             <p className="mb-10 text-lg leading-relaxed text-muted-foreground">
               I'm open to internships, full-time opportunities,
@@ -443,7 +443,7 @@ export function Contact() {
               </div>
 
               <div>
-                <SectionTitle title="Social Media Profiles" />
+                <SectionTitle title="Social Media" />
 
                 <div className="space-y-4">
                   {socialLinks.map((link) => (
