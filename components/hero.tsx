@@ -186,7 +186,7 @@ export function Hero() {
                   <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
                     <path d="M12 2 2 7l10 5 10-5-10-5zm0 7.5L4.2 6.2 12 3.1l7.8 3.1L12 9.5zM4 10v9l8 4 8-4v-9l-8 4-8-4z" />
                   </svg>
-                  Research Profile
+                  Google Scholar
                   <ExternalLink className="h-4 w-4" />
                 </Link>
               </Button>
