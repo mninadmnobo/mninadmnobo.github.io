@@ -78,7 +78,7 @@ const researchLinks = [
 
   {
     name: "ResearchGate",
-    handle: "M Ninad M Nobo",
+    handle: "Mohammad Ninad Mahmud Nobo",
     url: "https://www.researchgate.net/profile/Mohammad-Ninad-Mahmud-Nobo",
     color:
       "from-cyan-200 via-teal-100 to-emerald-50 dark:from-cyan-900 dark:via-teal-950 dark:to-emerald-950",
@@ -227,9 +227,15 @@ function ProfileCard({ link }: any) {
             {link.name}
           </p>
 
-          <p className="truncate text-sm text-muted-foreground">
-            {link.handle}
-          </p>
+          <p className={`text-muted-foreground ${
+            link.name === "ORCID" || link.name === "ResearchGate"
+              ? "truncate text-xs"
+              : "truncate text-sm"
+           }`}
+           >
+          {link.handle}
+        </p>
+          
         </div>
       </div>
 
