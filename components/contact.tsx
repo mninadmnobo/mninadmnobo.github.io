@@ -20,7 +20,7 @@ const professionalLinks = [
     handle: "mninadmnobo",
     url: "https://github.com/mninadmnobo",
     color:
-      "from-zinc-200 to-zinc-100 dark:from-zinc-800 dark:to-zinc-900",
+      "from-zinc-200 via-zinc-100 to-white dark:from-zinc-800 dark:via-zinc-900 dark:to-black",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -36,7 +36,7 @@ const professionalLinks = [
     handle: "mninadmnobo",
     url: "https://www.linkedin.com/in/mninadmnobo",
     color:
-      "from-sky-200 to-blue-100 dark:from-sky-900 dark:to-blue-950",
+      "from-sky-200 via-blue-100 to-cyan-50 dark:from-sky-900 dark:via-blue-950 dark:to-cyan-950",
     icon: (
       <svg viewBox="0 0 24 24" className="h-8 w-8 fill-[#0A66C2]">
         <path d="M20.45 20.45H16.9v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43A2.06 2.06 0 013.27 5.37 2.06 2.06 0 015.34 3.3 2.06 2.06 0 017.4 5.37c0 1.14-.92 2.06-2.06 2.06zM7.12 20.45H3.56V9h3.56v11.45z" />
@@ -55,7 +55,7 @@ const researchLinks = [
     handle: "M Ninad M Nobo",
     url: "https://scholar.google.com/citations?user=y5-A2oAAAAAJ&hl=en&oi=ao",
     color:
-      "from-blue-200 to-cyan-100 dark:from-blue-900 dark:to-cyan-950",
+      "from-blue-200 via-sky-100 to-cyan-50 dark:from-blue-900 dark:via-sky-950 dark:to-cyan-950",
     icon: (
       <svg viewBox="0 0 24 24" className="h-8 w-8 fill-[#4285F4]">
         <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 13L3.74 11.5 12 7l8.26 4.5L12 16z" />
@@ -68,7 +68,7 @@ const researchLinks = [
     handle: "0009-0006-2781-6693",
     url: "https://orcid.org/0009-0006-2781-6693",
     color:
-      "from-lime-200 to-green-100 dark:from-lime-900 dark:to-green-950",
+      "from-lime-200 via-green-100 to-emerald-50 dark:from-lime-900 dark:via-green-950 dark:to-emerald-950",
     icon: (
       <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#A6CE39] text-base font-bold text-white">
         iD
@@ -81,7 +81,7 @@ const researchLinks = [
     handle: "M Ninad M Nobo",
     url: "https://www.researchgate.net/profile/Mohammad-Ninad-Mahmud-Nobo",
     color:
-      "from-cyan-200 to-teal-100 dark:from-cyan-900 dark:to-teal-950",
+      "from-cyan-200 via-teal-100 to-emerald-50 dark:from-cyan-900 dark:via-teal-950 dark:to-emerald-950",
     icon: (
       <div className="text-3xl font-serif text-[#00CCBB]">
         R<span className="text-sm align-top">G</span>
@@ -100,7 +100,7 @@ const socialLinks = [
     handle: "mninadmnobo",
     url: "https://facebook.com/mninadmnobo",
     color:
-      "from-blue-200 to-indigo-100 dark:from-blue-900 dark:to-indigo-950",
+      "from-blue-200 via-indigo-100 to-sky-50 dark:from-blue-900 dark:via-indigo-950 dark:to-sky-950",
     icon: (
       <svg viewBox="0 0 24 24" className="h-8 w-8 fill-[#1877F2]">
         <path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07c0 6.03 4.39 11 10.13 11.93v-8.44H7.08v-3.5h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.96h-1.52c-1.5 0-1.96.93-1.96 1.88v2.26h3.33l-.53 3.5h-2.8V24C19.61 23.07 24 18.1 24 12.07z" />
@@ -113,7 +113,7 @@ const socialLinks = [
     handle: "mninadmnobo",
     url: "https://instagram.com/mninadmnobo",
     color:
-      "from-pink-200 to-orange-100 dark:from-pink-900 dark:to-orange-950",
+      "from-pink-200 via-rose-100 to-orange-50 dark:from-pink-900 dark:via-rose-950 dark:to-orange-950",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -129,7 +129,7 @@ const socialLinks = [
     handle: "mninadmnobo",
     url: "https://x.com/mninadmnobo?s=11",
     color:
-      "from-zinc-200 to-zinc-100 dark:from-zinc-800 dark:to-zinc-900",
+      "from-zinc-200 via-zinc-100 to-slate-50 dark:from-zinc-800 dark:via-zinc-900 dark:to-slate-950",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -142,7 +142,7 @@ const socialLinks = [
 ]
 
 /* ======================================================
-   PROGRAMMING PROFILES
+   PROGRAMMING
 ====================================================== */
 
 const programmingLinks = [
@@ -151,13 +151,13 @@ const programmingLinks = [
     handle: "mninadmnobo",
     url: "https://neetcode.io/profile/mninadmnobo",
     color:
-      "from-slate-200 to-slate-100 dark:from-slate-800 dark:to-slate-900",
+      "from-violet-200 via-indigo-100 to-slate-50 dark:from-violet-900 dark:via-indigo-950 dark:to-slate-950",
     icon: (
       <svg
         viewBox="0 0 24 24"
         className="h-8 w-8 fill-current text-black dark:text-white"
       >
-        <path d="M12 2L2 7l10 5 10-5-10-5zm0 7.5L4.2 6.2 12 3.1l7.8 3.1L12 9.5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+        <path d="M12 2L2 7l10 5 10-5-10-5zm0 7.5L4.2 6.2 12 3.1l7.8 3.1L12 9.5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
       </svg>
     ),
   },
@@ -167,13 +167,13 @@ const programmingLinks = [
     handle: "mninadmnobo",
     url: "https://leetcode.com/u/mninadmnobo",
     color:
-      "from-yellow-200 to-orange-100 dark:from-yellow-900 dark:to-orange-950",
+      "from-yellow-200 via-amber-100 to-orange-50 dark:from-yellow-900 dark:via-amber-950 dark:to-orange-950",
     icon: (
       <svg
         viewBox="0 0 24 24"
         className="h-8 w-8 fill-current text-[#FFA116]"
       >
-        <path d="M13.48 0a1.37 1.37 0 00-.96.44L7.12 6.23l-3.86 4.13..." />
+        <path d="M13.48 0a1.37 1.37 0 00-.96.44L7.12 6.23l-3.86 4.13a5.27 5.27 0 00-1.2 2.1 5.3 5.3 0 00-.13.51 5.53 5.53 0 00.06 2.36 5.84 5.84 0 00.35 1.02 5.94 5.94 0 001.27 1.82l4.28 4.19.04.04c2.25 2.16 5.85 2.13 8.06-.07l2.4-2.39a1.38 1.38 0 00-1.95-1.96l-2.4 2.39a3.02 3.02 0 01-4.2.04l-.02-.02-4.28-4.19c-.65-.64-.97-1.47-.95-2.26.01-.18.03-.35.07-.52.1-.43.31-.83.62-1.16L9.13 8.11c1.06-1.13 3.2-1.27 4.43-.28l3.5 2.83a1.38 1.38 0 101.74-2.15l-3.5-2.83a6.5 6.5 0 00-2.77-1.2l2.01-2.16A1.38 1.38 0 0013.48 0z"/>
       </svg>
     ),
   },
@@ -183,7 +183,7 @@ const programmingLinks = [
     handle: "mohammadninadmahmud",
     url: "https://www.kaggle.com/mohammadninadmahmud",
     color:
-      "from-sky-200 to-cyan-100 dark:from-sky-900 dark:to-cyan-950",
+      "from-sky-200 via-cyan-100 to-blue-50 dark:from-sky-900 dark:via-cyan-950 dark:to-blue-950",
     icon: (
       <div className="text-5xl font-bold leading-none text-[#20BEFF]">
         k
@@ -196,12 +196,12 @@ const programmingLinks = [
     handle: "MNMNobo",
     url: "https://codeforces.com/profile/MNMNobo",
     color:
-      "from-pink-200 to-rose-100 dark:from-pink-900 dark:to-rose-950",
+      "from-pink-200 via-rose-100 to-red-50 dark:from-pink-900 dark:via-rose-950 dark:to-red-950",
     icon: (
       <svg viewBox="0 0 24 24" className="h-8 w-8">
-        <rect x="1" y="10" width="5" height="12" rx="1" fill="#F7C948" />
-        <rect x="9" y="5" width="5" height="17" rx="1" fill="#3B82F6" />
-        <rect x="17" y="8" width="5" height="14" rx="1" fill="#EF4444" />
+        <rect x="1" y="10" width="5" height="12" rx="1" fill="#F7C948"/>
+        <rect x="9" y="5" width="5" height="17" rx="1" fill="#3B82F6"/>
+        <rect x="17" y="8" width="5" height="14" rx="1" fill="#EF4444"/>
       </svg>
     ),
   },
@@ -213,11 +213,11 @@ function ProfileCard({ link }: any) {
       href={link.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex items-center justify-between rounded-2xl border border-border/70 bg-background/80 p-4 backdrop-blur-md shadow-sm dark:shadow-none transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-xl no-underline"
+      className="group flex items-center justify-between rounded-2xl border border-border/70 bg-background/80 p-4 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-xl no-underline"
     >
       <div className="flex min-w-0 items-center gap-4">
         <div
-          className={`flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${link.color}`}
+          className={`flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${link.color} shadow-sm ring-1 ring-black/5 dark:ring-white/10`}
         >
           {link.icon}
         </div>
@@ -252,12 +252,17 @@ function SectionTitle({ title }: { title: string }) {
   )
 }
 
+/* ======================================================
+   MAIN COMPONENT
+====================================================== */
+
 export function Contact() {
   return (
     <section
       id="contact"
       className="relative overflow-hidden px-6 py-24 md:px-12 lg:px-24"
     >
+      {/* BACKGROUND */}
       <div className="absolute inset-0 bg-gradient-to-br from-card/20 via-background to-card/20" />
 
       <div className="absolute left-1/4 top-1/3 h-80 w-80 rounded-full bg-cyan-500/10 blur-3xl" />
@@ -265,13 +270,23 @@ export function Contact() {
       <div className="absolute bottom-1/3 right-1/4 h-80 w-80 rounded-full bg-cyan-500/10 blur-3xl" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
+
+        {/* LETS CONNECT HEADER */}
+        <div className="mb-12 flex items-center gap-4">
+          <div className="h-px w-12 bg-primary" />
+
+          <h2 className="text-lg font-semibold uppercase tracking-[0.25em] text-primary">
+            LET&apos;S CONNECT
+          </h2>
+        </div>
+
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
 
           {/* LEFT */}
           <div className="flex flex-col justify-center lg:col-span-5">
 
-            <p className="mb-10 text-lg leading-relaxed text-muted-foreground">
-              I'm open to internships, full-time opportunities,
+            <p className="mb-10 text-[1.15rem] leading-[2rem] text-muted-foreground">
+              I&apos;m open to internships, full-time opportunities,
               and research collaborations in full-stack engineering,
               applied AI, and intelligent systems.
             </p>
@@ -333,7 +348,8 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-border/70 bg-background/80 p-6 backdrop-blur-md">
+            {/* EMAIL CARD */}
+            <div className="rounded-2xl border border-border/70 bg-background/80 p-6 backdrop-blur-md shadow-sm">
 
               <div className="mb-5 flex items-center gap-3">
                 <Mail className="h-5 w-5 text-primary" />
@@ -391,6 +407,7 @@ export function Contact() {
           {/* RIGHT */}
           <div className="space-y-8 lg:col-span-7">
 
+            {/* PROFESSIONAL */}
             <div>
               <SectionTitle title="Professional Profiles" />
 
@@ -401,6 +418,7 @@ export function Contact() {
               </div>
             </div>
 
+            {/* RESEARCH + SOCIAL */}
             <div className="grid gap-6 md:grid-cols-2">
 
               <div>
@@ -425,6 +443,7 @@ export function Contact() {
 
             </div>
 
+            {/* PROGRAMMING */}
             <div>
               <SectionTitle title="Programming Profiles" />
 
