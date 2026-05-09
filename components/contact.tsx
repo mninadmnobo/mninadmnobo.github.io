@@ -222,17 +222,19 @@ function ProfileCard({ link }: any) {
           {link.icon}
         </div>
 
-        <div className="min-w-0">
+        <div className="min-w-0 flex-1">
           <p className="text-base font-semibold text-foreground">
             {link.name}
           </p>
 
-          <p className={`text-muted-foreground ${
-            link.name === "ORCID" || link.name === "ResearchGate"
-              ? "truncate text-xs"
-              : "truncate text-sm"
-           }`}
-           >
+          <p className={`truncate text-muted-foreground ${
+            link.name === "ORCID" ||
+            link.name === "ResearchGate" ||
+            link.name === "Kaggle"
+              ? "text-xs"
+              : "text-sm"
+          }`}
+        >
           {link.handle}
         </p>
           
