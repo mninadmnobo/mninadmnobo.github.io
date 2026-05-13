@@ -23,7 +23,7 @@ type Project = {
   tech: string[]
   featured: boolean
   year: string
-  category: string
+  categories: string[]
   links: ProjectLink[]
 }
 
@@ -68,7 +68,7 @@ const featuredProjects: Project[] = [
     tech: ["Kotlin", "Spring Boot", "Spring AI", "PostgreSQL", "Redis", "Firebase", "Docker", "Azure"],
     featured: true,
     year: "2025",
-    category: "AI/ML",
+    categories: ["AI/ML", "Full-Stack", "Mobile"],
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/MindTrace" },
       { label: "Feature Demo", href: "https://youtu.be/BpRmKZYAOhM" },
@@ -95,7 +95,7 @@ const featuredProjects: Project[] = [
     tech: ["Kotlin", "Spring Boot", "Spring AI", "Room", "SQLite"],
     featured: true,
     year: "2025",
-    category: "AI/ML",
+    categories: ["AI/ML", "Mobile"],
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/GemmaVetCare" },
       { label: "Feature Demo", href: "https://www.youtube.com/watch?v=EoxyudCIVSo" },
@@ -120,7 +120,7 @@ const featuredProjects: Project[] = [
     tech: ["C++17", "Flex", "Bison", "8086 Codegen", "Linux"],
     featured: true,
     year: "2024",
-    category: "Systems",
+    categories: ["Systems"],
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/CompilerSessional" },
     ],
@@ -145,7 +145,7 @@ const featuredProjects: Project[] = [
     tech: ["C++17", "OpenGL", "Rasterization", "Ray Tracing"],
     featured: true,
     year: "2025",
-    category: "Graphics",
+    categories: ["Graphics"],
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/Computer-Graphics-Pipeline" },
     ],
@@ -173,7 +173,7 @@ const allProjects: Project[] = [
     tech: ["C", "ATmega32", "Arduino"],
     featured: false,
     year: "2024",
-    category: "Embedded/IoT",
+    categories: ["Embedded", "IoT"],
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/CSE-316-Microcontroller-and-Microprocessor-Project" },
       { label: "Feature Demo", href: "https://www.youtube.com/watch?v=m3LLqLAPCik" },
@@ -198,7 +198,7 @@ const allProjects: Project[] = [
     tech: ["Node.js", "Express.js", "SQL"],
     featured: false,
     year: "2023",
-    category: "Web/Full-Stack",
+    categories: ["Full-Stack", "Web"],
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/SKILL_HUB" },
     ],
@@ -222,7 +222,7 @@ const allProjects: Project[] = [
     tech: ["Java", "JavaFX"],
     featured: false,
     year: "2022",
-    category: "Desktop",
+    categories: ["Desktop"],
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/Movie-DataBase-Management-JavaFX" },
     ],
@@ -247,7 +247,7 @@ const allProjects: Project[] = [
     tech: ["Python", "Networking", "Security"],
     featured: false,
     year: "2025",
-    category: "Security",
+    categories: ["Security", "Networking"],
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/CSE406-Window_Scaling_Attack" },
     ],
@@ -261,13 +261,29 @@ export function Projects() {
   const sectionRef = useRef<HTMLElement | null>(null)
 
   const projectsToShow = showAll ? allProjects : featuredProjects
+  const categoryOrder = [
+    "AI/ML",
+    "Full-Stack",
+    "Mobile",
+    "Systems",
+    "Graphics",
+    "Embedded",
+    "IoT",
+    "Web",
+    "Desktop",
+    "Security",
+    "Networking",
+  ]
   const categories = [
     "All",
-    ...Array.from(new Set(allProjects.map((project) => project.category))).sort(),
+    ...Array.from(new Set(allProjects.flatMap((project) => project.categories))).sort(
+      (a, b) => categoryOrder.indexOf(a) - categoryOrder.indexOf(b)
+    ),
   ]
+  const baseProjects = selectedCategory === "All" ? projectsToShow : allProjects
   const filteredProjects = selectedCategory === "All"
-    ? projectsToShow
-    : projectsToShow.filter((project) => project.category === selectedCategory)
+    ? baseProjects
+    : baseProjects.filter((project) => project.categories.includes(selectedCategory))
 
   const handleToggleProjects = () => {
     setShowAll((previous) => {
@@ -319,10 +335,10 @@ export function Projects() {
               key={category}
               type="button"
               onClick={() => setSelectedCategory(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium border transition-colors ${
+              className={`px-4 py-2 rounded-full text-sm font-semibold border transition-colors ${
                 selectedCategory === category
-                  ? "bg-primary text-primary-foreground border-primary"
-                  : "bg-background/60 text-foreground border-border hover:border-primary/50 hover:text-primary"
+                  ? "bg-primary text-primary-foreground border-primary shadow-sm"
+                  : "bg-background/80 text-foreground border-border hover:border-primary/50 hover:text-primary"
               }`}
             >
               {category}
@@ -354,11 +370,21 @@ export function Projects() {
                 </div>
 
                 <div className="flex-1">
-                  <div className="flex flex-wrap items-center gap-3 mb-2">
-                    <span className="text-sm text-primary font-medium">{project.featured ? "Featured Project" : "Project"}</span>
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
+                    <span className="text-xs font-semibold uppercase tracking-wide text-primary">
+                      {project.featured ? "Featured Project" : "Project"}
+                    </span>
                     <span className="px-2 py-0.5 text-xs rounded-full bg-primary/20 text-primary">
                       {project.year}
                     </span>
+                    {project.categories.map((category) => (
+                      <span
+                        key={`${project.name}-${category}`}
+                        className="px-2 py-0.5 text-xs rounded-full bg-secondary text-secondary-foreground"
+                      >
+                        {category}
+                      </span>
+                    ))}
                   </div>
 
                   <div className="flex items-center justify-between gap-4 mb-3">
