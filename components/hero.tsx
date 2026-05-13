@@ -8,11 +8,11 @@ import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
 
 const sectionLinks = [
-  { href: "#about", label: "About", icon: User },
-  { href: "#projects", label: "Projects", icon: FolderKanban },
-  { href: "#research", label: "Research", icon: Microscope },
-  { href: "#tech", label: "Tech Stack", icon: Cpu },
-  { href: "#contact", label: "Contact", icon: Mail },
+  { href: "/about/", label: "About", icon: User },
+  { href: "/projects/", label: "Projects", icon: FolderKanban },
+  { href: "/research/", label: "Research", icon: Microscope },
+  { href: "/tech/", label: "Tech Stack", icon: Cpu },
+  { href: "/contact/", label: "Contact", icon: Mail },
 ]
 
 export function Hero() {
