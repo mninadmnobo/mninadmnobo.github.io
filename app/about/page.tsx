@@ -13,7 +13,7 @@ export default function AboutPage() {
         <Button asChild variant="outline">
           <Link href="/" className="no-underline">
             <ArrowLeft />
-            Back to Overview
+            Back: Home
           </Link>
         </Button>
         <Button asChild>

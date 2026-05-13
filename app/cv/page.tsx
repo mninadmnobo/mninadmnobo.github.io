@@ -189,7 +189,7 @@ export default function CVPage() {
         <Button asChild variant="outline">
           <Link href="/" className="no-underline">
             <ArrowLeft />
-            Back to Overview
+            Back: Home
           </Link>
         </Button>
       </div>

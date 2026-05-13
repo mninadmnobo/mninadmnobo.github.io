@@ -15,7 +15,7 @@ export default function ContactPage() {
         <Button asChild variant="outline">
           <Link href="/tech/" className="no-underline">
             <ArrowLeft />
-            Back to Tech Stack
+            Back: Tech Stack
           </Link>
         </Button>
         <Button asChild>

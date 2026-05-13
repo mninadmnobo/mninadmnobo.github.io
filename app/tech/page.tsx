@@ -13,7 +13,7 @@ export default function TechPage() {
         <Button asChild variant="outline">
           <Link href="/research/" className="no-underline">
             <ArrowLeft />
-            Back to Research
+            Back: Research
           </Link>
         </Button>
         <Button asChild>

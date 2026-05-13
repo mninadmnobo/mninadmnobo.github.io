@@ -13,7 +13,7 @@ export default function ResearchPage() {
         <Button asChild variant="outline">
           <Link href="/projects/" className="no-underline">
             <ArrowLeft />
-            Back to Projects
+            Back: Projects
           </Link>
         </Button>
         <Button asChild>
