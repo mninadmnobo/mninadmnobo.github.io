@@ -9,16 +9,11 @@ export default function ResearchPage() {
     <main className="min-h-screen bg-background pb-24">
       <Navigation />
       <Research />
-      <div className="fixed bottom-6 left-6 right-6 z-50 grid grid-cols-3 items-center gap-3">
+      <div className="fixed bottom-6 left-6 right-6 z-50 flex items-center justify-between">
         <Button asChild variant="outline">
           <Link href="/projects/" className="no-underline">
             <ArrowLeft />
             Back: Projects
-          </Link>
-        </Button>
-        <Button asChild variant="outline" className="justify-self-center">
-          <Link href="/" className="no-underline">
-            Home
           </Link>
         </Button>
         <Button asChild>
