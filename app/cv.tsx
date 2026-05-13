@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { Navigation } from "@/components/navigation"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
 import { FileText, Download, ExternalLink, Copy, Check, ArrowLeft } from "lucide-react"
@@ -39,6 +40,7 @@ export default function CVPage() {
 
   return (
     <main className="min-h-screen px-6 md:px-12 lg:px-24 py-24 relative overflow-hidden pb-24">
+      <Navigation />
       {/* Premium background effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-card/30 via-background to-card/30" />
       <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/8 rounded-full blur-3xl" />
@@ -187,7 +189,7 @@ export default function CVPage() {
         <Button asChild variant="outline">
           <Link href="/" className="no-underline">
             <ArrowLeft />
-            Back to Home Page
+            Back to Overview
           </Link>
         </Button>
       </div>
