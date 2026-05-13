@@ -23,6 +23,7 @@ type Project = {
   tech: string[]
   featured: boolean
   year: string
+  category: string
   links: ProjectLink[]
 }
 
@@ -67,6 +68,7 @@ const featuredProjects: Project[] = [
     tech: ["Kotlin", "Spring Boot", "Spring AI", "PostgreSQL", "Redis", "Firebase", "Docker", "Azure"],
     featured: true,
     year: "2025",
+    category: "AI/ML",
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/MindTrace" },
       { label: "Feature Demo", href: "https://youtu.be/BpRmKZYAOhM" },
@@ -93,6 +95,7 @@ const featuredProjects: Project[] = [
     tech: ["Kotlin", "Spring Boot", "Spring AI", "Room", "SQLite"],
     featured: true,
     year: "2025",
+    category: "AI/ML",
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/GemmaVetCare" },
       { label: "Feature Demo", href: "https://www.youtube.com/watch?v=EoxyudCIVSo" },
@@ -117,6 +120,7 @@ const featuredProjects: Project[] = [
     tech: ["C++17", "Flex", "Bison", "8086 Codegen", "Linux"],
     featured: true,
     year: "2024",
+    category: "Systems",
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/CompilerSessional" },
     ],
@@ -141,6 +145,7 @@ const featuredProjects: Project[] = [
     tech: ["C++17", "OpenGL", "Rasterization", "Ray Tracing"],
     featured: true,
     year: "2025",
+    category: "Graphics",
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/Computer-Graphics-Pipeline" },
     ],
@@ -168,6 +173,7 @@ const allProjects: Project[] = [
     tech: ["C", "ATmega32", "Arduino"],
     featured: false,
     year: "2024",
+    category: "Embedded/IoT",
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/CSE-316-Microcontroller-and-Microprocessor-Project" },
       { label: "Feature Demo", href: "https://www.youtube.com/watch?v=m3LLqLAPCik" },
@@ -192,6 +198,7 @@ const allProjects: Project[] = [
     tech: ["Node.js", "Express.js", "SQL"],
     featured: false,
     year: "2023",
+    category: "Web/Full-Stack",
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/SKILL_HUB" },
     ],
@@ -215,6 +222,7 @@ const allProjects: Project[] = [
     tech: ["Java", "JavaFX"],
     featured: false,
     year: "2022",
+    category: "Desktop",
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/Movie-DataBase-Management-JavaFX" },
     ],
@@ -239,6 +247,7 @@ const allProjects: Project[] = [
     tech: ["Python", "Networking", "Security"],
     featured: false,
     year: "2025",
+    category: "Security",
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/CSE406-Window_Scaling_Attack" },
     ],
@@ -248,9 +257,17 @@ const allProjects: Project[] = [
 
 export function Projects() {
   const [showAll, setShowAll] = useState(false)
+  const [selectedCategory, setSelectedCategory] = useState("All")
   const sectionRef = useRef<HTMLElement | null>(null)
 
   const projectsToShow = showAll ? allProjects : featuredProjects
+  const categories = [
+    "All",
+    ...Array.from(new Set(allProjects.map((project) => project.category))).sort(),
+  ]
+  const filteredProjects = selectedCategory === "All"
+    ? projectsToShow
+    : projectsToShow.filter((project) => project.category === selectedCategory)
 
   const handleToggleProjects = () => {
     setShowAll((previous) => {
@@ -296,8 +313,25 @@ export function Projects() {
           </Link>
         </div>
 
+        <div className="flex flex-wrap gap-2 mb-8">
+          {categories.map((category) => (
+            <button
+              key={category}
+              type="button"
+              onClick={() => setSelectedCategory(category)}
+              className={`px-4 py-2 rounded-full text-sm font-medium border transition-colors ${
+                selectedCategory === category
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "bg-background/60 text-foreground border-border hover:border-primary/50 hover:text-primary"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
         <div className="grid gap-6">
-          {projectsToShow.map((project) => {
+          {filteredProjects.map((project) => {
             const videoLinks = project.links
               .map((projectLink) => ({ label: projectLink.label, href: projectLink.href, embedUrl: getYouTubeEmbedUrl(projectLink.href) }))
               .filter((item): item is { label: string; href: string; embedUrl: string } => Boolean(item.embedUrl))

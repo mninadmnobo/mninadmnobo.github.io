@@ -186,7 +186,7 @@ export default function CVPage() {
       </div>
 
       <div className="fixed bottom-6 left-6 right-6 z-50 flex items-center justify-start">
-        <Button asChild variant="outline">
+        <Button asChild variant="outline" className="px-6 py-3 text-base md:text-lg">
           <Link href="/" className="no-underline">
             <ArrowLeft />
             Back: Home

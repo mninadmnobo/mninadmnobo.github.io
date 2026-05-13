@@ -15,7 +15,7 @@ export function ProfessionalForm() {
           <div className="flex items-center gap-3">
             <div className="h-px w-10 bg-gradient-to-r from-blue-500 via-pink-500 to-cyan-400" />
             <p className="text-sm font-semibold uppercase tracking-widest text-zinc-700 dark:text-zinc-300">
-              Send a Message
+              Connect with Me
             </p>
           </div>
           <p className="mt-2 text-sm md:text-base text-zinc-600 dark:text-zinc-300 max-w-2xl">
