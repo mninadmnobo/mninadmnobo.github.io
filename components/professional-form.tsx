@@ -9,16 +9,6 @@ export function ProfessionalForm() {
       className="w-full max-w-5xl mx-auto my-16 p-10 rounded-3xl shadow-2xl border border-zinc-200/30 dark:border-zinc-700/40 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-xl"
       style={{ boxShadow: "0 12px 48px 0 rgba(31, 38, 135, 0.18)" }}
     >
-      <div className="flex items-center gap-4 mb-8">
-        <div className="bg-gradient-to-tr from-blue-500 to-pink-400 rounded-2xl p-4 shadow-lg">
-          <svg width="40" height="40" fill="none" viewBox="0 0 24 24" className="text-white">
-            <path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-          </svg>
-        </div>
-        <div>
-          <h2 className="text-4xl font-extrabold tracking-tight mb-1 text-zinc-900 dark:text-white">Contact Me</h2>
-        </div>
-      </div>
       {state.succeeded ? (
         <p className="text-green-600 text-center text-lg font-semibold">Thank you! Your message has been sent.</p>
       ) : (
