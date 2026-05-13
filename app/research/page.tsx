@@ -10,14 +10,14 @@ export default function ResearchPage() {
       <Navigation />
       <Research />
       <div className="fixed bottom-6 left-6 right-6 z-50 flex items-center justify-between">
-        <Button asChild variant="outline" className="px-6 py-3 text-base md:text-lg">
-          <Link href="/projects/" className="no-underline">
+        <Button asChild variant="outline" className="px-6 py-3.5 text-sm md:text-base">
+          <Link href="/projects/" className="no-underline inline-flex items-center gap-2">
             <ArrowLeft />
             Back: Projects
           </Link>
         </Button>
-        <Button asChild className="px-6 py-3 text-base md:text-lg">
-          <Link href="/tech/" className="no-underline">
+        <Button asChild className="px-6 py-3.5 text-sm md:text-base">
+          <Link href="/tech/" className="no-underline inline-flex items-center gap-2">
             Next: Tech Stack
             <ArrowRight />
           </Link>
