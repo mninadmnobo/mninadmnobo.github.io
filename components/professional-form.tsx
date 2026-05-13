@@ -17,15 +17,15 @@ export function ProfessionalForm() {
         </div>
         <div>
           <h2 className="text-4xl font-extrabold tracking-tight mb-1 text-zinc-900 dark:text-white">Contact Me</h2>
-          <p className="text-zinc-500 dark:text-zinc-400 text-base">Send a message directly to my inbox</p>
         </div>
       </div>
       {state.succeeded ? (
         <p className="text-green-600 text-center text-lg font-semibold">Thank you! Your message has been sent.</p>
       ) : (
-        <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="flex-1">
+        <form className="flex flex-col md:flex-row gap-6" onSubmit={handleSubmit}>
+          {/* Left side: Name, Email, Subject */}
+          <div className="flex flex-col gap-4 flex-1">
+            <div>
               <label htmlFor="name" className="block font-semibold mb-1 text-zinc-700 dark:text-zinc-200">Name</label>
               <input
                 type="text"
@@ -37,7 +37,7 @@ export function ProfessionalForm() {
               />
               <ValidationError prefix="Name" field="name" errors={state.errors} />
             </div>
-            <div className="flex-1">
+            <div>
               <label htmlFor="email" className="block font-semibold mb-1 text-zinc-700 dark:text-zinc-200">Email</label>
               <input
                 type="email"
@@ -49,16 +49,29 @@ export function ProfessionalForm() {
               />
               <ValidationError prefix="Email" field="email" errors={state.errors} />
             </div>
+            <div>
+              <label htmlFor="subject" className="block font-semibold mb-1 text-zinc-700 dark:text-zinc-200">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                required
+                placeholder="Subject"
+                className="w-full px-4 py-2 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white/90 dark:bg-zinc-800/90 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition"
+              />
+              <ValidationError prefix="Subject" field="subject" errors={state.errors} />
+            </div>
           </div>
-          <div>
+          {/* Right side: Message */}
+          <div className="flex-1 flex flex-col">
             <label htmlFor="message" className="block font-semibold mb-1 text-zinc-700 dark:text-zinc-200">Message</label>
             <textarea
               id="message"
               name="message"
-              rows={5}
+              rows={10}
               required
               placeholder="Your Message"
-              className="w-full px-4 py-2 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white/90 dark:bg-zinc-800/90 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition resize-none"
+              className="w-full h-full min-h-[180px] px-4 py-2 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white/90 dark:bg-zinc-800/90 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition resize-none"
             />
             <ValidationError prefix="Message" field="message" errors={state.errors} />
           </div>
