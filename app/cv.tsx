@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
-import { FileText, Download, ExternalLink, Copy, Check } from "lucide-react"
+import { FileText, Download, ExternalLink, Copy, Check, ArrowLeft } from "lucide-react"
 
 // Use provided Overleaf share URL by default; can be overridden via env: NEXT_PUBLIC_OVERLEAF_URL
 const OVERLEAF_URL = process.env.NEXT_PUBLIC_OVERLEAF_URL ?? "https://www.overleaf.com/read/ynxpmkthmrds#abfcd6"
@@ -38,7 +38,7 @@ export default function CVPage() {
   }
 
   return (
-    <main className="min-h-screen px-6 md:px-12 lg:px-24 py-24 relative overflow-hidden">
+    <main className="min-h-screen px-6 md:px-12 lg:px-24 py-24 relative overflow-hidden pb-24">
       {/* Premium background effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-card/30 via-background to-card/30" />
       <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/8 rounded-full blur-3xl" />
@@ -181,6 +181,15 @@ export default function CVPage() {
             <span className="font-medium text-foreground">💡 Tip:</span> You can copy the LaTeX source and paste it into Overleaf to create your own editable version. The PDF is also available for quick viewing or downloading.
           </p>
         </div>
+      </div>
+
+      <div className="fixed bottom-6 left-6 right-6 z-50 flex items-center justify-start">
+        <Button asChild variant="outline">
+          <Link href="/" className="no-underline">
+            <ArrowLeft />
+            Back to Home Page
+          </Link>
+        </Button>
       </div>
     </main>
   )
