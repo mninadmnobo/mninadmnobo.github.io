@@ -68,7 +68,7 @@ const featuredProjects: Project[] = [
     tech: ["Kotlin", "Spring Boot", "Spring AI", "PostgreSQL", "Redis", "Firebase", "Docker", "Azure"],
     featured: true,
     year: "2025",
-    categories: ["AI/ML", "Full-Stack", "Mobile"],
+    categories: ["AI/ML", "Full-Stack"],
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/MindTrace" },
       { label: "Feature Demo", href: "https://youtu.be/BpRmKZYAOhM" },
@@ -95,7 +95,7 @@ const featuredProjects: Project[] = [
     tech: ["Kotlin", "Spring Boot", "Spring AI", "Room", "SQLite"],
     featured: true,
     year: "2025",
-    categories: ["AI/ML", "Mobile"],
+    categories: ["AI/ML"],
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/GemmaVetCare" },
       { label: "Feature Demo", href: "https://www.youtube.com/watch?v=EoxyudCIVSo" },
@@ -145,7 +145,7 @@ const featuredProjects: Project[] = [
     tech: ["C++17", "OpenGL", "Rasterization", "Ray Tracing"],
     featured: true,
     year: "2025",
-    categories: ["Graphics"],
+    categories: ["Systems"],
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/Computer-Graphics-Pipeline" },
     ],
@@ -173,7 +173,7 @@ const allProjects: Project[] = [
     tech: ["C", "ATmega32", "Arduino"],
     featured: false,
     year: "2024",
-    categories: ["Embedded", "IoT"],
+    categories: ["Systems"],
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/CSE-316-Microcontroller-and-Microprocessor-Project" },
       { label: "Feature Demo", href: "https://www.youtube.com/watch?v=m3LLqLAPCik" },
@@ -198,7 +198,7 @@ const allProjects: Project[] = [
     tech: ["Node.js", "Express.js", "SQL"],
     featured: false,
     year: "2023",
-    categories: ["Full-Stack", "Web"],
+    categories: ["Full-Stack"],
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/SKILL_HUB" },
     ],
@@ -222,7 +222,7 @@ const allProjects: Project[] = [
     tech: ["Java", "JavaFX"],
     featured: false,
     year: "2022",
-    categories: ["Desktop"],
+    categories: ["Full-Stack"],
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/Movie-DataBase-Management-JavaFX" },
     ],
@@ -247,7 +247,7 @@ const allProjects: Project[] = [
     tech: ["Python", "Networking", "Security"],
     featured: false,
     year: "2025",
-    categories: ["Security", "Networking"],
+    categories: ["Security", "Systems"],
     links: [
       { label: "GitHub Link", href: "https://github.com/mninadmnobo/CSE406-Window_Scaling_Attack" },
     ],
@@ -261,19 +261,7 @@ export function Projects() {
   const sectionRef = useRef<HTMLElement | null>(null)
 
   const projectsToShow = showAll ? allProjects : featuredProjects
-  const categoryOrder = [
-    "AI/ML",
-    "Full-Stack",
-    "Mobile",
-    "Systems",
-    "Graphics",
-    "Embedded",
-    "IoT",
-    "Web",
-    "Desktop",
-    "Security",
-    "Networking",
-  ]
+  const categoryOrder = ["AI/ML", "Full-Stack", "Systems", "Security"]
   const categories = [
     "All",
     ...Array.from(new Set(allProjects.flatMap((project) => project.categories))).sort(
