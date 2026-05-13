@@ -52,13 +52,13 @@ export function TechStack() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {techCategories.map((category) => (
-            <div key={category.name} className="space-y-4">
+            <div key={category.name} className="space-y-4 glow-card">
               <h4 className="text-lg font-semibold text-foreground">{category.name}</h4>
               <div className="flex flex-wrap gap-2">
                 {category.items.map((item) => (
                   <span
                     key={item}
-                    className="px-3 py-1.5 text-sm rounded-lg border border-border bg-card/50 text-muted-foreground hover:border-primary/50 hover:text-foreground transition-all duration-200"
+                    className="glow-card px-3 py-1.5 text-sm rounded-lg border border-border bg-card/50 text-muted-foreground hover:border-primary/50 hover:text-foreground transition-all duration-200"
                   >
                     {item}
                   </span>
