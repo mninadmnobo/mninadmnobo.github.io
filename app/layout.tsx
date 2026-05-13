@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'Mohammad Ninad Mahmud Nobo | Full-Stack & AI Engineer',
   description: 'Portfolio of Mohammad Ninad Mahmud Nobo, a BUET CSE undergraduate building full-stack products, production APIs, and applied AI systems with experience in LLM testing and medical AI research.',
   icons: {
-    // icons removed to avoid Vercel / auto-generated icon references
+    icon: '/icon.svg',
   },
 }
 
