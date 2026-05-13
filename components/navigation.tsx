@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { ExternalLink, Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
+import { usePathname } from "next/navigation"
 import { Link } from "@/components/ui/link"
 import { Button } from "@/components/ui/button"
 
@@ -10,6 +11,7 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
+  const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,6 +40,13 @@ export function Navigation() {
           </Link>
 
           <div className="flex items-center gap-3">
+            {pathname !== "/" && (
+              <Button asChild variant="outline" className="px-4 py-2 rounded-lg text-sm font-medium">
+                <Link href="/" className="no-underline">
+                  Go To Home
+                </Link>
+              </Button>
+            )}
             <Button
               type="button"
               variant="outline"

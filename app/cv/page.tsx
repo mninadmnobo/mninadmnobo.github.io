@@ -41,15 +41,6 @@ export default function CVPage() {
   return (
     <main className="min-h-screen px-6 md:px-12 lg:px-24 py-24 relative overflow-hidden pb-24">
       <Navigation />
-      <div className="fixed top-20 left-0 right-0 z-50">
-        <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-24 flex justify-end">
-          <Button asChild variant="outline">
-            <Link href="/" className="no-underline">
-              Home
-            </Link>
-          </Button>
-        </div>
-      </div>
       {/* Premium background effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-card/30 via-background to-card/30" />
       <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-primary/8 rounded-full blur-3xl" />
