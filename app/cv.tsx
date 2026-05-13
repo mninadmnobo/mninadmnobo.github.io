@@ -51,13 +51,13 @@ export default function CVPage() {
             <div className="h-px w-12 bg-primary" />
             <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">Curriculum Vitae</h2>
           </div>
-          
+
           <div className="mb-4 max-w-3xl">
             <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground whitespace-nowrap leading-tight">
               Mohammad Ninad Mahmud Nobo
             </h1>
           </div>
-          
+
           <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
             View, download, or edit my professional CV. Available in PDF format for easy sharing and in LaTeX source for customization.
           </p>
@@ -101,7 +101,7 @@ export default function CVPage() {
               </h3>
               <p className="text-sm text-muted-foreground mb-4">Full-page preview of your CV in PDF format</p>
             </div>
-            
+
             <div className="border border-border/60 rounded-xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="bg-gradient-to-r from-primary/10 to-primary/5 p-4 border-b border-border/40">
                 <p className="text-sm font-medium text-foreground">PDF Viewer</p>
@@ -131,13 +131,13 @@ export default function CVPage() {
                 </Button>
               </a>
             </div>
-            
+
             <div className="border border-border/60 rounded-xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="bg-gradient-to-r from-primary/10 to-primary/5 p-4 border-b border-border/40 flex items-center justify-between">
                 <p className="text-sm font-medium text-foreground">LaTeX Code</p>
-                <Button 
-                  size="sm" 
-                  variant="ghost" 
+                <Button
+                  size="sm"
+                  variant="ghost"
                   className="gap-2 text-muted-foreground hover:text-primary transition-colors"
                   onClick={copyLatex}
                 >
