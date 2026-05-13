@@ -141,14 +141,15 @@
 
 @keyframes glow-pulse {
   0% {
-    box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 35%, transparent);
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 45%, transparent);
   }
   50% {
-    box-shadow: 0 0 0 1px color-mix(in oklab, var(--primary) 55%, transparent),
-      0 0 20px color-mix(in oklab, var(--primary) 50%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary) 70%, transparent),
+      0 0 34px color-mix(in oklab, var(--primary) 65%, transparent),
+      0 0 64px color-mix(in oklab, var(--primary) 50%, transparent);
   }
   100% {
-    box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 35%, transparent);
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--primary) 45%, transparent);
   }
 }
 
@@ -161,7 +162,8 @@
 .glow-button:focus-visible,
 .glow-card:hover,
 .glow-card:focus-within {
-  animation: glow-pulse 1.6s ease-in-out infinite;
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--primary) 45%, transparent),
-    0 0 18px color-mix(in oklab, var(--primary) 40%, transparent);
+  animation: glow-pulse 1.8s ease-in-out infinite;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary) 70%, transparent),
+    0 0 34px color-mix(in oklab, var(--primary) 60%, transparent),
+    0 0 60px color-mix(in oklab, var(--primary) 45%, transparent);
 }
