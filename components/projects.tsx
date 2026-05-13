@@ -348,7 +348,7 @@ export function Projects() {
             return (
             <div
               key={project.name}
-              className="p-6 md:p-8 rounded-xl border border-border bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-300 group"
+              className="p-6 md:p-8 rounded-xl border border-border bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-300 group glow-card"
             >
               <div className="flex flex-col md:flex-row md:items-start gap-6">
                 <div className="p-3 rounded-xl bg-primary/10 w-fit">

@@ -213,7 +213,7 @@ function ProfileCard({ link }: any) {
       href={link.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex items-center justify-between rounded-2xl border border-border/70 bg-background/80 p-4 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-xl no-underline"
+      className="group glow-card flex items-center justify-between rounded-2xl border border-border/70 bg-background/80 p-4 backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-xl no-underline"
     >
       <div className="flex min-w-0 items-center gap-4">
         <div
@@ -357,7 +357,7 @@ export function Contact() {
             </div>
 
             {/* EMAIL CARD */}
-            <div className="rounded-2xl border border-border/70 bg-background/80 p-6 backdrop-blur-md shadow-sm">
+            <div className="rounded-2xl border border-border/70 bg-background/80 p-6 backdrop-blur-md shadow-sm glow-card">
 
               <div className="mb-5 flex items-center gap-3">
                 <Mail className="h-5 w-5 text-primary" />
