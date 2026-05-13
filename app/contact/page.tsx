@@ -20,7 +20,7 @@ export default function ContactPage() {
         </Button>
         <Button asChild>
           <Link href="/" className="no-underline">
-            Next: Overview
+            Next: Home
             <ArrowRight />
           </Link>
         </Button>

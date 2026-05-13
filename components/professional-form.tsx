@@ -18,9 +18,6 @@ export function ProfessionalForm() {
               Send a Message
             </p>
           </div>
-          <h3 className="mt-3 text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white">
-            Let us start a conversation
-          </h3>
           <p className="mt-2 text-sm md:text-base text-zinc-600 dark:text-zinc-300 max-w-2xl">
             Share your idea, opportunity, or question. I will reply as soon as possible.
           </p>
