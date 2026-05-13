@@ -35,9 +35,9 @@ export function About() {
           <h2 className="text-sm font-semibold uppercase tracking-widest text-primary">About</h2>
         </div>
         
-        <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-8 text-balance">
-          Building systems that matter
-        </h3>
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8 text-balance">
+          Assalamu Alaikum! I am Mohammad Ninad Mahmud Nobo.
+        </h2>
         
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6">
