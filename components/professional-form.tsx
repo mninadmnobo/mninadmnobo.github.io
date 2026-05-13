@@ -58,12 +58,12 @@ export function ProfessionalForm() {
               <input
                 type="text"
                 id="subject"
-                name="subject"
+                name="_subject"
                 required
                 placeholder="Subject"
                 className="w-full px-4 py-3 rounded-xl border border-zinc-200/80 dark:border-zinc-700/70 bg-white/90 dark:bg-zinc-900/80 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-blue-400/70 focus:border-blue-400/60 transition"
               />
-              <ValidationError prefix="Subject" field="subject" errors={state.errors} />
+              <ValidationError prefix="Subject" field="_subject" errors={state.errors} />
             </div>
           </div>
           {/* Right side: Message */}
