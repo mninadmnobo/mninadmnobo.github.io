@@ -6,7 +6,7 @@ export function ProfessionalForm() {
 
   return (
     <section
-      className="relative w-full max-w-5xl mx-auto my-16 p-10 rounded-3xl border border-zinc-200/40 dark:border-zinc-700/50 bg-white/80 dark:bg-zinc-900/70 backdrop-blur-xl shadow-2xl"
+      className="relative w-full max-w-5xl mx-auto my-10 p-10 rounded-3xl border border-zinc-200/40 dark:border-zinc-700/50 bg-white/80 dark:bg-zinc-900/70 backdrop-blur-xl shadow-2xl"
       style={{ boxShadow: "0 18px 60px 0 rgba(15, 23, 42, 0.25)" }}
     >
       <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-br from-white/60 via-transparent to-transparent dark:from-white/5" />

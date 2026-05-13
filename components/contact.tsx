@@ -268,7 +268,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden px-6 py-24 md:px-12 lg:px-24"
+      className="relative overflow-hidden px-6 py-16 md:px-12 lg:px-24"
     >
       {/* BACKGROUND */}
       <div className="absolute inset-0 bg-gradient-to-br from-card/20 via-background to-card/20" />
