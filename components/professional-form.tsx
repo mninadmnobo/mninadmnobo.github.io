@@ -22,9 +22,9 @@ export function ProfessionalForm() {
       {state.succeeded ? (
         <p className="text-green-600 text-center text-lg font-semibold">Thank you! Your message has been sent.</p>
       ) : (
-        <form className="flex flex-col md:flex-row gap-6" onSubmit={handleSubmit}>
+        <form className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full" onSubmit={handleSubmit}>
           {/* Left side: Name, Email, Subject */}
-          <div className="flex flex-col gap-4 flex-1">
+          <div className="flex flex-col gap-4 w-full">
             <div>
               <label htmlFor="name" className="block font-semibold mb-1 text-zinc-700 dark:text-zinc-200">Name</label>
               <input
@@ -63,7 +63,7 @@ export function ProfessionalForm() {
             </div>
           </div>
           {/* Right side: Message */}
-          <div className="flex-1 flex flex-col">
+          <div className="flex flex-col w-full h-full">
             <label htmlFor="message" className="block font-semibold mb-1 text-zinc-700 dark:text-zinc-200">Message</label>
             <textarea
               id="message"
@@ -74,6 +74,23 @@ export function ProfessionalForm() {
               className="w-full h-full min-h-[180px] px-4 py-2 rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white/90 dark:bg-zinc-800/90 text-zinc-900 dark:text-zinc-100 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 transition resize-none"
             />
             <ValidationError prefix="Message" field="message" errors={state.errors} />
+          </div>
+          {/* Button full width below both columns */}
+          <div className="col-span-1 md:col-span-2">
+            <button
+              type="submit"
+              disabled={state.submitting}
+              className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-gradient-to-r from-blue-600 via-pink-500 to-cyan-500 text-white font-bold rounded-xl shadow-lg hover:from-blue-700 hover:to-pink-600 transition-all text-lg tracking-wide"
+            >
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24" className="inline-block">
+                <path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+              </svg>
+              {state.submitting ? "Sending..." : "Send Message"}
+            </button>
+            <p className="text-xs text-zinc-500 dark:text-zinc-400 text-center mt-2">
+              <span className="inline-block align-middle mr-1">🔒</span>
+              Your information is kept private and secure.
+            </p>
           </div>
           <button
             type="submit"
