@@ -474,23 +474,25 @@ export function Projects() {
           )})}
         </div>
 
-        <div className="flex justify-center mt-8">
-          <Button
-            variant="outline"
-            onClick={handleToggleProjects}
-            className="gap-2 text-base font-medium px-5 py-2.5 bg-secondary/70 border-border/80 text-foreground hover:!bg-primary hover:!text-primary-foreground hover:!border-primary dark:hover:!bg-primary dark:hover:!text-primary-foreground dark:hover:!border-primary"
-          >
-            {showAll ? (
-              <>
-                Show Less <ChevronUp className="h-5 w-5" />
-              </>
-            ) : (
-              <>
-                View All Projects ({allProjects.length}) <ChevronDown className="h-5 w-5" />
-              </>
-            )}
-          </Button>
-        </div>
+        {selectedCategory === "All" && (
+          <div className="flex justify-center mt-8">
+            <Button
+              variant="outline"
+              onClick={handleToggleProjects}
+              className="gap-2 text-base font-medium px-5 py-2.5 bg-secondary/70 border-border/80 text-foreground hover:!bg-primary hover:!text-primary-foreground hover:!border-primary dark:hover:!bg-primary dark:hover:!text-primary-foreground dark:hover:!border-primary"
+            >
+              {showAll ? (
+                <>
+                  Show Less <ChevronUp className="h-5 w-5" />
+                </>
+              ) : (
+                <>
+                  View All Projects ({allProjects.length}) <ChevronDown className="h-5 w-5" />
+                </>
+              )}
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   )
