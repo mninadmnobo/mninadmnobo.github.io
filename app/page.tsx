@@ -5,7 +5,9 @@ import { Projects } from "@/components/projects"
 import { Research } from "@/components/research"
 import { TechStack } from "@/components/tech-stack"
 import { Contact } from "@/components/contact"
-import { Footer } from "@/components/footer"
+
+
+import { ProfessionalForm } from "@/components/professional-form"
 import { BackToTop } from "@/components/back-to-top"
 
 export default function Home() {
@@ -18,7 +20,7 @@ export default function Home() {
       <Research />
       <TechStack />
       <Contact />
-      <Footer />
+      <ProfessionalForm />
       <BackToTop />
     </main>
   )
