@@ -1,24 +1,26 @@
 import { Navigation } from "@/components/navigation"
-import { Research } from "@/components/research"
+import { Contact } from "@/components/contact"
+import { ProfessionalForm } from "@/components/professional-form"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 
-export default function ResearchPage() {
+export default function ContactPage() {
   return (
     <main className="min-h-screen bg-background pb-24">
       <Navigation />
-      <Research />
+      <Contact />
+      <ProfessionalForm />
       <div className="fixed bottom-6 left-6 right-6 z-50 flex items-center justify-between">
         <Button asChild variant="outline">
-          <Link href="/projects" className="no-underline">
+          <Link href="/tech/" className="no-underline">
             <ArrowLeft />
-            Back to Projects
+            Back to Tech Stack
           </Link>
         </Button>
         <Button asChild>
-          <Link href="/tech" className="no-underline">
-            Next: Tech Stack
+          <Link href="/" className="no-underline">
+            Next: Overview
             <ArrowRight />
           </Link>
         </Button>
