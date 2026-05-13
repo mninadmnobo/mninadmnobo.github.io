@@ -37,7 +37,7 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
         rel={finalRel}
         download={download}
         className={cn(
-          "inline-flex items-center gap-1 rounded-sm font-medium underline underline-offset-4 decoration-primary/60 decoration-2 transition-colors hover:decoration-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+          "glow-link inline-flex items-center gap-1 rounded-sm font-medium underline underline-offset-4 decoration-primary/60 decoration-2 transition-colors hover:decoration-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
           className,
         )}
         {...props}

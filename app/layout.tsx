@@ -11,7 +11,9 @@ export const metadata: Metadata = {
   title: 'Mohammad Ninad Mahmud Nobo | Full-Stack & AI Engineer',
   description: 'Portfolio of Mohammad Ninad Mahmud Nobo, a BUET CSE undergraduate building full-stack products, production APIs, and applied AI systems with experience in LLM testing and medical AI research.',
   icons: {
-    icon: '/icon.svg',
+    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
   },
 }
 
@@ -23,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased glow-everywhere">
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <ScrollToTopOnLoad />
           {children}
