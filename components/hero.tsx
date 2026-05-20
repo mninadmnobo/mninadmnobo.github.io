@@ -204,6 +204,20 @@ export function Hero() {
                   View CV
                 </Link>
               </Button>
+              <Button
+                asChild
+                variant="outline"
+                className={`gap-2 no-underline transition-all duration-200 ${
+                  activeCta === "biodata"
+                    ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)]"
+                    : "bg-secondary/60 border-border/80 text-foreground"
+                } hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)]`}
+              >
+                <Link href="/biodata" onClick={() => setActiveCta("biodata")}>
+                  <FileText className="h-5 w-5" />
+                  View Biodata
+                </Link>
+              </Button>
             </div>
 
             <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-3">
