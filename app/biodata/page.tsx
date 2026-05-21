@@ -4,6 +4,7 @@ import { Navigation } from "@/components/navigation"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
 import { FileText, Download, ArrowLeft } from "lucide-react"
+import { PdfPreview } from "@/components/pdf-preview"
 
 export default function BioDataPage() {
   return (
@@ -46,20 +47,7 @@ export default function BioDataPage() {
         </div>
 
         <div className="space-y-4">
-          <div className="border border-border/60 rounded-xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div className="bg-gradient-to-r from-primary/10 to-primary/5 p-3 sm:p-4 border-b border-border/40">
-              <p className="text-xs sm:text-sm font-medium text-foreground">PDF Viewer Preview</p>
-            </div>
-            <div className="w-full overflow-x-auto">
-              <div className="w-full aspect-[8.5/11]">
-              <iframe
-                title="Biodata PDF"
-                src="/Mohammad_Ninad_Mahmud_Nobo_Biodata.pdf"
-                className="h-full w-full"
-              />
-              </div>
-            </div>
-          </div>
+          <PdfPreview title="PDF Viewer Preview" src="/Mohammad_Ninad_Mahmud_Nobo_Biodata.pdf" />
         </div>
       </div>
 

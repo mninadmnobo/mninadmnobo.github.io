@@ -5,6 +5,7 @@ import { Navigation } from "@/components/navigation"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
 import { FileText, Download, ExternalLink, Copy, Check, ArrowLeft } from "lucide-react"
+import { PdfPreview } from "@/components/pdf-preview"
 
 // Use provided Overleaf share URL by default; can be overridden via env: NEXT_PUBLIC_OVERLEAF_URL
 const OVERLEAF_URL = process.env.NEXT_PUBLIC_OVERLEAF_URL ?? "https://www.overleaf.com/read/ynxpmkthmrds#abfcd6"
@@ -107,18 +108,7 @@ export default function CVPage() {
               <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">Full-page preview of your CV in PDF format</p>
             </div>
 
-            <div className="border border-border/60 rounded-xl overflow-hidden bg-card/30 backdrop-blur-sm shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="bg-gradient-to-r from-primary/10 to-primary/5 p-3 sm:p-4 border-b border-border/40">
-                <p className="text-xs sm:text-sm font-medium text-foreground">PDF Viewer</p>
-              </div>
-              <div className="w-full aspect-[8.5/11]">
-                <iframe
-                  title="CV PDF"
-                  src="/Mohammad_Ninad_Mahmud_Nobo_CV.pdf"
-                  className="h-full w-full"
-                />
-              </div>
-            </div>
+            <PdfPreview title="PDF Viewer" src="/Mohammad_Ninad_Mahmud_Nobo_CV.pdf" />
           </div>
 
           {/* LaTeX Source */}
