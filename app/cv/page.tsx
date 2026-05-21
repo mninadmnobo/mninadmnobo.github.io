@@ -108,7 +108,7 @@ export default function CVPage() {
               <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">Full-page preview of your CV in PDF format</p>
             </div>
 
-            <PdfPreview title="PDF Viewer" src="/Mohammad_Ninad_Mahmud_Nobo_CV.pdf" />
+            <PdfPreview title="PDF Viewer Preview" src="/Mohammad_Ninad_Mahmud_Nobo_CV.pdf" />
           </div>
 
           {/* LaTeX Source */}
