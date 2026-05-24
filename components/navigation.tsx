@@ -138,29 +138,33 @@ export function Navigation() {
             <button
               type="button"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className={`flex flex-col items-center gap-1.5 px-3 py-2 rounded-2xl text-xs font-semibold transition-all border shadow-sm ${
-                mounted && theme === "light"
-                  ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.35)]"
-                  : "bg-secondary/60 text-foreground border-border/70"
-              } hover:!bg-primary/90 hover:!border-primary hover:!text-primary-foreground hover:shadow-[0_0_0_1px_rgba(34,211,238,0.35)]`}
+              className="flex flex-col items-center gap-1.5 rounded-2xl border border-border/70 bg-secondary/50 px-2.5 py-1.5 text-[11px] font-semibold text-foreground shadow-sm transition-all hover:bg-secondary/70 dark:bg-secondary/40 dark:hover:bg-secondary/60"
               aria-label="Switch theme mode"
               aria-pressed={theme === "dark"}
             >
-              <span className="flex items-center gap-2 text-[11px]">
-                <Moon
-                  className={`h-4 w-4 transition-opacity ${
-                    theme === "dark" ? "opacity-100" : "opacity-60"
+              <span className="flex items-center gap-2">
+                <span
+                  className={`inline-flex h-6 w-6 items-center justify-center rounded-full border transition-all ${
+                    theme === "dark"
+                      ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.45)]"
+                      : "bg-background/40 text-muted-foreground border-border/60"
                   }`}
-                />
+                >
+                  <Moon className="h-3.5 w-3.5" />
+                </span>
                 <span className="h-2 w-px bg-border/70" />
-                <Sun
-                  className={`h-4 w-4 transition-opacity ${
-                    theme === "light" ? "opacity-100" : "opacity-60"
+                <span
+                  className={`inline-flex h-6 w-6 items-center justify-center rounded-full border transition-all ${
+                    theme === "light"
+                      ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.45)]"
+                      : "bg-background/40 text-muted-foreground border-border/60"
                   }`}
-                />
+                >
+                  <Sun className="h-3.5 w-3.5" />
+                </span>
               </span>
               <span
-                className={`relative inline-flex h-5 w-11 items-center rounded-full transition-colors ring-1 ring-border/70 ${
+                className={`relative inline-flex h-5 w-11 items-center rounded-full transition-colors ring-1 ring-border/60 ${
                   theme === "dark" ? "bg-primary" : "bg-muted"
                 }`}
               >
