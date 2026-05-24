@@ -108,7 +108,7 @@ export function Navigation() {
                       size="sm"
                       className={`rounded-full border border-border/70 transition-all ${
                         isActive
-                          ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.5)]"
+                          ? "bg-primary/90 text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.5)]"
                           : "bg-secondary/60 text-foreground dark:bg-secondary/40"
                       } hover:!bg-primary/90 hover:!border-primary hover:!text-primary-foreground`}
                     >
@@ -138,19 +138,19 @@ export function Navigation() {
             <button
               type="button"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className={`flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium transition-colors border ${
+              className={`flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium transition-all border shadow-sm ${
                 mounted && theme === "light"
-                  ? "bg-primary text-primary-foreground border-primary"
+                  ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.35)]"
                   : "bg-secondary/60 text-foreground border-border/70"
-              } hover:!bg-primary/90 hover:!border-primary hover:!text-primary-foreground`}
+              } hover:!bg-primary/90 hover:!border-primary hover:!text-primary-foreground hover:shadow-[0_0_0_1px_rgba(34,211,238,0.35)]`}
               aria-label="Switch theme mode"
               aria-pressed={theme === "dark"}
             >
-              <span className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors ${
+              <span className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors ring-1 ring-border/70 ${
                 theme === "dark" ? "bg-primary" : "bg-muted"
               }`}>
                 <span
-                  className={`inline-block h-4 w-4 transform rounded-full bg-background shadow transition-transform ${
+                  className={`inline-block h-4 w-4 transform rounded-full bg-background shadow-md transition-transform ${
                     theme === "dark" ? "translate-x-5" : "translate-x-1"
                   }`}
                 />
