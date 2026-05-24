@@ -137,7 +137,7 @@ export function Navigation() {
               </Button>
             )}
             <div
-              className="flex h-8 items-center gap-2.5 rounded-full border border-border/70 bg-secondary/50 px-3 text-[11px] font-semibold text-foreground shadow-sm transition-all dark:bg-secondary/40"
+              className="flex h-8 items-center gap-2.5 rounded-full border border-border/70 bg-secondary/60 px-3 text-[11px] font-semibold text-foreground transition-all dark:bg-secondary/40"
               aria-label="Theme mode"
               role="group"
             >
