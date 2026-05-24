@@ -5,10 +5,8 @@ import { useEffect } from "react"
 export function ScrollToTopOnLoad() {
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual"
+      window.history.scrollRestoration = "auto"
     }
-
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" })
   }, [])
 
   return null
