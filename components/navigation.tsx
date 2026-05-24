@@ -95,8 +95,8 @@ export function Navigation() {
     >
       <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-24">
         <div className="flex items-center justify-between h-16">
-          <div className="flex-1 flex justify-end pr-4">
-            <div className="flex flex-wrap items-center gap-2 text-sm font-medium text-muted-foreground">
+          <div className="flex-1 flex justify-end pr-4 min-w-0">
+            <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground overflow-x-auto whitespace-nowrap md:flex-wrap md:overflow-visible">
               {pathname === "/" &&
                 sectionLinks.map((section) => {
                   const Icon = section.icon

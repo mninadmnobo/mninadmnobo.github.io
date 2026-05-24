@@ -64,14 +64,14 @@ export function Hero() {
               <span className="text-sm text-primary">Available for opportunities</span>
             </div>
 
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-2 whitespace-nowrap">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-2 md:whitespace-nowrap">
               Mohammad Ninad Mahmud Nobo
             </h1>
 
-            <p className="text-base md:text-xl lg:text-2xl text-primary mb-3 font-semibold whitespace-nowrap">
+            <p className="text-base md:text-xl lg:text-2xl text-primary mb-3 font-semibold md:whitespace-nowrap">
               Medical AI & Software Automation Researcher
             </p>
-            <p className="text-base md:text-xl lg:text-2xl text-primary mb-3 font-semibold whitespace-nowrap">
+            <p className="text-base md:text-xl lg:text-2xl text-primary mb-3 font-semibold md:whitespace-nowrap">
               LLM Systems & Full-Stack Engineer
             </p>
 
