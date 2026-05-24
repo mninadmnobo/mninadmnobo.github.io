@@ -27,6 +27,10 @@ export default function BioDataPage() {
               Mohammad Ninad Mahmud Nobo
             </h1>
           </div>
+
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
+            View, download, or share my biodata for professional and academic purposes. Available in PDF for quick reference and printing.
+          </p>
         </div>
 
         <div className="flex flex-wrap gap-2 sm:gap-3 mb-8 sm:mb-12">
@@ -49,16 +53,6 @@ export default function BioDataPage() {
         <div className="space-y-4">
           <PdfPreview title="PDF Viewer Preview" src="/Mohammad_Ninad_Mahmud_Nobo_Biodata.pdf" />
         </div>
-      </div>
-
-      <div className="fixed bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 z-50 flex items-center justify-start">
-        <Button asChild variant="outline" className="px-3 sm:px-6 py-2 sm:py-3.5 text-xs sm:text-sm md:text-base">
-          <Link href="/" className="no-underline inline-flex items-center gap-2">
-            <ArrowLeft className="h-3 w-3 sm:h-4 sm:w-4" />
-            <span className="hidden sm:inline">Back: Home</span>
-            <span className="sm:hidden">Back</span>
-          </Link>
-        </Button>
       </div>
     </main>
   )
