@@ -72,7 +72,7 @@ export default function CVPage() {
             <a href={OVERLEAF_URL} target="_blank" rel="noopener noreferrer" className="no-underline">
               <Button
                 variant="ghost"
-                className="gap-2 text-xs sm:text-sm bg-transparent text-primary shadow-none hover:!bg-primary/10 hover:!text-primary dark:hover:!text-primary-foreground transition-all duration-200"
+                className="gap-2 text-xs sm:text-sm bg-transparent text-primary border border-border/60 shadow-none hover:!bg-primary/10 hover:!text-primary dark:hover:!text-primary-foreground transition-all duration-200"
               >
                 <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
                 <span className="hidden sm:inline">Open on Overleaf</span>
@@ -81,14 +81,20 @@ export default function CVPage() {
             </a>
           )}
           <a href="/Mohammad_Ninad_Mahmud_Nobo_CV.pdf" target="_blank" rel="noopener noreferrer" className="no-underline">
-            <Button variant="ghost" className="gap-2 text-xs sm:text-sm bg-transparent text-primary shadow-none hover:!bg-primary/10 hover:!text-primary dark:hover:!text-primary-foreground transition-all duration-200">
+            <Button
+              variant="ghost"
+              className="gap-2 text-xs sm:text-sm bg-transparent text-primary border border-border/60 shadow-none hover:!bg-primary/10 hover:!text-primary dark:hover:!text-primary-foreground transition-all duration-200"
+            >
               <FileText className="h-3 w-3 sm:h-4 sm:w-4" />
               <span className="hidden sm:inline">View PDF</span>
               <span className="sm:hidden">View</span>
             </Button>
           </a>
           <a href="/Mohammad_Ninad_Mahmud_Nobo_CV.pdf" download className="no-underline">
-            <Button variant="ghost" className="gap-2 text-xs sm:text-sm bg-transparent text-primary shadow-none hover:!bg-primary/10 hover:!text-primary dark:hover:!text-primary-foreground transition-all duration-200">
+            <Button
+              variant="ghost"
+              className="gap-2 text-xs sm:text-sm bg-transparent text-primary border border-border/60 shadow-none hover:!bg-primary/10 hover:!text-primary dark:hover:!text-primary-foreground transition-all duration-200"
+            >
               <Download className="h-3 w-3 sm:h-4 sm:w-4" />
               <span className="hidden sm:inline">Download PDF</span>
               <span className="sm:hidden">Download</span>
@@ -122,7 +128,11 @@ export default function CVPage() {
                 <p className="text-xs sm:text-sm text-muted-foreground">Edit or customize the source code</p>
               </div>
               <a href="/Mohammad_Ninad_Mahmud_Nobo_CV.tex" download className="no-underline">
-                <Button size="sm" variant="ghost" className="gap-2 text-xs sm:text-sm bg-transparent shadow-none hover:bg-primary/10">
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  className="gap-2 text-xs sm:text-sm bg-transparent border border-border/60 shadow-none hover:bg-primary/10"
+                >
                   <Download className="h-3 w-3 sm:h-4 sm:w-4" />
                   Download
                 </Button>

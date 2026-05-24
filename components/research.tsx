@@ -126,7 +126,7 @@ export function Research() {
           {research.map((item) => (
             <div
               key={item.title}
-              className="p-6 md:p-8 rounded-xl border border-border bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-300 group glow-card"
+              className="p-6 md:p-8 rounded-xl border border-border bg-card/50 hover:bg-card transition-all duration-300 group glow-card"
             >
               <div className="flex flex-col md:flex-row md:items-start gap-6">
                 
@@ -216,7 +216,7 @@ export function Research() {
                       <p className="text-xs uppercase text-primary mb-2">Tags</p>
                       <div className="flex flex-wrap gap-2">
                         {item.tags.map((tag) => (
-                          <span key={tag} className="px-2 py-1 text-xs bg-primary/10 text-primary border border-primary/20 rounded-md">
+                          <span key={tag} className="px-2 py-1 text-xs bg-primary/10 text-primary border border-border/60 rounded-md">
                             {tag}
                           </span>
                         ))}

@@ -325,8 +325,8 @@ export function Projects() {
               onClick={() => setSelectedCategory(category)}
               className={`px-4 py-2 rounded-full text-sm font-semibold border transition-colors ${
                 selectedCategory === category
-                  ? "bg-primary text-primary-foreground border-primary shadow-sm"
-                  : "bg-background/80 text-foreground border-border hover:border-primary/50 hover:text-primary"
+                  ? "bg-primary text-primary-foreground border-border/70 shadow-sm"
+                  : "bg-background/80 text-foreground border-border"
               }`}
             >
               {category}
@@ -348,7 +348,7 @@ export function Projects() {
             return (
             <div
               key={project.name}
-              className="p-6 md:p-8 rounded-xl border border-border bg-card/50 hover:bg-card hover:border-primary/30 transition-all duration-300 group glow-card"
+              className="p-6 md:p-8 rounded-xl border border-border bg-card/50 hover:bg-card transition-all duration-300 group glow-card"
             >
               <div className="flex flex-col md:flex-row md:items-start gap-6">
                 <div className="p-3 rounded-xl bg-primary/10 w-fit">
@@ -493,7 +493,7 @@ export function Projects() {
             <Button
               variant="outline"
               onClick={handleToggleProjects}
-              className="gap-2 text-base font-medium px-5 py-2.5 bg-secondary/70 border-border/80 text-foreground hover:!bg-primary hover:!text-primary-foreground hover:!border-primary dark:hover:!bg-primary dark:hover:!text-primary-foreground dark:hover:!border-primary"
+              className="gap-2 text-base font-medium px-5 py-2.5 bg-secondary/70 border-border/80 text-foreground hover:!bg-primary hover:!text-primary-foreground"
             >
               {showAll ? (
                 <>
