@@ -135,35 +135,39 @@ export function Navigation() {
                 </Link>
               </Button>
             )}
-            <button
-              type="button"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="flex flex-col items-center gap-1.5 rounded-2xl border border-border/70 bg-secondary/50 px-2.5 py-1.5 text-[11px] font-semibold text-foreground shadow-sm transition-all hover:bg-secondary/70 dark:bg-secondary/40 dark:hover:bg-secondary/60"
-              aria-label="Switch theme mode"
-              aria-pressed={theme === "dark"}
+            <div
+              className="flex items-center gap-3 rounded-2xl border border-border/70 bg-secondary/50 px-6 py-2 text-[11px] font-semibold text-foreground shadow-sm transition-all dark:bg-secondary/40"
+              aria-label="Theme mode"
+              role="group"
             >
-              <span className="flex items-center gap-2">
-                <span
-                  className={`inline-flex h-6 w-6 items-center justify-center rounded-full border transition-all ${
-                    (resolvedTheme ?? theme) === "dark"
-                      ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.45)]"
-                      : "bg-background/40 text-muted-foreground border-border/60"
-                  }`}
-                >
-                  <Moon className="h-3.5 w-3.5" />
-                </span>
-                <span className="h-2 w-px bg-border/70" />
-                <span
-                  className={`inline-flex h-6 w-6 items-center justify-center rounded-full border transition-all ${
-                    (resolvedTheme ?? theme) === "light"
-                      ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.45)]"
-                      : "bg-background/40 text-muted-foreground border-border/60"
-                  }`}
-                >
-                  <Sun className="h-3.5 w-3.5" />
-                </span>
-              </span>
-            </button>
+              <button
+                type="button"
+                onClick={() => setTheme("dark")}
+                className={`inline-flex h-7 w-7 items-center justify-center rounded-full border transition-all ${
+                  (resolvedTheme ?? theme) === "dark"
+                    ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.45)]"
+                    : "bg-background/40 text-muted-foreground border-border/60 hover:bg-secondary/70"
+                }`}
+                aria-label="Switch to dark mode"
+                aria-pressed={(resolvedTheme ?? theme) === "dark"}
+              >
+                <Moon className="h-3.5 w-3.5" />
+              </button>
+              <span className="h-2 w-px bg-border/70" />
+              <button
+                type="button"
+                onClick={() => setTheme("light")}
+                className={`inline-flex h-7 w-7 items-center justify-center rounded-full border transition-all ${
+                  (resolvedTheme ?? theme) === "light"
+                    ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.45)]"
+                    : "bg-background/40 text-muted-foreground border-border/60 hover:bg-secondary/70"
+                }`}
+                aria-label="Switch to light mode"
+                aria-pressed={(resolvedTheme ?? theme) === "light"}
+              >
+                <Sun className="h-3.5 w-3.5" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
