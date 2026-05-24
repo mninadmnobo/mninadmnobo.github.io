@@ -138,7 +138,7 @@ export function Navigation() {
             <button
               type="button"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className={`flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium transition-all border shadow-sm ${
+              className={`flex flex-col items-center gap-1.5 px-3 py-2 rounded-2xl text-xs font-semibold transition-all border shadow-sm ${
                 mounted && theme === "light"
                   ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.35)]"
                   : "bg-secondary/60 text-foreground border-border/70"
@@ -146,22 +146,30 @@ export function Navigation() {
               aria-label="Switch theme mode"
               aria-pressed={theme === "dark"}
             >
-              <span className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors ring-1 ring-border/70 ${
-                theme === "dark" ? "bg-primary" : "bg-muted"
-              }`}>
-                <span
-                  className={`inline-block h-4 w-4 transform rounded-full bg-background shadow-md transition-transform ${
-                    theme === "dark" ? "translate-x-5" : "translate-x-1"
+              <span className="flex items-center gap-2 text-[11px]">
+                <Moon
+                  className={`h-4 w-4 transition-opacity ${
+                    theme === "dark" ? "opacity-100" : "opacity-60"
+                  }`}
+                />
+                <span className="h-2 w-px bg-border/70" />
+                <Sun
+                  className={`h-4 w-4 transition-opacity ${
+                    theme === "light" ? "opacity-100" : "opacity-60"
                   }`}
                 />
               </span>
-              {!mounted ? (
-                <Moon className="h-4 w-4" />
-              ) : theme === "dark" ? (
-                <Sun className="h-4 w-4" />
-              ) : (
-                <Moon className="h-4 w-4" />
-              )}
+              <span
+                className={`relative inline-flex h-5 w-11 items-center rounded-full transition-colors ring-1 ring-border/70 ${
+                  theme === "dark" ? "bg-primary" : "bg-muted"
+                }`}
+              >
+                <span
+                  className={`inline-block h-4 w-4 transform rounded-full bg-background shadow-md transition-transform ${
+                    theme === "dark" ? "translate-x-6" : "translate-x-1"
+                  }`}
+                />
+              </span>
             </button>
           </div>
         </div>
