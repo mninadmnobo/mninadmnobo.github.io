@@ -108,9 +108,9 @@ export function Navigation() {
                       size="sm"
                       className={`rounded-full border border-border/70 transition-all ${
                         isActive
-                          ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)]"
-                          : "bg-secondary/60 text-foreground"
-                      } hover:!bg-primary/90 hover:!border-primary hover:!text-white`}
+                          ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)]"
+                          : "bg-secondary/60 text-foreground dark:bg-secondary/40"
+                      } hover:!bg-primary/90 hover:!border-primary hover:!text-primary-foreground`}
                     >
                       <Link
                         href={section.href}
@@ -135,17 +135,27 @@ export function Navigation() {
                 </Link>
               </Button>
             )}
-            <Button
+            <button
               type="button"
-              variant="outline"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors gap-2 ${
+              className={`flex items-center gap-2 px-3 py-2 rounded-full text-sm font-medium transition-colors border ${
                 mounted && theme === "light"
-                  ? "bg-primary text-primary-foreground border-primary hover:!bg-primary/90 hover:!text-primary-foreground"
-                  : "bg-background/70 border-border text-foreground hover:!bg-primary hover:!text-primary-foreground hover:!border-primary dark:hover:!bg-primary dark:hover:!text-primary-foreground dark:hover:!border-primary"
-              }`}
-              aria-label="Toggle theme"
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "bg-secondary/60 text-foreground border-border/70"
+              } hover:!bg-primary/90 hover:!border-primary hover:!text-primary-foreground`}
+              aria-label="Switch theme mode"
+              aria-pressed={theme === "dark"}
             >
+              <span className="text-sm">Switch Mode</span>
+              <span className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors ${
+                theme === "dark" ? "bg-primary" : "bg-muted"
+              }`}>
+                <span
+                  className={`inline-block h-4 w-4 transform rounded-full bg-background shadow transition-transform ${
+                    theme === "dark" ? "translate-x-5" : "translate-x-1"
+                  }`}
+                />
+              </span>
               {!mounted ? (
                 <Moon className="h-4 w-4" />
               ) : theme === "dark" ? (
@@ -153,8 +163,7 @@ export function Navigation() {
               ) : (
                 <Moon className="h-4 w-4" />
               )}
-              {!mounted ? "Theme" : theme === "dark" ? "Light Mode" : "Dark Mode"}
-            </Button>
+            </button>
           </div>
         </div>
       </div>
