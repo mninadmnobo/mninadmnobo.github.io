@@ -108,7 +108,7 @@ export function Navigation() {
                       size="sm"
                       className={`rounded-full border border-border/70 transition-all ${
                         isActive
-                          ? "bg-primary/90 text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.5)]"
+                          ? "bg-accent text-accent-foreground border-accent shadow-[0_0_0_1px_rgba(34,211,238,0.5)] dark:bg-primary/90 dark:text-primary-foreground dark:border-primary"
                           : "bg-secondary/60 text-foreground dark:bg-secondary/40"
                       } hover:!bg-primary/90 hover:!border-primary hover:!text-primary-foreground`}
                     >
