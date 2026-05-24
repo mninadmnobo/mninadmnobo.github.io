@@ -37,7 +37,7 @@ export default function BioDataPage() {
           <a href="/Mohammad_Ninad_Mahmud_Nobo_Biodata.pdf" target="_blank" rel="noopener noreferrer" className="no-underline">
             <Button
               variant="ghost"
-              className="gap-2 text-xs sm:text-sm bg-transparent text-primary border border-border/60 shadow-none hover:!bg-primary/10 hover:!text-primary dark:hover:!text-primary-foreground transition-all duration-200"
+              className="no-glow gap-2 text-xs sm:text-sm bg-transparent text-primary border border-border/60 shadow-none hover:bg-transparent hover:text-primary focus-visible:ring-0 focus-visible:border-border/60 transition-none"
             >
               <FileText className="h-3 w-3 sm:h-4 sm:w-4" />
               <span className="hidden sm:inline">View PDF</span>
@@ -47,7 +47,7 @@ export default function BioDataPage() {
           <a href="/Mohammad_Ninad_Mahmud_Nobo_Biodata.pdf" download className="no-underline">
             <Button
               variant="ghost"
-              className="gap-2 text-xs sm:text-sm bg-transparent text-primary border border-border/60 shadow-none hover:!bg-primary/10 hover:!text-primary dark:hover:!text-primary-foreground transition-all duration-200"
+              className="no-glow gap-2 text-xs sm:text-sm bg-transparent text-primary border border-border/60 shadow-none hover:bg-transparent hover:text-primary focus-visible:ring-0 focus-visible:border-border/60 transition-none"
             >
               <Download className="h-3 w-3 sm:h-4 sm:w-4" />
               <span className="hidden sm:inline">Download PDF</span>

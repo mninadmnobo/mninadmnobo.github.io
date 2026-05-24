@@ -183,3 +183,12 @@
     0 0 34px color-mix(in oklab, var(--primary) 60%, transparent),
     0 0 60px color-mix(in oklab, var(--primary) 45%, transparent);
 }
+
+.no-glow,
+.no-glow:hover,
+.no-glow:focus-visible {
+  animation: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+  transition: none !important;
+}
