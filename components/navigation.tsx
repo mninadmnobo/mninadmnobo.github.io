@@ -21,6 +21,7 @@ export function Navigation() {
   const [mounted, setMounted] = useState(false)
   const [activeSection, setActiveSection] = useState<string>("#top")
   const { theme, resolvedTheme, setTheme } = useTheme()
+  const currentTheme = mounted ? (resolvedTheme ?? theme) : "dark"
   const pathname = usePathname()
 
   useEffect(() => {
@@ -136,7 +137,7 @@ export function Navigation() {
               </Button>
             )}
             <div
-              className="flex items-center gap-3 rounded-2xl border border-border/70 bg-secondary/50 px-6 py-2 text-[11px] font-semibold text-foreground shadow-sm transition-all dark:bg-secondary/40"
+              className="flex items-center gap-2.5 rounded-2xl border border-border/70 bg-secondary/50 px-4 py-2 text-[11px] font-semibold text-foreground shadow-sm transition-all dark:bg-secondary/40"
               aria-label="Theme mode"
               role="group"
             >
@@ -144,12 +145,12 @@ export function Navigation() {
                 type="button"
                 onClick={() => setTheme("dark")}
                 className={`inline-flex h-7 w-7 items-center justify-center rounded-full border transition-all ${
-                  (resolvedTheme ?? theme) === "dark"
+                  currentTheme === "dark"
                     ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.45)]"
                     : "bg-background/40 text-muted-foreground border-border/60 hover:bg-secondary/70"
                 }`}
                 aria-label="Switch to dark mode"
-                aria-pressed={(resolvedTheme ?? theme) === "dark"}
+                aria-pressed={currentTheme === "dark"}
               >
                 <Moon className="h-3.5 w-3.5" />
               </button>
@@ -158,12 +159,12 @@ export function Navigation() {
                 type="button"
                 onClick={() => setTheme("light")}
                 className={`inline-flex h-7 w-7 items-center justify-center rounded-full border transition-all ${
-                  (resolvedTheme ?? theme) === "light"
+                  currentTheme === "light"
                     ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.45)]"
                     : "bg-background/40 text-muted-foreground border-border/60 hover:bg-secondary/70"
                 }`}
                 aria-label="Switch to light mode"
-                aria-pressed={(resolvedTheme ?? theme) === "light"}
+                aria-pressed={currentTheme === "light"}
               >
                 <Sun className="h-3.5 w-3.5" />
               </button>
