@@ -102,8 +102,8 @@ export function Hero() {
               Mohammad Ninad Mahmud Nobo
             </h1>
 
-            <p className="text-lg md:text-2xl lg:text-3xl text-primary mb-3 font-semibold text-balance">
-              Medical AI & Software Automation | LLM Systems + Full-Stack Engineer
+            <p className="text-base md:text-xl lg:text-2xl text-primary mb-3 font-semibold whitespace-nowrap">
+              Medical AI & Software Automation | LLM Systems & Full-Stack Engineer
             </p>
 
             <p className="text-base md:text-lg text-muted-foreground mb-4 font-medium text-balance max-w-2xl">
