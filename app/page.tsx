@@ -9,7 +9,7 @@ import { BackToTop } from "@/components/back-to-top"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background">
+    <main id="top" className="min-h-screen bg-background">
       <Navigation />
       <Hero />
       <About />

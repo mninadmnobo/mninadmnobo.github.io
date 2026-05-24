@@ -1,26 +1,15 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { usePathname } from "next/navigation"
 import Image from "next/image"
-import { MapPin, ExternalLink, FileText, User, FolderKanban, Microscope, Cpu, Mail, Sparkles } from "lucide-react"
+import { MapPin, ExternalLink, FileText, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
 
-const sectionLinks = [
-  { href: "#about", label: "About", icon: User },
-  { href: "#projects", label: "Projects", icon: FolderKanban },
-  { href: "#research", label: "Research", icon: Microscope },
-  { href: "#tech", label: "Tech Stack", icon: Cpu },
-  { href: "#contact", label: "Contact", icon: Mail },
-]
-
 export function Hero() {
-  const [activeSection, setActiveSection] = useState<string | null>(null)
   const [activeCta, setActiveCta] = useState<string | null>(null)
   const pathname = usePathname()
-  const clickLockTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const hasSectionInteractionRef = useRef(false)
 
   // Clear CTA highlight when route changes or page becomes visible again
   useEffect(() => {
@@ -33,29 +22,6 @@ export function Hero() {
     document.addEventListener("visibilitychange", onVisibility)
     return () => document.removeEventListener("visibilitychange", onVisibility)
   }, [pathname])
-
-  const handleSectionClick = (href: string) => {
-    setActiveSection(href)
-
-    if (clickLockTimeoutRef.current) {
-      clearTimeout(clickLockTimeoutRef.current)
-    }
-
-    // Keep the clicked state visible while the hash navigation scroll settles, then clear it.
-    clickLockTimeoutRef.current = setTimeout(() => {
-      setActiveSection(null)
-      clickLockTimeoutRef.current = null
-    }, 900)
-  }
-
-  useEffect(() => {
-    // Cleanup timeout on component unmount
-    return () => {
-      if (clickLockTimeoutRef.current) {
-        clearTimeout(clickLockTimeoutRef.current)
-      }
-    }
-  }, [])
 
   return (
     <section className="min-h-screen flex flex-col justify-start px-6 md:px-12 lg:px-24 pt-28 md:pt-32 lg:pt-36 pb-20 relative overflow-hidden">
@@ -223,30 +189,6 @@ export function Hero() {
               </Button>
             </div>
 
-            <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-3">
-              {sectionLinks.map((section) => {
-                const Icon = section.icon
-
-                return (
-                  <Button
-                    key={section.href}
-                    asChild
-                    variant="outline"
-                    size="default"
-                    className={`rounded-full border transition-all duration-200 ${
-                      activeSection === section.href
-                        ? "bg-primary text-white border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)]"
-                        : "bg-secondary/60 border-border/80 text-foreground"
-                    } hover:!bg-primary/90 hover:!border-primary hover:!text-white hover:shadow-[0_0_0_1px_rgba(34,211,238,0.3)]`}
-                  >
-                    <Link href={section.href} onClick={() => handleSectionClick(section.href)}>
-                      <Icon className="h-4 w-4 mr-2" />
-                      {section.label}
-                    </Link>
-                  </Button>
-                )
-              })}
-            </div>
           </div>
         </div>
       </div>
