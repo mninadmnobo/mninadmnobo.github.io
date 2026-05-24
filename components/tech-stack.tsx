@@ -15,73 +15,14 @@ import {
   Wrench,
 } from "lucide-react"
 
-type TechItem = {
-  name: string
-  icon: typeof Code
-}
-
-const segmentedTechStack: Array<{ name: string; items: TechItem[] }> = [
-  {
-    name: "Languages",
-    items: [
-      { name: "C/C++", icon: Code },
-      { name: "Python", icon: Code },
-      { name: "Java", icon: Code },
-      { name: "Kotlin", icon: Code },
-      { name: "JavaScript", icon: Code },
-      { name: "SQL", icon: Database },
-    ],
-  },
-  {
-    name: "Backend & APIs",
-    items: [
-      { name: "Spring Boot", icon: Server },
-      { name: "Spring AI", icon: Brain },
-      { name: "Node.js", icon: Server },
-      { name: "Express.js", icon: Network },
-      { name: "REST APIs", icon: Network },
-      { name: "Secure API Design", icon: Wrench },
-    ],
-  },
-  {
-    name: "AI/ML",
-    items: [
-      { name: "PyTorch", icon: Brain },
-      { name: "TensorFlow", icon: Brain },
-      { name: "Scikit-learn", icon: Brain },
-      { name: "LLM Applications", icon: Cpu },
-    ],
-  },
-  {
-    name: "Databases",
-    items: [
-      { name: "PostgreSQL", icon: Database },
-      { name: "MongoDB", icon: Database },
-      { name: "Redis", icon: Database },
-    ],
-  },
-  {
-    name: "DevOps & Infrastructure",
-    items: [
-      { name: "Linux", icon: Terminal },
-      { name: "Git", icon: GitBranch },
-      { name: "Docker", icon: Layers },
-      { name: "Docker Compose", icon: Layers },
-      { name: "GitHub Actions", icon: Cloud },
-      { name: "CI/CD Pipelines", icon: Cloud },
-      { name: "Firebase", icon: Cloud },
-    ],
-  },
-]
-
 const techCategories = [
   {
     name: "Programming Languages",
     items: ["C", "C++", "Python", "Java", "Kotlin", "JavaScript", "SQL"],
   },
   {
-    name: "Web Development",
-    items: ["Spring Boot", "Spring AI", "Node.js", "Express.js", "REST APIs"],
+    name: "Backend & APIs",
+    items: ["Spring Boot", "Spring AI", "Node.js", "Express.js", "REST APIs", "Secure API Design"],
   },
   {
     name: "Android Development",
@@ -89,7 +30,15 @@ const techCategories = [
   },
   {
     name: "AI / Machine Learning",
-    items: ["PyTorch", "TensorFlow", "Scikit-learn", "Hugging Face Transformers", "OpenAI API", "LangChain"],
+    items: [
+      "PyTorch",
+      "TensorFlow",
+      "Scikit-learn",
+      "Hugging Face Transformers",
+      "OpenAI API",
+      "LangChain",
+      "LLM Applications",
+    ],
   },
   {
     name: "Testing and Evaluation",
@@ -104,8 +53,8 @@ const techCategories = [
     items: ["PostgreSQL", "MongoDB", "Redis"],
   },
   {
-    name: "Systems and Tools",
-    items: ["Linux", "Git", "Docker"],
+    name: "DevOps & Infrastructure",
+    items: ["Linux", "Git", "Docker", "Docker Compose", "GitHub Actions", "CI/CD Pipelines"],
   },
 ]
 
@@ -131,6 +80,7 @@ const techIconMap: Record<string, typeof Code> = {
   "Hugging Face Transformers": Brain,
   "OpenAI API": Cpu,
   LangChain: Cpu,
+  "LLM Applications": Cpu,
   Playwright: TestTube2,
   Selenium: TestTube2,
   Pandas: LineChart,
@@ -144,6 +94,10 @@ const techIconMap: Record<string, typeof Code> = {
   Linux: Terminal,
   Git: GitBranch,
   Docker: Layers,
+  "Docker Compose": Layers,
+  "GitHub Actions": Cloud,
+  "CI/CD Pipelines": Cloud,
+  "Secure API Design": Wrench,
 }
 
 const getTechIcon = (label: string) => techIconMap[label] ?? Wrench
@@ -165,45 +119,15 @@ export function TechStack() {
           Technologies I work with
         </h3>
 
-        <div className="mb-14 space-y-6">
-          {segmentedTechStack.map((segment) => (
-            <div
-              key={segment.name}
-              className="rounded-2xl border border-border/70 bg-card/40 p-5 md:p-6 glow-card"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="h-px w-10 bg-primary" />
-                <h4 className="text-sm font-semibold uppercase tracking-widest text-primary">
-                  {segment.name}
-                </h4>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                {segment.items.map((item) => {
-                  const Icon = item.icon
-                  return (
-                    <div
-                      key={`${segment.name}-${item.name}`}
-                      className="flex items-center gap-2 rounded-full border border-border bg-background/70 px-3 py-1.5 text-sm text-foreground"
-                    >
-                      <Icon className="h-4 w-4 text-primary" />
-                      <span>{item.name}</span>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-          ))}
-        </div>
-
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {techCategories.map((category) => (
-            <div key={category.name} className="space-y-4 glow-card">
+            <div key={category.name} className="space-y-4">
               <h4 className="text-lg font-semibold text-foreground">{category.name}</h4>
               <div className="flex flex-wrap gap-2">
                 {category.items.map((item) => (
                   <span
                     key={item}
-                    className="glow-card inline-flex items-center gap-2 px-3 py-1.5 text-sm rounded-lg border border-border bg-card/50 text-muted-foreground hover:border-primary/50 hover:text-foreground transition-all duration-200"
+                    className="inline-flex items-center gap-2 px-3 py-1.5 text-sm rounded-lg border border-border bg-card/50 text-muted-foreground hover:border-primary/50 hover:text-foreground transition-all duration-200"
                   >
                     {(() => {
                       const Icon = getTechIcon(item)

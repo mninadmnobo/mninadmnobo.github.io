@@ -172,14 +172,12 @@
 
 .glow-button:hover,
 .glow-button:focus-visible,
-.glow-card:hover,
-.glow-card:focus-within,
 .glow-link:hover,
 .glow-link:focus-visible,
 :where(.glow-everywhere)
-  :is(a, button, [role="button"], input, textarea, select, summary, .glow-card, .glow-button, .glow-link):hover,
+  :is(a, button, [role="button"], input, textarea, select, summary, .glow-button, .glow-link):hover,
 :where(.glow-everywhere)
-  :is(a, button, [role="button"], input, textarea, select, summary, .glow-card, .glow-button, .glow-link):focus-visible {
+  :is(a, button, [role="button"], input, textarea, select, summary, .glow-button, .glow-link):focus-visible {
   animation: glow-pulse 1.2s ease-in-out infinite, floaty 1.8s ease-in-out infinite;
   box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary) 70%, transparent),
     0 0 34px color-mix(in oklab, var(--primary) 60%, transparent),
