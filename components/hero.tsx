@@ -103,7 +103,10 @@ export function Hero() {
             </h1>
 
             <p className="text-base md:text-xl lg:text-2xl text-primary mb-3 font-semibold whitespace-nowrap">
-              Medical AI & Software Automation | LLM Systems & Full-Stack Engineer
+              Medical AI & Software Automation Researcher
+            </p>
+            <p className="text-base md:text-xl lg:text-2xl text-primary mb-3 font-semibold whitespace-nowrap">
+              LLM Systems & Full-Stack Engineer
             </p>
 
             <p className="text-base md:text-lg text-muted-foreground mb-4 font-medium text-balance max-w-2xl">
