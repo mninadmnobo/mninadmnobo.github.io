@@ -137,14 +137,14 @@ export function Navigation() {
               </Button>
             )}
             <div
-              className="flex h-8 items-center rounded-full border border-border/70 bg-secondary/60 text-[11px] font-semibold text-foreground transition-all dark:bg-secondary/40 overflow-hidden"
+              className="flex h-8 items-center rounded-full border border-border/70 bg-secondary/60 text-foreground transition-all dark:bg-secondary/40 overflow-hidden"
               aria-label="Theme mode"
               role="group"
             >
               <button
                 type="button"
                 onClick={() => setTheme("dark")}
-                className={`flex h-full flex-1 items-center justify-center gap-1.5 px-3 transition-all ${
+                className={`flex h-full flex-1 items-center justify-center px-3 transition-all ${
                   currentTheme === "dark"
                     ? "bg-primary text-primary-foreground"
                     : "text-muted-foreground hover:bg-secondary/70"
@@ -153,13 +153,12 @@ export function Navigation() {
                 aria-pressed={currentTheme === "dark"}
               >
                 <Moon className="h-3.5 w-3.5" />
-                <span>Dark</span>
               </button>
               <span className="h-4 w-px bg-border/70" />
               <button
                 type="button"
                 onClick={() => setTheme("light")}
-                className={`flex h-full flex-1 items-center justify-center gap-1.5 px-3 transition-all ${
+                className={`flex h-full flex-1 items-center justify-center px-3 transition-all ${
                   currentTheme === "light"
                     ? "bg-primary text-primary-foreground"
                     : "text-muted-foreground hover:bg-secondary/70"
@@ -168,7 +167,6 @@ export function Navigation() {
                 aria-pressed={currentTheme === "light"}
               >
                 <Sun className="h-3.5 w-3.5" />
-                <span>Light</span>
               </button>
             </div>
           </div>
