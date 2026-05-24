@@ -20,7 +20,7 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mounted, setMounted] = useState(false)
   const [activeSection, setActiveSection] = useState<string>("#top")
-  const { theme, setTheme } = useTheme()
+  const { theme, resolvedTheme, setTheme } = useTheme()
   const pathname = usePathname()
 
   useEffect(() => {
@@ -145,7 +145,7 @@ export function Navigation() {
               <span className="flex items-center gap-2">
                 <span
                   className={`inline-flex h-6 w-6 items-center justify-center rounded-full border transition-all ${
-                    theme === "dark"
+                    (resolvedTheme ?? theme) === "dark"
                       ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.45)]"
                       : "bg-background/40 text-muted-foreground border-border/60"
                   }`}
@@ -155,7 +155,7 @@ export function Navigation() {
                 <span className="h-2 w-px bg-border/70" />
                 <span
                   className={`inline-flex h-6 w-6 items-center justify-center rounded-full border transition-all ${
-                    theme === "light"
+                    (resolvedTheme ?? theme) === "light"
                       ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.45)]"
                       : "bg-background/40 text-muted-foreground border-border/60"
                   }`}
