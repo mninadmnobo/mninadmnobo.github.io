@@ -137,7 +137,7 @@ export function Navigation() {
               </Button>
             )}
             <div
-              className="no-glow flex h-8 items-center rounded-full border border-border/70 bg-secondary/60 px-4 text-foreground transition-all dark:bg-secondary/40 overflow-hidden"
+              className="no-glow flex h-8 items-center rounded-full border border-border/70 bg-secondary/60 text-foreground transition-all dark:bg-secondary/40 overflow-hidden"
               aria-label="Theme mode"
               role="group"
             >
