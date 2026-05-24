@@ -137,36 +137,38 @@ export function Navigation() {
               </Button>
             )}
             <div
-              className="flex h-8 items-center gap-2.5 rounded-full border border-border/70 bg-secondary/60 px-3 text-[11px] font-semibold text-foreground transition-all dark:bg-secondary/40"
+              className="flex h-8 items-center rounded-full border border-border/70 bg-secondary/60 text-[11px] font-semibold text-foreground transition-all dark:bg-secondary/40 overflow-hidden"
               aria-label="Theme mode"
               role="group"
             >
               <button
                 type="button"
                 onClick={() => setTheme("dark")}
-                className={`inline-flex h-7 w-7 items-center justify-center rounded-full border transition-all ${
+                className={`flex h-full flex-1 items-center justify-center gap-1.5 px-3 transition-all ${
                   currentTheme === "dark"
-                    ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.45)]"
-                    : "bg-background/40 text-muted-foreground border-border/60 hover:bg-secondary/70"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:bg-secondary/70"
                 }`}
                 aria-label="Switch to dark mode"
                 aria-pressed={currentTheme === "dark"}
               >
                 <Moon className="h-3.5 w-3.5" />
+                <span>Dark</span>
               </button>
-              <span className="h-2 w-px bg-border/70" />
+              <span className="h-4 w-px bg-border/70" />
               <button
                 type="button"
                 onClick={() => setTheme("light")}
-                className={`inline-flex h-7 w-7 items-center justify-center rounded-full border transition-all ${
+                className={`flex h-full flex-1 items-center justify-center gap-1.5 px-3 transition-all ${
                   currentTheme === "light"
-                    ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.45)]"
-                    : "bg-background/40 text-muted-foreground border-border/60 hover:bg-secondary/70"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:bg-secondary/70"
                 }`}
                 aria-label="Switch to light mode"
                 aria-pressed={currentTheme === "light"}
               >
                 <Sun className="h-3.5 w-3.5" />
+                <span>Light</span>
               </button>
             </div>
           </div>
