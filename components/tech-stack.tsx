@@ -15,92 +15,104 @@ import {
   Wrench,
 } from "lucide-react"
 
-const techCategories = [
+type TechItem = {
+  label: string
+  iconKey?: string
+}
+
+const techCategories: Array<{ name: string; items: TechItem[] }> = [
   {
     name: "Programming Languages",
-    items: ["C", "C++", "Python", "Java", "Kotlin", "JavaScript", "SQL"],
+    items: [
+      { label: "C", iconKey: "c" },
+      { label: "C++", iconKey: "cpp" },
+      { label: "Python", iconKey: "python" },
+      { label: "Java", iconKey: "java" },
+      { label: "Kotlin", iconKey: "kotlin" },
+      { label: "JavaScript", iconKey: "js" },
+      { label: "SQL", iconKey: "mysql" },
+    ],
   },
   {
     name: "Backend & APIs",
-    items: ["Spring Boot", "Spring AI", "Node.js", "Express.js", "REST APIs", "Secure API Design"],
+    items: [
+      { label: "Spring Boot", iconKey: "spring" },
+      { label: "Spring AI", iconKey: "spring" },
+      { label: "Node.js", iconKey: "nodejs" },
+      { label: "Express.js", iconKey: "express" },
+      { label: "REST APIs", iconKey: "postman" },
+      { label: "Secure API Design" },
+    ],
   },
   {
     name: "Android Development",
-    items: ["Android (Kotlin)", "Firebase"],
+    items: [
+      { label: "Android (Kotlin)", iconKey: "android" },
+      { label: "Firebase", iconKey: "firebase" },
+    ],
   },
   {
     name: "AI / Machine Learning",
     items: [
-      "PyTorch",
-      "TensorFlow",
-      "Scikit-learn",
-      "Hugging Face Transformers",
-      "OpenAI API",
-      "LangChain",
-      "LLM Applications",
+      { label: "PyTorch", iconKey: "pytorch" },
+      { label: "TensorFlow", iconKey: "tensorflow" },
+      { label: "Scikit-learn", iconKey: "sklearn" },
+      { label: "Hugging Face Transformers", iconKey: "huggingface" },
+      { label: "OpenAI API", iconKey: "openai" },
+      { label: "LangChain" },
+      { label: "LLM Applications" },
     ],
   },
   {
     name: "Testing and Evaluation",
-    items: ["Playwright", "Selenium", "Pandas", "Jupyter"],
+    items: [
+      { label: "Playwright", iconKey: "playwright" },
+      { label: "Selenium", iconKey: "selenium" },
+      { label: "Pandas", iconKey: "pandas" },
+      { label: "Jupyter", iconKey: "jupyter" },
+    ],
   },
   {
     name: "Data and BI Tools",
-    items: ["Microsoft Office 365", "Excel", "Google Sheets"],
+    items: [
+      { label: "Microsoft Office 365", iconKey: "microsoft" },
+      { label: "Excel" },
+      { label: "Google Sheets" },
+    ],
   },
   {
     name: "Databases",
-    items: ["PostgreSQL", "MongoDB", "Redis"],
+    items: [
+      { label: "PostgreSQL", iconKey: "postgres" },
+      { label: "MongoDB", iconKey: "mongodb" },
+      { label: "Redis", iconKey: "redis" },
+    ],
   },
   {
     name: "DevOps & Infrastructure",
-    items: ["Linux", "Git", "Docker", "Docker Compose", "GitHub Actions", "CI/CD Pipelines"],
+    items: [
+      { label: "Linux", iconKey: "linux" },
+      { label: "Git", iconKey: "git" },
+      { label: "Docker", iconKey: "docker" },
+      { label: "Docker Compose", iconKey: "docker" },
+      { label: "GitHub Actions", iconKey: "githubactions" },
+      { label: "CI/CD Pipelines", iconKey: "githubactions" },
+    ],
   },
 ]
 
-const techIconMap: Record<string, typeof Code> = {
-  C: Code,
-  "C++": Code,
-  Python: Code,
-  Java: Code,
-  Kotlin: Code,
-  JavaScript: Code,
-  SQL: Database,
-  "Spring Boot": Server,
-  "Spring AI": Brain,
-  "Node.js": Server,
-  "Express.js": Network,
-  "REST APIs": Network,
-  Android: Smartphone,
-  "Android (Kotlin)": Smartphone,
-  Firebase: Cloud,
-  PyTorch: Brain,
-  TensorFlow: Brain,
-  "Scikit-learn": Brain,
-  "Hugging Face Transformers": Brain,
-  "OpenAI API": Cpu,
+const techIconFallback: Record<string, typeof Code> = {
+  "Secure API Design": Wrench,
   LangChain: Cpu,
   "LLM Applications": Cpu,
-  Playwright: TestTube2,
-  Selenium: TestTube2,
-  Pandas: LineChart,
-  Jupyter: LineChart,
-  "Microsoft Office 365": LineChart,
   Excel: LineChart,
   "Google Sheets": LineChart,
-  PostgreSQL: Database,
-  MongoDB: Database,
-  Redis: Database,
-  Linux: Terminal,
-  Git: GitBranch,
-  Docker: Layers,
-  "Docker Compose": Layers,
-  "GitHub Actions": Cloud,
-  "CI/CD Pipelines": Cloud,
-  "Secure API Design": Wrench,
 }
 
-const getTechIcon = (label: string) => techIconMap[label] ?? Wrench
+const getFallbackIcon = (label: string) => techIconFallback[label] ?? Wrench
+
+const skillIconUrl = (iconKey: string) =>
+  `https://skillicons.dev/icons?i=${iconKey}`
 
 export function TechStack() {
   return (
@@ -116,7 +128,7 @@ export function TechStack() {
         </div>
         
         <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-balance">
-          Technologies I work with
+          Technologies supporting my AI and full-stack engineering
         </h3>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -126,14 +138,23 @@ export function TechStack() {
               <div className="flex flex-wrap gap-2">
                 {category.items.map((item) => (
                   <span
-                    key={item}
+                    key={`${category.name}-${item.label}`}
                     className="inline-flex items-center gap-2 px-3 py-1.5 text-sm rounded-lg border border-border bg-card/50 text-muted-foreground hover:border-primary/50 hover:text-foreground transition-all duration-200"
                   >
-                    {(() => {
-                      const Icon = getTechIcon(item)
-                      return <Icon className="h-3.5 w-3.5 text-primary" />
-                    })()}
-                    {item}
+                    {item.iconKey ? (
+                      <img
+                        src={skillIconUrl(item.iconKey)}
+                        alt={`${item.label} icon`}
+                        className="h-4 w-4"
+                        loading="lazy"
+                      />
+                    ) : (
+                      (() => {
+                        const Icon = getFallbackIcon(item.label)
+                        return <Icon className="h-3.5 w-3.5 text-primary" />
+                      })()
+                    )}
+                    {item.label}
                   </span>
                 ))}
               </div>
