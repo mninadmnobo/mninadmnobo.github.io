@@ -61,7 +61,7 @@ export function Hero() {
             {/* Status badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
               <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-              <span className="text-sm text-primary">Available for opportunities</span>
+              <span className="text-sm text-primary">Available for AI/ML Research & Engineering Opportunities</span>
             </div>
 
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-2 md:whitespace-nowrap">
@@ -69,14 +69,11 @@ export function Hero() {
             </h1>
 
             <p className="text-base md:text-xl lg:text-2xl text-primary mb-3 font-semibold md:whitespace-nowrap">
-              Medical AI & Software Automation Researcher
-            </p>
-            <p className="text-base md:text-xl lg:text-2xl text-primary mb-3 font-semibold md:whitespace-nowrap">
-              LLM Systems & Full-Stack Engineer
+              AI Systems Researcher & Full-Stack Engineer
             </p>
 
-            <p className="text-base md:text-lg text-muted-foreground mb-4 font-medium text-balance max-w-2xl">
-              Building LLM-powered systems, real-time applications, and applied AI for real-world impact
+            <p className="text-base md:text-lg text-muted-foreground mb-4 font-medium text-balance max-w-xl">
+              Focused on LLM Applications, Medical AI, and Software Automation
             </p>
 
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-6 text-sm text-muted-foreground">
@@ -89,21 +86,20 @@ export function Hero() {
               </div>
             </div>
 
-            <p className="text-muted-foreground mb-6 max-w-2xl leading-relaxed">
-              I am a BUET CSE undergraduate with experience in full-stack products, backend systems, and applied
-              AI. My current work includes ML-assisted software engineering, LLM-based web testing, and medical AI
-              research.
+            <p className="text-muted-foreground mb-6 max-w-xl leading-relaxed">
+              Building reliable AI-driven systems combining LLMs, backend engineering, and applied machine learning
+              for healthcare, automation, and real-world deployment.
             </p>
 
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-8">
               <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
-                <Sparkles className="h-3.5 w-3.5" /> Full-Stack & Backend Systems
+                <Sparkles className="h-3.5 w-3.5" /> AI Systems Engineering
               </span>
               <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-secondary text-foreground border border-border/70">
-                Applied AI & ML
+                Full-Stack & Backend
               </span>
               <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold bg-secondary text-foreground border border-border/70">
-                LLM Testing & Medical AI
+                LLMs & Medical AI
               </span>
             </div>
 
