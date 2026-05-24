@@ -108,7 +108,7 @@ export function Navigation() {
                       size="sm"
                       className={`rounded-full border border-border/70 transition-all ${
                         isActive
-                          ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.3)]"
+                          ? "bg-primary text-primary-foreground border-primary shadow-[0_0_0_1px_rgba(34,211,238,0.5)]"
                           : "bg-secondary/60 text-foreground dark:bg-secondary/40"
                       } hover:!bg-primary/90 hover:!border-primary hover:!text-primary-foreground`}
                     >
@@ -146,7 +146,6 @@ export function Navigation() {
               aria-label="Switch theme mode"
               aria-pressed={theme === "dark"}
             >
-              <span className="text-sm">Switch Mode</span>
               <span className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors ${
                 theme === "dark" ? "bg-primary" : "bg-muted"
               }`}>
