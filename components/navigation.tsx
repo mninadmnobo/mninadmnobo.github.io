@@ -137,14 +137,14 @@ export function Navigation() {
               </Button>
             )}
             <div
-              className="flex h-8 items-center rounded-full border border-border/70 bg-secondary/60 text-foreground transition-all dark:bg-secondary/40 overflow-hidden"
+              className="no-glow flex h-8 items-center rounded-full border border-border/70 bg-secondary/60 px-4 text-foreground transition-all dark:bg-secondary/40 overflow-hidden"
               aria-label="Theme mode"
               role="group"
             >
               <button
                 type="button"
                 onClick={() => setTheme("dark")}
-                className={`flex h-full flex-1 items-center justify-center px-3 transition-all ${
+                className={`no-glow flex h-full flex-1 items-center justify-center px-3 transition-all ${
                   currentTheme === "dark"
                     ? "bg-primary text-primary-foreground"
                     : "text-muted-foreground hover:bg-secondary/70"
@@ -158,7 +158,7 @@ export function Navigation() {
               <button
                 type="button"
                 onClick={() => setTheme("light")}
-                className={`flex h-full flex-1 items-center justify-center px-3 transition-all ${
+                className={`no-glow flex h-full flex-1 items-center justify-center px-3 transition-all ${
                   currentTheme === "light"
                     ? "bg-primary text-primary-foreground"
                     : "text-muted-foreground hover:bg-secondary/70"
