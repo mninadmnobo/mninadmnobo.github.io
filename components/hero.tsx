@@ -64,7 +64,7 @@ export function Hero() {
               <span className="text-sm text-primary">Available for AI/ML Research & Engineering Opportunities</span>
             </div>
 
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-2 md:whitespace-nowrap">
+            <h1 className="text-xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-2 md:whitespace-nowrap">
               Mohammad Ninad Mahmud Nobo
             </h1>
 
