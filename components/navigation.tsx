@@ -54,7 +54,11 @@ export function Navigation() {
       const nextHash = `#${current.id}`
       setActiveSection(nextHash)
 
-      if (window.location.hash !== nextHash) {
+      if (nextHash === "#top") {
+        if (window.location.hash) {
+          window.history.replaceState(null, "", window.location.pathname)
+        }
+      } else if (window.location.hash !== nextHash) {
         window.history.replaceState(null, "", nextHash)
       }
       ticking = false
