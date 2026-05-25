@@ -60,7 +60,12 @@ export function Navigation() {
         }
       }
 
-      setActiveSection(`#${current.id}`)
+      const nextHash = `#${current.id}`
+      setActiveSection(nextHash)
+
+      if (window.location.hash !== nextHash) {
+        window.history.replaceState(null, "", nextHash)
+      }
       ticking = false
     }
 
