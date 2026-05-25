@@ -4,11 +4,8 @@ import { useEffect, useState } from "react"
 import { Navigation } from "@/components/navigation"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/components/ui/link"
-import { FileText, Download, ExternalLink, Copy, Check, ArrowLeft } from "lucide-react"
+import { FileText, Download, Copy, Check, ArrowLeft } from "lucide-react"
 import { PdfPreview } from "@/components/pdf-preview"
-
-// Use provided Overleaf share URL by default; can be overridden via env: NEXT_PUBLIC_OVERLEAF_URL
-const OVERLEAF_URL = process.env.NEXT_PUBLIC_OVERLEAF_URL ?? "https://www.overleaf.com/read/ynxpmkthmrds#abfcd6"
 
 export default function CVPage() {
   const [latex, setLatex] = useState<string>("")
@@ -68,18 +65,6 @@ export default function CVPage() {
 
         {/* Action buttons */}
         <div className="flex flex-wrap gap-2 sm:gap-3 mb-8 sm:mb-12">
-          {OVERLEAF_URL && (
-            <a href={OVERLEAF_URL} target="_blank" rel="noopener noreferrer" className="no-underline">
-              <Button
-                variant="ghost"
-                className="no-glow gap-2 text-xs sm:text-sm bg-transparent text-primary border border-border/60 shadow-none hover:bg-transparent hover:text-primary focus-visible:ring-0 focus-visible:border-border/60 transition-none"
-              >
-                <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4" />
-                <span className="hidden sm:inline">Open on Overleaf</span>
-                <span className="sm:hidden">Overleaf</span>
-              </Button>
-            </a>
-          )}
           <a href="/Mohammad_Ninad_Mahmud_Nobo_CV.pdf" target="_blank" rel="noopener noreferrer" className="no-underline">
             <Button
               variant="ghost"
