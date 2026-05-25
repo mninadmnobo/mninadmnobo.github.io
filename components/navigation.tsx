@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { Moon, Sun, User, FolderKanban, Microscope, Cpu, Mail, Home } from "lucide-react"
 import { useTheme } from "next-themes"
 import { usePathname } from "next/navigation"
@@ -20,6 +20,7 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mounted, setMounted] = useState(false)
   const [activeSection, setActiveSection] = useState<string>("#top")
+  const linkRefs = useRef<Record<string, HTMLAnchorElement | null>>({})
   const { theme, resolvedTheme, setTheme } = useTheme()
   const currentTheme = mounted ? (resolvedTheme ?? theme) : "dark"
   const pathname = usePathname()
@@ -89,6 +90,15 @@ export function Navigation() {
     }
   }, [pathname])
 
+  useEffect(() => {
+    if (pathname !== "/") return
+
+    const activeLink = linkRefs.current[activeSection]
+    if (!activeLink) return
+
+    activeLink.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" })
+  }, [activeSection, pathname])
+
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-border shadow-sm"
@@ -116,6 +126,9 @@ export function Navigation() {
                       <Link
                         href={section.href}
                         className="no-underline"
+                        ref={(node) => {
+                          linkRefs.current[section.href] = node
+                        }}
                         target={section.href.startsWith("http") ? "_blank" : undefined}
                         rel={section.href.startsWith("http") ? "noopener noreferrer" : undefined}
                       >

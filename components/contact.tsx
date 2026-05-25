@@ -9,6 +9,7 @@ import {
 } from "lucide-react"
 
 import { Link } from "@/components/ui/link"
+import { ProfessionalForm } from "@/components/professional-form"
 
 /* ======================================================
    PROFESSIONAL PROFILES
@@ -414,7 +415,6 @@ export function Contact() {
 
           {/* RIGHT */}
           <div className="space-y-8 lg:col-span-7">
-
             {/* PROFESSIONAL */}
             <div>
               <SectionTitle title="Professional Profiles" />
@@ -461,6 +461,8 @@ export function Contact() {
                 ))}
               </div>
             </div>
+
+            <ProfessionalForm />
 
           </div>
         </div>
