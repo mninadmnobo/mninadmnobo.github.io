@@ -3,7 +3,10 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 
 export function ProfessionalForm() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -23,13 +26,41 @@ export function ProfessionalForm() {
     }
 
     try {
-      await emailjs.sendForm(serviceId, templateId, event.currentTarget, publicKey);
-      event.currentTarget.reset();
-      setSubject("");
-      setStatus("success");
+      const response = await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: name,
+          reply_to: email,
+          subject,
+          message,
+        },
+        publicKey,
+      );
+
+      if (response.status === 200) {
+        setName("");
+        setEmail("");
+        setSubject("");
+        setMessage("");
+        setStatus("success");
+        return;
+      }
+
+      setStatus("error");
+      setErrorMessage(response.text || "Failed to send message. Please try again soon.");
     } catch (error) {
       setStatus("error");
-      setErrorMessage("Failed to send message. Please try again soon.");
+      console.error("EmailJS error:", error);
+      let message = "Failed to send message. Please try again soon.";
+
+      if (error instanceof Error && error.message) {
+        message = error.message;
+      } else if (error && typeof error === "object" && "text" in error) {
+        message = String((error as { text?: string }).text || message);
+      }
+
+      setErrorMessage(message);
     }
   };
 
@@ -66,6 +97,8 @@ export function ProfessionalForm() {
                 name="from_name"
                 required
                 placeholder="Your Name"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-zinc-200/80 dark:border-zinc-700/70 bg-white/90 dark:bg-zinc-900/80 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-blue-400/70 focus:border-blue-400/60 transition"
               />
             </div>
@@ -77,6 +110,8 @@ export function ProfessionalForm() {
                 name="reply_to"
                 required
                 placeholder="Your Email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-zinc-200/80 dark:border-zinc-700/70 bg-white/90 dark:bg-zinc-900/80 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-blue-400/70 focus:border-blue-400/60 transition"
               />
             </div>
@@ -103,6 +138,8 @@ export function ProfessionalForm() {
               rows={10}
               required
               placeholder="Your Message"
+              value={message}
+              onChange={(event) => setMessage(event.target.value)}
               className="w-full h-full min-h-[240px] px-4 py-3 rounded-xl border border-zinc-200/80 dark:border-zinc-700/70 bg-white/90 dark:bg-zinc-900/80 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-blue-400/70 focus:border-blue-400/60 transition resize-none"
             />
           </div>
