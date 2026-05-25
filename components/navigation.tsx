@@ -102,7 +102,7 @@ export function Navigation() {
       <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-24">
         <div className="flex items-center justify-between h-16">
           <div className="flex-1 flex justify-end pr-4 min-w-0">
-            <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground overflow-x-auto whitespace-nowrap md:flex-wrap md:overflow-visible">
+            <div className="flex items-center gap-2 text-base font-medium text-muted-foreground overflow-x-auto whitespace-nowrap">
               {pathname === "/" &&
                 sectionLinks.map((section) => {
                   const Icon = section.icon
@@ -112,12 +112,12 @@ export function Navigation() {
                       key={section.href}
                       asChild
                       variant="outline"
-                      size="sm"
+                      size="default"
                       className={`rounded-full border border-border/70 transition-all ${
                         isActive
                           ? "bg-accent text-accent-foreground border-accent shadow-[0_0_0_1px_rgba(34,211,238,0.5)] dark:bg-primary/90 dark:text-primary-foreground dark:border-primary"
                           : "bg-secondary/60 text-foreground dark:bg-secondary/40"
-                      } hover:!bg-primary/90 hover:!border-primary hover:!text-primary-foreground`}
+                      } hover:!bg-primary/90 hover:!border-primary hover:!text-primary-foreground text-sm sm:text-base`}
                     >
                       <Link
                         href={section.href}
