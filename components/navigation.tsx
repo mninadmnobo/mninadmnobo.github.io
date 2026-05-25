@@ -17,21 +17,12 @@ const sectionLinks = [
 ]
 
 export function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false)
   const [mounted, setMounted] = useState(false)
   const [activeSection, setActiveSection] = useState<string>("#top")
   const linkRefs = useRef<Record<string, HTMLAnchorElement | null>>({})
   const { theme, resolvedTheme, setTheme } = useTheme()
   const currentTheme = mounted ? (resolvedTheme ?? theme) : "dark"
   const pathname = usePathname()
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
 
   useEffect(() => {
     setMounted(true)
@@ -134,8 +125,6 @@ export function Navigation() {
                         ref={(node) => {
                           linkRefs.current[section.href] = node
                         }}
-                        target={section.href.startsWith("http") ? "_blank" : undefined}
-                        rel={section.href.startsWith("http") ? "noopener noreferrer" : undefined}
                       >
                         <Icon className="h-4 w-4 mr-2" />
                         {section.label}
