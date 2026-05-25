@@ -1,8 +1,10 @@
 "use client";
+import { useState } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 
 export function ProfessionalForm() {
   const [state, handleSubmit] = useForm("xkoyeeqa");
+  const [subject, setSubject] = useState("");
 
   return (
     <section
@@ -27,6 +29,7 @@ export function ProfessionalForm() {
         <p className="text-green-600 text-center text-lg font-semibold">Thank you! Your message has been sent.</p>
       ) : (
         <form className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full" onSubmit={handleSubmit}>
+          <input type="hidden" name="_subject" value={subject || "New message from portfolio"} />
           {/* Left side: Name, Email, Subject */}
           <div className="flex flex-col gap-4 w-full">
             <div>
@@ -58,12 +61,14 @@ export function ProfessionalForm() {
               <input
                 type="text"
                 id="subject"
-                name="_subject"
+                name="subject"
                 required
                 placeholder="Subject"
+                value={subject}
+                onChange={(event) => setSubject(event.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-zinc-200/80 dark:border-zinc-700/70 bg-white/90 dark:bg-zinc-900/80 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-blue-400/70 focus:border-blue-400/60 transition"
               />
-              <ValidationError prefix="Subject" field="_subject" errors={state.errors} />
+              <ValidationError prefix="Subject" field="subject" errors={state.errors} />
             </div>
           </div>
           {/* Right side: Message */}
