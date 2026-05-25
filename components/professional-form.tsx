@@ -5,7 +5,6 @@ import { useForm, ValidationError } from "@formspree/react";
 export function ProfessionalForm() {
   const [state, handleSubmit] = useForm("xkoyeeqa");
   const [subject, setSubject] = useState("");
-  const [messageBody, setMessageBody] = useState("");
 
   return (
     <section
@@ -31,11 +30,6 @@ export function ProfessionalForm() {
       ) : (
         <form className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full" onSubmit={handleSubmit}>
           <input type="hidden" name="_subject" value={subject || "New message from portfolio"} />
-          <input
-            type="hidden"
-            name="message"
-            value={`Subject: ${subject || "(no subject)"}\n\n${messageBody}`}
-          />
           {/* Left side: Name, Email, Subject */}
           <div className="flex flex-col gap-4 w-full">
             <div>
@@ -86,8 +80,6 @@ export function ProfessionalForm() {
               rows={10}
               required
               placeholder="Your Message"
-              value={messageBody}
-              onChange={(event) => setMessageBody(event.target.value)}
               className="w-full h-full min-h-[240px] px-4 py-3 rounded-xl border border-zinc-200/80 dark:border-zinc-700/70 bg-white/90 dark:bg-zinc-900/80 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-blue-400/70 focus:border-blue-400/60 transition resize-none"
             />
             <ValidationError prefix="Message" field="message_body" errors={state.errors} />
