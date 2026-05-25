@@ -170,7 +170,7 @@ export default function CVPage() {
         {/* Footer note */}
         <div className="mt-8 sm:mt-12 p-4 sm:p-6 rounded-xl border border-border/40 bg-card/30 backdrop-blur-sm">
           <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-            <span className="font-medium text-foreground">💡 Tip:</span> You can copy the LaTeX source and paste it into Overleaf to create your own editable version. The PDF is also available for quick viewing or downloading.
+            <span className="font-medium text-foreground">💡 Tip:</span> You can copy the LaTeX source to create your own editable version. The PDF is also available for quick viewing or downloading.
           </p>
         </div>
       </div>

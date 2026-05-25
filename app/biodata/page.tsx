@@ -59,6 +59,12 @@ export default function BioDataPage() {
         <div className="space-y-4">
           <PdfPreview title="PDF Viewer Preview" src="/Mohammad_Ninad_Mahmud_Nobo_Biodata.pdf" />
         </div>
+
+        <div className="mt-8 sm:mt-12 p-4 sm:p-6 rounded-xl border border-border/40 bg-card/30 backdrop-blur-sm">
+          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            <span className="font-medium text-foreground">💡 Tip:</span> Keep a current PDF on hand for formal applications and print-ready submissions.
+          </p>
+        </div>
       </div>
     </main>
   )
