@@ -24,28 +24,50 @@ type ResearchItem = {
 
 const research: ResearchItem[] = [
   {
-    title: "Web Testing Using Large Language Models",
-    type: "Undergraduate Thesis",
-    period: "2025 - Present",
-    description: "LLM-based pipelines for automated generation, validation, and evaluation of functional web test cases.",
-    status: "Ongoing",
-    problem: "Manual test creation is costly and inconsistent when translating natural-language requirements into reliable test cases.",
-    solution: "Built an end-to-end LLM pipeline for test generation, validation, and coverage evaluation.",
-    impact: "Enabled automated workflows from natural-language intent to measurable test quality and coverage.",
-    methodFlow: ["Intent Parsing", "LLM Test Generation", "Validation & Coverage"],
-    proof: ["Supervised dataset", "Benchmark framework", "Reproducible pipeline"],
-    highlights: [
-      "Designed LLM-based pipeline for automated web test generation.",
-      "Analyzed robustness and coverage across diverse test scenarios.",
-      "Built evaluation workflows for comparing generated tests with expected behavior.",
-    ],
-    created: [
-      "Dataset mapping natural-language specifications to executable test cases.",
-      "Evaluation framework for test quality, robustness, and coverage.",
-    ],
-    tech: ["Python", "Playwright", "Selenium", "LLM APIs"],
-    tags: ["LLM", "Testing", "Automation"],
-    link: "https://github.com/mninadmnobo/Test-Case-Generator",
+  title: "AutoTestGenX: Multi-Agent LLM Framework for End-to-End Web Testing",
+  type: "Undergraduate Thesis",
+  period: "2025 - 2026",
+  description:
+  "Multi-agent LLM framework for automated web test generation, verification, and execution from natural-language requirements.",
+  status: "Ongoing",
+  
+  problem:
+  "Manual web test creation is time-consuming and difficult to scale from evolving natural-language requirements.",
+  
+  solution:
+  "Developed a multi-agent LLM framework that automatically generates, verifies, and executes web test suites from functional descriptions.",
+  
+  impact:
+  "Achieved 84.0% test scenario coverage and 90% error detection, outperforming zero-shot and few-shot prompting approaches.",
+  
+  methodFlow: [
+  "Workflow Extraction",
+  "Test Generation",
+  "Verification",
+  "Refinement",
+  "Execution",
+  ],
+  
+  proof: [
+  "Benchmark datasets",
+  "Ground-truth test suites",
+  "Coverage evaluation framework",
+  ],
+  
+  highlights: [
+  "Developed a multi-agent LLM framework for automated web test generation and execution from natural-language requirements.",
+  "Built benchmark datasets and evaluated generated test suites against engineer-validated ground-truth test suites.",
+  "Achieved 84.0% test scenario coverage and 90% error detection, outperforming zero-shot and few-shot prompting approaches.",
+  ],
+  
+  created: [
+  "Benchmark datasets across five real-world web applications.",
+  "Ground-truth test suites validated by professional software engineers.",
+  "Evaluation framework for coverage, verification, and execution.",
+  ],
+  tech: ["Python", "LLM Engineering", "Multi-Agent Systems", "Playwright", "Browser Automation"],
+  tags: ["LLMs", "Software Testing", "Multi-Agent Systems", "Browser Automation"],
+  link: "https://github.com/mninadmnobo/Test-Case-Generator",
   },
   {
     title: "MedCAR: Conflict-Aware Medical Reasoning",
