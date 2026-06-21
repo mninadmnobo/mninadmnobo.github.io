@@ -42,7 +42,7 @@ export function About() {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-6">
             <p className="text-muted-foreground text-lg leading-relaxed">
-              I am a BUET CSE undergraduate building AI systems that integrate large language models into real-world applications. My work focuses on LLM-based software testing and medical AI with an emphasis on reliability and deployment.
+              I have recently graduated from Bangladesh University of Engineering and Technology(BUET) with a degree in Computer Science and Engineering. My work focuses on building AI systems that integrate large language models into real-world applications. My work focuses on LLM-based software testing and medical AI with an emphasis on reliability and deployment.
             </p>
 
             <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 glow-card">
@@ -138,13 +138,14 @@ export function About() {
               </p>
 
               <div className="flex flex-wrap items-center gap-2 mb-4">
-                <span className="px-2 py-1 text-xs rounded-md bg-secondary border">2022 - Present</span>
-                <span className="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary border">CGPA 3.61 / 4.00</span>
+                <span className="px-2 py-1 text-xs rounded-md bg-secondary border">2022 - 2026</span>
+                <span className="px-2 py-1 text-xs rounded-md bg-primary/10 text-primary border">CGPA 3.60 / 4.00</span>
               </div>
 
               <p className="text-sm text-muted-foreground mb-3">
                 <span className="text-primary">Thesis:</span>{" "}
-                <span className="text-foreground">Web Testing Using Large Language Models</span>
+                <span className="text-foreground">
+                  AutoTestGenX: Multi-Agent LLM Framework for End-to-End Web Testing</span>
               </p>
 
               {/* Coursework */}
