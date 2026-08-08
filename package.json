@@ -1,26 +1,30 @@
 {
-  "name": "my-project",
-  "version": "0.1.0",
+  "name": "mninadmnobo-portfolio",
+  "version": "1.0.0",
   "private": true,
+  "description": "Personal portfolio of Mohammad Ninad Mahmud Nobo — AI/ML engineer, software engineer and researcher.",
   "packageManager": "pnpm@10.9.0",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "postbuild": "node scripts/postbuild.mjs",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "qa:serve": "node scripts/qa/serve.mjs",
+    "qa:responsive": "node scripts/qa/responsive.mjs",
+    "qa:interact": "node scripts/qa/interact.mjs",
+    "qa:contrast": "node scripts/qa/contrast.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
-    "@formspree/react": "^3.0.0",
-    "@radix-ui/react-slot": "1.2.4",
-    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.564.0",
     "next": "16.2.0",
     "next-themes": "^0.4.6",
-    "nodemailer": "^8.0.7",
-    "pdfjs-dist": "^5.7.284",
     "react": "^19",
     "react-dom": "^19",
     "tailwind-merge": "^3.3.1"
@@ -28,9 +32,11 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.0",
     "@types/node": "^22",
-    "@types/nodemailer": "^8.0.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.0",
+    "playwright-core": "^1.62.1",
     "postcss": "^8.5",
     "tailwindcss": "^4.2.0",
     "tw-animate-css": "1.3.3",

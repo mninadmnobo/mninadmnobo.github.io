@@ -44,8 +44,25 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Lint
+        run: pnpm lint
+
+      - name: Type check
+        run: pnpm typecheck
+
+      # `pnpm build` also runs the `postbuild` lifecycle script, which writes
+      # .nojekyll and renames the OpenGraph image. Both are required for Pages
+      # to serve the site correctly, so the deploy fails fast if either is
+      # missing rather than publishing a broken site.
       - name: Build static site
         run: pnpm build
+
+      - name: Verify export
+        shell: bash
+        run: |
+          test -f out/.nojekyll || { echo "::error::out/.nojekyll missing — _next/ will be stripped by Jekyll"; exit 1; }
+          test -f out/og.png    || { echo "::error::out/og.png missing — OpenGraph image was not generated"; exit 1; }
+          test -f out/index.html || { echo "::error::out/index.html missing"; exit 1; }
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

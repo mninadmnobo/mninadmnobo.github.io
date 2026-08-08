@@ -1,60 +1,85 @@
 import * as React from 'react'
-import { Slot } from '@radix-ui/react-slot'
-import { cva, type VariantProps } from 'class-variance-authority'
 
 import { cn } from '@/lib/utils'
 
-const buttonVariants = cva(
-  "glow-button inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
-  {
-    variants: {
-      variant: {
-        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
-        destructive:
-          'bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60',
-        outline:
-          'border-transparent bg-transparent shadow-none hover:bg-accent hover:text-accent-foreground dark:bg-transparent dark:border-transparent dark:hover:!bg-primary/90 dark:hover:!text-primary-foreground',
-        secondary:
-          'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-        ghost:
-          'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
-        link: 'text-primary underline-offset-4 hover:underline',
-      },
-      size: {
-        default: 'h-9 px-4 py-2 has-[>svg]:px-3',
-        sm: 'h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5',
-        lg: 'h-10 rounded-md px-6 has-[>svg]:px-4',
-        icon: 'size-9',
-        'icon-sm': 'size-8',
-        'icon-lg': 'size-10',
-      },
-    },
-    defaultVariants: {
-      variant: 'default',
-      size: 'default',
-    },
-  },
-)
+/**
+ * Button styling as a class-string helper + convenience component.
+ *
+ * Inspired by Fabin's design system:
+ *   - All buttons are pill-shaped (rounded-full)
+ *   - Primary: cyan→blue gradient with glowing lift on hover
+ *   - Secondary: outlined panel bg, accent border/color on hover
+ *   - Ghost: transparent, subtle fill on hover
+ *   - Icon: square-ish pill for icon-only buttons
+ *
+ * Returns a string of Tailwind + custom CSS classes so that anchor tags can
+ * use the same styles without needing asChild or a polymorphic wrapper.
+ */
 
-function Button({
-  className,
-  variant,
-  size,
-  asChild = false,
-  ...props
-}: React.ComponentProps<'button'> &
-  VariantProps<typeof buttonVariants> & {
-    asChild?: boolean
-  }) {
-  const Comp = asChild ? Slot : 'button'
+type Variant = 'primary' | 'secondary' | 'ghost'
+type Size    = 'sm' | 'md' | 'icon' | 'icon-lg'
 
-  return (
-    <Comp
-      data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
-      {...props}
-    />
-  )
+// ── Shared base ─────────────────────────────────────────────────────────────
+const BASE =
+  'inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 rounded-full text-sm font-semibold no-underline ' +
+  'transition-all duration-300 ease-out ' +
+  'active:scale-[0.97] ' +
+  'disabled:pointer-events-none disabled:opacity-50'
+
+// ── Variant classes ──────────────────────────────────────────────────────────
+// These use CSS custom properties so they automatically switch between light
+// and dark modes when the token values change in globals.css.
+
+const VARIANTS: Record<Variant, string> = {
+  primary: [
+    // Gradient fill — always uses the btn-from/btn-to tokens
+    '[background-image:linear-gradient(100deg,var(--btn-from),var(--btn-to))]',
+    'text-[var(--btn-ink)]',
+    '[box-shadow:0_10px_30px_-12px_var(--btn-from)]',
+    // Hover: brighter + larger glow + lift
+    'hover:-translate-y-1 hover:scale-[1.02]',
+    'hover:brightness-110',
+    'hover:[box-shadow:0_20px_45px_-10px_var(--btn-from),0_0_30px_-4px_var(--btn-from)]',
+  ].join(' '),
+
+  secondary: [
+    'border border-[var(--line)] bg-[var(--panel)] text-[var(--ink-muted)]',
+    '[box-shadow:0_1px_3px_rgba(0,0,0,0.06)]',
+    // Hover: accent border + tinted bg + lift + shadow
+    'hover:-translate-y-1 hover:scale-[1.01]',
+    'hover:border-[var(--fab-accent)] hover:text-[var(--fab-accent)]',
+    'hover:bg-[var(--fab-accent-quiet)]',
+    'hover:[box-shadow:0_8px_20px_-6px_rgba(8,145,178,0.25)]',
+  ].join(' '),
+
+  ghost: [
+    'border border-transparent bg-transparent text-[var(--ink-muted)]',
+    'hover:bg-[var(--panel-2)] hover:text-[var(--ink)]',
+    'hover:-translate-y-0.5',
+  ].join(' '),
 }
 
-export { Button, buttonVariants }
+// ── Size classes ─────────────────────────────────────────────────────────────
+const SIZES: Record<Size, string> = {
+  sm:      'h-9  px-4',
+  md:      'h-11 px-5',
+  icon:    'h-10 w-10 !px-0',
+  'icon-lg': 'h-11 w-11 !px-0',
+}
+
+export function buttonStyles({
+  variant  = 'secondary',
+  size     = 'md',
+  className,
+}: { variant?: Variant; size?: Size; className?: string } = {}) {
+  return cn(BASE, VARIANTS[variant], SIZES[size], className)
+}
+
+export function Button({
+  variant,
+  size,
+  className,
+  ...props
+}: React.ComponentProps<'button'> & { variant?: Variant; size?: Size }) {
+  return <button className={buttonStyles({ variant, size, className })} {...props} />
+}
