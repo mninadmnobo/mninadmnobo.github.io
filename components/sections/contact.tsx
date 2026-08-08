@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Check, Clock, Copy, ExternalLink, Mail, MapPin, Phone } from 'lucide-react'
+import { Check, Clock, Copy, Mail, MapPin, Phone } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 

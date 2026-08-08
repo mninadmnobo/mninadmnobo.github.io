@@ -5,7 +5,6 @@ import { profile } from '@/lib/data'
 import { Navigation } from '@/components/layout/navigation'
 import { Footer } from '@/components/layout/footer'
 import { Link } from '@/components/ui/link'
-import { buttonStyles } from '@/components/ui/button'
 
 /**
  * Shared shell for the CV and biodata routes.

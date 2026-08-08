@@ -3,7 +3,7 @@
 import * as React from 'react'
 import { ChevronLeft, ChevronRight, GraduationCap } from 'lucide-react'
 
-import { profile, research } from '@/lib/data'
+import { research } from '@/lib/data'
 import { SectionHeader } from '@/components/ui/section-header'
 import { Reveal } from '@/components/ui/reveal'
 import { WorkCard } from '@/components/work/work-card'

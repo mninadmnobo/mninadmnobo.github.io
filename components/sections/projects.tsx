@@ -1,14 +1,13 @@
 'use client'
 
 import * as React from 'react'
-import { ChevronDown, ChevronUp, ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
-import { profile, projectFilters, projects } from '@/lib/data'
+import { projectFilters, projects } from '@/lib/data'
 import { SectionHeader } from '@/components/ui/section-header'
 import { Reveal } from '@/components/ui/reveal'
 import { WorkCard } from '@/components/work/work-card'
 import { Link } from '@/components/ui/link'
-import { Button } from '@/components/ui/button'
 import { GitHubIcon } from '@/components/ui/icons'
 import { cn } from '@/lib/utils'
 
