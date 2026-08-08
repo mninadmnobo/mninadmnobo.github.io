@@ -83,8 +83,8 @@ export function Research() {
   // Scroll to default card (AutoTestGenX at index 0) when category filter changes or mounts
   React.useEffect(() => {
     const defaultIndex = 0
-    setActiveCardIndex(defaultIndex)
     const timer = setTimeout(() => {
+      setActiveCardIndex(defaultIndex)
       scrollToCard(defaultIndex)
     }, 50)
     return () => clearTimeout(timer)

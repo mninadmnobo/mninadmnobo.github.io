@@ -72,8 +72,8 @@ export function Projects() {
   React.useEffect(() => {
     const mindtraceIndex = visible.findIndex((item) => item.id === 'mindtrace')
     const defaultIndex = mindtraceIndex !== -1 ? mindtraceIndex : 0
-    setActiveCardIndex(defaultIndex)
     const timer = setTimeout(() => {
+      setActiveCardIndex(defaultIndex)
       scrollToCard(defaultIndex)
     }, 50)
     return () => clearTimeout(timer)

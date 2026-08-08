@@ -83,8 +83,8 @@ export function FeaturedWork() {
   // Scroll to default center card (FABINS) when category filter changes or mounts
   React.useEffect(() => {
     const defaultIndex = visibleWork.length > 1 ? Math.floor(visibleWork.length / 2) : 0
-    setActiveCardIndex(defaultIndex)
     const timer = setTimeout(() => {
+      setActiveCardIndex(defaultIndex)
       scrollToCard(defaultIndex)
     }, 50)
     return () => clearTimeout(timer)
