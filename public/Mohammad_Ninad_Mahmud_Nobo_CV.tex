@@ -15,7 +15,6 @@
 \usepackage[T1]{fontenc}
 \input{glyphtounicode}
 \pdfgentounicode=1
-\usepackage{fontawesome5}
 
 \definecolor{linkblue}{RGB}{40,80,140}
 \usepackage[
@@ -31,9 +30,9 @@
 \renewcommand{\headrulewidth}{0pt}
 \geometry{
   left=1.2cm,
-  top=0.5cm,
+  top=0.4cm,
   right=1.2cm,
-  bottom=0.7cm
+  bottom=0.4cm
 }
 
 % ==================== SECTION STYLE ====================
@@ -41,24 +40,22 @@
 {\scshape\raggedright\normalsize}
 {}{0em}{}[\titlerule]
 
-\titlespacing*{\section}{0pt}{6pt}{3pt}
+\titlespacing*{\section}{0pt}{6pt}{2pt}
 
 % ==================== CUSTOM COMMANDS ====================
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*, itemsep=0.4mm, topsep=0.4mm]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-1mm}}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*, itemsep=0.2mm, topsep=0.2mm]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-2mm}}
 
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*, itemsep=0.4mm, topsep=0.3mm, parsep=0mm, partopsep=0mm]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0.5mm}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*, itemsep=0.2mm, topsep=0.2mm, parsep=0mm, partopsep=0mm]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0.2mm}}
 
 \newcommand{\resumeProject}[4]{
   \item \textbf{#1} \hspace{0.4em} {\small #2} \\
   \begin{tabular*}{\linewidth}{@{}l@{\extracolsep{\fill}}r@{}}
     \textit{#3} & \textit{#4}
   \end{tabular*}
-  \vspace{-4mm}
+  \vspace{-4.5mm}
 }
-
-\newcommand{\icon}[1]{\raisebox{-0.1em}{\large #1}}
 
 % ==================== DOCUMENT ====================
 \begin{document}
@@ -72,18 +69,18 @@
     {\textbf{Bangladesh University of Engineering and Technology (BUET) | CSE}} \\
     \vspace{3pt}
     \small
-    \faEnvelope\ \href{mailto:mninadmnobo@gmail.com}{mninadmnobo@gmail.com} \quad
-    \faGithub\ \href{https://github.com/mninadmnobo}{github.com/mninadmnobo} \quad
-    \faLinkedin\ \href{https://www.linkedin.com/in/mninadmnobo}{linkedin.com/in/mninadmnobo} \\
-    \faGlobe\ \href{https://mninadmnobo.github.io}{Portfolio (mninadmnobo.github.io)} \quad
-    \faGraduationCap\ \href{https://scholar.google.com/citations?user=y5-A2oAAAAAJ&hl=en&oi=ao}{Google Scholar (M Ninad M Nobo)} \quad
-    \faPhone\ \href{tel:+8801939444451}{+880 1939-444451}
+    Email: \href{mailto:mninadmnobo@gmail.com}{mninadmnobo@gmail.com} \quad
+    GitHub: \href{https://github.com/mninadmnobo}{github.com/mninadmnobo} \quad
+    LinkedIn: \href{https://www.linkedin.com/in/mninadmnobo}{linkedin.com/in/mninadmnobo} \\
+    Portfolio: \href{https://mninadmnobo.github.io}{mninadmnobo.github.io} \quad
+    Scholar: \href{https://scholar.google.com/citations?user=y5-A2oAAAAAJ&hl=en&oi=ao}{Google Scholar (M Ninad M Nobo)} \quad
+    Phone: \href{tel:+8801939444451}{+880 1939-444451}
 \end{center}
 
 % ==================== SUMMARY ====================
 \section{Summary}
 
-B.Sc. graduate in Computer Science and Engineering from BUET with experience in building intelligent systems at the intersection of large language models, software automation, and applied machine learning. Hands-on experience developing AI-driven applications across backend and mobile platforms with a strong focus on software engineering and scalable system design. Research interests include LLM-based software testing, AI evaluation, and medical AI, with experience in developing practical AI-powered solutions.
+B.Sc. graduate in Computer Science and Engineering from BUET with combined research and industry experience in Artificial Intelligence, Machine Learning, and full-stack software engineering. Skilled in building and evaluating AI systems and production-grade applications, with a research background in LLM-based testing, medical AI, and applied machine learning.
 
 % ==================== EDUCATION ====================
 \section{Education}
@@ -92,8 +89,27 @@ B.Sc. graduate in Computer Science and Engineering from BUET with experience in 
 \begin{tabular*}{\linewidth}{@{}l@{\extracolsep{\fill}}r@{}}
 Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.60 / 4.00}
 \end{tabular*}
-\textbf{Relevant Coursework:} Data Structures and Algorithms, Digital Logic Design, Database Systems, Operating Systems, Computer Architecture, Computer Networks, Computer Graphics, Algorithm Engineering, Artificial Intelligence, Machine Learning \\
-\textbf{Research Interests:} LLM Systems, Software Testing Automation, Applied Machine Learning, Medical AI, Computer Networks
+\textbf{Relevant Coursework:} Data Structures and Algorithms, Algorithm Engineering, Database Systems, Operating Systems, Computer Architecture, Computer Networks, Compiler Design, Artificial Intelligence, Machine Learning, Computer Graphics \\
+\textbf{Research Interests:} Large Language Model Systems, AI-Assisted Software Engineering, Applied Machine Learning, Medical AI
+
+% ==================== PROFESSIONAL EXPERIENCE ====================
+\section{Professional Experience}
+
+\resumeSubHeadingListStart
+
+\resumeProject
+{AI Software Engineer}
+{[ \href{https://saturn-rnd-portfolio.vercel.app/}{R\&D Website} 
+\textbar\
+\href{https://fabins-portfolio.vercel.app/}{FABINS} ]}
+{Department of Research and Development (R\&D) - Saturn Textiles Limited}
+{2026 -- Present}
+\resumeItemListStart
+\item Developing and training computer vision and deep learning models for automated fabric inspection through FABINS.
+\item Developed and deployed Saturn R\&D's full-stack website and FABINS product portfolio.
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
 
 % ==================== RESEARCH EXPERIENCE ====================
 \section{Research Experience}
@@ -101,14 +117,13 @@ Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.
 \resumeSubHeadingListStart
 
 \resumeProject
-{AutoTestGenX: Multi-Agent LLM Framework for End-to-End Web Testing}
+{AutoTestGenX: Multi-Agent LLM Framework for End-to-End Web Testing (Undergraduate Thesis)}
 {[ \href{https://github.com/mninadmnobo/Test-Case-Generator}{GitHub} ]}
 {Python • LLM Engineering • Multi-Agent Systems • Web Testing • Browser Automation}
 {2025 -- 2026}
 \resumeItemListStart
-\item Developed a multi-agent LLM framework for automated web test generation and execution from natural-language requirements.
-\item Built benchmark datasets and evaluated generated test suites against engineer-validated ground-truth test suites.
-\item Achieved 84.0\% test scenario coverage and 90\% error detection, outperforming zero-shot and few-shot prompting approaches.
+\item Designed a multi-agent LLM framework to automate web test generation and execution from natural-language requirements.
+\item Built benchmark datasets and evaluated against ground-truth suites, achieving 84.0\% scenario coverage and 90\% error detection.
 \resumeItemListEnd
 
 \resumeProject
@@ -117,9 +132,8 @@ Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.
 {Python • Deep Learning • Medical AI}
 {2026}
 \resumeItemListStart
-\item Built a multi-model system for chest X-ray analysis integrating heterogeneous AI tools.
-\item Developed a conflict resolution pipeline to reconcile contradictory outputs using semantic reasoning and confidence calibration.
-\item Designed trust-aware decision framework with uncertainty-based abstention for reliable predictions.
+\item Built a multi-model chest X-ray reasoning system with a conflict-resolution pipeline to reconcile contradictory model outputs.
+\item Designed a framework using confidence calibration and uncertainty-based abstention for reliable predictions.
 \resumeItemListEnd
 
 \resumeProject
@@ -128,14 +142,13 @@ Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.
 {Python • Speech Processing • Machine Learning}
 {2026}
 \resumeItemListStart
-\item Contributed to building a large-scale benchmark dataset for long-form Bangla ASR and speaker diarization in a multi-institution collaboration, developing data collection and annotation pipelines for real-world speech data.
-\item Designed subtitle extraction and annotation workflows enabling evaluation with WER and DER.
+\item Supported data collection and annotation for a large-scale Bangla Automatic Speech Recognition (ASR) and speaker diarization benchmark, enabling evaluation using Word Error Rate (WER) and Diarization Error Rate (DER).
 \resumeItemListEnd
 
 \resumeSubHeadingListEnd
 
 % ==================== PROJECTS ====================
-\section{Projects}
+\section{Selected Projects}
 
 \resumeSubHeadingListStart
 
@@ -147,8 +160,8 @@ Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.
 {Kotlin • Spring Boot • Spring AI • PostgreSQL • Redis • Firebase • Docker • Azure}
 {2025}
 \resumeItemListStart
-\item Engineered an AI-driven mobile–backend system for dementia care with an Android frontend and scalable Spring Boot architecture, enabling real-time caregiver workflows and seamless system integration.
-\item Designed accessibility-first UI/UX for cognitively impaired users, focusing on clarity, simplified interactions, and usability to enhance engagement and reduce cognitive load.
+\item Engineered an AI-driven Android app for dementia care with an Android frontend and scalable Spring Boot architecture.
+\item Designed accessibility-first UI/UX for cognitively impaired users to reduce cognitive load and improve engagement.
 \resumeItemListEnd
 
 \resumeProject
@@ -158,8 +171,18 @@ Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.
 {Kotlin • Android Studio • Spring Boot • Spring AI • MongoDB}
 {2025}
 \resumeItemListStart
-\item Built an AI-assisted Android application for veterinary decision support, integrating backend services to deliver real-time recommendations for diagnosis and treatment workflows.
-\item Designed RESTful APIs optimized for low-connectivity environments with efficient request handling and streamlined data flow.
+\item Built an AI-assisted Android application delivering real-time veterinary diagnosis and treatment recommendations.
+\item Designed RESTful APIs optimized for low-connectivity environments with efficient request handling.
+\resumeItemListEnd
+
+\resumeProject
+{TCP Window Scaling Attack}
+{[ \href{https://github.com/mninadmnobo/TCP-Window_Scaling_Attack}{GitHub} ]}
+{Python • TCP/IP • Network Security • Wireshark • Linux}
+{2025}
+\resumeItemListStart
+\item Built a virtualized MITM lab to demonstrate ARP poisoning and TCP window scaling attacks between client-server VMs.
+\item Implemented attack and defense clients and analyzed TCP traffic using Wireshark and packet captures.
 \resumeItemListEnd
 
 \resumeProject
@@ -168,31 +191,32 @@ Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.
 {C++17 • Flex • Bison/Yacc • Linux}
 {2024}
 \resumeItemListStart
-\item Designed and implemented a full compiler pipeline for a C-like language, encompassing lexical analysis, parsing, semantic analysis, and intermediate code generation.
+\item Built a full compiler pipeline for a C-like language, covering lexical analysis, parsing, and semantic analysis.
 \item Generated optimized 8086 assembly code with symbol table management and basic optimizations.
 \resumeItemListEnd
 
 \resumeProject
-{Computer Graphics Pipeline Implementation}
-{[ \href{https://github.com/mninadmnobo/Computer-Graphics-Pipeline}{GitHub} ]}
-{C++17 • OpenGL/GLUT • Rasterization • Ray Tracing}
-{2025}
+{Smart Gardening Automation}
+{[ \href{https://github.com/mninadmnobo/Smart-Gardenning-Automation}{GitHub}
+\textbar\
+\href{https://www.youtube.com/watch?v=m3LLqLAPCik}{Feature} ]}
+{Arduino • Embedded C++ • Sensors • Bluetooth Communication • Automation}
+{2024}
 \resumeItemListStart
-\item Implemented a complete graphics pipeline including transformations, clipping, rasterization with Z-buffering, and ray tracing.
-\item Developed OpenGL-based rendering demos with camera systems supporting 6-DOF control and real-time interaction.
+\item Developed a gardening automation system integrating environmental sensing and wireless communication.
+\item Implemented automated watering, fertilizer/pesticide cycles, smart shade control, and remote monitoring.
 \resumeItemListEnd
 
 \resumeSubHeadingListEnd
 
 % ==================== TECHNICAL SKILLS ====================
 \section{Technical Skills}
-\textbf{Languages:} C/C++, Python, Java, Kotlin, JavaScript, SQL \\
-\textbf{Frontend:} React, Embedded JavaScript (EJS), HTML, CSS3 \\
-\textbf{Backend \& APIs:} Spring Boot, Spring AI, Node.js, Express.js, REST APIs, Secure API Design \\
-\textbf{AI/ML:} PyTorch, TensorFlow, Scikit-learn, Large Language Models (LLMs), Prompt Engineering, Multi-Agent Systems \\
-\textbf{Mobile Development:} Android, Kotlin, Android Studio \\
+\textbf{AI/ML:} PyTorch, TensorFlow, Scikit-learn, Large Language Models, Prompt Engineering, Multi-Agent Systems, Computer Vision \\
+\textbf{Languages:} Python, C/C++, Java, Kotlin, JavaScript, SQL \\
+\textbf{Backend \& Full-Stack:} Spring Boot, Spring AI, Node.js, Express.js, Next.js, REST APIs, React \\
 \textbf{Databases:} PostgreSQL, MongoDB, Redis \\
-\textbf{DevOps \& Tools:} Linux, Git, Docker, Docker Compose, GitHub Actions, Firebase
+\textbf{DevOps \& Tools:} Linux, Git, Docker, Docker Compose, GitHub Actions, Firebase, Azure \\
+\textbf{Mobile Development:} Android, Android Studio
 
 % ==================== ADDITIONAL INFORMATION ====================
 \section{Additional Information}
