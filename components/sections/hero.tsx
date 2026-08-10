@@ -130,7 +130,7 @@ export function Hero() {
 
             {/* Contextual Tagline including ML & AI and Computer Networks & Security */}
             <p className="mt-4 max-w-2xl text-base sm:text-lg leading-relaxed text-[var(--ink)] font-normal text-left lg:text-justify">
-              <span className="font-semibold text-[var(--ink)]">CSE graduate from BUET</span> with research & industry experience across Machine Learning & Artificial Intelligence, software engineering, computer vision, computer networks, and computer security.
+              <span className="font-semibold text-[var(--ink)]">CSE graduate from BUET</span> with research & industry experience across Machine Learning & Artificial Intelligence, Software Engineering, Computer Vision, Computer Networks, and Computer Security.
             </p>
 
 
