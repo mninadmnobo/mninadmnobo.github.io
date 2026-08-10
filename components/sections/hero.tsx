@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { FileBadge, UserCheck } from 'lucide-react'
+import { FileBadge } from 'lucide-react'
 
 import { profile } from '@/lib/data'
 import { Link } from '@/components/ui/link'
@@ -30,12 +30,6 @@ const QUICK_LINKS = [
     href: profile.primary.cv,
     Icon: FileBadge,
     iconColor: 'text-[#e11d48]',
-  },
-  {
-    label: 'View Biodata',
-    href: profile.primary.biodata,
-    Icon: UserCheck,
-    iconColor: 'text-[#10b981]',
   },
 ]
 
@@ -136,22 +130,8 @@ export function Hero() {
 
             {/* Contextual Tagline including ML & AI and Computer Networks & Security */}
             <p className="mt-4 max-w-2xl text-base sm:text-lg leading-relaxed text-[var(--ink)] font-normal text-left lg:text-justify">
-              <span className="font-semibold text-[var(--ink)]">BUET CSE graduate</span> with combined research and industry experience. Specialized in Machine Learning & Artificial Intelligence, software engineering, computer vision, and computer networks and computer security.
+              <span className="font-semibold text-[var(--ink)]">CSE graduate from BUET</span> with research & industry experience across Machine Learning & Artificial Intelligence, software engineering, computer vision, computer networks, and computer security.
             </p>
-
-            {/* Symmetrical Focus Area Tag Chips */}
-            <div className="mt-5 flex flex-wrap items-center justify-center gap-2 lg:justify-start">
-              {['Machine Learning & AI', 'Software Engineering', 'Networks & Security'].map((area) => (
-                <span
-                  key={area}
-                  className="inline-flex items-center gap-2 rounded-full border border-[var(--line-strong)] bg-[var(--panel)] px-3.5 py-1.5 text-[11px] font-mono font-bold uppercase tracking-wider text-[var(--ink)] shadow-xs cursor-default select-none"
-                >
-                  <span className="h-1.5 w-1.5 rounded-full bg-[var(--fab-accent)]" />
-                  {area}
-                </span>
-              ))}
-            </div>
-
 
 
             {/* Quick Links with Real Brand Colors */}

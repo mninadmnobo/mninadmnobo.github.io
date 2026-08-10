@@ -84,7 +84,6 @@ app/
 ├── opengraph-image.tsx     Build-time 1200x630 social card
 ├── sitemap.ts / robots.ts  Generated at build
 ├── cv/                     CV route + LaTeX source viewer
-└── biodata/                Biodata route
 
 components/
 ├── layout/                 Navigation, footer, back-to-top, document-page shell

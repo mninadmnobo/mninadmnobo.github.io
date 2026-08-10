@@ -16,6 +16,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: profile.siteUrl, lastModified, changeFrequency: 'monthly', priority: 1 },
     { url: `${profile.siteUrl}/cv`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
-    { url: `${profile.siteUrl}/biodata`, lastModified, changeFrequency: 'yearly', priority: 0.4 },
   ]
 }

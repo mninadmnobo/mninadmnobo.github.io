@@ -7,7 +7,7 @@ import { Footer } from '@/components/layout/footer'
 import { Link } from '@/components/ui/link'
 
 /**
- * Shared shell for the CV and biodata routes.
+ * Shared shell for document routes (e.g. CV).
  *
  * Both pages are the same thing — a heading, view/download actions and an
  * embedded PDF — and previously existed as two near-identical files that had

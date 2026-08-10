@@ -196,7 +196,7 @@ correct icon is already there with no hydration swap.
 
 ### `DocumentPage`
 
-Shared shell for `/cv` and `/biodata`. `PdfFrame` carries visible fallback text with a direct
+Shared shell for document pages like `/cv`. `PdfFrame` carries visible fallback text with a direct
 link, because mobile browsers routinely refuse to render a PDF in an iframe.
 
 ---

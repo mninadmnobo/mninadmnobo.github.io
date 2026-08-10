@@ -306,7 +306,7 @@ async function page(width = 1280, height = 900, opts = {}) {
   p.on('pageerror', (e) => errors.push(String(e)))
   await p.goto(`${BASE}/`, { waitUntil: 'networkidle' })
   await p.waitForTimeout(1200)
-  for (const route of ['/cv/', '/biodata/']) {
+  for (const route of ['/cv/']) {
     await p.goto(`${BASE}${route}`, { waitUntil: 'networkidle' })
     await p.waitForTimeout(1200)
   }

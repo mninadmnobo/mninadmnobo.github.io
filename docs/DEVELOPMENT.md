@@ -98,7 +98,7 @@ pnpm qa:responsive
 - Accessibility sweep: exactly one `h1`, no heading-level jumps, every `target="_blank"` has
   `rel="noopener"`, no unnamed link or button, every image has `alt`, no target under 24px
 - Reduced motion: every revealed block ends fully visible and animations collapse
-- No console errors on `/`, `/cv/` or `/biodata/`
+- No console errors on `/` or `/cv/`
 
 ### `qa:contrast`
 

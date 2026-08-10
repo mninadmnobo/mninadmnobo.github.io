@@ -19,7 +19,7 @@ export const profile = {
 
   /** Two sentences for the hero body. Derived from the CV summary. */
   intro:
-    'B.Sc. in Computer Science and Engineering from BUET, now working in industrial R&D at Saturn Textiles Limited. My work spans deep learning for automated fabric inspection, multi-agent LLM systems for software testing, and conflict-aware reasoning for medical imaging.',
+    'CSE graduate from BUET with research & industry experience across Machine Learning, Artificial Intelligence, software engineering, computer vision, computer networks, and computer security.',
 
   location: 'Dhaka, Bangladesh',
   timezone: 'UTC+6 (BST)',
@@ -50,7 +50,6 @@ export const profile = {
     scholar: 'https://scholar.google.com/citations?user=y5-A2oAAAAAJ&hl=en&oi=ao',
     cv: '/cv',
     cvPdf: '/Mohammad_Ninad_Mahmud_Nobo_CV.pdf',
-    biodata: '/biodata',
   },
 } as const
 
