@@ -29,32 +29,59 @@
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
 \geometry{
-  left=1.2cm,
-  top=0.4cm,
+  left=1.cm,
+  top=1.0cm,
   right=1.2cm,
-  bottom=0.4cm
+  bottom=1.0cm
 }
 
 % ==================== SECTION STYLE ====================
 \titleformat{\section}
-{\scshape\raggedright\normalsize}
+{\scshape\raggedright\large}
 {}{0em}{}[\titlerule]
 
-\titlespacing*{\section}{0pt}{6pt}{2pt}
+\titlespacing*{\section}{0pt}{4pt}{3pt}
 
 % ==================== CUSTOM COMMANDS ====================
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*, itemsep=0.2mm, topsep=0.2mm]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\resumeSubHeadingListStart}{%
+  \begin{itemize}[leftmargin=*, itemsep=0.2mm, topsep=0.2mm]
+}
 
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*, itemsep=0.2mm, topsep=0.2mm, parsep=0mm, partopsep=0mm]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0.2mm}}
+\newcommand{\resumeSubHeadingListEnd}{%
+  \end{itemize}\vspace{-2mm}
+}
 
-\newcommand{\resumeProject}[4]{
+\newcommand{\resumeItemListStart}{%
+  \begin{itemize}[
+    leftmargin=*,
+    itemsep=0.2mm,
+    topsep=0mm,
+    parsep=0mm,
+    partopsep=0mm
+  ]
+}
+
+\newcommand{\resumeItemListEnd}{%
+  \end{itemize}\vspace{0.6mm}
+}
+
+% Normal projects / research entries
+\newcommand{\resumeProject}[4]{%
   \item \textbf{#1} \hspace{0.4em} {\small #2} \\
   \begin{tabular*}{\linewidth}{@{}l@{\extracolsep{\fill}}r@{}}
     \textit{#3} & \textit{#4}
   \end{tabular*}
-  \vspace{-4.5mm}
+  \vspace{-4mm}
+}
+
+% Sub-projects / workstreams under a professional role
+\newcommand{\resumeWorkProject}[4]{%
+  \vspace{0.5mm}
+  \textbf{#1} \hspace{0.4em} {\small #2} \\
+  \begin{tabular*}{\linewidth}{@{}l@{\extracolsep{\fill}}r@{}}
+    \textit{#3} & \textit{#4}
+  \end{tabular*}
+  \vspace{-4mm}
 }
 
 % ==================== DOCUMENT ====================
@@ -64,9 +91,8 @@
 
 % ==================== HEADER ====================
 \begin{center}
-    {\large\textbf{Mohammad Ninad Mahmud Nobo}} \\
-    \vspace{1pt}
-    {\textbf{Bangladesh University of Engineering and Technology (BUET) | CSE}} \\
+    {\large\textbf{Mohammad Ninad Mahmud Nobo}} \\[2pt]
+    {\normalsize\textbf{Bangladesh University of Engineering and Technology (BUET) | CSE}} \\
     \vspace{3pt}
     \small
     Email: \href{mailto:mninadmnobo@gmail.com}{mninadmnobo@gmail.com} \quad
@@ -80,7 +106,7 @@
 % ==================== SUMMARY ====================
 \section{Summary}
 
-Experienced in Artificial Intelligence, Machine Learning, Large Language Models, and software engineering across research and industry. Skilled in building production-grade software and AI systems, including deep learning models, multi-agent AI pipelines, and full-stack web applications. Research background spans LLM-based software testing, medical AI and applied machine learning.
+Computer Science graduate specialized in Artificial Intelligence, Machine Learning, Large Language Models, and software engineering across research and industry. Skilled in building production-grade software systems, including deep learning models, multi-agent AI pipelines, and web applications. Research spans LLM-based software testing, medical AI and applied machine learning.
 
 
 % ==================== EDUCATION ====================
@@ -89,8 +115,9 @@ Experienced in Artificial Intelligence, Machine Learning, Large Language Models,
 \textbf{Bangladesh University of Engineering and Technology (BUET)} \hfill \textbf{2022 -- 2026} \\
 \begin{tabular*}{\linewidth}{@{}l@{\extracolsep{\fill}}r@{}}
 Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.60 / 4.00}
-\end{tabular*}
-\textbf{Relevant Coursework:} Data Structures and Algorithms, Algorithm Engineering, Database Systems, Operating Systems, Computer Architecture, Computer Networks, Compiler Design, Artificial Intelligence, Machine Learning, Computer Graphics \\
+\end{tabular*} \\[2pt]
+\textbf{Relevant Coursework:} Data Structures and Algorithms, Algorithm Engineering, Database Systems, Operating Systems, Computer Architecture, Computer Networks, Compiler Design, Artificial Intelligence, Machine Learning, Computer Graphics
+\\[2pt]
 \textbf{Research Interests:} Large Language Model Systems, AI-Assisted Software Engineering, Applied Machine Learning, Medical AI
 
 % ==================== PROFESSIONAL EXPERIENCE ====================
@@ -100,18 +127,37 @@ Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.
 
 \resumeProject
 {AI Software Engineer}
-{[ \href{https://saturn-rnd-portfolio.vercel.app/}{R\&D Website}
-\textbar
-\href{https://fabins-portfolio.vercel.app/}{FABINS} ]}
+{}
 {Department of Research and Development (R\&D) - Saturn Textiles Limited}
 {2026 -- Present}
+
+\resumeWorkProject
+{Web Development}
+{[ \href{https://saturn-rnd-portfolio.vercel.app/}{Saturn R\&D Website}
+\textbar\
+\href{https://github.com/mninadmnobo/saturn_rnd_portfolio}{GitHub} ]
+\quad
+[ \href{https://fabins-portfolio.vercel.app/}{FABINS Product Portfolio}
+\textbar\
+\href{https://github.com/mninadmnobo/fabins_portfolio}{GitHub} ]}
+{Next.js • React • Spring Boot • REST APIs • Brevo • GitHub Actions}
+{2026}
+
 \resumeItemListStart
-\item Developing and training computer vision and deep learning models for automated fabric inspection through \textbf{FABINS}.
-\item Developed full-stack applications with Next.js, React, Spring Boot, and REST APIs, with GitHub Actions for CI/CD.
+\item Developed Saturn R\&D Website and FABINS Product Portfolio with integrated form submission and email notifications.
+\resumeItemListEnd
+
+\resumeWorkProject
+{FABINS - Fabric Inspection Automation | ML \& Computer Vision}
+{}
+{Python • PyTorch • Computer Vision • Deep Learning}
+{2026 -- Present}
+
+\resumeItemListStart
+\item Developing computer vision and deep learning models for automated fabric defect detection and quality inspection.
 \resumeItemListEnd
 
 \resumeSubHeadingListEnd
-
 % ==================== RESEARCH EXPERIENCE ====================
 \section{Research Experience}
 
@@ -128,22 +174,13 @@ Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.
 \resumeItemListEnd
 
 \resumeProject
-{MedCAR: Conflict-Aware Medical Reasoning System (Under Review)}
+{MedCAR: Conflict-Aware Medical Reasoning System}
 {[ \href{https://github.com/mninadmnobo/MedCAR}{GitHub} ]}
 {Python • Deep Learning • Medical AI}
 {2026}
 \resumeItemListStart
 \item Built a multi-model chest X-ray reasoning system with a conflict-resolution pipeline to reconcile contradictory model outputs.
 \item Designed a framework using confidence calibration and uncertainty-based abstention for reliable predictions.
-\resumeItemListEnd
-
-\resumeProject
-{Bengali-Loop: Community Benchmarks for Long-Form Bangla ASR and Speaker Diarization}
-{[ \href{https://arxiv.org/abs/2602.14291}{arXiv: 2602.14291} ]}
-{Python • Speech Processing • Machine Learning}
-{2026}
-\resumeItemListStart
-\item Supported data collection and annotation for a large-scale Bangla Automatic Speech Recognition (ASR) and speaker diarization benchmark, enabling evaluation using Word Error Rate (WER) and Diarization Error Rate (DER).
 \resumeItemListEnd
 
 \resumeSubHeadingListEnd
@@ -161,8 +198,8 @@ Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.
 {Kotlin • Spring Boot • Spring AI • PostgreSQL • Redis • Firebase • Docker • Azure}
 {2025}
 \resumeItemListStart
-\item Engineered an AI-driven Android app for dementia care with an Android frontend and scalable Spring Boot architecture.
-\item Designed accessibility-first UI/UX for cognitively impaired users to reduce cognitive load and improve engagement.
+\item Developed an Android app for dementia patients and caregivers with personalized assistance and caregiver support features.
+\item Built the Spring Boot backend and designed an accessible Android UI in Kotlin for smooth and intuitive AI interactions.
 \resumeItemListEnd
 
 \resumeProject
@@ -187,16 +224,6 @@ Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.
 \resumeItemListEnd
 
 \resumeProject
-{Compiler Construction (Flex, Bison, 8086 Codegen)}
-{[ \href{https://github.com/mninadmnobo/CompilerSessional}{GitHub} ]}
-{C++17 • Flex • Bison/Yacc • Linux}
-{2024}
-\resumeItemListStart
-\item Built a full compiler pipeline for a C-like language, covering lexical analysis, parsing, and semantic analysis.
-\item Generated optimized 8086 assembly code with symbol table management and basic optimizations.
-\resumeItemListEnd
-
-\resumeProject
 {Smart Gardening Automation}
 {[ \href{https://github.com/mninadmnobo/Smart-Gardenning-Automation}{GitHub}
 \textbar\
@@ -212,24 +239,23 @@ Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.
 
 % ==================== TECHNICAL SKILLS ====================
 \section{Technical Skills}
+
 \textbf{AI/ML:} PyTorch, TensorFlow, Scikit-learn, Large Language Models, Prompt Engineering, Multi-Agent Systems, Computer Vision \\
+\textbf{Backend \& Full-Stack:} Spring Boot, Spring AI, Next.js, React, Node.js, Express.js, REST APIs, Android \\
+\textbf{DevOps \& Tools:} Linux, Git, Docker, Docker Compose, GitHub Actions, Firebase, Azure\\
 \textbf{Languages:} Python, C/C++, Java, JavaScript, Kotlin, SQL \\
-\textbf{Backend \& Full-Stack:} Spring Boot, Spring AI, Node.js, Express.js, Next.js, REST APIs, React, Android \\
-\textbf{Databases:} PostgreSQL, MongoDB, Redis \\
-\textbf{DevOps \& Tools:} Linux, Git, Docker, Docker Compose, GitHub Actions, Firebase, Azure
+\textbf{Databases:} PostgreSQL, MongoDB, Redis
 
 % ==================== ADDITIONAL INFORMATION ====================
 \section{Additional Information}
 
-\textbf{Spoken Languages:} Bangla (Native), English (Fluent), Hindi \& Urdu (Conversational), Arabic (Reading)
-
-\noindent\textbf{Programming Profiles:} 
+\noindent\textbf{Spoken Languages:} Bangla (Native), English (Fluent), Hindi \& Urdu (Conversational), Arabic (Reading) \\
+\textbf{Programming Profiles:}
 \hspace{1em}
 \href{https://neetcode.io/profile/mninadmnobo}{NeetCode: mninadmnobo}
 \hspace{1em}
-\href{https://leetcode.com/u/mninadmnobo}{LeetCode: mninadmnobo}
-
-\noindent\textbf{Research Profiles:} 
+\href{https://leetcode.com/u/mninadmnobo}{LeetCode: mninadmnobo} \\
+\textbf{Research Profiles:}
 \href{https://orcid.org/0009-0006-2781-6693}{ORCID: 0009-0006-2781-6693}
 \hspace{1em}
 \href{https://www.researchgate.net/profile/Mohammad-Ninad-Mahmud-Nobo}{ResearchGate: Mohammad Ninad Mahmud Nobo}
