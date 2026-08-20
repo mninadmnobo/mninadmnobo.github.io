@@ -29,10 +29,10 @@
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
 \geometry{
-  left=1.cm,
-  top=1.0cm,
+  left=1.2cm,
+  top=1.5cm,
   right=1.2cm,
-  bottom=1.0cm
+  bottom=1.5cm
 }
 
 % ==================== SECTION STYLE ====================
@@ -40,48 +40,48 @@
 {\scshape\raggedright\large}
 {}{0em}{}[\titlerule]
 
-\titlespacing*{\section}{0pt}{4pt}{3pt}
+\titlespacing*{\section}{0pt}{8pt}{4pt}
 
 % ==================== CUSTOM COMMANDS ====================
 \newcommand{\resumeSubHeadingListStart}{%
-  \begin{itemize}[leftmargin=*, itemsep=0.2mm, topsep=0.2mm]
+  \begin{itemize}[leftmargin=*, itemsep=0mm, topsep=0mm]
 }
 
 \newcommand{\resumeSubHeadingListEnd}{%
-  \end{itemize}\vspace{-2mm}
+  \end{itemize}\vspace{-1mm}
 }
 
 \newcommand{\resumeItemListStart}{%
   \begin{itemize}[
     leftmargin=*,
-    itemsep=0.2mm,
-    topsep=0mm,
+    itemsep=0.1mm,
+    topsep=-0.5mm,
     parsep=0mm,
     partopsep=0mm
   ]
 }
 
 \newcommand{\resumeItemListEnd}{%
-  \end{itemize}\vspace{0.6mm}
+  \end{itemize}\vspace{1.5mm}
 }
 
 % Normal projects / research entries
 \newcommand{\resumeProject}[4]{%
-  \item \textbf{#1} \hspace{0.4em} {\small #2} \\
+  \item \textbf{#1} \hspace{0.4em} {\small #2} \\[0.2mm]
   \begin{tabular*}{\linewidth}{@{}l@{\extracolsep{\fill}}r@{}}
     \textit{#3} & \textit{#4}
   \end{tabular*}
-  \vspace{-4mm}
+  \vspace{-3mm}
 }
 
 % Sub-projects / workstreams under a professional role
 \newcommand{\resumeWorkProject}[4]{%
-  \vspace{0.5mm}
-  \textbf{#1} \hspace{0.4em} {\small #2} \\
+  \vspace{0.2mm}
+  \textbf{#1} \hspace{0.4em} {\small #2} \\[0.2mm]
   \begin{tabular*}{\linewidth}{@{}l@{\extracolsep{\fill}}r@{}}
     \textit{#3} & \textit{#4}
   \end{tabular*}
-  \vspace{-4mm}
+  \vspace{-3mm}
 }
 
 % ==================== DOCUMENT ====================
@@ -91,8 +91,8 @@
 
 % ==================== HEADER ====================
 \begin{center}
-    {\large\textbf{Mohammad Ninad Mahmud Nobo}} \\[2pt]
-    {\normalsize\textbf{Bangladesh University of Engineering and Technology (BUET) | CSE}} \\
+    {\Large\textbf{Mohammad Ninad Mahmud Nobo}} \\[2pt]
+    {\large \textbf{Bangladesh University of Engineering and Technology (BUET) | CSE}} \\
     \vspace{3pt}
     \small
     Email: \href{mailto:mninadmnobo@gmail.com}{mninadmnobo@gmail.com} \quad
@@ -115,9 +115,8 @@ Computer Science graduate specialized in Artificial Intelligence, Machine Learni
 \textbf{Bangladesh University of Engineering and Technology (BUET)} \hfill \textbf{2022 -- 2026} \\
 \begin{tabular*}{\linewidth}{@{}l@{\extracolsep{\fill}}r@{}}
 Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.60 / 4.00}
-\end{tabular*} \\[2pt]
-\textbf{Relevant Coursework:} Data Structures and Algorithms, Algorithm Engineering, Database Systems, Operating Systems, Computer Architecture, Computer Networks, Compiler Design, Artificial Intelligence, Machine Learning, Computer Graphics
-\\[2pt]
+\end{tabular*} \\ [4pt]
+\textbf{Relevant Coursework:} Data Structures and Algorithms, Algorithm Engineering, Database Systems, Operating Systems, Computer Architecture, Computer Networks, Compiler Design, Artificial Intelligence, Machine Learning, Computer Graphics\\ [2pt]
 \textbf{Research Interests:} Large Language Model Systems, AI-Assisted Software Engineering, Applied Machine Learning, Medical AI
 
 % ==================== PROFESSIONAL EXPERIENCE ====================
@@ -144,17 +143,18 @@ Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.
 {2026}
 
 \resumeItemListStart
-\item Developed Saturn R\&D Website and FABINS Product Portfolio with integrated form submission and email notifications.
+\item Developed and deployed the Saturn R\&D Website and FABINS Product Portfolio using Next.js/React with responsive interfaces.
+\item Built Spring Boot REST APIs for form processing and email notifications, with GitHub Actions for CI/CD and deployment.
 \resumeItemListEnd
 
 \resumeWorkProject
 {FABINS - Fabric Inspection Automation | ML \& Computer Vision}
 {}
-{Python • PyTorch • Computer Vision • Deep Learning}
+{Python • PyTorch • Computer Vision • Deep Learning • Image Processing • Industrial Automation}
 {2026 -- Present}
 
 \resumeItemListStart
-\item Developing computer vision and deep learning models for automated fabric defect detection and quality inspection.
+\item Developing computer vision and deep learning pipelines for fabric defect detection, classification, and quality inspection.
 \resumeItemListEnd
 
 \resumeSubHeadingListEnd
@@ -179,11 +179,31 @@ Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.
 {Python • Deep Learning • Medical AI}
 {2026}
 \resumeItemListStart
-\item Built a multi-model chest X-ray reasoning system with a conflict-resolution pipeline to reconcile contradictory model outputs.
-\item Designed a framework using confidence calibration and uncertainty-based abstention for reliable predictions.
+\item Built a conflict-aware multi-agent system for chest X-ray reasoning that detects and resolves contradictory model outputs.
+\item Achieved 79.0\% conflict detection accuracy on 503-case ChestAgentBench-X benchmark using trust calibration and abstention.
+\resumeItemListEnd
+
+\resumeProject
+{Bengali-Loop: Community Benchmarks for Long-Form Bangla ASR and Speaker Diarization}
+{[ \href{https://arxiv.org/abs/2602.14291}{arXiv : 2602.14291} ]}
+{Python • Speech Processing • Automatic Speech Recognition • Speaker Diarization}
+{2026}
+\resumeItemListStart
+\item Annotated Bangla audio data for Automatic Speech Recognition (ASR) and speaker diarization for Bengali-Loop benchmark.
 \resumeItemListEnd
 
 \resumeSubHeadingListEnd
+
+% ==================== TECHNICAL SKILLS ====================
+\section{Technical Skills}
+
+\textbf{AI/ML:} PyTorch, TensorFlow, Scikit-learn, Large Language Models, Prompt Engineering, Computer Vision, Image Processing \\ [2pt]
+\textbf{Backend \& Full-Stack:} Spring Boot, Spring AI, Next.js, React, Node.js, Express.js, REST APIs, Android, Multi-Agent Systems \\ [2pt]
+\textbf{Testing \& Automation:} Software Testing, Web Testing, Browser Automation, Industrial Automation \\ [2pt]
+\textbf{DevOps \& Tools:} Git, Docker, Docker Compose, GitHub Actions, Firebase, Azure \\ [2pt]
+\textbf{Languages:} Python, C/C++, Java, JavaScript, Kotlin, HTML, CSS, SQL \\ [2pt]
+\textbf{Systems \& Networking:} Linux, TCP/IP, Wireshark, 8086 Assembly \\ [2pt]
+\textbf{Databases:} PostgreSQL, MongoDB, Redis
 
 % ==================== PROJECTS ====================
 \section{Academic Projects}
@@ -198,8 +218,8 @@ Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.
 {Kotlin • Spring Boot • Spring AI • PostgreSQL • Redis • Firebase • Docker • Azure}
 {2025}
 \resumeItemListStart
-\item Developed an Android app for dementia patients and caregivers with personalized assistance and caregiver support features.
-\item Built the Spring Boot backend and designed an accessible Android UI in Kotlin for smooth and intuitive AI interactions.
+\item Developed an application for dementia patients and caregivers with personalized assistance and caregiver support features.
+\item Designed and implemented the Android UI in Kotlin with Spring AI integration for intuitive and personalized AI interactions.
 \resumeItemListEnd
 
 \resumeProject
@@ -209,8 +229,7 @@ Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.
 {Kotlin • Android Studio • Spring Boot • Spring AI • MongoDB}
 {2025}
 \resumeItemListStart
-\item Built an AI-assisted Android application delivering real-time veterinary diagnosis and treatment recommendations.
-\item Designed RESTful APIs optimized for low-connectivity environments with efficient request handling.
+\item Built an application for real-time veterinary diagnosis and treatment, with RESTful APIs for low-connectivity environments.
 \resumeItemListEnd
 
 \resumeProject
@@ -219,45 +238,66 @@ Bachelor of Science in Computer Science and Engineering (CSE) & \textbf{CGPA: 3.
 {Python • TCP/IP • Network Security • Wireshark • Linux}
 {2025}
 \resumeItemListStart
-\item Built a virtualized MITM lab to demonstrate ARP poisoning and TCP window scaling attacks between client-server VMs.
-\item Implemented attack and defense clients and analyzed TCP traffic using Wireshark and packet captures.
+\item Implemented a three-VM setup for ARP poisoning and TCP window scaling attacks, with defense and Wireshark analysis.
+\resumeItemListEnd
+
+\resumeProject
+{Computer Graphics Pipeline}
+{[ \href{https://github.com/mninadmnobo/Computer-Graphics-Pipeline}{GitHub} ]}
+{C++17 • OpenGL/GLUT • Rasterization • Ray Tracing}
+{2025}
+
+\resumeItemListStart
+\item Implemented a graphics pipeline with vector/matrix transformations, OpenGL, rasterization, Z-buffering, ray tracing, and PBR.
+\resumeItemListEnd
+
+\resumeProject
+{End-to-End Compiler Construction}
+{[ \href{https://github.com/mninadmnobo/CompilerSessional}{GitHub} ]}
+{C++17 • Flex • Bison/Yacc • 8086 Assembly}
+{2024}
+\resumeItemListStart
+\item Built a pipeline with symbol tables, lexical, syntax, and semantic analysis, and 8086 code generation using Flex and Bison/Yacc.
 \resumeItemListEnd
 
 \resumeProject
 {Smart Gardening Automation}
 {[ \href{https://github.com/mninadmnobo/Smart-Gardenning-Automation}{GitHub}
 \textbar\
-\href{https://www.youtube.com/watch?v=m3LLqLAPCik}{Feature} ]}
-{Arduino • Embedded C++ • Sensors • Bluetooth Communication • Automation}
+\href{https://www.youtube.com/watch?v=m3LLqLAPCik}{Demo} ]}
+{Arduino • Embedded C++ • ATmega32 • DHT11 • Soil/Rain Sensors • Bluetooth • Stepper Motor}
 {2024}
+
 \resumeItemListStart
-\item Developed a gardening automation system integrating environmental sensing and wireless communication.
-\item Implemented automated watering, fertilizer/pesticide cycles, smart shade control, and remote monitoring.
+\item Developed a gardening system with sensing, watering, fertilizer/pesticide control, smart shade control, and remote monitoring.
 \resumeItemListEnd
 
 \resumeSubHeadingListEnd
 
-% ==================== TECHNICAL SKILLS ====================
-\section{Technical Skills}
-
-\textbf{AI/ML:} PyTorch, TensorFlow, Scikit-learn, Large Language Models, Prompt Engineering, Multi-Agent Systems, Computer Vision \\
-\textbf{Backend \& Full-Stack:} Spring Boot, Spring AI, Next.js, React, Node.js, Express.js, REST APIs, Android \\
-\textbf{DevOps \& Tools:} Linux, Git, Docker, Docker Compose, GitHub Actions, Firebase, Azure\\
-\textbf{Languages:} Python, C/C++, Java, JavaScript, Kotlin, SQL \\
-\textbf{Databases:} PostgreSQL, MongoDB, Redis
 
 % ==================== ADDITIONAL INFORMATION ====================
 \section{Additional Information}
 
-\noindent\textbf{Spoken Languages:} Bangla (Native), English (Fluent), Hindi \& Urdu (Conversational), Arabic (Reading) \\
+\noindent\textbf{Spoken Languages:} Bangla (Native), English (Fluent), Hindi \& Urdu (Conversational), Arabic (Reading) \\ [2pt]
 \textbf{Programming Profiles:}
 \hspace{1em}
 \href{https://neetcode.io/profile/mninadmnobo}{NeetCode: mninadmnobo}
 \hspace{1em}
-\href{https://leetcode.com/u/mninadmnobo}{LeetCode: mninadmnobo} \\
+\href{https://leetcode.com/u/mninadmnobo}{LeetCode: mninadmnobo} \\ [2pt]
 \textbf{Research Profiles:}
 \href{https://orcid.org/0009-0006-2781-6693}{ORCID: 0009-0006-2781-6693}
 \hspace{1em}
 \href{https://www.researchgate.net/profile/Mohammad-Ninad-Mahmud-Nobo}{ResearchGate: Mohammad Ninad Mahmud Nobo}
+
+%% ==================== AWARDS & ACADEMIC DISTINCTIONS ====================
+\section{Academic Awards}
+
+\textbf{BUET Dean's List Award:} Level 1, BUET, 2022 \\[2pt]
+\textbf{BUET Technical Scholarship:} Undergraduate Scholarship, BUET \\[2pt]
+\textbf{Best Project Showcase Finalist:} Smart Gardening Automation, Top 7 of 40 projects in Microcontroller Projects showcase \\[2pt]
+\textbf{HSC General Grade Scholarship:} GPA 5.00, Rajuk Uttara Model College, Dhaka Board, 2020 \\[2pt]
+\textbf{SSC:} GPA 5.00, Rajuk Uttara Model College, Dhaka Board, 2018 \\[2pt]
+\textbf{JSC Talentpool Scholarship:} GPA 5.00, Rajuk Uttara Model College, Dhaka Board, 2015 \\[2pt]
+\textbf{PSC:} GPA 5.00, Uttara High School and College, Dhaka Board, 2012
 
 \end{document}
