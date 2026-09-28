@@ -30,7 +30,10 @@ export function useModalHistory({ isOpen, onClose, modalId = 'work-details' }: U
   const hasPushedStateRef = useRef(false)
   const savedScrollY = useRef(0)
   const onCloseRef = useRef(onClose)
-  onCloseRef.current = onClose
+
+  useEffect(() => {
+    onCloseRef.current = onClose
+  }, [onClose])
 
   // Fast, instant close handler for all on-screen buttons (Back, Close ✕, Backdrop, Escape)
   const handleClose = useCallback(() => {
