@@ -124,9 +124,7 @@ export function WorkDetailDialog({ item, onClose }: { item: WorkItem | null; onC
       </DialogBody>
 
       <DialogFooter>
-        <div className="mx-auto flex max-w-3xl flex-wrap items-center gap-2">
-          <ResourceLinks links={currentItem.links} />
-        </div>
+        <ResourceLinks links={currentItem.links} />
       </DialogFooter>
     </Dialog>
   )

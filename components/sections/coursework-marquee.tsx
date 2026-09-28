@@ -122,71 +122,65 @@ export function CourseworkMarquee({ items }: CourseworkMarqueeProps) {
   const tripleItems = [...items, ...items, ...items]
 
   return (
-    <div className="mt-10 mx-auto max-w-[1340px] px-4 sm:px-6">
-      <div className="w-full rounded-2xl border border-[var(--line-strong)] bg-[var(--panel)] py-2.5 backdrop-blur-md shadow-xs overflow-hidden">
-        {/* Header Bar */}
-        <div className="px-4 sm:px-5 mb-1.5 flex flex-wrap items-center justify-between gap-2 text-xs font-semibold select-none">
-          <div className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-[var(--fab-accent)] animate-pulse" />
-            <span className="font-bold tracking-wider text-[var(--ink)] uppercase text-[11px] sm:text-xs">
-              Academic Coursework & Research Interests
-            </span>
-          </div>
+    <div className="mt-12 w-full">
+      {/* Header Bar - Outside Marquee Box, aligned with page container */}
+      <div className="container-page mb-3 flex items-center gap-2 text-xs font-semibold select-none">
+        <span className="h-2 w-2 rounded-full bg-[var(--fab-accent)] animate-pulse" />
+        <span className="font-bold tracking-wider text-[var(--ink)] uppercase text-[11px] sm:text-xs">
+          Academic Coursework & Research Interests
+        </span>
+      </div>
 
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-[var(--line-strong)] bg-[var(--panel-2)] px-2.5 py-0.5 text-[11px] font-semibold text-[var(--ink)] shadow-2xs">
-            <span className="text-[var(--fab-accent)] font-bold">ℹ</span>
-            <span>Hover to pause · Swipe or drag in any direction</span>
-          </div>
-        </div>
-
+      {/* Full-Bleed Marquee Strip */}
+      <div className="w-full border-y border-[var(--line-strong)] bg-[var(--panel)] py-3 backdrop-blur-md shadow-xs overflow-hidden">
         {/* Circular Roll Track */}
-        <div
-          ref={containerRef}
-          onMouseEnter={() => { isHoveredRef.current = true }}
-          onMouseLeave={() => {
-            isHoveredRef.current = false
-            isDraggingRef.current = false
-          }}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUpOrLeave}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
-          className="relative flex overflow-x-auto touch-pan-x scrollbar-none py-1 cursor-grab active:cursor-grabbing select-none"
-          style={{ WebkitOverflowScrolling: 'touch' }}
-        >
-          {/* Left gradient fade mask */}
-          <div className="pointer-events-none sticky left-0 top-0 bottom-0 z-10 h-full w-12 shrink-0 bg-gradient-to-r from-[var(--panel)] to-transparent" />
+      <div
+        ref={containerRef}
+        onMouseEnter={() => { isHoveredRef.current = true }}
+        onMouseLeave={() => {
+          isHoveredRef.current = false
+          isDraggingRef.current = false
+        }}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUpOrLeave}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        className="relative flex overflow-x-auto touch-pan-x scrollbar-none py-1 cursor-grab active:cursor-grabbing select-none"
+        style={{ WebkitOverflowScrolling: 'touch' }}
+      >
+        {/* Left gradient fade mask */}
+        <div className="pointer-events-none sticky left-0 top-0 bottom-0 z-10 h-full w-12 sm:w-20 shrink-0 bg-gradient-to-r from-[var(--panel)] to-transparent" />
 
-          <div className="flex shrink-0 items-center gap-2.5 pr-2.5">
-            {tripleItems.map((item, idx) => {
-              const isAcademicCoursework = item.category === 'Academic Coursework'
-              return (
+        <div className="flex shrink-0 items-center gap-2.5 pr-2.5">
+          {tripleItems.map((item, idx) => {
+            const isAcademicCoursework = item.category === 'Academic Coursework'
+            return (
+              <span
+                key={`${item.label}-${idx}`}
+                className="inline-flex shrink-0 whitespace-nowrap items-center gap-2 rounded-full border border-[var(--line-strong)] bg-[var(--panel)] px-3.5 py-1.5 text-xs font-semibold text-[var(--ink)] shadow-2xs transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--fab-accent)] hover:shadow-[0_4px_14px_-4px_rgba(8,145,178,0.35)] cursor-default"
+              >
+                <span className="text-sm shrink-0">{item.icon}</span>
+                <span className="shrink-0 font-semibold">{item.label}</span>
                 <span
-                  key={`${item.label}-${idx}`}
-                  className="inline-flex shrink-0 whitespace-nowrap items-center gap-2 rounded-full border border-[var(--line-strong)] bg-[var(--panel)] px-3.5 py-1.5 text-xs font-semibold text-[var(--ink)] shadow-2xs transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--fab-accent)] hover:shadow-[0_4px_14px_-4px_rgba(8,145,178,0.35)] cursor-default"
+                  className={cn(
+                    'text-[9px] uppercase font-mono px-2 py-0.5 rounded-full font-bold tracking-wide border shrink-0 whitespace-nowrap',
+                    isAcademicCoursework
+                      ? 'bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border-cyan-500/25'
+                      : 'bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-500/25',
+                  )}
                 >
-                  <span className="text-sm shrink-0">{item.icon}</span>
-                  <span className="shrink-0 font-semibold">{item.label}</span>
-                  <span
-                    className={cn(
-                      'text-[9px] uppercase font-mono px-2 py-0.5 rounded-full font-bold tracking-wide border shrink-0 whitespace-nowrap',
-                      isAcademicCoursework
-                        ? 'bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border-cyan-500/25'
-                        : 'bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-500/25',
-                    )}
-                  >
-                    {item.category}
-                  </span>
+                  {item.category}
                 </span>
-              )
-            })}
-          </div>
-
-          {/* Right gradient fade mask */}
-          <div className="pointer-events-none sticky right-0 top-0 bottom-0 z-10 h-full w-12 shrink-0 bg-gradient-to-l from-[var(--panel)] to-transparent" />
+              </span>
+            )
+          })}
         </div>
+
+        {/* Right gradient fade mask */}
+        <div className="pointer-events-none sticky right-0 top-0 bottom-0 z-10 h-full w-12 sm:w-20 shrink-0 bg-gradient-to-l from-[var(--panel)] to-transparent" />
       </div>
     </div>
-  )
+  </div>
+)
 }

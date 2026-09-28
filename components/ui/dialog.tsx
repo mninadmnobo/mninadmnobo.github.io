@@ -152,7 +152,7 @@ interface DialogHeaderProps {
   className?: string
 }
 
-/** Sticky header with safe area padding and quick mobile/desktop Back buttons. */
+/** Sticky header with safe area padding and large accessible Close (✕) button. */
 export function DialogHeader({ children, onClose, className }: DialogHeaderProps) {
   const contextClose = React.useContext(DialogCloseContext)
   const handleClose = contextClose ?? onClose ?? (() => {})
@@ -166,41 +166,18 @@ export function DialogHeader({ children, onClose, className }: DialogHeaderProps
       )}
     >
       <div className="flex items-center justify-between gap-3">
-        <div className="flex items-center gap-3 min-w-0 pr-2">
-          {/* Mobile Back button */}
-          <button
-            type="button"
-            onClick={handleClose}
-            aria-label="Back to portfolio"
-            className="inline-flex sm:hidden items-center justify-center p-2 rounded-full bg-secondary text-foreground hover:bg-secondary/80 active:scale-95 cursor-pointer shrink-0"
-          >
-            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
-          </button>
+        <div className="min-w-0 flex-1 pr-2">{children}</div>
 
-          <div className="min-w-0 flex-1">{children}</div>
-        </div>
-
-        {/* Right side controls: desktop back & close button */}
-        <div className="flex items-center gap-2 shrink-0">
-          <button
-            type="button"
-            onClick={handleClose}
-            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-secondary text-foreground hover:bg-secondary/80 active:scale-95 text-xs font-semibold transition-colors cursor-pointer"
-          >
-            <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
-            <span>Back</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={handleClose}
-            data-autofocus
-            aria-label="Close details"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-secondary text-muted-foreground transition-all active:scale-95 hover:bg-secondary/70 hover:text-foreground sm:h-9 sm:w-9 cursor-pointer touch-manipulation"
-          >
-            <X className="h-4 w-4" aria-hidden="true" />
-          </button>
-        </div>
+        {/* Big accessible Close (✕) button */}
+        <button
+          type="button"
+          onClick={handleClose}
+          data-autofocus
+          aria-label="Close details"
+          className="inline-flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full border border-border bg-secondary text-muted-foreground transition-all active:scale-95 hover:bg-secondary/70 hover:text-foreground cursor-pointer touch-manipulation shadow-2xs"
+        >
+          <X className="h-5 w-5 sm:h-6 sm:w-6 stroke-[2.4]" aria-hidden="true" />
+        </button>
       </div>
     </div>
   )
@@ -229,14 +206,19 @@ export function DialogBody({
   )
 }
 
-/** Footer with safe-area inset support for modern mobile devices. */
+/** Footer with safe-area inset support, actions, and prominent Back button. */
 export function DialogFooter({
   children,
   className,
+  showBackButton = true,
 }: {
-  children: React.ReactNode
+  children?: React.ReactNode
   className?: string
+  showBackButton?: boolean
 }) {
+  const contextClose = React.useContext(DialogCloseContext)
+  const handleClose = contextClose ?? (() => {})
+
   return (
     <div
       className={cn(
@@ -245,7 +227,20 @@ export function DialogFooter({
         className,
       )}
     >
-      {children}
+      <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap items-center gap-2">{children}</div>
+
+        {showBackButton && (
+          <button
+            type="button"
+            onClick={handleClose}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm bg-secondary text-foreground hover:bg-primary hover:text-primary-foreground active:scale-95 transition-all cursor-pointer shadow-2xs shrink-0"
+          >
+            <ArrowLeft className="h-4 w-4 stroke-[2.2]" />
+            <span>Back</span>
+          </button>
+        )}
+      </div>
     </div>
   )
 }
