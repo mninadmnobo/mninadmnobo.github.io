@@ -42,7 +42,7 @@ export function Experience() {
         <div className="space-y-6">
           {experience.map((role) => (
             <Reveal key={role.id}>
-              <div className="relative rounded-3xl border border-[var(--line-strong)] bg-[var(--panel)]/80 backdrop-blur-md p-6 sm:p-8 shadow-xs hover:shadow-lg transition-all duration-300 overflow-hidden group">
+              <div className="relative rounded-2xl sm:rounded-3xl border border-[var(--line-strong)] bg-[var(--panel)]/80 backdrop-blur-md p-4 sm:p-6 md:p-8 shadow-xs hover:shadow-lg transition-all duration-300 overflow-hidden group">
                 {/* Top Subtle Gradient Line */}
                 <div
                   className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-cyan-500 via-teal-500 to-emerald-500 opacity-90"
@@ -60,20 +60,20 @@ export function Experience() {
                 />
 
                 {/* Top Meta: Dates, Location & Active Status */}
-                <div className="flex flex-wrap items-center justify-between gap-3 mb-3.5 pt-0.5">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="inline-flex items-center gap-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-xs font-bold text-cyan-600 dark:text-cyan-300 shadow-2xs">
+                <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 mb-3.5 pt-0.5">
+                  <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-2.5 sm:px-3 py-1 text-xs font-bold text-cyan-600 dark:text-cyan-300 shadow-2xs">
                       <Calendar className="h-3.5 w-3.5 text-cyan-500 shrink-0" aria-hidden="true" />
                       {role.period}
                     </span>
-                    <span className="inline-flex items-center gap-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 px-3 py-1 text-xs font-bold text-teal-600 dark:text-teal-300 shadow-2xs">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 px-2.5 sm:px-3 py-1 text-xs font-bold text-teal-600 dark:text-teal-300 shadow-2xs">
                       <MapPin className="h-3.5 w-3.5 text-teal-500 shrink-0" aria-hidden="true" />
                       {role.location}
                     </span>
                   </div>
 
                   {role.current ? (
-                    <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-bold text-emerald-600 dark:text-emerald-300">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 sm:px-3 py-1 text-xs font-bold text-emerald-600 dark:text-emerald-300">
                       <span className="relative flex h-2 w-2">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                         <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
@@ -84,22 +84,22 @@ export function Experience() {
                 </div>
 
                 {/* Role Title */}
-                <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[var(--ink)] mb-3">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-[var(--ink)] mb-3">
                   {role.role}
                 </h3>
 
                 {/* Company & Department Integration */}
-                <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-6 text-xs sm:text-sm">
-                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-500/35 bg-emerald-500/10 px-3 py-1 font-bold text-emerald-700 dark:text-emerald-300 shadow-2xs">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-5 sm:mb-6 text-xs sm:text-sm">
+                  <span className="inline-flex items-center gap-1.5 rounded-lg border border-emerald-500/35 bg-emerald-500/10 px-2.5 sm:px-3 py-1 font-bold text-emerald-700 dark:text-emerald-300 shadow-2xs">
                     <Building2 className="h-3.5 w-3.5 text-emerald-500 shrink-0" />
                     {role.organization}
                   </span>
                   {role.unit ? (
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                       <span className="text-[var(--ink-muted)]/40 font-light hidden sm:inline" aria-hidden="true">/</span>
-                      <span className="inline-flex items-center gap-1.5 rounded-md border border-[var(--line)] bg-[var(--canvas)]/50 px-2.5 py-1 font-medium text-[var(--ink-muted)]">
+                      <span className="inline-flex items-center gap-1.5 rounded-md border border-[var(--line)] bg-[var(--canvas)]/50 px-2 sm:px-2.5 py-1 font-medium text-[var(--ink-muted)]">
                         <Sparkles className="h-3.5 w-3.5 text-cyan-500/80 shrink-0" />
-                        {role.unit}
+                        <span>{role.unit}</span>
                       </span>
                     </div>
                   ) : null}
@@ -117,13 +117,13 @@ export function Experience() {
                       return (
                         <div
                           key={segment.title}
-                          className="rounded-2xl border border-[var(--line-strong)] bg-[var(--panel-2)]/60 backdrop-blur-xs p-5 sm:p-6 transition-all duration-300 hover:border-cyan-500/40 hover:bg-[var(--panel-2)]/90 hover:shadow-xs"
+                          className="rounded-xl sm:rounded-2xl border border-[var(--line-strong)] bg-[var(--panel-2)]/60 backdrop-blur-xs p-3.5 sm:p-5 md:p-6 transition-all duration-300 hover:border-cyan-500/40 hover:bg-[var(--panel-2)]/90 hover:shadow-xs"
                         >
                           {/* Segment Title & Timeline */}
-                          <div className="flex flex-wrap items-center justify-between gap-2.5 mb-3">
-                            <h4 className="text-base sm:text-lg font-bold text-[var(--ink)] flex items-center gap-2.5">
+                          <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <h4 className="text-base sm:text-lg font-bold text-[var(--ink)] flex items-center gap-2">
                               <span
-                                className={`flex h-6 w-6 items-center justify-center rounded-lg ${
+                                className={`flex h-6 w-6 items-center justify-center rounded-lg shrink-0 ${
                                   isML
                                     ? 'bg-cyan-500/15 text-cyan-500'
                                     : 'bg-teal-500/15 text-teal-500'
@@ -138,7 +138,7 @@ export function Experience() {
                               <span>{segment.title}</span>
                             </h4>
                             {segment.period && (
-                              <span className="font-mono text-xs font-semibold px-2.5 py-1 rounded-full bg-[var(--canvas)] text-[var(--ink-muted)] border border-[var(--line)] shadow-2xs">
+                              <span className="font-mono text-xs font-semibold px-2.5 py-1 rounded-full bg-[var(--canvas)] text-[var(--ink-muted)] border border-[var(--line)] shadow-2xs shrink-0">
                                 {segment.period}
                               </span>
                             )}
@@ -146,7 +146,7 @@ export function Experience() {
 
                           {/* Subsegments (e.g. separating FABINS and NEVOLYN) */}
                           {segment.subsegments && segment.subsegments.length > 0 ? (
-                            <div className="space-y-4 pt-1">
+                            <div className="space-y-3.5 sm:space-y-4 pt-1">
                               {segment.subsegments.map((sub) => {
                                 const displayUrl = sub.website
                                   ? sub.website.replace(/^https?:\/\//, '').replace(/\/$/, '')
@@ -155,12 +155,12 @@ export function Experience() {
                                 return (
                                   <div
                                     key={sub.title}
-                                    className="rounded-xl border border-[var(--line-strong)] bg-[var(--canvas)]/70 p-4 sm:p-4.5 hover:border-cyan-500/40 transition-all duration-200 shadow-2xs space-y-3"
+                                    className="rounded-lg sm:rounded-xl border border-[var(--line-strong)] bg-[var(--canvas)]/70 p-3 sm:p-4 hover:border-cyan-500/40 transition-all duration-200 shadow-2xs space-y-2.5 sm:space-y-3"
                                   >
                                     {/* Subsegment Title */}
-                                    <div className="flex items-center gap-2">
-                                      <span className="h-2 w-2 rounded-full bg-cyan-500 shadow-[0_0_6px_rgba(6,182,212,0.6)] shrink-0" />
-                                      <h5 className="text-sm sm:text-base font-bold text-[var(--ink)] tracking-tight">
+                                    <div className="flex items-start gap-2">
+                                      <span className="mt-1.5 h-2 w-2 rounded-full bg-cyan-500 shadow-[0_0_6px_rgba(6,182,212,0.6)] shrink-0" />
+                                      <h5 className="text-sm sm:text-base font-bold text-[var(--ink)] tracking-tight leading-snug">
                                         {sub.title}
                                       </h5>
                                     </div>
@@ -185,7 +185,7 @@ export function Experience() {
                                         {sub.points.map((point) => (
                                           <li
                                             key={point}
-                                            className="flex gap-2.5 text-xs sm:text-sm leading-relaxed text-[var(--ink-muted)] font-normal"
+                                            className="flex gap-2 sm:gap-2.5 text-xs sm:text-sm leading-relaxed text-[var(--ink-muted)] font-normal"
                                           >
                                             <span
                                               className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-cyan-500 to-teal-500 ring-2 ring-cyan-500/20"
@@ -199,18 +199,18 @@ export function Experience() {
 
                                     {/* Action Buttons Row */}
                                     {(sub.website || sub.email || sub.linkedin || sub.codebase) && (
-                                      <div className="flex flex-wrap items-center gap-2 pt-2.5 border-t border-[var(--line)]">
+                                      <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-2.5 border-t border-[var(--line)]">
                                         {/* Live Website (Domain only, clickable + copyable) */}
                                         {sub.website && (
-                                          <div className="inline-flex items-center rounded-lg border border-cyan-500/30 bg-cyan-500/10 p-0.5 shadow-2xs">
+                                          <div className="inline-flex max-w-full items-center rounded-lg border border-cyan-500/30 bg-cyan-500/10 p-0.5 shadow-2xs">
                                             <Link
                                               href={sub.website}
                                               target="_blank"
                                               rel="noopener noreferrer"
-                                              className="group/link inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold text-cyan-700 dark:text-cyan-300 hover:text-cyan-900 dark:hover:text-white transition-colors no-underline"
+                                              className="group/link inline-flex min-w-0 max-w-full items-center gap-1.5 px-2 sm:px-2.5 py-1 text-xs font-semibold text-cyan-700 dark:text-cyan-300 hover:text-cyan-900 dark:hover:text-white transition-colors no-underline"
                                             >
                                               <Globe className="h-3.5 w-3.5 text-cyan-500 shrink-0" />
-                                              <span className="font-mono text-xs font-semibold underline underline-offset-2 opacity-95 group-hover/link:opacity-100">
+                                              <span className="font-mono text-[11px] sm:text-xs font-semibold underline underline-offset-2 opacity-95 group-hover/link:opacity-100 truncate">
                                                 {displayUrl}
                                               </span>
                                             </Link>
@@ -223,7 +223,7 @@ export function Experience() {
                                                   : `Copy URL: ${sub.website}`
                                               }
                                               aria-label={`Copy URL for ${sub.title}`}
-                                              className="inline-flex h-6 w-6 items-center justify-center rounded-md text-cyan-600 dark:text-cyan-300 hover:bg-cyan-500/20 transition-all cursor-pointer"
+                                              className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-cyan-600 dark:text-cyan-300 hover:bg-cyan-500/20 transition-all cursor-pointer"
                                             >
                                               {copiedUrl === sub.website ? (
                                                 <Check className="h-3.5 w-3.5 text-emerald-500 animate-in fade-in zoom-in" />
@@ -236,13 +236,13 @@ export function Experience() {
 
                                         {/* Email Address */}
                                         {sub.email && (
-                                          <div className="inline-flex items-center rounded-lg border border-teal-500/30 bg-teal-500/10 p-0.5 shadow-2xs">
+                                          <div className="inline-flex max-w-full items-center rounded-lg border border-teal-500/30 bg-teal-500/10 p-0.5 shadow-2xs">
                                             <a
                                               href={`mailto:${sub.email}`}
-                                              className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold text-teal-700 dark:text-teal-300 hover:text-teal-900 dark:hover:text-white transition-colors no-underline"
+                                              className="inline-flex min-w-0 max-w-full items-center gap-1.5 px-2 sm:px-2.5 py-1 text-xs font-semibold text-teal-700 dark:text-teal-300 hover:text-teal-900 dark:hover:text-white transition-colors no-underline"
                                             >
                                               <Mail className="h-3.5 w-3.5 text-teal-500 shrink-0" />
-                                              <span className="font-mono text-[11px] font-medium underline underline-offset-2">
+                                              <span className="font-mono text-[10.5px] sm:text-[11px] font-medium underline underline-offset-2 truncate">
                                                 {sub.email}
                                               </span>
                                             </a>
@@ -255,7 +255,7 @@ export function Experience() {
                                                   : `Copy Email: ${sub.email}`
                                               }
                                               aria-label={`Copy email for ${sub.title}`}
-                                              className="inline-flex h-6 w-6 items-center justify-center rounded-md text-teal-600 dark:text-teal-300 hover:bg-teal-500/20 transition-all cursor-pointer"
+                                              className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-teal-600 dark:text-teal-300 hover:bg-teal-500/20 transition-all cursor-pointer"
                                             >
                                               {copiedUrl === sub.email ? (
                                                 <Check className="h-3.5 w-3.5 text-emerald-500 animate-in fade-in zoom-in" />
@@ -272,7 +272,7 @@ export function Experience() {
                                             href={sub.linkedin}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="group/btn inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold bg-[#0A66C2]/10 hover:bg-[#0A66C2] text-[#0A66C2] dark:text-[#70b5f9] hover:text-white dark:hover:text-white border border-[#0A66C2]/30 transition-all duration-200 shadow-2xs active:scale-95 no-underline"
+                                            className="group/btn inline-flex shrink-0 items-center gap-1.5 rounded-lg px-2 sm:px-2.5 py-1.5 text-xs font-semibold bg-[#0A66C2]/10 hover:bg-[#0A66C2] text-[#0A66C2] dark:text-[#70b5f9] hover:text-white dark:hover:text-white border border-[#0A66C2]/30 transition-all duration-200 shadow-2xs active:scale-95 no-underline"
                                           >
                                             <LinkedInIcon className="h-3.5 w-3.5 shrink-0" />
                                             <span>LinkedIn</span>
@@ -285,7 +285,7 @@ export function Experience() {
                                             href={sub.codebase}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="group/btn inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold bg-zinc-800/10 dark:bg-white/10 hover:bg-zinc-900 dark:hover:bg-white text-foreground hover:text-white dark:hover:text-black border border-border transition-all duration-200 shadow-2xs active:scale-95 no-underline"
+                                            className="group/btn inline-flex shrink-0 items-center gap-1.5 rounded-lg px-2 sm:px-2.5 py-1.5 text-xs font-semibold bg-zinc-800/10 dark:bg-white/10 hover:bg-zinc-900 dark:hover:bg-white text-foreground hover:text-white dark:hover:text-black border border-border transition-all duration-200 shadow-2xs active:scale-95 no-underline"
                                           >
                                             <GitHubIcon className="h-3.5 w-3.5 shrink-0" />
                                             <span>Codebase (GitHub)</span>
@@ -352,18 +352,18 @@ export function Experience() {
                                             </span>
                                           </div>
 
-                                          <div className="flex flex-wrap items-center gap-2 shrink-0">
+                                          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 shrink-0">
                                             {/* Live Website (without redundant external icon) */}
                                             {item.website && (
-                                              <div className="inline-flex items-center rounded-lg border border-cyan-500/30 bg-cyan-500/10 p-0.5 shadow-2xs">
+                                              <div className="inline-flex max-w-full items-center rounded-lg border border-cyan-500/30 bg-cyan-500/10 p-0.5 shadow-2xs">
                                                 <Link
                                                   href={item.website}
                                                   target="_blank"
                                                   rel="noopener noreferrer"
-                                                  className="group/link inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold text-cyan-700 dark:text-cyan-300 hover:text-cyan-900 dark:hover:text-white transition-colors no-underline"
+                                                  className="group/link inline-flex min-w-0 max-w-full items-center gap-1.5 px-2 sm:px-2.5 py-1 text-xs font-semibold text-cyan-700 dark:text-cyan-300 hover:text-cyan-900 dark:hover:text-white transition-colors no-underline"
                                                 >
                                                   <Globe className="h-3.5 w-3.5 text-cyan-500 shrink-0" />
-                                                  <span className="font-mono text-xs font-semibold underline underline-offset-2 opacity-95 group-hover/link:opacity-100">
+                                                  <span className="font-mono text-[11px] sm:text-xs font-semibold underline underline-offset-2 opacity-95 group-hover/link:opacity-100 truncate">
                                                     {displayUrl}
                                                   </span>
                                                 </Link>
@@ -376,7 +376,7 @@ export function Experience() {
                                                       : `Copy URL: ${item.website}`
                                                   }
                                                   aria-label={`Copy URL for ${item.project}`}
-                                                  className="inline-flex h-6 w-6 items-center justify-center rounded-md text-cyan-600 dark:text-cyan-300 hover:bg-cyan-500/20 transition-all cursor-pointer"
+                                                  className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-cyan-600 dark:text-cyan-300 hover:bg-cyan-500/20 transition-all cursor-pointer"
                                                 >
                                                   {copiedUrl === item.website ? (
                                                     <Check className="h-3.5 w-3.5 text-emerald-500 animate-in fade-in zoom-in" />
@@ -389,13 +389,13 @@ export function Experience() {
 
                                             {/* Email Address */}
                                             {item.email && (
-                                              <div className="inline-flex items-center rounded-lg border border-teal-500/30 bg-teal-500/10 p-0.5 shadow-2xs">
+                                              <div className="inline-flex max-w-full items-center rounded-lg border border-teal-500/30 bg-teal-500/10 p-0.5 shadow-2xs">
                                                 <a
                                                   href={`mailto:${item.email}`}
-                                                  className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-semibold text-teal-700 dark:text-teal-300 hover:text-teal-900 dark:hover:text-white transition-colors no-underline"
+                                                  className="inline-flex min-w-0 max-w-full items-center gap-1.5 px-2 sm:px-2.5 py-1 text-xs font-semibold text-teal-700 dark:text-teal-300 hover:text-teal-900 dark:hover:text-white transition-colors no-underline"
                                                 >
                                                   <Mail className="h-3.5 w-3.5 text-teal-500 shrink-0" />
-                                                  <span className="font-mono text-[11px] font-medium underline underline-offset-2">
+                                                  <span className="font-mono text-[10.5px] sm:text-[11px] font-medium underline underline-offset-2 truncate">
                                                     {item.email}
                                                   </span>
                                                 </a>
@@ -408,7 +408,7 @@ export function Experience() {
                                                       : `Copy Email: ${item.email}`
                                                   }
                                                   aria-label={`Copy email for ${item.project}`}
-                                                  className="inline-flex h-6 w-6 items-center justify-center rounded-md text-teal-600 dark:text-teal-300 hover:bg-teal-500/20 transition-all cursor-pointer"
+                                                  className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md text-teal-600 dark:text-teal-300 hover:bg-teal-500/20 transition-all cursor-pointer"
                                                 >
                                                   {copiedUrl === item.email ? (
                                                     <Check className="h-3.5 w-3.5 text-emerald-500 animate-in fade-in zoom-in" />
@@ -425,7 +425,7 @@ export function Experience() {
                                                 href={item.linkedin}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="group/btn inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold bg-[#0A66C2]/10 hover:bg-[#0A66C2] text-[#0A66C2] dark:text-[#70b5f9] hover:text-white dark:hover:text-white border border-[#0A66C2]/30 transition-all duration-200 shadow-2xs active:scale-95 no-underline"
+                                                className="group/btn inline-flex shrink-0 items-center gap-1.5 rounded-lg px-2 sm:px-2.5 py-1.5 text-xs font-semibold bg-[#0A66C2]/10 hover:bg-[#0A66C2] text-[#0A66C2] dark:text-[#70b5f9] hover:text-white dark:hover:text-white border border-[#0A66C2]/30 transition-all duration-200 shadow-2xs active:scale-95 no-underline"
                                               >
                                                 <LinkedInIcon className="h-3.5 w-3.5 shrink-0" />
                                                 <span>LinkedIn</span>
@@ -438,7 +438,7 @@ export function Experience() {
                                                 href={item.codebase}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="group/btn inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold bg-zinc-800/10 dark:bg-white/10 hover:bg-zinc-900 dark:hover:bg-white text-foreground hover:text-white dark:hover:text-black border border-border transition-all duration-200 shadow-2xs active:scale-95 no-underline"
+                                                className="group/btn inline-flex shrink-0 items-center gap-1.5 rounded-lg px-2 sm:px-2.5 py-1.5 text-xs font-semibold bg-zinc-800/10 dark:bg-white/10 hover:bg-zinc-900 dark:hover:bg-white text-foreground hover:text-white dark:hover:text-black border border-border transition-all duration-200 shadow-2xs active:scale-95 no-underline"
                                               >
                                                 <GitHubIcon className="h-3.5 w-3.5 shrink-0" />
                                                 <span>Codebase (GitHub)</span>

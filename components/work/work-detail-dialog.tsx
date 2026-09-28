@@ -83,6 +83,7 @@ export function WorkDetailDialog({ item, onClose }: { item: WorkItem | null; onC
                       <iframe
                         src={`https://www.youtube-nocookie.com/embed/${videoId}`}
                         title={video.label}
+                        loading="lazy"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                         className="h-full w-full border-0"

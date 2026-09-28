@@ -28,36 +28,33 @@ interface UseModalHistoryOptions {
  */
 export function useModalHistory({ isOpen, onClose, modalId = 'work-details' }: UseModalHistoryOptions) {
   const hasPushedStateRef = useRef(false)
-  const isClosingRef = useRef(false)
   const savedScrollY = useRef(0)
+  const onCloseRef = useRef(onClose)
+  onCloseRef.current = onClose
 
-  // Unified close handler for on-screen buttons, Escape, and backdrop clicks
+  // Fast, instant close handler for all on-screen buttons (Back, Close ✕, Backdrop, Escape)
   const handleClose = useCallback(() => {
-    if (isClosingRef.current) return
-    isClosingRef.current = true
+    // 1. Immediately close the modal in UI for instantaneous 0ms response!
+    onCloseRef.current()
 
+    // 2. Clean up history entry in background if we pushed one, keeping browser history in sync
     if (hasPushedStateRef.current) {
       hasPushedStateRef.current = false
-      if (typeof window !== 'undefined' && window.history.state && window.history.state[modalId]) {
+      if (typeof window !== 'undefined' && window.history.state?.[modalId]) {
         window.history.back()
-        return
       }
     }
-
-    onClose()
-  }, [onClose, modalId])
+  }, [modalId])
 
   useEffect(() => {
     if (!isOpen) {
-      isClosingRef.current = false
       hasPushedStateRef.current = false
       return
     }
 
-    isClosingRef.current = false
     savedScrollY.current = window.scrollY
 
-    // Push history entry for mobile back-button handling
+    // Push history entry once so physical back button / swipe-back closes the modal
     try {
       const currentState = window.history.state || {}
       window.history.pushState({ ...currentState, [modalId]: true }, '')
@@ -67,9 +64,11 @@ export function useModalHistory({ isOpen, onClose, modalId = 'work-details' }: U
     }
 
     const handlePopState = () => {
-      // User tapped phone back button or swiped back
-      hasPushedStateRef.current = false
-      onClose()
+      // User tapped phone physical back button or swiped back
+      if (hasPushedStateRef.current) {
+        hasPushedStateRef.current = false
+      }
+      onCloseRef.current()
     }
 
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -81,15 +80,12 @@ export function useModalHistory({ isOpen, onClose, modalId = 'work-details' }: U
     window.addEventListener('popstate', handlePopState)
     window.addEventListener('keydown', handleKeyDown)
 
-    // Lock background scroll while modal is active
-    const { body, documentElement } = document
-    const previousOverflow = body.style.overflow
-    const previousPaddingRight = body.style.paddingRight
-    const scrollbarWidth = window.innerWidth - documentElement.clientWidth
-
-    body.style.overflow = 'hidden'
+    // Lock background scroll cleanly without layout shift
+    const originalOverflow = document.body.style.overflow
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
+    document.body.style.overflow = 'hidden'
     if (scrollbarWidth > 0) {
-      body.style.paddingRight = `${scrollbarWidth}px`
+      document.body.style.paddingRight = `${scrollbarWidth}px`
     }
 
     const targetY = savedScrollY.current
@@ -97,15 +93,15 @@ export function useModalHistory({ isOpen, onClose, modalId = 'work-details' }: U
     return () => {
       window.removeEventListener('popstate', handlePopState)
       window.removeEventListener('keydown', handleKeyDown)
-      document.body.style.overflow = previousOverflow
-      document.body.style.paddingRight = previousPaddingRight
+      document.body.style.overflow = originalOverflow
+      document.body.style.paddingRight = ''
 
-      // Restore scroll position precisely
+      // Restore scroll position precisely if needed
       if (Math.abs(window.scrollY - targetY) > 1) {
         window.scrollTo({ top: targetY, behavior: 'instant' })
       }
     }
-  }, [isOpen, modalId, onClose, handleClose])
+  }, [isOpen, modalId, handleClose])
 
   return { handleClose }
 }

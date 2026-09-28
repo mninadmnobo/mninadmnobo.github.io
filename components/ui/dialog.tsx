@@ -106,7 +106,10 @@ export function Dialog({ open, onClose, labelledBy, children, className }: Dialo
       siblings.forEach((el, index) => {
         if (!previouslyInert[index]) el.removeAttribute('inert')
       })
-      returnFocusRef.current?.focus({ preventScroll: true })
+      // Only restore focus on non-touch devices to avoid mobile viewport jitter
+      if (typeof window !== 'undefined' && !window.matchMedia('(pointer: coarse)').matches) {
+        returnFocusRef.current?.focus({ preventScroll: true })
+      }
     }
   }, [open])
 
@@ -160,7 +163,7 @@ export function DialogHeader({ children, onClose, className }: DialogHeaderProps
   return (
     <div
       className={cn(
-        'relative shrink-0 border-b border-border bg-background/95 px-4 py-3.5 backdrop-blur sm:px-8 sm:py-5',
+        'relative shrink-0 border-b border-border bg-background px-4 py-3.5 sm:px-8 sm:py-5',
         'pt-[max(1rem,calc(env(safe-area-inset-top)+0.5rem))]',
         className,
       )}
@@ -168,13 +171,13 @@ export function DialogHeader({ children, onClose, className }: DialogHeaderProps
       <div className="flex items-center justify-between gap-3">
         <div className="min-w-0 flex-1 pr-2">{children}</div>
 
-        {/* Big accessible Close (✕) button */}
+        {/* Big accessible Close (✕) button with instant touch-manipulation */}
         <button
           type="button"
           onClick={handleClose}
           data-autofocus
           aria-label="Close details"
-          className="inline-flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full border border-border bg-secondary text-muted-foreground transition-all active:scale-95 hover:bg-secondary/70 hover:text-foreground cursor-pointer touch-manipulation shadow-2xs"
+          className="inline-flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full border border-border bg-secondary text-muted-foreground transition-all active:scale-90 hover:bg-secondary/70 hover:text-foreground cursor-pointer touch-manipulation shadow-2xs"
         >
           <X className="h-5 w-5 sm:h-6 sm:w-6 stroke-[2.4]" aria-hidden="true" />
         </button>
@@ -222,7 +225,7 @@ export function DialogFooter({
   return (
     <div
       className={cn(
-        'shrink-0 border-t border-border bg-background/95 px-5 py-4 backdrop-blur sm:px-8',
+        'shrink-0 border-t border-border bg-background px-5 py-4 sm:px-8',
         'pb-[max(1rem,calc(env(safe-area-inset-bottom)+0.5rem))]',
         className,
       )}
@@ -234,7 +237,7 @@ export function DialogFooter({
           <button
             type="button"
             onClick={handleClose}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm bg-secondary text-foreground hover:bg-primary hover:text-primary-foreground active:scale-95 transition-all cursor-pointer shadow-2xs shrink-0"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm bg-secondary text-foreground hover:bg-primary hover:text-primary-foreground active:scale-95 transition-all cursor-pointer shadow-2xs shrink-0 touch-manipulation"
           >
             <ArrowLeft className="h-4 w-4 stroke-[2.2]" />
             <span>Back</span>
