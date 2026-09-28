@@ -60,10 +60,7 @@ export const professionalWork: WorkItem[] = [
       { name: 'Backend', items: ['Spring Boot 3', 'Java 21', 'Spring Security', 'PostgreSQL'] },
     ],
 
-    links: [
-      { label: 'Saturn R&D Site', href: 'https://saturn-rnd-portfolio.vercel.app/', kind: 'site' },
-      { label: 'Code (GitHub)', href: 'https://github.com/mninadmnobo/saturn_rnd_portfolio', kind: 'code' },
-    ],
+    links: [],
   },
 
   {
@@ -72,7 +69,7 @@ export const professionalWork: WorkItem[] = [
     title: 'FABINS',
     subtitle: 'Fabric Inspection Automation · Industrial AI',
     categories: ['AI/ML', 'Industrial AI', 'Computer Vision'],
-    year: '2026 - Present',
+    year: 'July 2026 – Present',
     status: 'ongoing',
     statusLabel: 'Active',
     summary:
@@ -156,8 +153,9 @@ export const professionalWork: WorkItem[] = [
     ],
 
     links: [
-      { label: 'FABINS Portfolio', href: 'https://fabins-portfolio.vercel.app/', kind: 'site' },
-      { label: 'Code (GitHub)', href: 'https://github.com/mninadmnobo/fabins_portfolio', kind: 'code' },
+      { label: 'FABINS Official Site', href: 'https://fabins.nevolyn.com', kind: 'site' },
+      { label: 'NEVOLYN Parent Site', href: 'https://nevolyn.com', kind: 'site' },
+      { label: 'Code (GitHub)', href: 'https://github.com/NEVOLYN-Technology/fabins_automation_website', kind: 'code' },
     ],
   },
 ]

@@ -9,6 +9,35 @@ export interface ProfileLink {
   icon: string
 }
 
+export interface ProjectLinkGroup {
+  project: string
+  website?: string
+  codebase?: string
+  email?: string
+  linkedin?: string
+}
+
+export interface ExperienceSubsegment {
+  title: string
+  period?: string
+  technologies?: string[]
+  points: string[]
+  website?: string
+  codebase?: string
+  email?: string
+  linkedin?: string
+}
+
+export interface ExperienceSegment {
+  title: string
+  period?: string
+  technologies?: string[]
+  points?: string[]
+  subsegments?: ExperienceSubsegment[]
+  projectLinks?: ProjectLinkGroup[]
+  links?: { label: string; href: string }[]
+}
+
 export interface ExperienceItem {
   id: string
   role: string
@@ -19,11 +48,12 @@ export interface ExperienceItem {
   period: string
   /** True while the role is current — drives the "Present" pulse indicator. */
   current: boolean
-  summary: string
-  responsibilities: string[]
+  summary?: string
+  responsibilities?: string[]
+  segments?: ExperienceSegment[]
   /** `WorkItem.id`s produced in this role, used to cross-link the sections. */
-  relatedWorkIds: string[]
-  links: { label: string; href: string }[]
+  relatedWorkIds?: string[]
+  links?: { label: string; href: string }[]
 }
 
 export interface EducationItem {
