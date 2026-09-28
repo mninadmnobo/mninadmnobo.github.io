@@ -102,7 +102,6 @@ export function Navigation() {
     if (href === '/') {
       handleHomeClick(e)
       setMenuOpen(false)
-      document.body.style.overflow = ''
       return
     }
 
@@ -114,7 +113,6 @@ export function Navigation() {
       if (el) {
         setActiveSection(href)
         setMenuOpen(false)
-        document.body.style.overflow = ''
 
         const targetTop = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET + 16
         window.scrollTo({
