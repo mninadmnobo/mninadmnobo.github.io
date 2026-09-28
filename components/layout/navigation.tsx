@@ -102,6 +102,7 @@ export function Navigation() {
     if (href === '/') {
       handleHomeClick(e)
       setMenuOpen(false)
+      document.body.style.overflow = ''
       return
     }
 
@@ -113,6 +114,7 @@ export function Navigation() {
       if (el) {
         setActiveSection(href)
         setMenuOpen(false)
+        document.body.style.overflow = ''
 
         const targetTop = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET + 16
         window.scrollTo({
@@ -127,7 +129,7 @@ export function Navigation() {
   }
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6">
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-[max(1rem,calc(env(safe-area-inset-top)+0.25rem))] sm:px-6">
 
       {/* ── Pill bar ── */}
       <div
@@ -293,7 +295,7 @@ export function Navigation() {
             'mx-auto mt-2 max-w-6xl rounded-3xl p-3 lg:hidden',
             'border border-[var(--line)] bg-[var(--panel)]/95 backdrop-blur-xl',
             'shadow-[0_20px_50px_-30px_rgba(0,0,0,0.5)]',
-            'animate-backdrop-in',
+            'animate-mobile-menu-in',
           )}
         >
           {SECTIONS.map((section) => {
@@ -306,7 +308,7 @@ export function Navigation() {
                 aria-current={isActive ? 'true' : undefined}
                 className={cn(
                   'flex items-center justify-between rounded-2xl px-4 py-3',
-                  'text-sm font-semibold no-underline transition-all duration-200',
+                  'text-sm font-semibold no-underline transition-all duration-200 active:scale-[0.98] touch-manipulation',
                   isActive
                     ? 'text-[var(--btn-ink)]'
                     : 'text-[var(--ink-muted)] hover:bg-[var(--panel-2)] hover:text-[var(--ink)]',
@@ -325,10 +327,10 @@ export function Navigation() {
           <div className="mt-2">
             <Link
               href="#contact"
-              onClick={() => setMenuOpen(false)}
+              onClick={(e) => handleNavClick('#contact', e)}
               className={cn(
                 'flex w-full items-center justify-center gap-1.5 rounded-2xl px-4 py-3',
-                'text-sm font-semibold text-[var(--btn-ink)] no-underline',
+                'text-sm font-semibold text-[var(--btn-ink)] no-underline active:scale-[0.98] touch-manipulation',
               )}
               style={{
                 backgroundImage: 'linear-gradient(100deg, var(--btn-from), var(--btn-to))',

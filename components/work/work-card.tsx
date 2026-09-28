@@ -45,18 +45,18 @@ export function WorkCard({
     <article
       data-kind={item.kind}
       className={cn(
-        'surface-card group relative isolate flex w-full flex-col p-5 sm:p-6 transition-all duration-500 transform rounded-2xl',
+        'surface-card group relative isolate flex w-full flex-col p-5 sm:p-6 transition-[transform,opacity,box-shadow,border-color] duration-300 ease-out transform rounded-2xl',
         isProfessional
           ? isActive
-            ? 'z-20 scale-100 sm:scale-105 -translate-y-2 opacity-100 blur-none shadow-[0_0_30px_rgba(249,115,22,0.3)] ring-2 ring-amber-500/80 border-amber-500/70 bg-[var(--panel)]'
-            : 'z-0 scale-[0.94] opacity-70 dark:opacity-80 blur-none hover:opacity-100 hover:scale-[0.98]'
+            ? 'z-20 scale-100 sm:scale-105 -translate-y-1 sm:-translate-y-2 opacity-100 blur-none shadow-[0_0_30px_rgba(249,115,22,0.3)] ring-2 ring-amber-500/80 border-amber-500/70 bg-[var(--panel)]'
+            : 'z-0 scale-[0.98] sm:scale-[0.94] opacity-85 sm:opacity-70 dark:opacity-90 sm:dark:opacity-80 blur-none hover:opacity-100 hover:scale-[0.99] sm:hover:scale-[0.98]'
           : item.kind === 'research'
             ? isActive
-              ? 'z-20 scale-100 sm:scale-105 -translate-y-2 opacity-100 blur-none shadow-[0_0_30px_rgba(6,182,212,0.25)] ring-2 ring-cyan-500/70 border-cyan-500/60 bg-[var(--panel)]'
-              : 'z-0 scale-[0.94] opacity-70 dark:opacity-80 blur-none hover:opacity-100 hover:scale-[0.98]'
+              ? 'z-20 scale-100 sm:scale-105 -translate-y-1 sm:-translate-y-2 opacity-100 blur-none shadow-[0_0_30px_rgba(6,182,212,0.25)] ring-2 ring-cyan-500/70 border-cyan-500/60 bg-[var(--panel)]'
+              : 'z-0 scale-[0.98] sm:scale-[0.94] opacity-85 sm:opacity-70 dark:opacity-90 sm:dark:opacity-80 blur-none hover:opacity-100 hover:scale-[0.99] sm:hover:scale-[0.98]'
             : isActive
-              ? 'z-20 scale-100 sm:scale-105 -translate-y-2 opacity-100 blur-none shadow-2xl ring-2 ring-blue-500/50 border-blue-500/50 bg-[var(--panel)]'
-              : 'z-0 scale-[0.94] opacity-70 dark:opacity-80 blur-none hover:opacity-100 hover:scale-[0.98]',
+              ? 'z-20 scale-100 sm:scale-105 -translate-y-1 sm:-translate-y-2 opacity-100 blur-none shadow-2xl ring-2 ring-blue-500/50 border-blue-500/50 bg-[var(--panel)]'
+              : 'z-0 scale-[0.98] sm:scale-[0.94] opacity-85 sm:opacity-70 dark:opacity-90 sm:dark:opacity-80 blur-none hover:opacity-100 hover:scale-[0.99] sm:hover:scale-[0.98]',
         className,
       )}
     >
@@ -129,7 +129,7 @@ export function WorkCard({
           }}
           aria-label={`View details for ${item.title}`}
           className={cn(
-            "inline-flex shrink-0 items-center gap-1 rounded-full border px-3 py-1 text-[11px] sm:text-xs font-semibold transition-all duration-300 cursor-pointer shadow-2xs ml-auto",
+            "inline-flex shrink-0 items-center gap-1 rounded-full border px-3 py-1.5 min-h-[36px] sm:min-h-0 text-[11px] sm:text-xs font-semibold transition-all duration-200 cursor-pointer shadow-2xs ml-auto touch-manipulation active:scale-95",
             isProfessional
               ? "border-amber-500/40 bg-amber-500/15 text-amber-700 dark:text-amber-200 hover:border-amber-500 hover:bg-amber-600 hover:text-white dark:hover:text-white dark:hover:bg-amber-500 hover:shadow-[0_4px_16px_rgba(249,115,22,0.4)]"
               : item.kind === 'research'

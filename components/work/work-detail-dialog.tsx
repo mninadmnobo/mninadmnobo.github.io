@@ -20,47 +20,64 @@ import type { DetailSection, WorkItem } from '@/lib/types/work'
  * scroll position between openings.
  */
 export function WorkDetailDialog({ item, onClose }: { item: WorkItem | null; onClose: () => void }) {
-  const titleId = item ? `work-detail-${item.id}` : 'work-detail'
+  const [displayedItem, setDisplayedItem] = React.useState<WorkItem | null>(item)
 
-  if (!item) return null
+  React.useEffect(() => {
+    if (item) {
+      setDisplayedItem(item)
+    }
+  }, [item])
+
+  const currentItem = item ?? displayedItem
+  if (!currentItem) return null
+
+  const titleId = `work-detail-${currentItem.id}`
+
+  const handleClose = () => {
+    onClose()
+  }
 
   return (
-    <Dialog open onClose={onClose} labelledBy={titleId}>
-      <DialogHeader onClose={onClose}>
-        <div data-kind={item.kind}>
+    <Dialog
+      open={!!item}
+      onClose={handleClose}
+      labelledBy={titleId}
+    >
+      <DialogHeader onClose={handleClose}>
+        <div data-kind={currentItem.kind}>
           <div className="mb-3 flex flex-wrap items-center gap-2">
-            <KindBadge kind={item.kind} />
-            <StatusBadge status={item.status} label={item.statusLabel} />
-            <span className="font-mono text-xs text-muted-foreground">{item.year}</span>
+            <KindBadge kind={currentItem.kind} />
+            <StatusBadge status={currentItem.status} label={currentItem.statusLabel} />
+            <span className="font-mono text-xs text-muted-foreground">{currentItem.year}</span>
           </div>
 
           <h2
             id={titleId}
             className="text-xl font-semibold tracking-tight text-foreground sm:text-2xl"
           >
-            {item.title}
+            {currentItem.title}
           </h2>
 
-          <p className="mt-1 text-sm font-medium text-[var(--kind-accent)]">{item.subtitle}</p>
+          <p className="mt-1 text-sm font-medium text-[var(--kind-accent)]">{currentItem.subtitle}</p>
         </div>
       </DialogHeader>
 
       <DialogBody>
-        <div data-kind={item.kind} className="detail-prose mx-auto max-w-3xl">
-          <p className="text-base leading-relaxed text-foreground">{item.summary}</p>
+        <div data-kind={currentItem.kind} className="detail-prose mx-auto max-w-3xl">
+          <p className="text-base leading-relaxed text-foreground">{currentItem.summary}</p>
 
-          {item.architectureFlow ? <ArchitectureFlow steps={item.architectureFlow} /> : null}
+          {currentItem.architectureFlow ? <ArchitectureFlow steps={currentItem.architectureFlow} /> : null}
 
-          {item.details.map((section) => (
+          {currentItem.details.map((section) => (
             <DetailBlock key={section.heading} section={section} />
           ))}
 
-          {item.contribution ? <ContributionBlock section={item.contribution} /> : null}
+          {currentItem.contribution ? <ContributionBlock section={currentItem.contribution} /> : null}
 
-          {item.scopeNote ? <ScopeNote note={item.scopeNote} /> : null}
+          {currentItem.scopeNote ? <ScopeNote note={currentItem.scopeNote} /> : null}
 
           {/* YouTube Video Demonstrations */}
-          {item.links
+          {currentItem.links
             .filter((l) => l.kind === 'video' || l.href.includes('youtube.com') || l.href.includes('youtu.be'))
             .map((video) => {
               const match = video.href.match(/(?:v=|\/embed\/|\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/)
@@ -87,7 +104,7 @@ export function WorkDetailDialog({ item, onClose }: { item: WorkItem | null; onC
           <section className="mt-8">
             <SectionHeading>Technology Stack</SectionHeading>
             <div className="mt-3 grid gap-4 sm:grid-cols-2">
-              {item.tech.map((group) => (
+              {currentItem.tech.map((group) => (
                 <div key={group.name}>
                   <p className="mb-2 text-xs font-semibold tracking-wide text-muted-foreground uppercase">
                     {group.name}
@@ -108,7 +125,7 @@ export function WorkDetailDialog({ item, onClose }: { item: WorkItem | null; onC
 
       <DialogFooter>
         <div className="mx-auto flex max-w-3xl flex-wrap items-center gap-2">
-          <ResourceLinks links={item.links} />
+          <ResourceLinks links={currentItem.links} />
         </div>
       </DialogFooter>
     </Dialog>

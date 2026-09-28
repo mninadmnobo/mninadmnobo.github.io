@@ -1,8 +1,10 @@
 /**
- * Single import surface for every piece of site content.
+ * Single import surface for portfolio content data.
  *
  * Sections import from here rather than reaching into individual data modules,
  * so a file can be split or renamed without touching component code.
+ *
+ * Note: SEO configuration and search taxonomy live in `@/lib/seo/config`.
  */
 export { profile, professionalProfiles, researchProfiles, programmingProfiles, socialProfiles, spokenLanguages } from './profile'
 export { experience } from './experience'

@@ -38,29 +38,35 @@ export function Research() {
     return research
   }, [activeFilter])
 
-  // Detect active card index during scroll by finding card nearest center
+  const rafRef = React.useRef<number | null>(null)
+
+  // Detect active card index during scroll by finding card nearest center (RAF-throttled for 60/120fps)
   const handleScroll = React.useCallback(() => {
-    if (!scrollContainerRef.current) return
-    const container = scrollContainerRef.current
-    const containerLeft = container.scrollLeft
-    const containerCenter = containerLeft + container.clientWidth / 2
+    if (rafRef.current) return
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = null
+      if (!scrollContainerRef.current) return
+      const container = scrollContainerRef.current
+      const containerLeft = container.scrollLeft
+      const containerCenter = containerLeft + container.clientWidth / 2
 
-    const cards = container.querySelectorAll<HTMLElement>('[data-card-index]')
-    let closestIndex = 0
-    let minDistance = Infinity
+      const cards = container.querySelectorAll<HTMLElement>('[data-card-index]')
+      let closestIndex = 0
+      let minDistance = Infinity
 
-    cards.forEach((card) => {
-      const cardIndex = Number(card.getAttribute('data-card-index'))
-      const cardCenter = card.offsetLeft - container.offsetLeft + card.clientWidth / 2
-      const distance = Math.abs(cardCenter - containerCenter)
+      cards.forEach((card) => {
+        const cardIndex = Number(card.getAttribute('data-card-index'))
+        const cardCenter = card.offsetLeft - container.offsetLeft + card.clientWidth / 2
+        const distance = Math.abs(cardCenter - containerCenter)
 
-      if (distance < minDistance) {
-        minDistance = distance
-        closestIndex = cardIndex
-      }
+        if (distance < minDistance) {
+          minDistance = distance
+          closestIndex = cardIndex
+        }
+      })
+
+      setActiveCardIndex(closestIndex)
     })
-
-    setActiveCardIndex(closestIndex)
   }, [])
 
   // Smooth scroll to target card by centering it in the container viewport
@@ -99,6 +105,7 @@ export function Research() {
     handleScroll()
 
     return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
       container.removeEventListener('scroll', handleScroll)
     }
   }, [handleScroll, visibleResearch.length])
@@ -192,7 +199,7 @@ export function Research() {
                   type="button"
                   onClick={handlePrev}
                   disabled={activeCardIndex === 0}
-                  aria-label="Previous research"
+                  aria-label="Previous item"
                   className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/90 text-foreground shadow-md backdrop-blur-md transition-all hover:bg-primary hover:text-primary-foreground hover:scale-110 cursor-pointer disabled:opacity-20 disabled:pointer-events-none"
                 >
                   <ChevronLeft className="h-5 w-5" />
@@ -201,7 +208,7 @@ export function Research() {
                   type="button"
                   onClick={handleNext}
                   disabled={activeCardIndex >= visibleResearch.length - 1}
-                  aria-label="Next research"
+                  aria-label="Next item"
                   className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background/90 text-foreground shadow-md backdrop-blur-md transition-all hover:bg-primary hover:text-primary-foreground hover:scale-110 cursor-pointer disabled:opacity-20 disabled:pointer-events-none"
                 >
                   <ChevronRight className="h-5 w-5" />
@@ -212,7 +219,7 @@ export function Research() {
             {/* Horizontal Scroll Track */}
             <div
               ref={scrollContainerRef}
-              className="no-scrollbar flex overflow-x-auto scroll-smooth snap-x snap-mandatory gap-6 py-6 px-[7.5%] sm:px-[calc(50%-240px)] lg:px-[calc(50%-270px)]"
+              className="snap-rail no-scrollbar flex overflow-x-auto snap-x snap-mandatory touch-pan-x gap-6 py-6 px-[7.5%] sm:px-[calc(50%-240px)] lg:px-[calc(50%-270px)]"
             >
               {visibleResearch.map((item, index) => (
                 <div

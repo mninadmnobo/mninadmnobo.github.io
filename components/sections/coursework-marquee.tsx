@@ -101,6 +101,23 @@ export function CourseworkMarquee({ items }: CourseworkMarqueeProps) {
     }
   }
 
+  const touchResumeTimerRef = useRef<NodeJS.Timeout | null>(null)
+
+  const handleTouchStart = () => {
+    if (touchResumeTimerRef.current) clearTimeout(touchResumeTimerRef.current)
+    isHoveredRef.current = true
+  }
+
+  const handleTouchEnd = () => {
+    if (touchResumeTimerRef.current) clearTimeout(touchResumeTimerRef.current)
+    touchResumeTimerRef.current = setTimeout(() => {
+      if (containerRef.current) {
+        scrollPosRef.current = containerRef.current.scrollLeft
+      }
+      isHoveredRef.current = false
+    }, 800)
+  }
+
   // Triple items for seamless circular rolling loop in both left and right directions
   const tripleItems = [...items, ...items, ...items]
 
@@ -133,9 +150,10 @@ export function CourseworkMarquee({ items }: CourseworkMarqueeProps) {
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUpOrLeave}
-          onTouchStart={() => { isHoveredRef.current = true }}
-          onTouchEnd={() => { isHoveredRef.current = false }}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
           className="relative flex overflow-x-auto touch-pan-x scrollbar-none py-1 cursor-grab active:cursor-grabbing select-none"
+          style={{ WebkitOverflowScrolling: 'touch' }}
         >
           {/* Left gradient fade mask */}
           <div className="pointer-events-none sticky left-0 top-0 bottom-0 z-10 h-full w-12 shrink-0 bg-gradient-to-r from-[var(--panel)] to-transparent" />

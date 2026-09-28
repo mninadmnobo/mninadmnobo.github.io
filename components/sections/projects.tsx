@@ -26,29 +26,35 @@ export function Projects() {
     return projects
   }, [activeFilter])
 
-  // Detect active card index during scroll by finding card nearest center
+  const rafRef = React.useRef<number | null>(null)
+
+  // Detect active card index during scroll by finding card nearest center (RAF-throttled for 60/120fps)
   const handleScroll = React.useCallback(() => {
-    if (!scrollContainerRef.current) return
-    const container = scrollContainerRef.current
-    const containerLeft = container.scrollLeft
-    const containerCenter = containerLeft + container.clientWidth / 2
+    if (rafRef.current) return
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = null
+      if (!scrollContainerRef.current) return
+      const container = scrollContainerRef.current
+      const containerLeft = container.scrollLeft
+      const containerCenter = containerLeft + container.clientWidth / 2
 
-    const cards = container.querySelectorAll<HTMLElement>('[data-card-index]')
-    let closestIndex = 0
-    let minDistance = Infinity
+      const cards = container.querySelectorAll<HTMLElement>('[data-card-index]')
+      let closestIndex = 0
+      let minDistance = Infinity
 
-    cards.forEach((card) => {
-      const cardIndex = Number(card.getAttribute('data-card-index'))
-      const cardCenter = card.offsetLeft - container.offsetLeft + card.clientWidth / 2
-      const distance = Math.abs(cardCenter - containerCenter)
+      cards.forEach((card) => {
+        const cardIndex = Number(card.getAttribute('data-card-index'))
+        const cardCenter = card.offsetLeft - container.offsetLeft + card.clientWidth / 2
+        const distance = Math.abs(cardCenter - containerCenter)
 
-      if (distance < minDistance) {
-        minDistance = distance
-        closestIndex = cardIndex
-      }
+        if (distance < minDistance) {
+          minDistance = distance
+          closestIndex = cardIndex
+        }
+      })
+
+      setActiveCardIndex(closestIndex)
     })
-
-    setActiveCardIndex(closestIndex)
   }, [])
 
   // Smooth scroll to target card by centering it in the container viewport
@@ -88,6 +94,7 @@ export function Projects() {
     handleScroll()
 
     return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current)
       container.removeEventListener('scroll', handleScroll)
     }
   }, [handleScroll, visible.length])
@@ -200,7 +207,7 @@ export function Projects() {
             {/* Horizontal Scroll Track */}
             <div
               ref={scrollContainerRef}
-              className="no-scrollbar flex overflow-x-auto scroll-smooth snap-x snap-mandatory gap-6 py-6 px-[7.5%] sm:px-[calc(50%-240px)] lg:px-[calc(50%-270px)]"
+              className="no-scrollbar flex overflow-x-auto snap-x snap-mandatory touch-pan-x gap-6 py-6 px-[7.5%] sm:px-[calc(50%-240px)] lg:px-[calc(50%-270px)]"
             >
               {visible.map((project, index) => (
                 <div

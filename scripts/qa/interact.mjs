@@ -53,7 +53,7 @@ async function page(width = 1280, height = 900, opts = {}) {
 /* ---- 2. dialog keyboard contract --------------------------------------- */
 {
   const { context, p } = await page()
-  const trigger = p.getByRole('button', { name: 'View details for FABINS' })
+  const trigger = p.getByRole('button', { name: 'View details for FABINS', exact: true })
   await trigger.scrollIntoViewIfNeeded()
   await trigger.focus()
   await p.keyboard.press('Enter')

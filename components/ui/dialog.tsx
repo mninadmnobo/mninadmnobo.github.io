@@ -1,32 +1,30 @@
 'use client'
 
 import * as React from 'react'
-import { X } from 'lucide-react'
+import { X, ArrowLeft } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
+import { useModalHistory } from '@/lib/hooks/useModalHistory'
 
 /**
- * Accessible modal dialog.
+ * Accessible modal dialog with mobile-first smooth behavior.
  *
- * Written rather than pulled from a component library because the mobile
- * presentation here is not a scaled-down desktop modal — on small screens it
- * fills the viewport and reads as a page, which is a layout decision a generic
- * dialog primitive would fight. The accessibility contract it has to meet is
- * well defined, so implementing it directly is a fair trade for one fewer
- * dependency.
- *
- * What it guarantees:
- *  - `role="dialog"` + `aria-modal` + a label wired to the title element
- *  - focus moves inside on open and returns to the trigger on close
+ * Guarantees:
+ *  - `role="dialog"` + `aria-modal` + accessible label
+ *  - Mobile back button / swipe back gesture closes the dialog smoothly without leaving the site
+ *  - Preserves exact scroll position so user returns to the exact card they opened
+ *  - Focus trapped inside on open and returned to trigger on close
  *  - Tab and Shift+Tab cycle within the dialog
- *  - Escape closes; a click on the backdrop closes
- *  - the page behind cannot scroll, and does not shift when the scrollbar goes
- *  - content outside the dialog is hidden from assistive tech via `inert`
+ *  - Escape closes, backdrop click closes, mobile back button closes
+ *  - Body scroll locked without layout shift
+ *  - Content outside marked inert
+ *  - Respects mobile safe areas (notch, dynamic island, home indicator bar)
  */
 
-/** Elements that can hold focus, minus anything explicitly removed from the order. */
 const FOCUSABLE =
   'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+
+const DialogCloseContext = React.createContext<(() => void) | null>(null)
 
 interface DialogProps {
   open: boolean
@@ -41,33 +39,21 @@ export function Dialog({ open, onClose, labelledBy, children, className }: Dialo
   const panelRef = React.useRef<HTMLDivElement>(null)
   const returnFocusRef = React.useRef<HTMLElement | null>(null)
 
-  // Read the latest onClose without re-running the open/close effect, which
-  // would otherwise tear down and rebuild the scroll lock on every parent render.
-  const onCloseRef = React.useRef(onClose)
-  React.useEffect(() => {
-    onCloseRef.current = onClose
-  }, [onClose])
+  // Browser history integration for smooth mobile back-button & edge swipe support
+  const { handleClose } = useModalHistory({
+    isOpen: open,
+    onClose,
+    modalId: 'work-details',
+  })
 
   React.useEffect(() => {
     if (!open) return
 
     returnFocusRef.current = document.activeElement as HTMLElement | null
 
-    const { body, documentElement } = document
-    const previousOverflow = body.style.overflow
-    const previousPaddingRight = body.style.paddingRight
+    const { body } = document
 
-    // Compensate for the removed scrollbar so the page behind does not jump
-    // sideways as the dialog opens. Zero on overlay-scrollbar platforms.
-    const scrollbarWidth = window.innerWidth - documentElement.clientWidth
-    body.style.overflow = 'hidden'
-    if (scrollbarWidth > 0) {
-      body.style.paddingRight = `${scrollbarWidth}px`
-    }
-
-    // Hide the rest of the page from assistive tech. Siblings of the portal root
-    // are marked inert rather than aria-hidden so they also drop out of the tab
-    // order if focus ever escapes the trap.
+    // Hide the rest of the page from assistive tech
     const siblings = Array.from(body.children).filter(
       (el) => el !== panelRef.current?.parentElement,
     ) as HTMLElement[]
@@ -81,17 +67,9 @@ export function Dialog({ open, onClose, labelledBy, children, className }: Dialo
       target.focus({ preventScroll: true })
     }
 
-    // One frame's delay lets the open animation start before focus lands,
-    // avoiding a scroll jump while the panel is still transforming.
     const raf = requestAnimationFrame(focusFirst)
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        event.preventDefault()
-        onCloseRef.current()
-        return
-      }
-
       if (event.key !== 'Tab') return
 
       const panel = panelRef.current
@@ -125,8 +103,6 @@ export function Dialog({ open, onClose, labelledBy, children, className }: Dialo
     return () => {
       cancelAnimationFrame(raf)
       document.removeEventListener('keydown', onKeyDown)
-      document.body.style.overflow = previousOverflow
-      document.body.style.paddingRight = previousPaddingRight
       siblings.forEach((el, index) => {
         if (!previouslyInert[index]) el.removeAttribute('inert')
       })
@@ -137,68 +113,101 @@ export function Dialog({ open, onClose, labelledBy, children, className }: Dialo
   if (!open) return null
 
   return (
-    <div className="fixed inset-0 z-100 flex items-stretch justify-center sm:items-center sm:p-6">
-      <div
-        className="animate-backdrop-in absolute inset-0 bg-neutral-950/70 backdrop-blur-sm"
-        onClick={onClose}
-        aria-hidden="true"
-      />
+    <DialogCloseContext.Provider value={handleClose}>
+      <div className="fixed inset-0 z-100 flex items-stretch justify-center sm:items-center sm:p-6">
+        {/* Backdrop */}
+        <div
+          className="animate-backdrop-in absolute inset-0 bg-neutral-950/70 sm:backdrop-blur-md"
+          onClick={handleClose}
+          aria-hidden="true"
+        />
 
-      <div
-        ref={panelRef}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby={labelledBy}
-        tabIndex={-1}
-        className={cn(
-          'animate-dialog-in relative flex h-full w-full flex-col overflow-hidden bg-background shadow-2xl outline-none',
-          // Full-bleed on phones, a contained panel from the sm breakpoint up.
-          'sm:h-auto sm:max-h-[calc(100dvh-3rem)] sm:max-w-3xl sm:rounded-2xl sm:border sm:border-border lg:max-w-5xl',
-          className,
-        )}
-      >
-        {children}
+        {/* Dialog panel */}
+        <div
+          ref={panelRef}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={labelledBy}
+          tabIndex={-1}
+          className={cn(
+            'animate-dialog-in relative flex h-full w-full flex-col overflow-hidden bg-background shadow-2xl outline-none',
+            // Full-bleed on phones, elegant contained card from sm up
+            'sm:h-auto sm:max-h-[calc(100dvh-3rem)] sm:max-w-3xl sm:rounded-2xl sm:border sm:border-border lg:max-w-5xl',
+            className,
+          )}
+        >
+          {/* Top Decorative Gradient Accent Bar */}
+          <div className="h-1.5 w-full bg-gradient-to-r from-cyan-600 via-sky-400 to-blue-500 shrink-0" />
+
+          {children}
+        </div>
       </div>
-    </div>
+    </DialogCloseContext.Provider>
   )
 }
 
 interface DialogHeaderProps {
   children: React.ReactNode
-  onClose: () => void
+  onClose?: () => void
   className?: string
 }
 
-/** Sticky header. The close button stays reachable however far the body scrolls. */
+/** Sticky header with safe area padding and quick mobile/desktop Back buttons. */
 export function DialogHeader({ children, onClose, className }: DialogHeaderProps) {
+  const contextClose = React.useContext(DialogCloseContext)
+  const handleClose = contextClose ?? onClose ?? (() => {})
+
   return (
     <div
       className={cn(
-        'relative shrink-0 border-b border-border bg-background/95 px-5 py-4 backdrop-blur sm:px-8 sm:py-6',
+        'relative shrink-0 border-b border-border bg-background/95 px-4 py-3.5 backdrop-blur sm:px-8 sm:py-5',
+        'pt-[max(1rem,calc(env(safe-area-inset-top)+0.5rem))]',
         className,
       )}
     >
-      <div className="pr-11 sm:pr-14">{children}</div>
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex items-center gap-3 min-w-0 pr-2">
+          {/* Mobile Back button */}
+          <button
+            type="button"
+            onClick={handleClose}
+            aria-label="Back to portfolio"
+            className="inline-flex sm:hidden items-center justify-center p-2 rounded-full bg-secondary text-foreground hover:bg-secondary/80 active:scale-95 cursor-pointer shrink-0"
+          >
+            <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+          </button>
 
-      <button
-        type="button"
-        onClick={onClose}
-        data-autofocus
-        aria-label="Close details"
-        className="absolute top-4 right-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-secondary text-muted-foreground transition-colors hover:bg-secondary/70 hover:text-foreground sm:top-6 sm:right-6 sm:h-10 sm:w-10"
-      >
-        <X className="h-4 w-4" aria-hidden="true" />
-      </button>
+          <div className="min-w-0 flex-1">{children}</div>
+        </div>
+
+        {/* Right side controls: desktop back & close button */}
+        <div className="flex items-center gap-2 shrink-0">
+          <button
+            type="button"
+            onClick={handleClose}
+            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-secondary text-foreground hover:bg-secondary/80 active:scale-95 text-xs font-semibold transition-colors cursor-pointer"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
+            <span>Back</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={handleClose}
+            data-autofocus
+            aria-label="Close details"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-secondary text-muted-foreground transition-all active:scale-95 hover:bg-secondary/70 hover:text-foreground sm:h-9 sm:w-9 cursor-pointer touch-manipulation"
+          >
+            <X className="h-4 w-4" aria-hidden="true" />
+          </button>
+        </div>
+      </div>
     </div>
   )
 }
 
 /**
- * Scrollable body.
- *
- * `overscroll-contain` stops a scroll that reaches the end of this element from
- * chaining to the page behind it, which is the usual source of "the background
- * moved while I was reading the modal" on touch devices.
+ * Scrollable body with smooth momentum touch scrolling and overscroll containment.
  */
 export function DialogBody({
   children,
@@ -208,12 +217,19 @@ export function DialogBody({
   className?: string
 }) {
   return (
-    <div className={cn('flex-1 overflow-y-auto overscroll-contain px-5 py-6 sm:px-8', className)}>
+    <div
+      className={cn(
+        'flex-1 overflow-y-auto overscroll-contain px-5 py-6 sm:px-8 touch-pan-y',
+        className,
+      )}
+      style={{ WebkitOverflowScrolling: 'touch' }}
+    >
       {children}
     </div>
   )
 }
 
+/** Footer with safe-area inset support for modern mobile devices. */
 export function DialogFooter({
   children,
   className,
@@ -225,6 +241,7 @@ export function DialogFooter({
     <div
       className={cn(
         'shrink-0 border-t border-border bg-background/95 px-5 py-4 backdrop-blur sm:px-8',
+        'pb-[max(1rem,calc(env(safe-area-inset-bottom)+0.5rem))]',
         className,
       )}
     >
