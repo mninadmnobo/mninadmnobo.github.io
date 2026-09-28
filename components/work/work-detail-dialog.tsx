@@ -20,14 +20,9 @@ import type { DetailSection, WorkItem } from '@/lib/types/work'
  * scroll position between openings.
  */
 export function WorkDetailDialog({ item, onClose }: { item: WorkItem | null; onClose: () => void }) {
-  const lastItemRef = React.useRef<WorkItem | null>(item)
-  if (item) {
-    lastItemRef.current = item
-  }
+  if (!item) return null
 
-  const currentItem = item ?? lastItemRef.current
-  if (!currentItem) return null
-
+  const currentItem = item
   const titleId = `work-detail-${currentItem.id}`
 
   const handleClose = () => {
