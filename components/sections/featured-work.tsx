@@ -13,7 +13,7 @@ import { GitHubIcon } from '@/components/ui/icons'
 
 const ALL = 'All'
 
-// Exact category & status filter list (matching Saturn R&D platform)
+// Exact category & status filter list
 const PROFESSIONAL_FILTERS = [
   'All',
   'AI/ML',

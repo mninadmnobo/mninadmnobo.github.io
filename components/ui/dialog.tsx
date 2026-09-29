@@ -24,7 +24,15 @@ import { useModalHistory } from '@/lib/hooks/useModalHistory'
 const FOCUSABLE =
   'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
 
-const DialogCloseContext = React.createContext<(() => void) | null>(null)
+interface DialogCloseContextValue {
+  handleClose: () => void
+  isClosing: boolean
+}
+
+const DialogCloseContext = React.createContext<DialogCloseContextValue>({
+  handleClose: () => {},
+  isClosing: false,
+})
 
 interface DialogProps {
   open: boolean
@@ -36,13 +44,30 @@ interface DialogProps {
 }
 
 export function Dialog({ open, onClose, labelledBy, children, className }: DialogProps) {
+  const [isClosing, setIsClosing] = React.useState(false)
   const panelRef = React.useRef<HTMLDivElement>(null)
   const returnFocusRef = React.useRef<HTMLElement | null>(null)
+  const closeTimerRef = React.useRef<NodeJS.Timeout | null>(null)
+
+  const triggerClose = React.useCallback(() => {
+    if (isClosing) return
+    setIsClosing(true)
+    closeTimerRef.current = setTimeout(() => {
+      onClose()
+      setIsClosing(false)
+    }, 180)
+  }, [isClosing, onClose])
+
+  React.useEffect(() => {
+    return () => {
+      if (closeTimerRef.current) clearTimeout(closeTimerRef.current)
+    }
+  }, [])
 
   // Browser history integration for smooth mobile back-button & edge swipe support
   const { handleClose } = useModalHistory({
     isOpen: open,
-    onClose,
+    onClose: triggerClose,
     modalId: 'work-details',
   })
 
@@ -94,21 +119,31 @@ export function Dialog({ open, onClose, labelledBy, children, className }: Dialo
     return () => {
       cancelAnimationFrame(raf)
       document.removeEventListener('keydown', onKeyDown)
-      // Only restore focus on non-touch devices to avoid mobile viewport jitter
+      // Only restore focus on non-touch devices after unmount to avoid layout thrashing
       if (typeof window !== 'undefined' && !window.matchMedia('(pointer: coarse)').matches) {
-        returnFocusRef.current?.focus({ preventScroll: true })
+        requestAnimationFrame(() => {
+          returnFocusRef.current?.focus({ preventScroll: true })
+        })
       }
     }
   }, [open])
 
+  const contextValue = React.useMemo(
+    () => ({ handleClose, isClosing }),
+    [handleClose, isClosing],
+  )
+
   if (!open) return null
 
   return (
-    <DialogCloseContext.Provider value={handleClose}>
+    <DialogCloseContext.Provider value={contextValue}>
       <div className="fixed inset-0 z-100 flex items-stretch justify-center sm:items-center sm:p-6">
         {/* Backdrop */}
         <div
-          className="animate-backdrop-in absolute inset-0 bg-neutral-950/70 sm:backdrop-blur-md"
+          className={cn(
+            'absolute inset-0 bg-neutral-950/70 sm:backdrop-blur-md transition-opacity duration-180',
+            isClosing ? 'animate-backdrop-out pointer-events-none' : 'animate-backdrop-in',
+          )}
           onClick={handleClose}
           aria-hidden="true"
         />
@@ -121,7 +156,8 @@ export function Dialog({ open, onClose, labelledBy, children, className }: Dialo
           aria-labelledby={labelledBy}
           tabIndex={-1}
           className={cn(
-            'animate-dialog-in relative flex h-full w-full flex-col overflow-hidden bg-background shadow-2xl outline-none',
+            'relative flex h-full w-full flex-col overflow-hidden bg-background shadow-2xl outline-none transform-gpu will-change-transform',
+            isClosing ? 'animate-dialog-out pointer-events-none' : 'animate-dialog-in',
             // Full-bleed on phones, elegant contained card from sm up
             'sm:h-auto sm:max-h-[calc(100dvh-3rem)] sm:max-w-3xl sm:rounded-2xl sm:border sm:border-border lg:max-w-5xl',
             className,
@@ -145,7 +181,7 @@ interface DialogHeaderProps {
 
 /** Sticky header with safe area padding and large accessible Close (✕) button. */
 export function DialogHeader({ children, onClose, className }: DialogHeaderProps) {
-  const contextClose = React.useContext(DialogCloseContext)
+  const { handleClose: contextClose, isClosing } = React.useContext(DialogCloseContext)
   const handleClose = contextClose ?? onClose ?? (() => {})
 
   return (
@@ -159,13 +195,18 @@ export function DialogHeader({ children, onClose, className }: DialogHeaderProps
       <div className="flex items-center justify-between gap-3">
         <div className="min-w-0 flex-1 pr-2">{children}</div>
 
-        {/* Big accessible Close (✕) button with instant touch-manipulation */}
+        {/* Big accessible Close (✕) button with instant tactile feedback */}
         <button
           type="button"
           onClick={handleClose}
           data-autofocus
           aria-label="Close details"
-          className="inline-flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full border border-border bg-secondary text-muted-foreground transition-all active:scale-90 hover:bg-secondary/70 hover:text-foreground cursor-pointer touch-manipulation shadow-2xs"
+          className={cn(
+            'inline-flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-full border transition-colors duration-150 cursor-pointer touch-manipulation shadow-2xs active:scale-95',
+            isClosing
+              ? 'border-black bg-black text-white dark:border-neutral-700 dark:bg-black dark:text-white shadow-md'
+              : 'border-border bg-secondary text-muted-foreground hover:border-black hover:bg-black hover:text-white active:border-black active:bg-black active:text-white focus-visible:border-black focus-visible:bg-black focus-visible:text-white dark:hover:border-neutral-700 dark:hover:bg-black dark:hover:text-white dark:active:border-neutral-700 dark:active:bg-black dark:active:text-white',
+          )}
         >
           <X className="h-5 w-5 sm:h-6 sm:w-6 stroke-[2.4]" aria-hidden="true" />
         </button>
@@ -207,7 +248,7 @@ export function DialogFooter({
   className?: string
   showBackButton?: boolean
 }) {
-  const contextClose = React.useContext(DialogCloseContext)
+  const { handleClose: contextClose, isClosing } = React.useContext(DialogCloseContext)
   const handleClose = contextClose ?? (() => {})
 
   return (
@@ -225,7 +266,12 @@ export function DialogFooter({
           <button
             type="button"
             onClick={handleClose}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm bg-secondary text-foreground hover:bg-primary hover:text-primary-foreground active:scale-95 transition-all cursor-pointer shadow-2xs shrink-0 touch-manipulation"
+            className={cn(
+              'inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm border transition-colors duration-150 cursor-pointer shadow-2xs shrink-0 touch-manipulation active:scale-95',
+              isClosing
+                ? 'border-black bg-black text-white dark:border-neutral-700 dark:bg-black dark:text-white shadow-md'
+                : 'border-border bg-secondary text-foreground hover:border-black hover:bg-black hover:text-white active:border-black active:bg-black active:text-white focus-visible:border-black focus-visible:bg-black focus-visible:text-white dark:hover:border-neutral-700 dark:hover:bg-black dark:hover:text-white dark:active:border-neutral-700 dark:active:bg-black dark:active:text-white',
+            )}
           >
             <ArrowLeft className="h-4 w-4 stroke-[2.2]" />
             <span>Back</span>
