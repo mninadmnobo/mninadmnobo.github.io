@@ -16,8 +16,6 @@ const ALL = 'All'
 // Exact category & status filter list (matching Saturn R&D platform)
 const PROFESSIONAL_FILTERS = [
   'All',
-  'Active',
-  'Completed',
   'AI/ML',
   'Full-Stack',
 ] as const
@@ -29,12 +27,6 @@ export function FeaturedWork() {
 
   const visibleWork = React.useMemo(() => {
     if (activeFilter === ALL) return professionalWork
-    if (activeFilter === 'Active') {
-      return professionalWork.filter((item) => item.status === 'ongoing')
-    }
-    if (activeFilter === 'Completed') {
-      return professionalWork.filter((item) => item.status === 'completed')
-    }
     return professionalWork.filter((item) => item.categories.includes(activeFilter))
   }, [activeFilter])
 
@@ -47,8 +39,8 @@ export function FeaturedWork() {
       rafRef.current = null
       if (!scrollContainerRef.current) return
       const container = scrollContainerRef.current
-      const containerLeft = container.scrollLeft
-      const containerCenter = containerLeft + container.clientWidth / 2
+      const containerRect = container.getBoundingClientRect()
+      const containerCenter = containerRect.left + containerRect.width / 2
 
       const cards = container.querySelectorAll<HTMLElement>('[data-card-index]')
       let closestIndex = 0
@@ -56,7 +48,8 @@ export function FeaturedWork() {
 
       cards.forEach((card) => {
         const cardIndex = Number(card.getAttribute('data-card-index'))
-        const cardCenter = card.offsetLeft - container.offsetLeft + card.clientWidth / 2
+        const cardRect = card.getBoundingClientRect()
+        const cardCenter = cardRect.left + cardRect.width / 2
         const distance = Math.abs(cardCenter - containerCenter)
 
         if (distance < minDistance) {
@@ -78,11 +71,11 @@ export function FeaturedWork() {
     const targetCard = cards[index]
 
     if (targetCard) {
-      const targetLeft =
-        targetCard.offsetLeft -
-        container.offsetLeft -
-        (container.clientWidth / 2 - targetCard.clientWidth / 2)
-      container.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' })
+      const containerRect = container.getBoundingClientRect()
+      const targetRect = targetCard.getBoundingClientRect()
+      const delta =
+        targetRect.left + targetRect.width / 2 - (containerRect.left + containerRect.width / 2)
+      container.scrollTo({ left: container.scrollLeft + delta, behavior: 'smooth' })
     }
   }, [])
 
@@ -163,9 +156,8 @@ export function FeaturedWork() {
             const isFilterMatchingActiveCard =
               activeFilter === ALL &&
               activeCard &&
-              ((activeCard.categories && activeCard.categories.includes(filter)) ||
-                (filter === 'Active' && activeCard.status === 'ongoing') ||
-                (filter === 'Completed' && activeCard.status === 'completed'))
+              activeCard.categories &&
+              activeCard.categories.includes(filter)
 
             return (
               <button
@@ -218,7 +210,7 @@ export function FeaturedWork() {
             {/* Horizontal Scroll Track */}
             <div
               ref={scrollContainerRef}
-              className="no-scrollbar flex overflow-x-auto snap-x snap-mandatory touch-pan-x gap-6 py-6 px-[7.5%] sm:px-[calc(50%-240px)] lg:px-[calc(50%-270px)]"
+              className="no-scrollbar flex overflow-x-auto snap-x snap-mandatory touch-pan-x gap-6 py-6 px-[7.5%] sm:px-[calc(50%_-_240px)] lg:px-[calc(50%_-_270px)]"
             >
               {visibleWork.map((item, index) => (
                 <div

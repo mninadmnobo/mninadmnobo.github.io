@@ -43,14 +43,14 @@ export default function HomePage() {
       {/* Cyan colour wash — anchored to top-centre */}
       <div
         aria-hidden="true"
-        className="pointer-events-none fixed -top-40 left-1/2 -z-10 h-[420px] w-[820px] -translate-x-1/2 rounded-full blur-[150px]"
+        className="pointer-events-none fixed -top-40 left-1/2 -z-10 h-[260px] w-[320px] sm:h-[420px] sm:w-[820px] -translate-x-1/2 rounded-full blur-[60px] sm:blur-[140px] transform-gpu will-change-transform opacity-70"
         style={{ background: 'var(--glow-a)' }}
       />
 
       {/* Blue colour wash — anchored to bottom-right */}
       <div
         aria-hidden="true"
-        className="pointer-events-none fixed bottom-0 right-0 -z-10 h-[380px] w-[520px] rounded-full blur-[150px]"
+        className="pointer-events-none fixed bottom-0 right-0 -z-10 h-[220px] w-[260px] sm:h-[380px] sm:w-[520px] rounded-full blur-[60px] sm:blur-[140px] transform-gpu will-change-transform opacity-70"
         style={{ background: 'var(--glow-b)' }}
       />
 

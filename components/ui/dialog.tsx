@@ -51,15 +51,6 @@ export function Dialog({ open, onClose, labelledBy, children, className }: Dialo
 
     returnFocusRef.current = document.activeElement as HTMLElement | null
 
-    const { body } = document
-
-    // Hide the rest of the page from assistive tech
-    const siblings = Array.from(body.children).filter(
-      (el) => el !== panelRef.current?.parentElement,
-    ) as HTMLElement[]
-    const previouslyInert = siblings.map((el) => el.hasAttribute('inert'))
-    siblings.forEach((el) => el.setAttribute('inert', ''))
-
     const focusFirst = () => {
       const panel = panelRef.current
       if (!panel) return
@@ -103,9 +94,6 @@ export function Dialog({ open, onClose, labelledBy, children, className }: Dialo
     return () => {
       cancelAnimationFrame(raf)
       document.removeEventListener('keydown', onKeyDown)
-      siblings.forEach((el, index) => {
-        if (!previouslyInert[index]) el.removeAttribute('inert')
-      })
       // Only restore focus on non-touch devices to avoid mobile viewport jitter
       if (typeof window !== 'undefined' && !window.matchMedia('(pointer: coarse)').matches) {
         returnFocusRef.current?.focus({ preventScroll: true })

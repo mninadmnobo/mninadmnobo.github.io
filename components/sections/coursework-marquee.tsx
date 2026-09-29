@@ -25,6 +25,15 @@ export function CourseworkMarquee({ items }: CourseworkMarqueeProps) {
     const el = containerRef.current
     if (!el) return
 
+    let isVisible = false
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting
+      },
+      { threshold: 0.05 },
+    )
+    observer.observe(el)
+
     // Set initial scroll position to middle set for smooth bi-directional scrolling
     const singleSetWidth = el.scrollWidth / 3
     if (scrollPosRef.current === 0) {
@@ -35,7 +44,7 @@ export function CourseworkMarquee({ items }: CourseworkMarqueeProps) {
     let animationFrameId: number
 
     const step = () => {
-      if (!isHoveredRef.current && !isDraggingRef.current && el) {
+      if (isVisible && !isHoveredRef.current && !isDraggingRef.current && el) {
         // Accumulate floating point offset to prevent browser integer scrollLeft truncation freeze
         scrollPosRef.current += 0.5
 
@@ -48,7 +57,7 @@ export function CourseworkMarquee({ items }: CourseworkMarqueeProps) {
           }
         }
         el.scrollLeft = scrollPosRef.current
-      } else if (el) {
+      } else if (el && isVisible) {
         scrollPosRef.current = el.scrollLeft
       }
 
@@ -56,7 +65,10 @@ export function CourseworkMarquee({ items }: CourseworkMarqueeProps) {
     }
 
     animationFrameId = requestAnimationFrame(step)
-    return () => cancelAnimationFrame(animationFrameId)
+    return () => {
+      cancelAnimationFrame(animationFrameId)
+      observer.disconnect()
+    }
   }, [items])
 
   const handleMouseDown = (e: React.MouseEvent) => {
